@@ -6,6 +6,8 @@ public class Main {
 	// write your code here
 
         System.out.println("Hello Wordl!");
-
+        System.out.println("Hello 2!");
     }
+
+
 }
