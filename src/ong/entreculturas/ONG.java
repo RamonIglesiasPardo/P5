@@ -6,7 +6,7 @@ import java.util.List;
  * La clase ONG, que por agregación se relaciona con la mayoría de las otras clases,
  * es una de las clases vertebrales del programa, conteniendo de forma directa o indirecta, las demás clases.
  *
- * @author Alberto González Casado
+ * @author Ramón Iglesias
  */
 public class ONG {
 
