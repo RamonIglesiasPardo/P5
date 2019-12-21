@@ -2,6 +2,8 @@
 
 package ong.entreculturas;
 
+import ong.entreculturas.Direccion;
+
 public abstract class Persona {
 
 	private String nombre;
@@ -20,6 +22,7 @@ public abstract class Persona {
 		nombre = pNombre;
 		primerApellido = pPrimerApellido;
 		segundoApellido = pSegundoApellido;
+		//setDireccion( pDireccion );
 		telefono = pTelefono;
 		mail = pMail;
 
@@ -72,6 +75,17 @@ public abstract class Persona {
 		return segundoApellido;
 
 	} // fin del método getSegundoApellido
+
+	// establece la dirección del empleado (utiliza el tipo de datos Direccion)
+	// No sé cómo establecer la dirección desde aquí... la clase Direccion tiene 
+	// métodos para establecer cada uno de los campos pero no sé cómo pasar el objeto
+	// dirección a esta clase Persona
+	
+	//public Direccion setDireccion( pDireccion ) {
+
+	//	dirección = 
+
+	//	} // fin del método setDireccion
 
 	// establece el teléfono del empleado
 
