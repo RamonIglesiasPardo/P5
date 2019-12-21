@@ -58,7 +58,7 @@ public abstract class Personal extends Persona {
 
 	} // fin del método getIdCount
 
-	// devuelve la representación String de un objeto Persona
+	// devuelve la representación String de un objeto Personal
 	// NOTA: modificar si implementamos la clase Sede
 
 	public String toString() {
