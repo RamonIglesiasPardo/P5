@@ -1,16 +1,22 @@
 package ong.entreculturas;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ONG {
 
+    /////////////////////////////////////////////////////
+    ////////////////DECLARACIÓN DE VARIABLES/////////////
+    /////////////////////////////////////////////////////
+
     private String nombre;
     private String CIF;
+        /*
     private List<Personal> equipo;
     private List<Proyecto> proyectos;
 
-    /*
+
     ATRIBUTOS OMITIDOS:
     private SedeCentral sedeCentral;
     private List<Delegacion> delegaciones;
@@ -19,13 +25,21 @@ public class ONG {
     private List<IngresoPrivado> ingresosPrivados;
     */
 
+    /////////////////////////////////////////////////////
+    //////////////DEFINICIÓN DE CONSTRUCTORES////////////
+    /////////////////////////////////////////////////////
+
+    /**
+     *  Constructor de la classe ONG.
+     */
     public ONG(String nombre, String CIF) {
         this.nombre = nombre;
         this.CIF = CIF;
-        List<Personal> equipo = new ArrayList<Personal>;
-        List<Proyecto> proyectos = new ArrayList<Proyecto>;
+//        List<Personal> equipo = new ArrayList<Personal>();
+//        List<Proyecto> proyectos = new ArrayList<Proyecto>();
 
     }
+
 
     public String getNombre() {
         return nombre;
@@ -43,31 +57,31 @@ public class ONG {
         this.CIF = CIF;
     }
 
-    public List<Personal> getEquipo() {
-        return equipo;
-    }
+//    public List<Personal> getEquipo() {
+//        return equipo;
+//    }
 
-    public void setEquipo(List<Personal> equipo) {
-        this.equipo = equipo;
-    }
-
-    public List<Proyecto> getProyectos() {
-        return proyectos;
-    }
-
-    public void setProyectos(List<Proyecto> proyectos) {
-        this.proyectos = proyectos;
-    }
-
-    @Override
-    public String toString() {
-        return "ONG{" +
-                "nombre='" + nombre + '\'' +
-                ", CIF='" + CIF + '\'' +
-                ", equipo=" + equipo +
-                ", proyectos=" + proyectos +
-                '}';
-    }
-
+//    public void setEquipo(List<Personal> equipo) {
+//        this.equipo = equipo;
+//    }
+//
+//    public List<Proyecto> getProyectos() {
+//        return proyectos;
+//    }
+//
+//    public void setProyectos(List<Proyecto> proyectos) {
+//        this.proyectos = proyectos;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "ONG{" +
+//                "nombre='" + nombre + '\'' +
+//                ", CIF='" + CIF + '\'' +
+//                ", equipo=" + equipo +
+//                ", proyectos=" + proyectos +
+//                '}';
+//    }
+//
 
 }
