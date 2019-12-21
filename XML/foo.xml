@@ -2,6 +2,6 @@
 <!--DOCTYPE foo SYSTEM "foo.dtd">-->
 <!-- Pruebas utilizando patrón DAO y presistencia en XML -->
 <ONG>
-    <nombre>Paco!</nombre>
-    <CIF>123456789C</CIF>
+    <nombre>ONG Entreculturas</nombre>
+    <CIF>G-82409020</CIF>
 </ONG>
