@@ -1,4 +1,9 @@
-// clase Persona
+/**
+ * La clase Persona es una clase abstracta que representa una persona.
+ * Tiene las subclases directas Personal y Socio.
+ *
+ * @author Alberto González Casado
+ */ 
 
 package ong.entreculturas;
 
@@ -13,8 +18,17 @@ public abstract class Persona {
 	private String telefono;
 	private String mail;
 
-	// constructor de Persona con seis argumentos 
+	/** Constructor de Persona
+	 *
+	 *  @param pNombre nombre de la persona 
+	 *  @param pPrimerApellido primer apellido de la persona
+	 *	@param pSegundoApellido segundo apellido de la persona
+	 *	@param pDireccion dirección de la persona (no definida aún)
+	 *	@param pTelefono teléfono de la persona
+	 *	@param pMail correo electrónico de la persona
+	 */
 
+	@Override
 	public Persona( String pNombre, String pPrimerApellido, 
 		String pSegundoApellido, Direccion pDireccion, 
 		String pTelefono, String pMail ) {
@@ -26,9 +40,12 @@ public abstract class Persona {
 		telefono = pTelefono;
 		mail = pMail;
 
-		} // fin del constructor de Persona con cinco argumentos
+		} // fin del constructor de Persona
 
-	// establece el nombre del empleado
+	/** Establece el nombre de la persona
+	 *
+	 *	@param pNombre nombre de la persona
+	 */
 
 	public void setNombre( String pNombre ) {
 
@@ -36,7 +53,10 @@ public abstract class Persona {
 
 	} // fin del método setNombre
 
-	// obtiene el nombre del empleado
+	/** Obtiene el nombre de la persona
+	 *
+	 *	@return String con el nombre de la persona
+	 */
 
 	public String getNombre() {
 
@@ -44,15 +64,20 @@ public abstract class Persona {
 
 	} // fin del método getNombre
 
-	// establece el primer apellido del empleado
-
+	/** Establece el primer apellido de la persona
+	 *
+	 *  @param pPrimerApellido primer apellido de la persona
+	 */
 	public void setPrimerApellido( String pPrimerApellido ) {
 
 		primerApellido = pPrimerApellido; 
 
 	} // fin del método setPrimerApellido
 
-	// obtiene el primer apellido del empleado
+	/** Obtiene el primer apellido de la persona
+	 *
+	 *	@return String con el primer apellido de la persona
+	 */
 
 	public String getPrimerApellido() {
 
@@ -60,7 +85,10 @@ public abstract class Persona {
 
 	} // fin del método getPrimerApellido
 
-	// establece el segundo apellido del empleado
+	/** Establece el segundo apellido de la persona
+	 *
+	 *	@param pSegundoApellido segundo apellido la persona
+	 */
 
 	public void setSegundoApellido( String pSegundoApellido ) {
 
@@ -68,7 +96,10 @@ public abstract class Persona {
 
 	} // fin del método setSegundoApellido
 
-	// obtiene el segundo apellido del empleado
+	/** obtiene el segundo apellido de la persona
+	 *
+	 *	@return String con el segundo apellido de la persona
+	 */
 
 	public String getSegundoApellido() {
 
@@ -87,7 +118,10 @@ public abstract class Persona {
 
 	//	} // fin del método setDireccion
 
-	// establece el teléfono del empleado
+	/** Establece el teléfono de la persona
+	 *
+	 *	@param pTelefono teléfono de la persona
+	 */
 
 	public void setTelefono( String pTelefono ) {
 
@@ -95,7 +129,10 @@ public abstract class Persona {
 
 	} // fin del método setTelefono
 
-	// obtiene el teléfono del empleado
+	/** Obtiene el teléfono de la persona
+	 *
+	 *	@return String con el teléfono de la persona
+	 */
 
 	public String getTelefono() {
 
@@ -103,7 +140,10 @@ public abstract class Persona {
 
 	} // fin del método getTelefono
 
-	// establece el correo electrónico del empleado
+	/** establece el correo electrónico de la persona
+	 *
+	 *	@param pMail correo electrónico de la persona
+	 */
 
 	public void setMail( String pMail ) {
 
@@ -111,7 +151,10 @@ public abstract class Persona {
 
 	} // fin del método setMail
 
-	// obtiene el correo electrónico del empleado
+	/** Obtiene el correo electrónico de la persona
+	 *
+	 *	@return String con el correo electrónico de la persona
+	 */
 
 	public String getMail() {
 
@@ -119,7 +162,10 @@ public abstract class Persona {
 
 	} // fin del método getMail
 
-	// devuelve la representación String de un objeto Persona
+	/** Devuelve la representación String de un objeto Persona
+	 *
+	 *	@return representación String de un objeto Persona
+	 */
 
 	public String toString() {
 
@@ -130,9 +176,6 @@ public abstract class Persona {
 	} // fin del método toString
 
 	// NOTA: ¿Implementamos algún método abstracto que nos sirva 
-	// para las subclases (polimorfismo)?
-
-
-	 
+	// para las subclases (polimorfismo)?	 
 
 } // fin de la clase abstracta Persona

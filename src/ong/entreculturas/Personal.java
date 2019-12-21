@@ -1,4 +1,9 @@
-// Clase Personal.java
+/** La clase abstracta Personal hereda de la clase Persona, y a su vez
+ *	tiene las subclases PerEmpleado, PerColaborador y PerVoluntario.
+ *	Representa a un empleado de la ONG (de cualquier tipo)
+ *
+ *	@author Alberto González Casado
+ */
 
 package ong.entreculturas;
 
@@ -15,7 +20,17 @@ public abstract class Personal extends Persona {
 	// a falta de implementar la clase Proyecto	
 	// declarar la variable tipo list de proyectosAsignados
 
-	// Constructor de Personal con (ocho de momento) argumentos
+	/** Constructor de Personal
+	 *	
+	 *  @param pNombre nombre de la persona (se pasa al constructor de la superclase)
+	 *  @param pPrimerApellido primer apellido de la persona (se pasa al constructor de la superclase)
+	 *	@param pSegundoApellido segundo apellido de la persona (se pasa al constructor de la superclase)
+	 *	@param pDireccion dirección de la persona (se pasa al constructor de la superclase)
+	 *	@param pTelefono teléfono de la persona (se pasa al constructor de la superclase)
+	 *	@param pMail correo electrónico de la persona (se pasa al constructor de la superclase)
+	 *	@param pIdPersonal identificación de empleado
+	 *	@param pIdCount contador del número de empleados
+	 */
 
 	public Personal( String pNombre, String pPrimerApellido, 
 		String pSegundoApellido, Direccion pDireccion, 
@@ -29,10 +44,20 @@ public abstract class Personal extends Persona {
 		idPersonal = pIdPersonal; 	
 		idCount = pIdCount++;			
 
-	} // fin del constructor de Personal con (ocho de momento) argumentos 
+	} // fin del constructor de Personal
 
-	// método protegido para crear un id de empleado
-	// NOTA: este método equivale al setter de idPersonal
+	/** Método protegido para crear un id de empleado
+	 *	El identificador está formado por doce dígitos que representan
+	 *	el número de incorporación como personal, el número de incorporación
+	 *	como miembro del equipo y un dígito que identifique al equipo.
+	 *	Por ejemplo, el id 1011501000721 sería:
+	 *	Miembro #1150
+	 *	Empleado #72
+	 *  NOTA: este método equivale al setter de idPersonal
+	 *
+	 * 	@param idHijo identificador de la subclase
+	 *	@param idTpo identificador del equipo
+	 */
 
 	protected void crearId( int idHijo, String idTpo ) {
 
@@ -42,7 +67,10 @@ public abstract class Personal extends Persona {
 
 	} // fin del método protegido crearId
 
-	// obtiene el idPersonal
+	/** Obtiene el idPersonal
+	 *
+	 *	@return String con el id de personal
+	 */
 
 	public String getId() {
 
@@ -50,7 +78,10 @@ public abstract class Personal extends Persona {
 
 	} // fin del método getId
 
-	// obtiene el número de empleados
+	/** Obtiene el número de empleado (por incorporación)
+	 *
+	 *	@return int con el número de empleado (por incorporación)
+	 */
 
 	public int getIdCount() {
 
@@ -58,9 +89,13 @@ public abstract class Personal extends Persona {
 
 	} // fin del método getIdCount
 
-	// devuelve la representación String de un objeto Personal
-	// NOTA: modificar si implementamos la clase Sede
+	/** Devuelve la representación String de un objeto Personal
+	 *  NOTA: modificar si implementamos la clase Sede
+	 *
+	 *	@return representación String de un objeto Personal
+	 */
 
+	@Override
 	public String toString() {
 
 		return String.format( "%s\n%s: %s",

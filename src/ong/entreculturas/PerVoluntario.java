@@ -1,4 +1,9 @@
-// Clase PerVoluntario.java
+/** La clase PerVoluntario es subclase directa de la clase Personal
+ *	y tiene la subclase PerVolInternacional.
+ *	Representa a un empleado voluntario
+ *
+ *	@author Alberto González Casado
+ */ 
 
 package ong.entreculturas;
 
@@ -7,7 +12,19 @@ public class PerVoluntario extends Personal {
 	private static int idVolCount = 1;
 	private int numHorasVol;
 
-	// Constructor de PerVoluntario con (diez de momento) argumentos
+	/** Constructor de PerVoluntario
+	 *
+	 *  @param pNombre nombre de la persona (se pasa al constructor de la superclase)
+	 *  @param pPrimerApellido primer apellido de la persona (se pasa al constructor de la superclase)
+	 *	@param pSegundoApellido segundo apellido de la persona (se pasa al constructor de la superclase)
+	 *	@param pDireccion dirección de la persona (se pasa al constructor de la superclase)
+	 *	@param pTelefono teléfono de la persona (se pasa al constructor de la superclase)
+	 *	@param pMail correo electrónico de la persona (se pasa al constructor de la superclase)
+	 *	@param pIdPersonal identificación de empleado (se pasa al constructor de la superclase) 
+	 *	@param pIdCount contador del número de empleados (se pasa al constructor de la superclase)
+	 *  @param pIdVolCount contador del número de empleados voluntarios
+	 *	@param pNumHorasVol número de horas trabajadas por el voluntario
+	 */
 
 	public PerVoluntario( String pNombre, String pPrimerApellido, 
 		String pSegundoApellido, Direccion pDireccion, 
@@ -24,7 +41,10 @@ public class PerVoluntario extends Personal {
 
 	} // fin del constructor de PerVoluntario con (diez de momento) argumentos 
 
-	// establece el número de horas trabajadas como voluntario
+	/** Establece el número de horas trabajadas como voluntario
+	 *
+	 *	@param pNumHorasVol número de horas trabajadas por el voluntario
+	 */
 
 	public void setNumHorasVol( int pNumHorasVol ) {
 
@@ -32,7 +52,10 @@ public class PerVoluntario extends Personal {
 
 	} // fin del método setNumHorasVol
 
-	// obtiene el número de horas trabajadas como voluntario
+	/** Obtiene el número de horas trabajadas como voluntario
+	 *
+	 *	@return int con el número de horas trabajadas
+	 */
 
 	public int getNumHorasVol() {
 
@@ -40,9 +63,13 @@ public class PerVoluntario extends Personal {
 
 	} // fin del método getNumHorasVol
 
-	// devuelve la representación String de un objeto PerVol
-	// NOTA: modificar si implementamos la clase Sede
+	/** Devuelve la representación String de un objeto PerVoluntario
+	 *  NOTA: modificar si implementamos la clase Sede
+	 *
+	 *	@return representación String de un objeto PerVoluntario
+	 */
 
+	@Override
 	public String toString() {
 
 		return String.format( "%s\n%s: %s\n%s: %d",

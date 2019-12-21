@@ -1,5 +1,9 @@
-// <<data type>> Direccion.java
-// Tipo de datos personalizado para las direcciones.
+/** La clase Direccion es un tipo de datos personalizado para almacenar 
+ *  una dirección, con campos prefijados.
+ *	La clase importa las clases TipoVia y Provincia
+ *
+ *	@author Alberto González Casado
+ */
 
 package ong.entreculturas;
 
@@ -18,7 +22,18 @@ public class Direccion {
 	private Provincia provincia;
 	private String localidad;
 
-	// Constructor TipoVia
+	/** Constructor TipoVia
+	 *
+	 *	@param pTipoVia tipo de vía (utiliza la clase enum TipoVia)
+	 *	@param pNombreVia nombre de la vía, calle, etc...
+	 *	@param pNumero numero de la dirección del domicilio
+	 *	@param pPiso piso de la dirección del domicilio
+	 *	@param pPuerta letra de la puerta de la dirección del domicilio
+	 *	@param pEscalera escalera de la dirección del domicilio
+	 *	@param pCodPostal código postal
+	 *	@param pProvincia provincia (utiliza la clase enum Provincia)
+	 *	@param pLocalidad localidad 
+	 */
 
 	public Direccion( TipoVia pTipoVia, String pNombreVia, String pNumero, 
 		String pPiso, String pPuerta, String pEscalera, String pCodPostal,
@@ -36,7 +51,10 @@ public class Direccion {
 
 	} // fin del constructor TipoVia
 
-	// establecer el tipo de vía
+	/** Establece el tipo de vía (utiliza la clase enum TipoVia)
+	 *
+	 *	@param pTipoVia tipo de vía (utiliza la clase enum TipoVia)
+	 */
 
 	public void setTipoVia( TipoVia pTipoVia ) {
 
@@ -44,7 +62,10 @@ public class Direccion {
 
 	} // fin del método setTipoVia
 
-	// obtener el tipo de vía
+	/** Obtiene el tipo de vía
+	 *
+	 *  @return el tipo de la vía (tipo personalizado TipoVia)
+	 */
 
 	public TipoVia getTipoVia() {
 
@@ -52,7 +73,10 @@ public class Direccion {
 
 	} // fin del método getTipoVia
 
-	// establecer el nombre de la vía
+	/** Establece el nombre de la vía
+	 *
+	 *	@param pNombreVia nombre de la vía, calle, etc...
+	 */
 
 	public void setNombreVia( String pNombreVia ) {
 
@@ -60,7 +84,10 @@ public class Direccion {
 
 	} // fin del método setNombreVia
 
-	// obtener el nombre de la vía
+	/** Obtiene el nombre de la vía
+	 *
+	 *	@return String con el nombre de la vía, calle, etc... 
+	 */
 
 	public String getNombreVia() {
 
@@ -68,7 +95,10 @@ public class Direccion {
 
 	} // fin del método getNombreVia
 
-	// establecer el número de la dirección
+	/** Establece el número de la dirección
+	 *
+	 *	@param pNumero numero de la dirección del domicilio
+	 */
 
 	public void setNumero( String pNumero ) {
 
@@ -76,7 +106,10 @@ public class Direccion {
 
 	} // fin del método setNumero
 
-	// obtener el numero de la dirección
+	/** Obtiene el número de la dirección
+	 *
+	 *	@return String con el número de la dirección
+	 */
 
 	public String getNumero() {
 
@@ -84,7 +117,10 @@ public class Direccion {
 
 	} // fin del método getNombreVia
 
-	// establecer el piso de la dirección
+	/** Establece el piso de la dirección
+	 *
+	 *	@param pPiso piso de la dirección del domicilio
+	 */
 
 	public void setPiso( String pPiso ) {
 
@@ -92,7 +128,10 @@ public class Direccion {
 
 	} // fin del método setPiso
 
-	// obtener el piso de la dirección
+	/** Obtiene el piso de la dirección
+	 *
+	 *	@return String con el piso de la dirección
+	 */
 
 	public String getPiso() {
 
@@ -100,15 +139,20 @@ public class Direccion {
 
 	} // fin del método getPiso
 
-	// establecer la puerta de la dirección
-
+	/** Establece la letra de la puerta de la dirección
+	 *
+	 *	@param pNumero  String con la letra de la puerta de la dirección del domicilio
+	 */
 	public void setPuerta( String pPuerta ) {
 
 		puerta = pPuerta;
 
 	} // fin del método setPuerta
 
-	// obtener la puerta de la dirección
+	/** Obtiene la letra de la puerta de la dirección
+	 *
+	 *	@return String con la letra de la dirección
+	 */
 
 	public String getPuerta() {
 
@@ -116,7 +160,10 @@ public class Direccion {
 
 	} // fin del método getPuerta
 
-	// establecer la escalera de la dirección
+	/** Establece la escalera de la dirección
+	 *
+	 *	@param pEscalera escalera de la dirección del domicilio
+	 */
 
 	public void setEscalera( String pEscalera ) {
 
@@ -124,7 +171,10 @@ public class Direccion {
 
 	} // fin del método setEscalera
 
-	// obtener la escalera de la dirección
+	/** Obtiene la escalera de la dirección
+	 *
+	 *	@return String con la escalera de la dirección
+	 */
 
 	public String getEscalera() {
 
@@ -132,7 +182,10 @@ public class Direccion {
 
 	} // fin del método getEscalera
 
-	// establecer el código postal de la dirección
+	/** Establece el código postal de la dirección
+	 *
+	 *	@param pCodPostal código postal
+	 */
 
 	public void setCodPostal( String pCodPostal ) {
 
@@ -140,7 +193,10 @@ public class Direccion {
 
 	} // fin del método setCodPostal
 
-	// obtener el código postal de la dirección
+	/** Obtiene el código postal de la dirección
+	 *
+	 *	@return String con el código postal
+	 */
 
 	public String getCodPostal() {
 
@@ -148,7 +204,10 @@ public class Direccion {
 
 	} // fin del método getCodPostal
 
-	// establecer la provincia
+	/** Establece la provincia (utiliza la clase enum provincia)
+	 *
+	 *	@param pProvincia provincia (tipo personalizado Provincia)
+	 */
 
 	public void setProvincia( Provincia pProvincia ) {
 
@@ -156,7 +215,10 @@ public class Direccion {
 
 	} // fin del método setProvincia
 
-	// obtener la provincia
+	/** Obtiene la provincia
+	 *
+	 *	@return String con la provincia
+	 */
 
 	public Provincia getProvincia() {
 
@@ -164,7 +226,10 @@ public class Direccion {
 
 	} // fin del método getProvincia
 
-	// establecer la localidad
+	/** Establece la localidad
+	 *
+	 *	@param pLocalidad localidad
+	 */
 
 	public void setLocalidad( String pLocalidad ) {
 
@@ -172,7 +237,10 @@ public class Direccion {
 
 	} // fin del método setLocalidad
 
-	// obtener la localidad
+	/** Obtiene la localidad
+	 *
+	 *	@return String con la localidad
+	 */
 
 	public String getLocalidad() {
 
@@ -180,8 +248,12 @@ public class Direccion {
 
 	} // fin del método getLocalidad
 
-	// Devuelve la representación String de un objeto Direccion
+	/** Devuelve la representación String de un objeto Direccion
+	 *
+	 *	@return representación String de un objeto Direccion
+	 */
 
+	@Override
 	public String toString() {
 
 		return String.format(
