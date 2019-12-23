@@ -1,4 +1,9 @@
-// Clase PerVolInternacional.java
+/** La clase PerVolInternacional es subclase directa de la clase
+ *	PerVoluntario.
+ *	Representa a un empleado voluntario internacional.
+ *
+ *	@author Alberto González Casado
+ */ 
 
 package ong.entreculturas;
 
@@ -11,7 +16,23 @@ public class PerVolInternacional extends PerVoluntario {
 	private String direccion;	// sobreescribe al campo de la superclase Persona
 	private String codInternaTelefono;
 
-	// Constructor de PerVoluntario con (catorce de momento) argumentos
+	/** Constructor de PerVolInternacional
+	 *
+	 *  @param pNombre nombre de la persona (se pasa al constructor de la superclase)
+	 *  @param pPrimerApellido primer apellido de la persona (se pasa al constructor de la superclase)
+	 *	@param pSegundoApellido segundo apellido de la persona (se pasa al constructor de la superclase)
+	 *	@param pDireccion dirección de la persona (se pasa al constructor de la superclase)
+	 *	@param pTelefono teléfono de la persona (se pasa al constructor de la superclase)
+	 *	@param pMail correo electrónico de la persona (se pasa al constructor de la superclase)
+	 *	@param pIdPersonal identificación de empleado (se pasa al constructor de la superclase) 
+	 *	@param pIdCount contador del número de empleados (se pasa al constructor de la superclase)
+	 *  @param pIdVolCount contador del número de empleados voluntarios
+	 *	@param pNumHorasVol número de horas trabajadas por el voluntario
+	 *	@param pIdVolIntCount contador del número de voluntarios internacionales
+	 *	@param pPaisOrigen país de origen del voluntario internacional
+	 *	@param pSDireccion dirección internacional (sobreescribe al campo direccion de Persona)
+	 *	@param pCodInternaTelefono código (prefijo) internacional del teléfono
+	 */
 
 	public PerVolInternacional( String pNombre, String pPrimerApellido, 
 		String pSegundoApellido, Direccion pDireccion, 
@@ -31,7 +52,10 @@ public class PerVolInternacional extends PerVoluntario {
 
 	} // fin del constructor de PerVoluntario con (catorce de momento) argumentos 
 
-	// establece el pais de origen
+	/** Establece el pais de origen
+	 *
+	 *	@param pPaisOrigen país de origen del voluntario internacional
+	 */
 
 	public void setPaisOrigen( String pPaisOrigen ) {
 
@@ -39,7 +63,10 @@ public class PerVolInternacional extends PerVoluntario {
 
 	} // fin del método setPaisOrigen
 
-	// obtiene el pais de origen
+	/** Obtiene el pais de origen
+	 *
+	 *	@return String con el país de origen del voluntario internacional
+	 */
 
 	public String getPaisOrigen() {
 
@@ -47,7 +74,10 @@ public class PerVolInternacional extends PerVoluntario {
 
 	} // fin del método getPaisOrigen
 
-	// establece la dirección (sobreescribe al campo de la superclase Persona)
+	/** Establece la dirección (sobreescribe al campo de la superclase Persona)
+	 *
+	 *	@param pSDireccion dirección internacional (sobreescribe al campo direccion de Persona)
+	 */
 
 	public void setDireccion( String pSDireccion ) {
 
@@ -57,7 +87,10 @@ public class PerVolInternacional extends PerVoluntario {
 		
 	} // fin del método setDireccion
 
-	// obtiene la dirección (sobreescrita)
+	/** Obtiene la dirección (sobreescrita)
+	 *
+	 *	@return String con la nueva dirección
+	 */
 
 	public String getDireccion() {
 
@@ -65,8 +98,11 @@ public class PerVolInternacional extends PerVoluntario {
 
 	} // fin del método getDireccion
 
-	// establece el código internacional del teléfono y lo concatena al campo 
-	// teléfono de la superclase Persona
+	/** Establece el código internacional del teléfono y lo concatena al campo 
+	 *  teléfono de la superclase Persona
+	 *
+	 *	@param pCodInternaTelefono código (prefijo) internacional del teléfono
+	 */
 
 	public void setCodInternaTelefono( String pCodInternaTelefono ) {
 
@@ -75,10 +111,13 @@ public class PerVolInternacional extends PerVoluntario {
 
 	} // fin del método setCodInternaTelefono
 
-	// devuelve la representación String de un objeto PerVolInt
-	// NOTA: modificar si implementamos la clase Sede
-	// NOTA: debería mostrar el campo teléfono con el código internacional
-	// y la dirección actualizada
+	/** Devuelve la representación String de un objeto PerVolInternacional
+	 *  NOTA: modificar si implementamos la clase Sede
+	 *  NOTA: debería mostrar el campo teléfono con el código internacional
+	 *  y la dirección actualizada
+	 *
+	 *	@return la representación String de un objeto PerVolInternacional
+	 */
 
 	public String toString() {
 
