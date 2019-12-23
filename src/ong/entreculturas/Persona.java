@@ -28,7 +28,6 @@ public abstract class Persona {
 	 *	@param pMail correo electrónico de la persona
 	 */
 
-	@Override
 	public Persona( String pNombre, String pPrimerApellido, 
 		String pSegundoApellido, Direccion pDireccion, 
 		String pTelefono, String pMail ) {
@@ -36,7 +35,7 @@ public abstract class Persona {
 		nombre = pNombre;
 		primerApellido = pPrimerApellido;
 		segundoApellido = pSegundoApellido;
-		//setDireccion( pDireccion );
+		setDireccion( pDireccion );
 		telefono = pTelefono;
 		mail = pMail;
 
@@ -107,16 +106,27 @@ public abstract class Persona {
 
 	} // fin del método getSegundoApellido
 
-	// establece la dirección del empleado (utiliza el tipo de datos Direccion)
-	// No sé cómo establecer la dirección desde aquí... la clase Direccion tiene 
-	// métodos para establecer cada uno de los campos pero no sé cómo pasar el objeto
-	// dirección a esta clase Persona
-	
-	//public Direccion setDireccion( pDireccion ) {
+	/** Establece la dirección del empleado (utiliza el tipo de datos Direccion)
+	 *
+	 *	@param pDireccion nombre del objeto Direccion
+	 */
 
-	//	dirección = 
+	public void setDireccion( Direccion pDireccion ) {
 
-	//	} // fin del método setDireccion
+		direccion = pDireccion;
+
+		} // fin del método setDireccion
+
+	/** Obtiene la dirección del empleado (utiliza el tipo de datos Direccion)
+	 *
+	 *	@return un objeto Direccion
+	 */
+	 	
+	public Direccion getDireccion() {
+
+		return direccion;
+
+		} // fin del método getDireccion
 
 	/** Establece el teléfono de la persona
 	 *
@@ -169,8 +179,9 @@ public abstract class Persona {
 
 	public String toString() {
 
-		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s",
+		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s\n%s: %s",
 			"Nombre", getPrimerApellido(), getSegundoApellido(), getNombre(),
+			"Dirección", direccion.toString(),
 			"Teléfono", getTelefono(), "E-mail", getMail() );
 
 	} // fin del método toString

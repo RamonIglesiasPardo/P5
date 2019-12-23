@@ -79,7 +79,7 @@ public class PerVolInternacional extends PerVoluntario {
 	 *	@param pSDireccion dirección internacional (sobreescribe al campo direccion de Persona)
 	 */
 
-	public void setDireccion( String pSDireccion ) {
+	public void setDir( String pSDireccion ) {
 
 		direccion = pSDireccion;
 		// estaría bien cambiar el campo direccion de la clase Persona con esta nueva
@@ -92,14 +92,13 @@ public class PerVolInternacional extends PerVoluntario {
 	 *	@return String con la nueva dirección
 	 */
 
-	public String getDireccion() {
+	public String getDir() {
 
 		return direccion;
 
 	} // fin del método getDireccion
 
-	/** Establece el código internacional del teléfono y lo concatena al campo 
-	 *  teléfono de la superclase Persona
+	/** Establece el código internacional del teléfono
 	 *
 	 *	@param pCodInternaTelefono código (prefijo) internacional del teléfono
 	 */
@@ -107,9 +106,21 @@ public class PerVolInternacional extends PerVoluntario {
 	public void setCodInternaTelefono( String pCodInternaTelefono ) {
 
 		codInternaTelefono = pCodInternaTelefono;
-		super.setTelefono( codInternaTelefono.concat( super.getTelefono() ) );
 
 	} // fin del método setCodInternaTelefono
+
+	/** Obtiene el código internacional del teléfono
+	 *
+	 *	@return String con el código (prefijo) internacional del teléfono
+	 */
+
+	public String getCodInternaTelefono() {
+
+		return codInternaTelefono;
+
+	} // fin del método setCodInternaTelefono
+
+
 
 	/** Devuelve la representación String de un objeto PerVolInternacional
 	 *  NOTA: modificar si implementamos la clase Sede
@@ -121,8 +132,11 @@ public class PerVolInternacional extends PerVoluntario {
 
 	public String toString() {
 
-		return String.format( "%s\n%s: %s\n%s: %d",
-			 super.toString(), "País de origen", getPaisOrigen() );
+		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s%s\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n%s: %s",
+			"Nombre", super.getPrimerApellido(), super.getSegundoApellido(), super.getNombre(),
+			"Dirección", getDir(), "Teléfono", getCodInternaTelefono(), super.getTelefono(), "E-mail", super.getMail(),
+			"Id de empleado", super.getId(), "Tipo de empleado", "personal voluntario internacional",
+			"País de origen", getPaisOrigen(), "Número de horas como voluntario", super.getNumHorasVol() );
 
 	} // fin del método toString
  

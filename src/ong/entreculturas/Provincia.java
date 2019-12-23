@@ -62,7 +62,10 @@ public enum Provincia {
 
 	private final String provincia;
 
-	// Constructor de Provincia (por si hay que hacer modificaciones)
+	/** Constructor de Provincia
+	 *
+	 *	@param pProvinvia String con el nombre del objeto Provincia	
+	 */
 
 	Provincia( String pProvincia ) {
 
@@ -70,13 +73,27 @@ public enum Provincia {
 
 	} // fin del Constructor de Provincia
 
-	// obtener la provincia
+	/** Obtener el nombre de un objeto provincia
+	 *
+	 *	@return String con el nombre de un objeto provincia
+	 */
 
 	public String getProvincia() {
 
 		return provincia;
 
 	} // fin del método getProvincia
+
+	/** Devuelve la representación String de un objeto Provincia
+	 *
+	 *	@return representación String de la provincia
+	 */
+
+	public String toString() {
+
+		return String.format( "%s", getProvincia() );
+
+	} // fin del método toString
  
 
 } // fin de la enum Provincia

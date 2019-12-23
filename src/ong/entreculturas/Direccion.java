@@ -257,7 +257,7 @@ public class Direccion {
 	public String toString() {
 
 		return String.format(
-			"%s %s, %s %s%s %s %s\n%s %s (%s)",
+			"%s %s, %s %s%s %s %s %s - %s, (%s)",
 			getTipoVia(), getNombreVia(), getNumero(), getPiso(), getPuerta(),
 			"escalera", getEscalera(), getCodPostal(), getLocalidad(), 
 			getProvincia() );
