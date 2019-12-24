@@ -12,17 +12,5 @@ public class Main {
     }
 
 
-     adfas dg
-             asfd
-    g a
-            fdg
-    a fd
-
-    public g getA() {
-
-        ad
-                f g
-                        ag
-                                afdsg asgfdadsfgbv
     }
 }
