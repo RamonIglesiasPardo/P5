@@ -3,14 +3,38 @@ package ong.entreculturas;
 import ong.entreculturas.TipoVia;
 import ong.entreculturas.Provincia;
 import ong.entreculturas.Direccion;
+import java.util.Scanner;
 
 public class Main {
+
+	// Variables de clase
+
+	private static String nombre;
+	private static String primerApellido;
+	private static String segundoApellido;
+
+	// Método para obtener la información (parcialmente implementado,
+	// solo para probar la entrada de datos)
+
+	public static void obtenerDatosPersona() {
+
+		Scanner entrada = new Scanner(System.in);
+
+		System.out.print( "Introduzca el nombre de pila: " );
+		nombre = entrada.nextLine();
+		System.out.print( "\nIntroduzca el primer apellido: " );
+		primerApellido = entrada.nextLine();
+		System.out.print( "\nIntroduzca el segundo apellido: " );
+		segundoApellido = entrada.nextLine();
+
+	} // fin del método obtenerDatosPersona
 
     public static void main(String[] args) {
 	
         // Prueba de las clases Persona, Personal PerVoluntario
 
-        System.out.println( "--- Prueba de la clase Persona y sus subclases\n\n" );
+        System.out.println( "--- Prueba de la clase Persona y sus subclases" );
+        System.out.println( "--- ------------------------------------------\n");
         System.out.println( "--- Personal Voluntario:\n" );
 
         // Creamos un objeto TipoVia y uno provincia
@@ -23,14 +47,18 @@ public class Main {
         Direccion direccion = new Direccion( tipoVia, "de Madrid", "192", "6º", "B", "izqda.", 
             "50017", provincia, "Zaragoza" );
 
+        // Llamamos al método obtenerDatosPersona
+
+        obtenerDatosPersona();
+
         // Creamos un objeto PerVoluntario y establecemos sus datos
 
-        PerVoluntario perVoluntario = new PerVoluntario( "Jacinto", "Giménez", "Moreno", direccion, "876425597", 
+        PerVoluntario perVoluntario = new PerVoluntario( nombre, primerApellido, segundoApellido, direccion, "876425597", 
             "jgimenezmoreno@gmail.com", "101500045611", 1, 1, 68 );
 
         // Obtenemos un String con los datos completos de la persona
 
-        System.out.println( perVoluntario.toString() );
+        System.out.println( "\n" + perVoluntario.toString() );
 
         System.out.println( "\n--- Personal Voluntario Internacional:\n" );
 
