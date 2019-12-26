@@ -3,6 +3,7 @@
  * Tiene las subclases directas Personal y Socio.
  *
  * @author Alberto González Casado
+ * @version 1.3
  */ 
 
 package ong.entreculturas;
@@ -18,37 +19,48 @@ public abstract class Persona {
 	private String telefono;
 	private String mail;
 
-	/** Constructor de Persona
+	/** Constructor de Persona (sin argumentos)
 	 *
-	 *  @param pNombre nombre de la persona 
-	 *  @param pPrimerApellido primer apellido de la persona
-	 *	@param pSegundoApellido segundo apellido de la persona
-	 *	@param pDireccion dirección de la persona (no definida aún)
-	 *	@param pTelefono teléfono de la persona
-	 *	@param pMail correo electrónico de la persona
 	 */
 
-	public Persona( String pNombre, String pPrimerApellido, 
-		String pSegundoApellido, Direccion pDireccion, 
-		String pTelefono, String pMail ) {
+	public Persona() {
 
-		nombre = pNombre;
-		primerApellido = pPrimerApellido;
-		segundoApellido = pSegundoApellido;
-		setDireccion( pDireccion );
-		telefono = pTelefono;
-		mail = pMail;
+		super();
 
-		} // fin del constructor de Persona
+	} // fin del constructor de Persona sin argumentos
+
+	/** Constructor de Persona con todos los argumentos
+	 *
+	 *  @param nombre Nombre de la persona 
+	 *  @param primerApellido Primer apellido de la persona
+	 *	@param segundoApellido Segundo apellido de la persona
+	 *	@param direccion Dirección de la persona (no definida aún)
+	 *	@param telefono Teléfono de la persona
+	 *	@param mail Correo electrónico de la persona
+	 */
+
+	public Persona( String nombre, String primerApellido, 
+		String segundoApellido, Direccion direccion, 
+		String telefono, String mail ) {
+
+		super();
+		this.nombre = nombre;
+		this.primerApellido = primerApellido;
+		this.segundoApellido = segundoApellido;
+		setDireccion( direccion );
+		this.telefono = telefono;
+		this.mail = mail;
+
+		} // fin del constructor de Persona con todos los argumentos
 
 	/** Establece el nombre de la persona
 	 *
-	 *	@param pNombre nombre de la persona
+	 *	@param nombre nombre de la persona
 	 */
 
-	public void setNombre( String pNombre ) {
+	public void setNombre( String nombre ) {
 
-		nombre = pNombre;
+		this.nombre = nombre;
 
 	} // fin del método setNombre
 
@@ -65,11 +77,11 @@ public abstract class Persona {
 
 	/** Establece el primer apellido de la persona
 	 *
-	 *  @param pPrimerApellido primer apellido de la persona
+	 *  @param primerApellido primer apellido de la persona
 	 */
-	public void setPrimerApellido( String pPrimerApellido ) {
+	public void setPrimerApellido( String primerApellido ) {
 
-		primerApellido = pPrimerApellido; 
+		this.primerApellido = primerApellido; 
 
 	} // fin del método setPrimerApellido
 
@@ -86,12 +98,12 @@ public abstract class Persona {
 
 	/** Establece el segundo apellido de la persona
 	 *
-	 *	@param pSegundoApellido segundo apellido la persona
+	 *	@param segundoApellido segundo apellido la persona
 	 */
 
-	public void setSegundoApellido( String pSegundoApellido ) {
+	public void setSegundoApellido( String segundoApellido ) {
 
-		segundoApellido = pSegundoApellido; 
+		this.segundoApellido = segundoApellido; 
 
 	} // fin del método setSegundoApellido
 
@@ -108,12 +120,12 @@ public abstract class Persona {
 
 	/** Establece la dirección del empleado (utiliza el tipo de datos Direccion)
 	 *
-	 *	@param pDireccion nombre del objeto Direccion
+	 *	@param direccion nombre del objeto Direccion
 	 */
 
-	public void setDireccion( Direccion pDireccion ) {
+	public void setDireccion( Direccion direccion ) {
 
-		direccion = pDireccion;
+		this.direccion = direccion;
 
 		} // fin del método setDireccion
 
@@ -130,12 +142,12 @@ public abstract class Persona {
 
 	/** Establece el teléfono de la persona
 	 *
-	 *	@param pTelefono teléfono de la persona
+	 *	@param telefono teléfono de la persona
 	 */
 
-	public void setTelefono( String pTelefono ) {
+	public void setTelefono( String telefono ) {
 
-		telefono = pTelefono;
+		this.telefono = telefono;
 
 	} // fin del método setTelefono
 
@@ -152,12 +164,12 @@ public abstract class Persona {
 
 	/** establece el correo electrónico de la persona
 	 *
-	 *	@param pMail correo electrónico de la persona
+	 *	@param mail correo electrónico de la persona
 	 */
 
-	public void setMail( String pMail ) {
+	public void setMail( String mail ) {
 
-		mail = pMail;
+		this.mail = mail;
 
 	} // fin del método setMail
 
@@ -186,7 +198,7 @@ public abstract class Persona {
 
 	} // fin del método toString
 
-	// NOTA: ¿Implementamos algún método abstracto que nos sirva 
-	// para las subclases (polimorfismo)?	 
+	// Podría implementarse al menos un método abstracto que nos permitiera
+	// aplicar polimorfismo en las clases hijas	 
 
 } // fin de la clase abstracta Persona
