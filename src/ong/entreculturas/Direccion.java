@@ -141,7 +141,7 @@ public class Direccion {
 
 	/** Establece la letra de la puerta de la dirección
 	 *
-	 *	@param pNumero  String con la letra de la puerta de la dirección del domicilio
+	 *	@param pPuerta  String con la letra de la puerta de la dirección del domicilio
 	 */
 	public void setPuerta( String pPuerta ) {
 
