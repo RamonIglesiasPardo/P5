@@ -2,6 +2,7 @@
  *	tipos de vía que existen.
  *
  *	@author Alberto González Casado
+ *	@version 1.3
  */
 
 package ong.entreculturas;
@@ -23,12 +24,12 @@ public enum TipoVia {
 
 	/** Constructor de TipoVia
 	 *
-	 *	@param pTipoVia String con la clase de la via
+	 *	@param tipoVia String con la clase de la vía
 	 */
 
-	TipoVia( String pTipoVia) {
+	TipoVia( String tipoVia) {
 
-		tipoVia = pTipoVia;
+		this.tipoVia = tipoVia;
 
 	} // fin del constructor de TipoVia
 

@@ -11,8 +11,6 @@ package ong.entreculturas;
 // a falta de implementar la clase Proyecto
 //import ong.entreculturas.Proyecto;
 import ong.entreculturas.Direccion;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Personal extends Persona {
 
@@ -58,7 +56,7 @@ public abstract class Personal extends Persona {
 		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail );
 
 		this.idPersonal = idPersonal; 	
-		this.idCount = idCount++;			
+		Personal.idCount = idCount++;			
 
 	} // fin del constructor de Personal sin argumentos
 

@@ -12,13 +12,23 @@ public class Main {
 	private static String nombre;
 	private static String primerApellido;
 	private static String segundoApellido;
+	private static Scanner entrada;
+	private static Direccion direccionInt;
+	
+	public static Direccion getDireccionInt() {
+		return direccionInt;
+	}
+
+	public static void setDireccionInt(Direccion direccionInt) {
+		Main.direccionInt = direccionInt;
+	}
 
 	// Método para obtener la información (parcialmente implementado,
 	// solo para probar la entrada de datos)
 
 	public static void obtenerDatosPersona() {
 
-		Scanner entrada = new Scanner(System.in);
+		entrada = new Scanner(System.in);
 
 		System.out.print( "Introduzca el nombre de pila: " );
 		nombre = entrada.nextLine();
@@ -30,8 +40,8 @@ public class Main {
 	} // fin del método obtenerDatosPersona
 
     public static void main(String[] args) {
-	
-        // Prueba de las clases Persona, Personal PerVoluntario
+    	
+    	// Prueba de las clases Persona, Personal PerVoluntario
 
         System.out.println( "--- Prueba de la clase Persona y sus subclases" );
         System.out.println( "--- ------------------------------------------\n");
@@ -64,8 +74,8 @@ public class Main {
 
         // Creamos un objeto Direccion, sobreescribiendo el campo de Persona
 
-        Direccion direccionInt = new Direccion( tipoVia, "de Madrid", "192", "6º", "B", "izqda.", 
-            "50017", provincia, "Zaragoza" );
+        setDireccionInt(new Direccion( tipoVia, "de Madrid", "192", "6º", "B", "izqda.", 
+            "50017", provincia, "Zaragoza" ));
 
         // Creamos un objeto PerVoluntario y establecemos sus datos
 

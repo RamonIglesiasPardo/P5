@@ -49,11 +49,29 @@ public class PerVoluntario extends Personal {
 		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail, 
 		idPersonal, idCount );
  	
-		this.idVolCount = idVolCount++;
+		PerVoluntario.setIdVolCount(idVolCount++);
 		this.numHorasVol = numHorasVol;			
 
 	} // fin del constructor de PerVoluntario con todos los argumentos 
 
+	/** Obtiene el número del conteo de este empleado voluntario
+	 * 
+	 * @return Int con el número del conteo de este empleado voluntario
+	 */
+	
+	public static int getIdVolCount() {
+		return idVolCount;
+	}
+
+	/** Establece el número del conteo de este empleado voluntario
+	 * 
+	 * @param idVolCount
+	 */
+	
+	public static void setIdVolCount(int idVolCount) {
+		PerVoluntario.idVolCount = idVolCount;
+	}
+	
 	/** Establece el número de horas trabajadas como voluntario
 	 *
 	 *	@param numHorasVol Número de horas trabajadas por el voluntario
