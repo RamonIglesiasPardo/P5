@@ -1,13 +1,13 @@
 package ong.entreculturas;
 
 public class SubLineaDeAccion {
-    private subLineasDeAccionActivas areaDeAccion ;
+    private SubLineasDeAccionActivas areaDeAccion ;
     private LineaDeAccion lineaDeAccion ;
     private  String descripcion;
 
     //Constructor
 
-    public SubLineaDeAccion(subLineasDeAccionActivas areaDeAccion, LineaDeAccion lineaDeAccion, String descripcion) {
+    public SubLineaDeAccion(SubLineasDeAccionActivas areaDeAccion, LineaDeAccion lineaDeAccion, String descripcion) {
         this.areaDeAccion = areaDeAccion;
         this.lineaDeAccion = lineaDeAccion;
         this.descripcion = descripcion;
@@ -16,11 +16,11 @@ public class SubLineaDeAccion {
 
     //Métodos Setters y Getters de los atributos
 
-    public subLineasDeAccionActivas getAreaDeAccion() {
+    public SubLineasDeAccionActivas getAreaDeAccion() {
         return areaDeAccion;
     }
 
-    public void setAreaDeAccion(subLineasDeAccionActivas areaDeAccion) {
+    public void setAreaDeAccion(SubLineasDeAccionActivas areaDeAccion) {
         this.areaDeAccion = areaDeAccion;
     }
 
