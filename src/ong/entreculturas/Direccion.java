@@ -1,5 +1,10 @@
-// <<data type>> Direccion.java
-// Tipo de datos personalizado para las direcciones.
+/** La clase Direccion es un tipo de datos personalizado para almacenar 
+ *  una dirección, con campos prefijados.
+ *	La clase importa las clases TipoVia y Provincia
+ *
+ *	@author Alberto González Casado
+ *	@version 1.3
+ */
 
 package ong.entreculturas;
 
@@ -18,33 +23,50 @@ public class Direccion {
 	private Provincia provincia;
 	private String localidad;
 
-	// Constructor TipoVia
+	/** Constructor TipoVia
+	 *
+	 *	@param tipoVia Tipo de vía (utiliza la clase enum TipoVia)
+	 *	@param nombreVia Nombre de la vía, calle, etc...
+	 *	@param numero Número de la dirección del domicilio
+	 *	@param piso Piso de la dirección del domicilio
+	 *	@param puerta Letra de la puerta de la dirección del domicilio
+	 *	@param escalera Escalera de la dirección del domicilio
+	 *	@param codPostal Código postal
+	 *	@param provincia Provincia (utiliza la clase enum Provincia)
+	 *	@param localidad Localidad 
+	 */
 
-	public Direccion( TipoVia pTipoVia, String pNombreVia, String pNumero, 
-		String pPiso, String pPuerta, String pEscalera, String pCodPostal,
-		Provincia pProvincia, String pLocalidad ) {
+	public Direccion( TipoVia tipoVia, String nombreVia, String numero, 
+		String piso, String puerta, String escalera, String codPostal,
+		Provincia provincia, String localidad ) {
 
-		tipoVia = pTipoVia;
-		nombreVia = pNombreVia;
-		numero = pNumero;
-		piso = pPiso;
-		puerta = pPuerta;
-		escalera = pEscalera;
-		codPostal = pCodPostal;
-		provincia = pProvincia;
-		localidad = pLocalidad;
+		this.tipoVia = tipoVia;
+		this.nombreVia = nombreVia;
+		this.numero = numero;
+		this.piso = piso;
+		this.puerta = puerta;
+		this.escalera = escalera;
+		this.codPostal = codPostal;
+		this.provincia = provincia;
+		this.localidad = localidad;
 
 	} // fin del constructor TipoVia
 
-	// establecer el tipo de vía
+	/** Establece el tipo de vía (utiliza la clase enum TipoVia)
+	 *
+	 *	@param tipoVia Tipo de vía (utiliza la clase enum TipoVia)
+	 */
 
-	public void setTipoVia( TipoVia pTipoVia ) {
+	public void setTipoVia( TipoVia tipoVia ) {
 
-		tipoVia = pTipoVia;
+		this.tipoVia = tipoVia;
 
 	} // fin del método setTipoVia
 
-	// obtener el tipo de vía
+	/** Obtiene el tipo de vía
+	 *
+	 *  @return El tipo de la vía (tipo personalizado TipoVia)
+	 */
 
 	public TipoVia getTipoVia() {
 
@@ -52,15 +74,21 @@ public class Direccion {
 
 	} // fin del método getTipoVia
 
-	// establecer el nombre de la vía
+	/** Establece el nombre de la vía
+	 *
+	 *	@param nombreVia Nombre de la vía, calle, etc...
+	 */
 
-	public void setNombreVia( String pNombreVia ) {
+	public void setNombreVia( String nombreVia ) {
 
-		nombreVia = pNombreVia;
+		this.nombreVia = nombreVia;
 
 	} // fin del método setNombreVia
 
-	// obtener el nombre de la vía
+	/** Obtiene el nombre de la vía
+	 *
+	 *	@return String con el nombre de la vía, calle, etc... 
+	 */
 
 	public String getNombreVia() {
 
@@ -68,15 +96,21 @@ public class Direccion {
 
 	} // fin del método getNombreVia
 
-	// establecer el número de la dirección
+	/** Establece el número de la dirección
+	 *
+	 *	@param numero Número de la dirección del domicilio
+	 */
 
-	public void setNumero( String pNumero ) {
+	public void setNumero( String numero ) {
 
-		numero = pNumero;
+		this.numero = numero;
 
 	} // fin del método setNumero
 
-	// obtener el numero de la dirección
+	/** Obtiene el número de la dirección
+	 *
+	 *	@return String con el número de la dirección
+	 */
 
 	public String getNumero() {
 
@@ -84,15 +118,21 @@ public class Direccion {
 
 	} // fin del método getNombreVia
 
-	// establecer el piso de la dirección
+	/** Establece el piso de la dirección
+	 *
+	 *	@param piso Piso de la dirección del domicilio
+	 */
 
-	public void setPiso( String pPiso ) {
+	public void setPiso( String piso ) {
 
-		piso = pPiso;
+		this.piso = piso;
 
 	} // fin del método setPiso
 
-	// obtener el piso de la dirección
+	/** Obtiene el piso de la dirección
+	 *
+	 *	@return String con el piso de la dirección
+	 */
 
 	public String getPiso() {
 
@@ -100,15 +140,20 @@ public class Direccion {
 
 	} // fin del método getPiso
 
-	// establecer la puerta de la dirección
+	/** Establece la letra de la puerta de la dirección
+	 *
+	 *	@param puerta  String con la letra de la puerta de la dirección del domicilio
+	 */
+	public void setPuerta( String puerta ) {
 
-	public void setPuerta( String pPuerta ) {
-
-		puerta = pPuerta;
+		this.puerta = puerta;
 
 	} // fin del método setPuerta
 
-	// obtener la puerta de la dirección
+	/** Obtiene la letra de la puerta de la dirección
+	 *
+	 *	@return String con la letra de la dirección
+	 */
 
 	public String getPuerta() {
 
@@ -116,15 +161,21 @@ public class Direccion {
 
 	} // fin del método getPuerta
 
-	// establecer la escalera de la dirección
+	/** Establece la escalera de la dirección
+	 *
+	 *	@param escalera Escalera de la dirección del domicilio
+	 */
 
-	public void setEscalera( String pEscalera ) {
+	public void setEscalera( String escalera ) {
 
-		escalera = pEscalera;
+		this.escalera = escalera;
 
 	} // fin del método setEscalera
 
-	// obtener la escalera de la dirección
+	/** Obtiene la escalera de la dirección
+	 *
+	 *	@return String con la escalera de la dirección
+	 */
 
 	public String getEscalera() {
 
@@ -132,15 +183,21 @@ public class Direccion {
 
 	} // fin del método getEscalera
 
-	// establecer el código postal de la dirección
+	/** Establece el código postal de la dirección
+	 *
+	 *	@param codPostal Código postal
+	 */
 
-	public void setCodPostal( String pCodPostal ) {
+	public void setCodPostal( String codPostal ) {
 
-		codPostal = pCodPostal;
+		this.codPostal = codPostal;
 
 	} // fin del método setCodPostal
 
-	// obtener el código postal de la dirección
+	/** Obtiene el código postal de la dirección
+	 *
+	 *	@return String con el código postal
+	 */
 
 	public String getCodPostal() {
 
@@ -148,15 +205,21 @@ public class Direccion {
 
 	} // fin del método getCodPostal
 
-	// establecer la provincia
+	/** Establece la provincia (utiliza la clase enum provincia)
+	 *
+	 *	@param provincia Provincia (tipo personalizado Provincia)
+	 */
 
-	public void setProvincia( Provincia pProvincia ) {
+	public void setProvincia( Provincia provincia ) {
 
-		provincia = pProvincia;
+		this.provincia = provincia;
 
 	} // fin del método setProvincia
 
-	// obtener la provincia
+	/** Obtiene la provincia
+	 *
+	 *	@return String con la provincia
+	 */
 
 	public Provincia getProvincia() {
 
@@ -164,15 +227,21 @@ public class Direccion {
 
 	} // fin del método getProvincia
 
-	// establecer la localidad
+	/** Establece la localidad
+	 *
+	 *	@param localidad Localidad
+	 */
 
-	public void setLocalidad( String pLocalidad ) {
+	public void setLocalidad( String localidad ) {
 
-		localidad = pLocalidad;
+		this.localidad = localidad;
 
 	} // fin del método setLocalidad
 
-	// obtener la localidad
+	/** Obtiene la localidad
+	 *
+	 *	@return String con la localidad
+	 */
 
 	public String getLocalidad() {
 
@@ -180,12 +249,16 @@ public class Direccion {
 
 	} // fin del método getLocalidad
 
-	// Devuelve la representación String de un objeto Direccion
+	/** Devuelve la representación String de un objeto Direccion
+	 *
+	 *	@return representación String de un objeto Direccion
+	 */
 
+	@Override
 	public String toString() {
 
 		return String.format(
-			"%s %s, %s %s%s %s %s\n%s %s (%s)",
+			"%s %s, %s %s%s %s %s %s - %s, (%s)",
 			getTipoVia(), getNombreVia(), getNumero(), getPiso(), getPuerta(),
 			"escalera", getEscalera(), getCodPostal(), getLocalidad(), 
 			getProvincia() );

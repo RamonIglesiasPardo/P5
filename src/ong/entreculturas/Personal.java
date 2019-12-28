@@ -1,38 +1,81 @@
-// Clase Personal.java
+/** La clase abstracta Personal hereda de la clase Persona, y a su vez
+ *	tiene las subclases PerEmpleado, PerColaborador y PerVoluntario.
+ *	Representa a un empleado de la ONG (de cualquier tipo)
+ *
+ *	@author Alberto González Casado
+ *  @version 1.3
+ */
 
 package ong.entreculturas;
 
 // a falta de implementar la clase Proyecto
-// import ong.entreculturas.Proyecto;
+//import ong.entreculturas.Proyecto;
+import ong.entreculturas.Direccion;
+
+// lo mismo que con la clase Persona. En principio la clase Personal debería ser
+// abstracta, pero si no implementamos al menos un método abstracto deberíamos
+// dejarla como clase normal (¿o no?)
 
 public abstract class Personal extends Persona {
 
 	// a falta de implementar la clase Sede
-	// private Sede delegacionAsignada;
+	//private Sede delegacionAsignada;
 	private String idPersonal;
 	// variable de clase para contar el número de empleados
 	private static int idCount = 1;
 	// a falta de implementar la clase Proyecto	
 	// declarar la variable tipo list de proyectosAsignados
+	//private List<Proyecto> proyectosAsignados;
 
-	// Constructor de Personal con (ocho de momento) argumentos
 
-	public Personal( String pNombre, String pPrimerApellido, 
-		String pSegundoApellido, Direccion pDireccion, 
-		String pTelefono, String pMail, String pIdPersonal,
-		int pIdCount ) {
+	/** Constructor de Personal sin parámetros
+	 *
+	 */
+
+	public Personal() {
+
+		super();
+		
+	} // fin del constructor de Personal sin parámetros
+
+	/** Constructor de Personal con todos los parámetros
+	 *	
+	 *  @param nombre Nombre de la persona (se pasa al constructor de la superclase)
+	 *  @param primerApellido Primer apellido de la persona (se pasa al constructor de la superclase)
+	 *	@param segundoApellido Segundo apellido de la persona (se pasa al constructor de la superclase)
+	 *	@param direccion Dirección de la persona (se pasa al constructor de la superclase)
+	 *	@param telefono Teléfono de la persona (se pasa al constructor de la superclase)
+	 *	@param mail Correo electrónico de la persona (se pasa al constructor de la superclase)
+	 *	@param idPersonal Identificación de empleado
+	 *	@param idCount Contador del número de empleados
+	 */
+
+	public Personal( String nombre, String primerApellido, 
+		String segundoApellido, Direccion direccion, 
+		String telefono, String mail, String idPersonal,
+		int idCount ) {
 
 		// pasa los campos comunes al constructor de la superclase
 
-		super( pNombre, pPrimerApellido, pSegundoApellido, pDireccion, pTelefono, pMail );
+		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail );
 
-		idPersonal = pIdPersonal; 	
-		idCount = pIdCount++;			
+		this.idPersonal = idPersonal; 	
+		Personal.idCount = idCount++;			
 
-	} // fin del constructor de Personal con (ocho de momento) argumentos 
+	} // fin del constructor de Personal sin argumentos
 
-	// método protegido para crear un id de empleado
-	// NOTA: este método equivale al setter de idPersonal
+	/** Método protegido para crear un id de empleado
+	 *	El identificador está formado por doce dígitos que representan
+	 *	el número de incorporación como personal, el número de incorporación
+	 *	como miembro del equipo y un dígito que identifique al equipo.
+	 *	Por ejemplo, el id 1011501000721 sería:
+	 *	Miembro #1150
+	 *	Empleado #72
+	 *  NOTA: este método equivale al setter de idPersonal
+	 *
+	 * 	@param idHijo Identificador de la subclase
+	 *	@param idTpo Identificador del equipo
+	 */
 
 	protected void crearId( int idHijo, String idTpo ) {
 
@@ -42,7 +85,10 @@ public abstract class Personal extends Persona {
 
 	} // fin del método protegido crearId
 
-	// obtiene el idPersonal
+	/** Obtiene el idPersonal
+	 *
+	 *	@return String con el id de personal
+	 */
 
 	public String getId() {
 
@@ -50,7 +96,10 @@ public abstract class Personal extends Persona {
 
 	} // fin del método getId
 
-	// obtiene el número de empleados
+	/** Obtiene el número de empleado (por incorporación)
+	 *
+	 *	@return Int con el número de empleado (por incorporación)
+	 */
 
 	public int getIdCount() {
 
@@ -58,9 +107,18 @@ public abstract class Personal extends Persona {
 
 	} // fin del método getIdCount
 
+<<<<<<< HEAD
 	// devuelve la representación String de un objeto Personal
 	// NOTA: modificar si implementamos la clase Sede
+=======
+	/** Devuelve la representación String de un objeto Personal
+	 *  NOTA: modificar si implementamos la clase Sede
+	 *
+	 *	@return Representación String de un objeto Personal
+	 */
+>>>>>>> Persona
 
+	@Override
 	public String toString() {
 
 		return String.format( "%s\n%s: %s",
@@ -69,7 +127,7 @@ public abstract class Personal extends Persona {
 
 	} // fin del método toString
 
-	// NOTA: ¿Implementamos algún método abstracto que nos sirva 
-	// para las subclases (polimorfismo)?
+	// Podría implementarse al menos un método abstracto que nos permitiera
+	// aplicar polimorfismo en las clases hijas	 
 
 } // fin de la clase abstracta Personal

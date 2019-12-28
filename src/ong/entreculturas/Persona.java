@@ -1,9 +1,22 @@
-// clase Persona
+/**
+ * La clase Persona es una clase abstracta que representa una persona.
+ * Tiene las subclases directas Personal y Socio (esta última no implementada).
+ *
+ * @author Alberto González Casado
+ * @version 1.3
+ */ 
 
 package ong.entreculturas;
 
 import ong.entreculturas.Direccion;
 
+<<<<<<< HEAD
+=======
+// tengo mis dudas acerca de si Persona debe ser abstracta o no. En principio 
+// debería serlo, pero si no implementamos al menos un método abstracto
+// no deberíamos clasificarla como abstracta
+
+>>>>>>> Persona
 public abstract class Persona {
 
 	private String nombre;
@@ -13,30 +26,64 @@ public abstract class Persona {
 	private String telefono;
 	private String mail;
 
-	// constructor de Persona con seis argumentos 
+	/** Constructor de Persona (sin argumentos)
+	 *
+	 */
 
-	public Persona( String pNombre, String pPrimerApellido, 
-		String pSegundoApellido, Direccion pDireccion, 
-		String pTelefono, String pMail ) {
+	public Persona() {
 
+		super();
+
+	} // fin del constructor de Persona sin argumentos
+
+<<<<<<< HEAD
 		nombre = pNombre;
 		primerApellido = pPrimerApellido;
 		segundoApellido = pSegundoApellido;
 		//setDireccion( pDireccion );
 		telefono = pTelefono;
 		mail = pMail;
+=======
+	/** Constructor de Persona con todos los argumentos
+	 *
+	 *  @param nombre Nombre de la persona 
+	 *  @param primerApellido Primer apellido de la persona
+	 *	@param segundoApellido Segundo apellido de la persona
+	 *	@param direccion Dirección de la persona (no definida aún)
+	 *	@param telefono Teléfono de la persona
+	 *	@param mail Correo electrónico de la persona
+	 */
+>>>>>>> Persona
 
-		} // fin del constructor de Persona con cinco argumentos
+	public Persona( String nombre, String primerApellido, 
+		String segundoApellido, Direccion direccion, 
+		String telefono, String mail ) {
 
-	// establece el nombre del empleado
+		super();
+		this.nombre = nombre;
+		this.primerApellido = primerApellido;
+		this.segundoApellido = segundoApellido;
+		setDireccion( direccion );
+		this.telefono = telefono;
+		this.mail = mail;
 
-	public void setNombre( String pNombre ) {
+		} // fin del constructor de Persona con todos los argumentos
 
-		nombre = pNombre;
+	/** Establece el nombre de la persona
+	 *
+	 *	@param nombre nombre de la persona
+	 */
+
+	public void setNombre( String nombre ) {
+
+		this.nombre = nombre;
 
 	} // fin del método setNombre
 
-	// obtiene el nombre del empleado
+	/** Obtiene el nombre de la persona
+	 *
+	 *	@return String con el nombre de la persona
+	 */
 
 	public String getNombre() {
 
@@ -44,15 +91,20 @@ public abstract class Persona {
 
 	} // fin del método getNombre
 
-	// establece el primer apellido del empleado
+	/** Establece el primer apellido de la persona
+	 *
+	 *  @param primerApellido primer apellido de la persona
+	 */
+	public void setPrimerApellido( String primerApellido ) {
 
-	public void setPrimerApellido( String pPrimerApellido ) {
-
-		primerApellido = pPrimerApellido; 
+		this.primerApellido = primerApellido; 
 
 	} // fin del método setPrimerApellido
 
-	// obtiene el primer apellido del empleado
+	/** Obtiene el primer apellido de la persona
+	 *
+	 *	@return String con el primer apellido de la persona
+	 */
 
 	public String getPrimerApellido() {
 
@@ -60,15 +112,21 @@ public abstract class Persona {
 
 	} // fin del método getPrimerApellido
 
-	// establece el segundo apellido del empleado
+	/** Establece el segundo apellido de la persona
+	 *
+	 *	@param segundoApellido segundo apellido la persona
+	 */
 
-	public void setSegundoApellido( String pSegundoApellido ) {
+	public void setSegundoApellido( String segundoApellido ) {
 
-		segundoApellido = pSegundoApellido; 
+		this.segundoApellido = segundoApellido; 
 
 	} // fin del método setSegundoApellido
 
-	// obtiene el segundo apellido del empleado
+	/** obtiene el segundo apellido de la persona
+	 *
+	 *	@return String con el segundo apellido de la persona
+	 */
 
 	public String getSegundoApellido() {
 
@@ -76,6 +134,7 @@ public abstract class Persona {
 
 	} // fin del método getSegundoApellido
 
+<<<<<<< HEAD
 	// establece la dirección del empleado (utiliza el tipo de datos Direccion)
 	// No sé cómo establecer la dirección desde aquí... la clase Direccion tiene 
 	// métodos para establecer cada uno de los campos pero no sé cómo pasar el objeto
@@ -88,14 +147,45 @@ public abstract class Persona {
 	//	} // fin del método setDireccion
 
 	// establece el teléfono del empleado
+=======
+	/** Establece la dirección del empleado (utiliza el tipo de datos Direccion)
+	 *
+	 *	@param direccion nombre del objeto Direccion
+	 */
 
-	public void setTelefono( String pTelefono ) {
+	public void setDireccion( Direccion direccion ) {
+>>>>>>> Persona
 
-		telefono = pTelefono;
+		this.direccion = direccion;
+
+		} // fin del método setDireccion
+
+	/** Obtiene la dirección del empleado (utiliza el tipo de datos Direccion)
+	 *
+	 *	@return un objeto Direccion
+	 */
+	 	
+	public Direccion getDireccion() {
+
+		return direccion;
+
+		} // fin del método getDireccion
+
+	/** Establece el teléfono de la persona
+	 *
+	 *	@param telefono teléfono de la persona
+	 */
+
+	public void setTelefono( String telefono ) {
+
+		this.telefono = telefono;
 
 	} // fin del método setTelefono
 
-	// obtiene el teléfono del empleado
+	/** Obtiene el teléfono de la persona
+	 *
+	 *	@return String con el teléfono de la persona
+	 */
 
 	public String getTelefono() {
 
@@ -103,15 +193,21 @@ public abstract class Persona {
 
 	} // fin del método getTelefono
 
-	// establece el correo electrónico del empleado
+	/** establece el correo electrónico de la persona
+	 *
+	 *	@param mail correo electrónico de la persona
+	 */
 
-	public void setMail( String pMail ) {
+	public void setMail( String mail ) {
 
-		mail = pMail;
+		this.mail = mail;
 
 	} // fin del método setMail
 
-	// obtiene el correo electrónico del empleado
+	/** Obtiene el correo electrónico de la persona
+	 *
+	 *	@return String con el correo electrónico de la persona
+	 */
 
 	public String getMail() {
 
@@ -119,20 +215,21 @@ public abstract class Persona {
 
 	} // fin del método getMail
 
-	// devuelve la representación String de un objeto Persona
+	/** Devuelve la representación String de un objeto Persona
+	 *
+	 *	@return representación String de un objeto Persona
+	 */
 
 	public String toString() {
 
-		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s",
+		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s\n%s: %s",
 			"Nombre", getPrimerApellido(), getSegundoApellido(), getNombre(),
+			"Dirección", direccion.toString(),
 			"Teléfono", getTelefono(), "E-mail", getMail() );
 
 	} // fin del método toString
 
-	// NOTA: ¿Implementamos algún método abstracto que nos sirva 
-	// para las subclases (polimorfismo)?
-
-
-	 
+	// Podría implementarse al menos un método abstracto que nos permitiera
+	// aplicar polimorfismo en las clases hijas	 
 
 } // fin de la clase abstracta Persona

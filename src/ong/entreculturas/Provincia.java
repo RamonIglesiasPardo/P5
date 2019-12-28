@@ -1,5 +1,10 @@
-// <<enum>> Provincia.java
-// Lista con las provincias españolas.
+/** Clase enum con la lista de las provincias españolas.
+ * 
+ *  @author Alberto González Casado
+ *  @version 1.3
+ */
+
+
 
 package ong.entreculturas;
 
@@ -62,21 +67,38 @@ public enum Provincia {
 
 	private final String provincia;
 
-	// Constructor de Provincia (por si hay que hacer modificaciones)
+	/** Constructor de Provincia
+	 *
+	 *	@param pProvinvia String con el nombre del objeto Provincia	
+	 */
 
-	Provincia( String pProvincia ) {
+	Provincia( String provincia ) {
 
-		provincia = pProvincia;
+		this.provincia = provincia;
 
 	} // fin del Constructor de Provincia
 
-	// obtener la provincia
+	/** Obtener el nombre de un objeto provincia
+	 *
+	 *	@return String con el nombre de un objeto provincia
+	 */
 
 	public String getProvincia() {
 
 		return provincia;
 
 	} // fin del método getProvincia
+
+	/** Devuelve la representación String de un objeto Provincia
+	 *
+	 *	@return representación String de la provincia
+	 */
+
+	public String toString() {
+
+		return String.format( "%s", getProvincia() );
+
+	} // fin del método toString
  
 
 } // fin de la enum Provincia

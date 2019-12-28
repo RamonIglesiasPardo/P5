@@ -1,3 +1,11 @@
+/** La clase PruebaPersona prueba las clases Persona, Pervoluntario y PerVolInt
+ *	creando nuevos empleados. Implementada parcialmente. Solo se pide el nombre
+ *	y los apellidos.
+ *
+ *	@author Alberto González Casado
+ *	@version 1.3
+ */
+
 package ong.entreculturas;
 
 import ong.entreculturas.TipoVia;
@@ -5,7 +13,7 @@ import ong.entreculturas.Provincia;
 import ong.entreculturas.Direccion;
 import java.util.Scanner;
 
-public class Main {
+public class PruebaPersona {
 
 	// Variables de clase
 
@@ -85,10 +93,8 @@ public class Main {
 
         // Obtenemos un String con los datos completos de la persona
 
-        System.out.println( perVolInt.toString() );
+        System.out.println( perVolInt.toString() ); 
         
-        
+    } // fin de main
 
-    }
-
-}
+} // fin de la clase PruebaPersona
