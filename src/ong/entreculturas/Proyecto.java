@@ -2,16 +2,21 @@ package ong.entreculturas;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
+
 
 //Clase Proyecto
 
 public class Proyecto {
+
+    //variables de proyecto
+
     private int idProyecto = 1;
     private String pais;
     private String localizacion;
     //private LineaDeAccion lineaDeAccion;
-    private Fecha fechaInicio;
-    private Fecha fechaFin;
+    private Date fechaInicio;
+    private Date fechaFin;
     //private List<Socio> socios;
     //private List<FinanciacionProyecto> financiacionProyectos;
     private String acciones;
@@ -41,8 +46,8 @@ public class Proyecto {
         this.idProyecto = idProyecto ++;
     }
 
-    public String getIdProyecto() {
-        return pIdProyecto;
+    public int getIdProyecto() {
+        return idProyecto;
     }
 
 
@@ -79,17 +84,17 @@ public class Proyecto {
     //}
 
 
-    public String getFechaInicio() {
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
 
-    public void setFechaFin(Fecha fechaFin) {
+    public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
     }
 
 
-    public String getFechaFin() {
+    public Date getFechaFin() {
         return fechaFin;
     }
 
