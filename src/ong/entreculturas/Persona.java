@@ -1,6 +1,6 @@
 /**
  * La clase Persona es una clase abstracta que representa una persona.
- * Tiene las subclases directas Personal y Socio.
+ * Tiene las subclases directas Personal y Socio (esta última no implementada).
  *
  * @author Alberto González Casado
  * @version 1.3
@@ -9,6 +9,10 @@
 package ong.entreculturas;
 
 import ong.entreculturas.Direccion;
+
+// tengo mis dudas acerca de si Persona debe ser abstracta o no. En principio 
+// debería serlo, pero si no implementamos al menos un método abstracto
+// no deberíamos clasificarla como abstracta
 
 public abstract class Persona {
 

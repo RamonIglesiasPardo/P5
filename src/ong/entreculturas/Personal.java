@@ -12,6 +12,10 @@ package ong.entreculturas;
 //import ong.entreculturas.Proyecto;
 import ong.entreculturas.Direccion;
 
+// lo mismo que con la clase Persona. En principio la clase Personal debería ser
+// abstracta, pero si no implementamos al menos un método abstracto deberíamos
+// dejarla como clase normal (¿o no?)
+
 public abstract class Personal extends Persona {
 
 	// a falta de implementar la clase Sede
