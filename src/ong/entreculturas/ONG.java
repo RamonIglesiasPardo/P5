@@ -12,9 +12,9 @@ public class ONG {
 
     private String nombre;
     private String CIF;
+    private List<Personal> lequipo;
 
 //    Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de las clases Personal y Proyecto
-//    private List<Personal> lequipo;
 //    private List<Proyecto> lproyectos;
 
 
@@ -39,10 +39,10 @@ public class ONG {
 //    public ONG(String nombre, String CIF, List<Personal> lequipo, List<Proyecto> lproyectos) {
         this.nombre = nombre;
         this.CIF = CIF;
+        this.lequipo = new ArrayList<Personal>();
 
 //      Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de clases Personal y Proyecto
-//      this.lequipo = new ArrayList<Personal>();
-//      this.lproyectos = new ArrayList<Proyecto>();
+//     this.lproyectos = new ArrayList<Proyecto>();
 
     }
 
@@ -95,15 +95,16 @@ public class ONG {
      */
     public Personal getMiembroDelEquipo(String idPersonal) {
 
-        Personal pPersonaBuscada = "";
+        Personal pPersonaBuscada = null;
 
 
-            for (int i=0; i < lPersonal.size(); i++ ) {
+            for (int i=0; i < lequipo.size(); i++ ) {
 
                 try {
 
-                    if (lPersonal.get(i).getId().equals(idPersonal)) {
-                        pPersonaBuscada = lPersonal.get(i);
+                    if (lequipo.get(i).getId().equals(idPersonal)) {
+                        pPersonaBuscada = lequipo.get(i);
+                        return pPersonaBuscada;
                     }
 
                 } catch (Exception e) {
@@ -121,7 +122,7 @@ public class ONG {
 
         boolean addEquipo = true;
 
-        for (Personal element:lPersonal) {
+        for (Personal element:lequipo) {
 
             if (element.getId() == nuevoMiembro.getId()) {
 
@@ -132,7 +133,7 @@ public class ONG {
 
         if (addEquipo) {
 
-            lPersonal.add(nuevoMiembro);
+            lequipo.add(nuevoMiembro);
 
         }
 
@@ -144,21 +145,21 @@ public class ONG {
      *
      * @param nombre
      */
-    public List<Proyecto> getProyectos() {
-        return proyectos;
-    }
+//    public List<Proyecto> getProyectos() {
+//        return proyectos;
+//    }
 
-    public void setProyectos(List<Proyecto> proyectos) {
-        this.proyectos = proyectos;
-    }
+//    public void setProyectos(List<Proyecto> proyectos) {
+//        this.proyectos = proyectos;
+//    }
 
     @Override
     public String toString() {
         return "ONG{" +
                 "nombre='" + nombre + '\'' +
                 ", CIF='" + CIF + '\'' +
-                ", equipo=" + equipo +
-                ", proyectos=" + proyectos +
+                ", equipo=" + lequipo +
+//                ", proyectos=" + proyectos +
                 '}';
     }
 

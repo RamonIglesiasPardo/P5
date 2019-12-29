@@ -1,12 +1,11 @@
+package ong.entreculturas;
+
 /** La clase enum TipoVia es una enumeración de los distintos
  *	tipos de vía que existen.
  *
  *	@author Alberto González Casado
  *	@version 1.3
  */
-
-package ong.entreculturas;
-
 public enum TipoVia {
 
 	AVDA ( "Avenida" ),

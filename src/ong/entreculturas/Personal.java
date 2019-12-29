@@ -50,10 +50,8 @@ public abstract class Personal extends Persona {
 	 *	@param idCount Contador del número de empleados
 	 */
 
-	public Personal( String nombre, String primerApellido, 
-		String segundoApellido, Direccion direccion, 
-		String telefono, String mail, String idPersonal,
-		int idCount ) {
+	public Personal( String nombre, String primerApellido, String segundoApellido, Direccion direccion, String telefono,
+					 String mail, int idCount ) {
 
 		// pasa los campos comunes al constructor de la superclase
 
@@ -107,17 +105,15 @@ public abstract class Personal extends Persona {
 
 	} // fin del método getIdCount
 
-<<<<<<< HEAD
+
 	// devuelve la representación String de un objeto Personal
 	// NOTA: modificar si implementamos la clase Sede
-=======
+
 	/** Devuelve la representación String de un objeto Personal
 	 *  NOTA: modificar si implementamos la clase Sede
 	 *
 	 *	@return Representación String de un objeto Personal
 	 */
->>>>>>> Persona
-
 	@Override
 	public String toString() {
 

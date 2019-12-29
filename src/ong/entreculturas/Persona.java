@@ -1,22 +1,17 @@
+package ong.entreculturas;
+
+import ong.entreculturas.Direccion;
+
+// tengo mis dudas acerca de si Persona debe ser abstracta o no. En principio 
+// debería serlo, pero si no implementamos al menos un método abstracto
+// no deberíamos clasificarla como abstracta
 /**
  * La clase Persona es una clase abstracta que representa una persona.
  * Tiene las subclases directas Personal y Socio (esta última no implementada).
  *
  * @author Alberto González Casado
  * @version 1.3
- */ 
-
-package ong.entreculturas;
-
-import ong.entreculturas.Direccion;
-
-<<<<<<< HEAD
-=======
-// tengo mis dudas acerca de si Persona debe ser abstracta o no. En principio 
-// debería serlo, pero si no implementamos al menos un método abstracto
-// no deberíamos clasificarla como abstracta
-
->>>>>>> Persona
+ */
 public abstract class Persona {
 
 	private String nombre;
@@ -36,14 +31,7 @@ public abstract class Persona {
 
 	} // fin del constructor de Persona sin argumentos
 
-<<<<<<< HEAD
-		nombre = pNombre;
-		primerApellido = pPrimerApellido;
-		segundoApellido = pSegundoApellido;
-		//setDireccion( pDireccion );
-		telefono = pTelefono;
-		mail = pMail;
-=======
+
 	/** Constructor de Persona con todos los argumentos
 	 *
 	 *  @param nombre Nombre de la persona 
@@ -53,9 +41,7 @@ public abstract class Persona {
 	 *	@param telefono Teléfono de la persona
 	 *	@param mail Correo electrónico de la persona
 	 */
->>>>>>> Persona
-
-	public Persona( String nombre, String primerApellido, 
+	public Persona( String nombre, String primerApellido,
 		String segundoApellido, Direccion direccion, 
 		String telefono, String mail ) {
 
@@ -134,7 +120,7 @@ public abstract class Persona {
 
 	} // fin del método getSegundoApellido
 
-<<<<<<< HEAD
+
 	// establece la dirección del empleado (utiliza el tipo de datos Direccion)
 	// No sé cómo establecer la dirección desde aquí... la clase Direccion tiene 
 	// métodos para establecer cada uno de los campos pero no sé cómo pasar el objeto
@@ -147,14 +133,13 @@ public abstract class Persona {
 	//	} // fin del método setDireccion
 
 	// establece el teléfono del empleado
-=======
+
 	/** Establece la dirección del empleado (utiliza el tipo de datos Direccion)
 	 *
 	 *	@param direccion nombre del objeto Direccion
 	 */
-
 	public void setDireccion( Direccion direccion ) {
->>>>>>> Persona
+
 
 		this.direccion = direccion;
 

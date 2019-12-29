@@ -1,10 +1,6 @@
 package ong.entreculturas;
 
-import ong.entreculturas.TipoVia;
-import ong.entreculturas.Provincia;
-import ong.entreculturas.Direccion;
 import java.util.Scanner;
-
 import ong.dao.DaoXmlOng;
 
 public class Main {
@@ -25,8 +21,7 @@ public class Main {
 		Main.direccionInt = direccionInt;
 	}
 
-	// Método para obtener la información (parcialmente implementado,
-	// solo para probar la entrada de datos)
+	// Método para obtener la información (parcialmente implementado, solo para probar la entrada de datos)
 
 	public static void obtenerDatosPersona() {
 
@@ -71,7 +66,7 @@ public class Main {
         // Creamos un objeto PerVoluntario y establecemos sus datos
 
         PerVoluntario perVoluntario = new PerVoluntario( nombre, primerApellido, segundoApellido, direccion, "876425597",
-            "jgimenezmoreno@gmail.com", "101500045611", 1, 1, 68 );
+            "jgimenezmoreno@gmail.com", 68 );
 
         // Obtenemos un String con los datos completos de la persona
 
@@ -81,13 +76,14 @@ public class Main {
 
         // Creamos un objeto Direccion, sobreescribiendo el campo de Persona
 
-        setDireccionInt(new Direccion( tipoVia, "de Madrid", "192", "6º", "B", "izqda.",
-            "50017", provincia, "Zaragoza" ));
+        setDireccionInt(new Direccion( tipoVia, "de Madrid", "192", "6º", "B",
+				"izqda.","50017", provincia, "Zaragoza" ));
 
         // Creamos un objeto PerVoluntario y establecemos sus datos
 
-        PerVolInternacional perVolInt = new PerVolInternacional( "Michael", "Johnson", "Smith", direccion, "555424687",
-            "mjohnsonsmith@gmail.com", "101501047821", 1, 1, 42, 1, "Estados Unidos",
+        PerVolInternacional perVolInt = new PerVolInternacional( "Michael", "Johnson",
+				"Smith", direccion, "555424687",
+            "mjohnsonsmith@gmail.com", 42,"Estados Unidos",
             "Park Avenue, 323 - PO BOX: 505423 - New York (USA)", "+34" );
 
         // Obtenemos un String con los datos completos de la persona
