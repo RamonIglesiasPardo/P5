@@ -6,16 +6,21 @@ import java.util.List;
  * La clase ONG, que por agregación se relaciona con la mayoría de las otras clases,
  * es una de las clases vertebrales del programa, conteniendo de forma directa o indirecta, las demás clases.
  *
- * @author Ramón Iglesias
+ * Por ejemplo, el Array "lequipo" contedrá todo el personal/equipo que trabaja en la ONG. Son personas que se reflejan
+ * como objetos de tipo Personal (ya que esa clase define sus propiedades y métodos) creando un listado tipo :
+ * [persona1, persona2, persona3,..., personaN]
+ *
+ * @author Aware Developers
  */
 public class ONG {
 
     private String nombre;
     private String CIF;
     private List<Personal> lequipo;
+    private List<Proyecto> lproyectos;
 
 //    Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de las clases Personal y Proyecto
-//    private List<Proyecto> lproyectos;
+
 
 
 //    Los siguientes atributos son omitidos intencionadamente. No implementaremos todas las funciones de la aplicación.

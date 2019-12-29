@@ -14,7 +14,7 @@ public class Proyecto {
     public int idProyecto = 1;
     private String pais;
     private String localizacion;
-    //private LineaDeAccion lineaDeAccion;
+    private LineaDeAccion lineaDeAccion;
     private Date fechaInicio;
     private Date fechaFin;
     //private List<Socio> socios;

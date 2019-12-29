@@ -10,6 +10,23 @@ public class Main {
 
 	// Variables de clase
 
+	/*
+	* TODO El main tendrá que tener una implementación tal que así:
+	*
+	* 1 recuperar objetos de los XML:
+	* getONG();
+	*
+	* 2 ya con las instancias creadas (los datos del programa) mostraremos el menu:
+	* (Lo suyo sería utilizar sus clases)
+	* mostrarMenu();
+	*
+	* NOTA: Ya dependiendo de la lógica del mostrarMenu() iremos a parar a diferentes
+	* métodos que guardarán nuevas instancias en el XML que toque, borrarán una existente, etc...
+	* */
+
+
+
+
 	private static String nombre;
 	private static String primerApellido;
 	private static String segundoApellido;
@@ -95,27 +112,27 @@ public class Main {
 
 
 
-    public static void main(String[] args) throws IOException {
-        Proyecto proyecto;
-        System.out.println("Introduce el Id de Proyecto: ");
-        Scanner reader = new Scanner(System.in);
-        int id = reader.nextInt();
-        System.out.println("Introduce el pais del Proyecto: ");
-        String pais = reader.next();
-        System.out.println("Introduce la localizacion del Proyecto: ");
-        String localizacion = reader.next();
-        proyecto = new Proyecto(id, pais, localizacion);
-        System.out.println(proyecto.getPais());
-        System.out.println(proyecto.getLocalizacion());
 
-        //Test
-        public void testSetAndGetDescription(id, pais, localizacion){
-            Proyecto proyecto;
-            proyecto = new Proyecto();
-            String testPais = "Pais";
-            assertNull(proyecto.getPais());
-            proyecto.setPais(testPais);
-            assertEquals(testPais, proyecto.getPais());
-        }
-    }
+//        Proyecto proyecto;
+//        System.out.println("Introduce el Id de Proyecto: ");
+//        Scanner reader = new Scanner(System.in);
+//        int id = reader.nextInt();
+//        System.out.println("Introduce el pais del Proyecto: ");
+//        String pais = reader.next();
+//        System.out.println("Introduce la localizacion del Proyecto: ");
+//        String localizacion = reader.next();
+//        proyecto = new Proyecto(id, pais, localizacion);
+//        System.out.println(proyecto.getPais());
+//        System.out.println(proyecto.getLocalizacion());
+//
+//        //Test
+//    public void testSetAndGetDescription(id, pais, localizacion){
+//            Proyecto proyecto;
+//            proyecto = new Proyecto();
+//            String testPais = "Pais";
+//            assertNull(proyecto.getPais());
+//            proyecto.setPais(testPais);
+//            assertEquals(testPais, proyecto.getPais());
+   }
+
 }
