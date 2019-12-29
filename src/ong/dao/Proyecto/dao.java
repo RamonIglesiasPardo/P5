@@ -1,18 +1,18 @@
-package ong.dao.Proyecto;
-import ong.entreculturas.Proyecto;
-import java.util.List;
+// package ong.dao.Proyecto;
+//import ong.entreculturas.Proyecto;
+//import java.util.List;
 
-public interface ProyectoDao {
+//interface ProyectoDao {
 
-void instertar (Proyecto p);
+//void instertar (Proyecto p);
 
-void modificar (Proyecto p);
+//void modificar (Proyecto p);
 
-void eliminar (Proyecto p);
+//void eliminar (Proyecto p);
 
-List<Proyecto> obtenerTodos();
+//List<Proyecto> obtenerTodos();
 
-Proyecto obtener(IdProyecto);
+//Proyecto obtener(int IdProyecto);
 
 
-}
+//}
