@@ -1,5 +1,6 @@
 package ong.dao.Proyecto;
 import ong.entreculturas.Proyecto;
+import java.util.List;
 
 public interface ProyectoDao {
 
