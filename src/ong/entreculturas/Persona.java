@@ -6,7 +6,7 @@
  * @version 1.4
  */
 
-		package ong.entreculturas;
+package ong.entreculturas;
 
 import ong.entreculturas.Direccion;
 
