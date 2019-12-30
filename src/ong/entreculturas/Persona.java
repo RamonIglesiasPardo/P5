@@ -1,17 +1,15 @@
-package ong.entreculturas;
+/**
+ * La clase Persona es una clase abstracta que representa una persona.
+ * Tiene las subclases directas Personal y Socio.
+ *
+ * @author Alberto González Casado
+ * @version 1.4
+ */
+
+		package ong.entreculturas;
 
 import ong.entreculturas.Direccion;
 
-// tengo mis dudas acerca de si Persona debe ser abstracta o no. En principio 
-// debería serlo, pero si no implementamos al menos un método abstracto
-// no deberíamos clasificarla como abstracta
-/**
- * La clase Persona es una clase abstracta que representa una persona.
- * Tiene las subclases directas Personal y Socio (esta última no implementada).
- *
- * @author Alberto González Casado
- * @version 1.3
- */
 public abstract class Persona {
 
 	private String nombre;
@@ -31,19 +29,19 @@ public abstract class Persona {
 
 	} // fin del constructor de Persona sin argumentos
 
-
 	/** Constructor de Persona con todos los argumentos
 	 *
-	 *  @param nombre Nombre de la persona 
+	 *  @param nombre Nombre de la persona
 	 *  @param primerApellido Primer apellido de la persona
 	 *	@param segundoApellido Segundo apellido de la persona
 	 *	@param direccion Dirección de la persona (no definida aún)
 	 *	@param telefono Teléfono de la persona
 	 *	@param mail Correo electrónico de la persona
 	 */
+
 	public Persona( String nombre, String primerApellido,
-		String segundoApellido, Direccion direccion, 
-		String telefono, String mail ) {
+					String segundoApellido, Direccion direccion,
+					String telefono, String mail ) {
 
 		super();
 		this.nombre = nombre;
@@ -53,7 +51,7 @@ public abstract class Persona {
 		this.telefono = telefono;
 		this.mail = mail;
 
-		} // fin del constructor de Persona con todos los argumentos
+	} // fin del constructor de Persona con todos los argumentos
 
 	/** Establece el nombre de la persona
 	 *
@@ -83,7 +81,7 @@ public abstract class Persona {
 	 */
 	public void setPrimerApellido( String primerApellido ) {
 
-		this.primerApellido = primerApellido; 
+		this.primerApellido = primerApellido;
 
 	} // fin del método setPrimerApellido
 
@@ -105,7 +103,7 @@ public abstract class Persona {
 
 	public void setSegundoApellido( String segundoApellido ) {
 
-		this.segundoApellido = segundoApellido; 
+		this.segundoApellido = segundoApellido;
 
 	} // fin del método setSegundoApellido
 
@@ -120,41 +118,27 @@ public abstract class Persona {
 
 	} // fin del método getSegundoApellido
 
-
-	// establece la dirección del empleado (utiliza el tipo de datos Direccion)
-	// No sé cómo establecer la dirección desde aquí... la clase Direccion tiene 
-	// métodos para establecer cada uno de los campos pero no sé cómo pasar el objeto
-	// dirección a esta clase Persona
-	
-	//public Direccion setDireccion( pDireccion ) {
-
-	//	dirección = 
-
-	//	} // fin del método setDireccion
-
-	// establece el teléfono del empleado
-
 	/** Establece la dirección del empleado (utiliza el tipo de datos Direccion)
 	 *
 	 *	@param direccion nombre del objeto Direccion
 	 */
-	public void setDireccion( Direccion direccion ) {
 
+	public void setDireccion( Direccion direccion ) {
 
 		this.direccion = direccion;
 
-		} // fin del método setDireccion
+	} // fin del método setDireccion
 
 	/** Obtiene la dirección del empleado (utiliza el tipo de datos Direccion)
 	 *
 	 *	@return un objeto Direccion
 	 */
-	 	
+
 	public Direccion getDireccion() {
 
 		return direccion;
 
-		} // fin del método getDireccion
+	} // fin del método getDireccion
 
 	/** Establece el teléfono de la persona
 	 *
@@ -200,6 +184,13 @@ public abstract class Persona {
 
 	} // fin del método getMail
 
+	/** Método abstracto para introducir los datos de la persona.
+	 *  No se implementa en las clases abstractas, unicamente en las subclases concretas.
+	 *
+	 */
+
+	abstract public void introducirDatosPersona();
+
 	/** Devuelve la representación String de un objeto Persona
 	 *
 	 *	@return representación String de un objeto Persona
@@ -208,13 +199,10 @@ public abstract class Persona {
 	public String toString() {
 
 		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s\n%s: %s",
-			"Nombre", getPrimerApellido(), getSegundoApellido(), getNombre(),
-			"Dirección", direccion.toString(),
-			"Teléfono", getTelefono(), "E-mail", getMail() );
+				"Nombre", getPrimerApellido(), getSegundoApellido(), getNombre(),
+				"Dirección", direccion.toString(),
+				"Teléfono", getTelefono(), "E-mail", getMail() );
 
 	} // fin del método toString
-
-	// Podría implementarse al menos un método abstracto que nos permitiera
-	// aplicar polimorfismo en las clases hijas	 
 
 } // fin de la clase abstracta Persona
