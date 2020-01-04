@@ -25,6 +25,7 @@ public class PerVolInternacional extends PerVoluntario {
 	public PerVolInternacional() {
 
 		super();
+		super.crearId(idVolIntCount++, "1");
 
 	} // fin del Constructor de PerVolInternacional sin argumentos
 
@@ -56,8 +57,7 @@ public class PerVolInternacional extends PerVoluntario {
 
 		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail,
 				idPersonal, idCount, idVolCount, numHorasVol );
-
-		PerVolInternacional.setIdVolIntCount(idVolIntCount++);
+		super.crearId(idVolIntCount++, "1");
 		this.paisOrigen = paisOrigen;
 		this.direccion = sDireccion;	// renombramos pDireccion para evitar ambigüedades
 		this.codInternaTelefono = codInternaTelefono;
@@ -71,15 +71,6 @@ public class PerVolInternacional extends PerVoluntario {
 
 	public static int getIdVolIntCount() {
 		return idVolIntCount;
-	}
-
-	/** Establece el número del conteo de este empleado voluntario internacional
-	 *
-	 * @param idVolIntCount Contador del número de empleados voluntarios
-	 */
-
-	public static void setIdVolIntCount(int idVolIntCount) {
-		PerVolInternacional.idVolIntCount = idVolIntCount;
 	}
 
 

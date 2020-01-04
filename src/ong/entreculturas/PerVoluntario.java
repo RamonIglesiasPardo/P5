@@ -3,7 +3,7 @@
  *	Representa a un empleado voluntario
  *
  *	@author Alberto González Casado
- *  @version 1.4
+ *  @version 1.5
  */
 
 		package ong.entreculturas;
@@ -23,6 +23,7 @@ public class PerVoluntario extends Personal {
 	public PerVoluntario() {
 
 		super();
+		super.crearId(idVolCount++, "1");
 
 	} // fin del constructor de PerVoluntario sin argumentos
 
@@ -50,7 +51,7 @@ public class PerVoluntario extends Personal {
 		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail,
 				idPersonal, idCount );
 
-		PerVoluntario.setIdVolCount(idVolCount++);
+		super.crearId(idVolCount++, "1");
 		this.numHorasVol = numHorasVol;
 
 	} // fin del constructor de PerVoluntario con todos los argumentos
@@ -126,8 +127,7 @@ public class PerVoluntario extends Personal {
 		super.setTelefono( entrada.nextLine() );
 		System.out.print( "E-mail: " );
 		super.setMail( entrada.nextLine() );
-		super.crearId( 1150, "72" );
-		setNumHorasVol( 120 );
+		setNumHorasVol( 0 );
 
 	} // fin del método introducirDatosPersona
 

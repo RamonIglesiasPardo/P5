@@ -18,11 +18,7 @@ public class Main {
         // Muestra el menú principal de la aplicación
 
         mostrarMenu();
-
-        // Prueba de las clases Persona, Personal PerVoluntario
-
         ONG ong1 = new DaoXmlOng().getONG();
-
         System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> CIF: " + ong1.getCIF());
         System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> Nombre: " + ong1.getNombre());
 
@@ -81,8 +77,9 @@ public class Main {
         System.out.println( "-----------------  ENTRECULTURAS  ---------------" );
         System.out.println( "  ONG jesuíta para la educación y el desarrollo");
         System.out.println(  "-------------------------------------------------");
-        System.out.println( "\n\n1 - Dar de alta un empleado" );
+        System.out.println( "\n1 - Dar de alta un empleado" );
         System.out.println(  "2 - Dar de baja un empleado" );
+        System.out.println(  "3 - Salir de la aplicación" );
         System.out.print(  "\n\nSeleccione una opción: ");
         seleccionarOpcionDeMenu();
 
@@ -119,6 +116,9 @@ public class Main {
                         clearScreen();
                         mostrarMenu();
                         break;
+                    case 3:
+                        System.out.println("\nSaliendo del programa. Gracias por usar nuestra aplicación.");
+                        System.exit(0);
                     default:
                         System.out.print("Selección no válida. Pruebe de nuevo: ");
                 } // fin de switch
@@ -221,4 +221,6 @@ public class Main {
 
 } // fin de la clase Main
 
-
+//TODO: Implementar la funcionalidad de añadir y eliminar empleados a la lista de empleados.
+//TODO: Añadir opción de menú de listar empleados, y quizá alguna opción extra.
+//TODO: Revisar método crearID en subclases de Personal (¿bien implementado?)
