@@ -191,6 +191,13 @@ public abstract class Persona {
 
 	abstract public void introducirDatosPersona();
 
+	/** Método abstracto para introducir la direcció de la persona.
+	 *  No se implementa en las clases abstractas, unicamente en las subclases concretas.
+	 *
+	 */
+
+	abstract public Direccion introducirDireccion();
+
 	/** Devuelve la representación String de un objeto Persona
 	 *
 	 *	@return representación String de un objeto Persona

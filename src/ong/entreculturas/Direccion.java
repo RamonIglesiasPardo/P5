@@ -23,7 +23,11 @@ public class Direccion {
 	private Provincia provincia;
 	private String localidad;
 
-	/** Constructor TipoVia
+	// Constructor Direccion por defecto
+
+	Direccion() {}
+
+	/** Constructor Direccion
 	 *
 	 *	@param tipoVia Tipo de vía (utiliza la clase enum TipoVia)
 	 *	@param nombreVia Nombre de la vía, calle, etc...

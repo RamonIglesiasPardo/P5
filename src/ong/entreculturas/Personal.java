@@ -116,6 +116,13 @@ public abstract class Personal extends Persona {
 
     abstract public void introducirDatosPersona();
 
+    /** Método abstracto para introducir la direcció de la persona.
+     *  No se implementa en las clases abstractas, unicamente en las subclases concretas.
+     *
+     */
+
+    abstract public Direccion introducirDireccion();
+
     @Override
     public String toString() {
 

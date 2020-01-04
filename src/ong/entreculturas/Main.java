@@ -142,14 +142,6 @@ public class Main {
             case 1:
                 clearScreen();
                 PerVoluntario perVol = new PerVoluntario();
-                // Creamos un objeto TipoVia y uno provincia (PROVISIONAL)
-                TipoVia tipoVia = TipoVia.AVDA;
-                Provincia provincia = Provincia.ZAR;
-                // Creamos un objeto Direccion, utilizando el tipo de vía y la provincia recién creados
-                // (PROVISIONAL)
-                Direccion direccion = new Direccion(tipoVia, "de Madrid", "192", "6º", "B", "izqda.",
-                        "50017", provincia, "Zaragoza");
-                perVol.setDireccion(direccion);
                 perVol.introducirDatosPersona();
                 // Mostramos los datos del empleado
                 System.out.println( "\n" + perVol.toString() );
@@ -164,6 +156,7 @@ public class Main {
             default:
                 System.out.println( "Selección no válida. Pruebe de nuevo: " );
                 opcion = entrada.nextInt();
+                // no da opción de volver a introucir otra opcion (arreglar)
 
         } // fin de switch
 
@@ -194,3 +187,5 @@ public class Main {
     } // fin del método pulseEnterParaContinuar
 
 } // fin de la clase Main
+
+
