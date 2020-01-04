@@ -1,5 +1,6 @@
 package ong.entreculturas;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import ong.dao.DaoXmlOng;
 import ong.entreculturas.TipoVia;
@@ -71,7 +72,7 @@ public class Main {
     /**
      * Método que muestra el menú principal de la aplicación
      * @author Alberto González Casado
-     * @version 1.0
+     * @version 1.2
      */
 
     public static void mostrarMenu() {
@@ -91,32 +92,44 @@ public class Main {
      * Método para seleccionar una opción del menú principal.
      * Llama a los métodos adecuados en función de la opción escogida.
      * @author Alberto González Casado
-     * @version 1.0
+     * @version 1.2
      */
 
     public static void seleccionarOpcionDeMenu() {
 
         Scanner entrada = new Scanner( System.in );
-        int opcion = entrada.nextInt();
+        boolean salir = false;
 
-        switch( opcion ) {
+        while (!salir) {
 
-            case 1:
-                clearScreen();
-                seleccionarTipoEmpleado();
-                break;
-            case 2:
-                clearScreen();
-                System.out.println( "Lo sentimos. Función no implementada." );
-                pulseEnterParaContinuar();
-                clearScreen();
-                mostrarMenu();
-                break;
-            default:
-                System.out.println( "Selección no válida. Pruebe de nuevo: " );
-                opcion = entrada.nextInt();
+            try {
 
-        } // fin de switch
+                int opcion = entrada.nextInt();
+
+                switch (opcion) {
+
+                    case 1:
+                        clearScreen();
+                        seleccionarTipoEmpleado();
+                        break;
+                    case 2:
+                        clearScreen();
+                        System.out.println("Lo sentimos. Función no implementada.");
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        mostrarMenu();
+                        break;
+                    default:
+                        System.out.print("Selección no válida. Pruebe de nuevo: ");
+                } // fin de switch
+            } catch ( InputMismatchException e ) {
+
+                System.out.print( "Solo se aceptan las opciones indicadas. Pruebe de nuevo:  " );
+                entrada.next();
+
+            } // fin de try...catch
+
+        } // fin de while
 
     } // fin del método seleccionarOpcionDeMenu
 
@@ -125,40 +138,60 @@ public class Main {
      * Según el tipo de empleado seleccionado, crea un objeto apropiado y llama
      * al método correspondiente.
      * @author Alberto González Casado
-     * @version 1.0
+     * @version 1.2
      */
 
     public static void seleccionarTipoEmpleado() {
 
         Scanner entrada = new Scanner( System.in );
+        boolean salir = false;
         System.out.println( "Seleccione el tipo de empleado a dar de alta:" );
         System.out.println( "1 - Personal voluntario" );
         System.out.println( "2 - Personal voluntario internacional" );
         System.out.print(  "\nSu elección: ");
-        int opcion = entrada.nextInt();
 
-        switch( opcion ) {
+        while (!salir) {
 
-            case 1:
-                clearScreen();
-                PerVoluntario perVol = new PerVoluntario();
-                perVol.introducirDatosPersona();
-                // Mostramos los datos del empleado
-                System.out.println( "\n" + perVol.toString() );
-                break;
-            case 2:
-                clearScreen();
-                PerVolInternacional perVolInt = new PerVolInternacional();
-                perVolInt.introducirDatosPersona();
-                // Mostramos los datos del empleado
-                System.out.println( "\n" + perVolInt.toString() );
-                break;
-            default:
-                System.out.println( "Selección no válida. Pruebe de nuevo: " );
-                opcion = entrada.nextInt();
-                // no da opción de volver a introucir otra opcion (arreglar)
+            try {
 
-        } // fin de switch
+                int opcion = entrada.nextInt();
+
+                switch (opcion) {
+
+                    case 1:
+                        clearScreen();
+                        PerVoluntario perVol = new PerVoluntario();
+                        perVol.introducirDatosPersona();
+                        // Mostramos los datos del empleado
+                        System.out.println("\n" + perVol.toString());
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        mostrarMenu();
+                        break;
+                    case 2:
+                        clearScreen();
+                        PerVolInternacional perVolInt = new PerVolInternacional();
+                        perVolInt.introducirDatosPersona();
+                        // Mostramos los datos del empleado
+                        System.out.println("\n" + perVolInt.toString());
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        mostrarMenu();
+                        break;
+                    default:
+                        System.out.print("Selección no válida. Pruebe de nuevo: ");
+                        opcion = entrada.nextInt();
+
+                } // fin de switch
+
+            } catch ( InputMismatchException e ) {
+
+                System.out.print( "Solo se aceptan las opciones indicadas. Pruebe de nuevo:  " );
+                entrada.next();
+
+            } // fin de try...catch
+
+        } // fin de while
 
     } // fin del método seleccionarTipoEmpleado
 
