@@ -3,9 +3,6 @@ package ong.entreculturas;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import ong.dao.DaoXmlOng;
-import ong.entreculturas.TipoVia;
-import ong.entreculturas.Provincia;
-import ong.entreculturas.Direccion;
 import java.util.Scanner;
 import java.io.IOException;
 
@@ -70,7 +67,6 @@ public class Main {
      * @author Alberto González Casado
      * @version 1.2
      */
-
     public static void mostrarMenu() {
 
         clearScreen();
@@ -91,7 +87,6 @@ public class Main {
      * @author Alberto González Casado
      * @version 1.2
      */
-
     public static void seleccionarOpcionDeMenu() {
 
         Scanner entrada = new Scanner( System.in );
@@ -140,7 +135,6 @@ public class Main {
      * @author Alberto González Casado
      * @version 1.2
      */
-
     public static void seleccionarTipoEmpleado() {
 
         Scanner entrada = new Scanner( System.in );
@@ -200,7 +194,6 @@ public class Main {
      * @author Alberto González Casado
      * @version 1.0
      */
-
     public static void pulseEnterParaContinuar() {
 
         String tecla;
