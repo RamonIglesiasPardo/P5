@@ -1,5 +1,7 @@
 package ong.entreculturas;
 
+import java.util.Scanner;
+
 /** Clase enum con la lista de las provincias españolas.
  *
  *  @author Aware Developers
@@ -107,6 +109,24 @@ public enum Provincia {
 		}
 
 	}
+
+	/** Método que solicita la introducción de una Provincia al usuario.
+	 * Préviamente muestra el listado de provincias que define el enumerado Provincia y despues solicita un
+	 * entero que permitirá declarar la Provincia correspondiente.
+	 *
+	 * @param entrada recibe el stream ya abierto para recoger la entrada del usuario.
+	 * @param direccion recibe la instancia direccion que se esta creando.
+	 * */
+	public static void introducirProvincia(Scanner entrada, Direccion direccion) {
+
+		// Mostramos las provincias que tiene nuestra clase Enumerada.
+		Provincia.mostrarListadoProvincias();
+		// Solicitamos el usuario introduzca un número de provincia válido
+		System.out.println( "Seleccione un número de provincia:" );
+		// Añadimos a la instancia "dirección" la provincia seleccionada
+		direccion.setProvincia(Provincia.values()[entrada.nextInt()-1]);
+
+	} // fin del método introducirProvincia
 
 	/** Devuelve la representación String de un objeto Provincia
 	 *

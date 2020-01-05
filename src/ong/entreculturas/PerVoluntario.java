@@ -145,20 +145,14 @@ public class PerVoluntario extends Personal {
 		direccion.setEscalera( entrada.nextLine() );
 		System.out.println( "Código postal: " );
 		direccion.setCodPostal( entrada.nextLine() );
-		// Mostramos las provincias que tiene nuestra clase Enumerada.
-		Provincia.mostrarListadoProvincias();
-		// Solicitamos el usuario introduzca un número de provincia válido
-		System.out.println( "Seleccione un número de provincia:" );
-		// Añadimos a la instancia "dirección" la provincia seleccionada
-		direccion.setProvincia(Provincia.values()[entrada.nextInt()-1]);
+		// Solicitamos la introducción de una povincia para añadirla a la instancia direccion.
+		Provincia.introducirProvincia(entrada, direccion);
 		System.out.println( "Localidad: " );
 		direccion.setLocalidad( entrada.next() );
 
 		return direccion;
 
 	} // fin del método introducirDireccion
-
-	// Método para introducir el tipo de vía
 
 	public static int introducirTipoVia() {
 
@@ -178,20 +172,6 @@ public class PerVoluntario extends Personal {
 	} // fin del método introducirTipoVia
 
 	// Método para introducir la provincia
-
-	/**Método que solicita al usuario los datos necesarios para crear una instancia de tipo
-	 *
-	 * */
-	public int introducirProvincia() {
-
-		// crea un objeto Scanner para obtener los datos
-		Scanner entrada = new Scanner( System.in );
-		// llamamos al método previamente definido que nos mostrará las provincias que contiene la clase enumerada
-		Provincia.mostrarListadoProvincias();
-		System.out.println( "Seleccione un número de provincia:" );
-		return entrada.nextInt();
-
-	} // fin del método introducirProvincia
 
 	@Override
 	public String toString() {
