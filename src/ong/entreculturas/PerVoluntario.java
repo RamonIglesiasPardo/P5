@@ -62,7 +62,7 @@ public class PerVoluntario extends Personal {
 
 	/** Establece el número del conteo de este empleado voluntario
 	 *
-	 * @param idVolCount
+	 * @param idVolCount se define el contador.
 	 */
 	public static void setIdVolCount(int idVolCount) {
 		PerVoluntario.idVolCount = idVolCount;
@@ -125,26 +125,20 @@ public class PerVoluntario extends Personal {
 		Scanner entrada = new Scanner( System.in );
 		// Creamos un objeto Direccion por defecto
 		Direccion direccion = new Direccion();
-		// Creamos un array con los valores del enum TipoVia
-		TipoVia arrTV[] = TipoVia.values();
-		// Establecemos el tipo de vía según la opción escogida
-		int via = introducirTipoVia();
-		// Establecemos el valor del objeto TipoVia
-		TipoVia tipoVia = arrTV[via - 1];
-		// Asignamos el tipo de vía a la dirección
-		direccion.setTipoVia(tipoVia);
+		// Solicitamos la introducción de un tipo de via para añadirla a la instancia direccion.
+		TipoVia.introducirTipoVia(entrada, direccion);
 		System.out.println( "Nombre de la vía: " );
-		direccion.setNombreVia( entrada.nextLine() );
+		direccion.setNombreVia( entrada.next() );
 		System.out.println( "Número: " );
-		direccion.setNumero( entrada.nextLine() );
+		direccion.setNumero( entrada.next() );
 		System.out.println( "Piso: " );
-		direccion.setPiso( entrada.nextLine() );
+		direccion.setPiso( entrada.next() );
 		System.out.println( "Puerta: " );
-		direccion.setPuerta( entrada.nextLine() );
+		direccion.setPuerta( entrada.next() );
 		System.out.println( "Escalera: " );
-		direccion.setEscalera( entrada.nextLine() );
+		direccion.setEscalera( entrada.next() );
 		System.out.println( "Código postal: " );
-		direccion.setCodPostal( entrada.nextLine() );
+		direccion.setCodPostal( entrada.next() );
 		// Solicitamos la introducción de una povincia para añadirla a la instancia direccion.
 		Provincia.introducirProvincia(entrada, direccion);
 		System.out.println( "Localidad: " );
@@ -154,24 +148,6 @@ public class PerVoluntario extends Personal {
 
 	} // fin del método introducirDireccion
 
-	public static int introducirTipoVia() {
-
-		// crea un objeto Scanner para obtener los datos
-		Scanner entrada = new Scanner( System.in );
-
-		System.out.println( "Introduzca el tipo de vía: " );
-
-		// listamos los elementos de la lista de tipos de vía según su orden
-
-		for ( int i = 0; i < TipoVia.values().length; i++ )
-			System.out.printf( "%d:%s ", i + 1, TipoVia.values()[i] );
-
-		System.out.print( "\n>>> " );
-		return entrada.nextInt();
-
-	} // fin del método introducirTipoVia
-
-	// Método para introducir la provincia
 
 	@Override
 	public String toString() {
