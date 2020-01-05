@@ -204,24 +204,14 @@ public class PerVoluntario extends Personal {
 		System.out.println( "Introduzca la Provincia: " );
 
 		// listamos los elementos de la lista de provincias según su orden
+		for (Provincia provincia : Provincia.values()) {
+			System.out.printf("%d:%s ",provincia.ordinal()+1, provincia);
 
-		for ( int i = 0; i < 9; i++ )
-			System.out.printf( "%d:%s ", i + 1, Provincia.values()[i] );
-		System.out.println();
-		for ( int i = 10; i < 19; i++ )
-			System.out.printf( "%d:%s ", i + 1, Provincia.values()[i] );
-		System.out.println();
-		for ( int i = 20; i < 29; i++ )
-			System.out.printf( "%d:%s ", i + 1, Provincia.values()[i] );
-		System.out.println();
-		for ( int i = 30; i < 39; i++ )
-			System.out.printf( "%d:%s ", i + 1, Provincia.values()[i] );
-		System.out.println();
-		for ( int i = 40; i < 47; i++ )
-			System.out.printf( "%d:%s ", i + 1, Provincia.values()[i] );
-		System.out.println();
-		for ( int i = 48; i < Provincia.values().length; i++ )
-			System.out.printf( "%d:%s ", i + 1, Provincia.values()[i] );
+				//Si el número de elemento es múltiplo de 10 añadimos un salto de línea.
+				if( (provincia.ordinal()+1)%10 == 0 ){
+					System.out.println();
+				};
+		}
 
 		System.out.print( "\n>>> " );
 		return entrada.nextInt();
