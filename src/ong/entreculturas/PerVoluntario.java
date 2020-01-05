@@ -196,24 +196,13 @@ public class PerVoluntario extends Personal {
 
 	// Método para introducir la provincia
 
-	public static int introducirProvincia() {
+	public int introducirProvincia() {
 
 		// crea un objeto Scanner para obtener los datos
 		Scanner entrada = new Scanner( System.in );
-
-		System.out.println( "Introduzca la Provincia: " );
-
-		// listamos los elementos de la lista de provincias según su orden
-		for (Provincia provincia : Provincia.values()) {
-			System.out.printf("%d:%s ",provincia.ordinal()+1, provincia);
-
-				//Si el número de elemento es múltiplo de 10 añadimos un salto de línea.
-				if( (provincia.ordinal()+1)%10 == 0 ){
-					System.out.println();
-				};
-		}
-
-		System.out.print( "\n>>> " );
+		// llamamos al método previamente definido que nos mostrará las provincias que contiene la clase enumerada
+		Provincia.mostrarListadoProvincias();
+		System.out.println( "Seleccione un número de provincia:" );
 		return entrada.nextInt();
 
 	} // fin del método introducirProvincia

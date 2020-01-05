@@ -89,11 +89,26 @@ public enum Provincia {
 
 	} // fin del método getProvincia
 
+	public static void mostrarListadoProvincias(){
+
+		System.out.println( "Mostrando listado de privincias: " );
+
+		// listamos los elementos de la lista de provincias según su orden
+		for (Provincia provincia : Provincia.values()) {
+			System.out.printf("%d:%s ",provincia.ordinal()+1, provincia);
+
+			//Si el número de elemento es múltiplo de 10 añadimos un salto de línea.
+			if( (provincia.ordinal()+1)%10 == 0 ){
+				System.out.println();
+			};
+		}
+
+	}
+
 	/** Devuelve la representación String de un objeto Provincia
 	 *
 	 *	@return representación String de la provincia
 	 */
-
 	public String toString() {
 
 		return String.format( "%s", getProvincia() );
