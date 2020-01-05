@@ -12,12 +12,10 @@ public class ONG {
 
     private String nombre;
     private String CIF;
-    private List<Personal> lequipo;
+    public List<Personal> lequipo;
+    private List<Proyecto> lproyectos;
 
 //    Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de las clases Personal y Proyecto
-//    private List<Proyecto> lproyectos;
-
-
 //    Los siguientes atributos son omitidos intencionadamente. No implementaremos todas las funciones de la aplicación.
 //    private SedeCentral sedeCentral;
 //    private List<Delegacion> delegaciones;
@@ -25,6 +23,10 @@ public class ONG {
 //    private List<IngresoPublico> ingresosPublicos;
 //    private List<IngresoPrivado> ingresosPrivados;
 
+    /**Constructor por defecto de ONG
+     *
+     * */
+    public ONG() {}
 
     /** Constructor de ONG
      *
@@ -40,9 +42,7 @@ public class ONG {
         this.nombre = nombre;
         this.CIF = CIF;
         this.lequipo = new ArrayList<Personal>();
-
-//      Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de clases Personal y Proyecto
-//     this.lproyectos = new ArrayList<Proyecto>();
+        this.lproyectos = new ArrayList<Proyecto>();
 
     }
 
@@ -155,12 +155,10 @@ public class ONG {
 
     @Override
     public String toString() {
-        return "ONG{" +
-                "nombre='" + nombre + '\'' +
-                ", CIF='" + CIF + '\'' +
-                ", equipo=" + lequipo +
-//                ", proyectos=" + proyectos +
-                '}';
+        return  "Nombre Organización: " + nombre + "\n" +
+                "CIF Organización: " + CIF + "\n" +
+                "Número de empleados: " + lequipo.size() + "\n" +
+                "Número de proyectos: " + lproyectos.size() + "\n";
     }
 
 

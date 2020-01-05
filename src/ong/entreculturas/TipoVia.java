@@ -68,11 +68,12 @@ public enum TipoVia {
 	 * Préviamente muestra el listado de tipos de vía que define el enumerado TipoVia y despues solicita un
 	 * entero que permitirá declarar el tipo de vía correspondiente.
 	 *
-	 * @param entrada recibe el stream ya abierto para recoger la entrada del usuario.
 	 * @param direccion recibe la instancia direccion que se esta creando.
 	 * */
-	public static void introducirTipoVia(Scanner entrada, Direccion direccion) {
+	public static void introducirTipoVia(Direccion direccion) {
 
+		// crea un objeto Scanner para obtener los datos
+		Scanner entrada = new Scanner( System.in );
 		// Mostramos los tipos de via que tiene nuestra clase Enumerada.
 		TipoVia.mostrarListadoVias();
 		// Solicitamos el usuario introduzca un número de provincia válido

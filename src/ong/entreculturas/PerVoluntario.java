@@ -126,23 +126,23 @@ public class PerVoluntario extends Personal {
 		// Creamos un objeto Direccion por defecto
 		Direccion direccion = new Direccion();
 		// Solicitamos la introducción de un tipo de via para añadirla a la instancia direccion.
-		TipoVia.introducirTipoVia(entrada, direccion);
+		TipoVia.introducirTipoVia(direccion);
 		System.out.println( "Nombre de la vía: " );
-		direccion.setNombreVia( entrada.next() );
+		direccion.setNombreVia( entrada.nextLine() );
 		System.out.println( "Número: " );
-		direccion.setNumero( entrada.next() );
+		direccion.setNumero( entrada.nextLine() );
 		System.out.println( "Piso: " );
-		direccion.setPiso( entrada.next() );
+		direccion.setPiso( entrada.nextLine() );
 		System.out.println( "Puerta: " );
-		direccion.setPuerta( entrada.next() );
+		direccion.setPuerta( entrada.nextLine() );
 		System.out.println( "Escalera: " );
-		direccion.setEscalera( entrada.next() );
+		direccion.setEscalera( entrada.nextLine() );
 		System.out.println( "Código postal: " );
-		direccion.setCodPostal( entrada.next() );
+		direccion.setCodPostal( entrada.nextLine() );
 		// Solicitamos la introducción de una povincia para añadirla a la instancia direccion.
-		Provincia.introducirProvincia(entrada, direccion);
+		Provincia.introducirProvincia(direccion);
 		System.out.println( "Localidad: " );
-		direccion.setLocalidad( entrada.next() );
+		direccion.setLocalidad( entrada.nextLine() );
 
 		return direccion;
 

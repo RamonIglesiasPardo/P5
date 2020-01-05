@@ -25,12 +25,12 @@ public class XmlController {
             //Leer esto: http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
             doc.getDocumentElement().normalize();
 
-            System.out.println("Nombre root del XML:" + doc.getDocumentElement().getNodeName());
-            System.out.println("----------------------------");
+//            System.out.println("Nombre root del XML:" + doc.getDocumentElement().getNodeName());
+//            System.out.println("----------------------------");
             String name = doc.getDocumentElement().getElementsByTagName("nombre").item(0).getFirstChild().getNodeValue();
             String cif = doc.getDocumentElement().getElementsByTagName("CIF").item(0).getFirstChild().getNodeValue();
-            System.out.println("Nombre : " + name);
-            System.out.println("CIF: " + cif);
+//            System.out.println("Nombre : " + name);
+//            System.out.println("CIF: " + cif);
 
             /*Devolvemos la instancia de ONG con los datos contenidos en el XML*/
             return new ONG(name, cif);

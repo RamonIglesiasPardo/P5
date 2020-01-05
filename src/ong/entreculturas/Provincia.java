@@ -105,7 +105,7 @@ public enum Provincia {
 			//Si el número de elemento es múltiplo de 10 añadimos un salto de línea.
 			if( (provincia.ordinal()+1)%10 == 0 ){
 				System.out.println();
-			};
+			}
 		}
 
 	}
@@ -114,11 +114,12 @@ public enum Provincia {
 	 * Préviamente muestra el listado de provincias que define el enumerado Provincia y despues solicita un
 	 * entero que permitirá declarar la Provincia correspondiente.
 	 *
-	 * @param entrada recibe el stream ya abierto para recoger la entrada del usuario.
 	 * @param direccion recibe la instancia direccion que se esta creando.
 	 * */
-	public static void introducirProvincia(Scanner entrada, Direccion direccion) {
+	public static void introducirProvincia(Direccion direccion) {
 
+		// crea un objeto Scanner para obtener los datos
+		Scanner entrada = new Scanner( System.in );
 		// Mostramos las provincias que tiene nuestra clase Enumerada.
 		Provincia.mostrarListadoProvincias();
 		// Solicitamos el usuario introduzca un número de provincia válido
