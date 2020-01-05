@@ -1,13 +1,10 @@
-/** Clase enum con la lista de las provincias españolas.
- * 
- *  @author Alberto González Casado
- *  @version 1.3
- */
-
-
-
 package ong.entreculturas;
 
+/** Clase enum con la lista de las provincias españolas.
+ *
+ *  @author Aware Developers
+ *  @version 1.4
+ */
 public enum Provincia {
 
 	// declaramos las constantes de tipo enum
@@ -69,9 +66,8 @@ public enum Provincia {
 
 	/** Constructor de Provincia
 	 *
-	 *	@param pProvinvia String con el nombre del objeto Provincia	
+	 *	@param provincia String con el nombre del objeto Provincia
 	 */
-
 	Provincia( String provincia ) {
 
 		this.provincia = provincia;
@@ -82,19 +78,26 @@ public enum Provincia {
 	 *
 	 *	@return String con el nombre de un objeto provincia
 	 */
-
 	public String getProvincia() {
 
 		return provincia;
 
 	} // fin del método getProvincia
 
+	/** Muestra por línea de comandos todas las provincias que contiene la clase enumerada.
+	 * Además itroduce saltos de línea cada 10 provincias para facilitar una salida más leible.
+	 * Se define como static porque es un método que se muestra de manera idéntica sea quien sea el
+	 * objeto que lo llame.
+	 *
+	 * */
 	public static void mostrarListadoProvincias(){
 
 		System.out.println( "Mostrando listado de privincias: " );
 
 		// listamos los elementos de la lista de provincias según su orden
 		for (Provincia provincia : Provincia.values()) {
+			//Al igual que en un array la primera posición es 0, para no mostrar un listado que empiece en la posición 0
+			//se compensa con el provincia.ordinal()+1.
 			System.out.printf("%d:%s ",provincia.ordinal()+1, provincia);
 
 			//Si el número de elemento es múltiplo de 10 añadimos un salto de línea.

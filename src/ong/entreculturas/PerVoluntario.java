@@ -1,16 +1,14 @@
+package ong.entreculturas;
+
+import java.util.Scanner;
+
 /** La clase PerVoluntario es subclase directa de la clase Personal
  *	y tiene la subclase PerVolInternacional.
  *	Representa a un empleado voluntario
  *
- *	@author Alberto González Casado
+ *	@author Aware Developers
  *  @version 1.5
  */
-
-		package ong.entreculturas;
-
-import java.util.Scanner;
-import ong.entreculturas.Direccion;
-
 public class PerVoluntario extends Personal {
 
 	private static int idVolCount = 1;
@@ -19,7 +17,6 @@ public class PerVoluntario extends Personal {
 	/** Constructor de PerVoluntario sin argumentos
 	 *
 	 */
-
 	public PerVoluntario() {
 
 		super();
@@ -40,7 +37,6 @@ public class PerVoluntario extends Personal {
 	 *  @param idVolCount Contador del número de empleados voluntarios
 	 *	@param numHorasVol Número de horas trabajadas por el voluntario
 	 */
-
 	public PerVoluntario( String nombre, String primerApellido,
 						  String segundoApellido, Direccion direccion,
 						  String telefono, String mail, String idPersonal,
@@ -60,7 +56,6 @@ public class PerVoluntario extends Personal {
 	 *
 	 * @return Int con el número del conteo de este empleado voluntario
 	 */
-
 	public static int getIdVolCount() {
 		return idVolCount;
 	}
@@ -69,7 +64,6 @@ public class PerVoluntario extends Personal {
 	 *
 	 * @param idVolCount
 	 */
-
 	public static void setIdVolCount(int idVolCount) {
 		PerVoluntario.idVolCount = idVolCount;
 	}
@@ -78,7 +72,6 @@ public class PerVoluntario extends Personal {
 	 *
 	 *	@param numHorasVol Número de horas trabajadas por el voluntario
 	 */
-
 	public void setNumHorasVol( int numHorasVol ) {
 
 		this.numHorasVol = numHorasVol;
@@ -89,24 +82,16 @@ public class PerVoluntario extends Personal {
 	 *
 	 *	@return Int con el número de horas trabajadas
 	 */
-
 	public int getNumHorasVol() {
 
 		return numHorasVol;
 
 	} // fin del método getNumHorasVol
 
-	/** Devuelve la representación String de un objeto PerVoluntario
-	 *  NOTA: modificar si implementamos la clase Sede
-	 *
-	 *	@return Representación String de un objeto PerVoluntario
-	 */
-
 	/** Método para introducir los datos de la persona.
 	 *  Es el método abstracto de las superclases, que aquí sí se implementa.
 	 *
 	 */
-
 	@Override
 	public void introducirDatosPersona() {
 
@@ -160,16 +145,14 @@ public class PerVoluntario extends Personal {
 		direccion.setEscalera( entrada.nextLine() );
 		System.out.println( "Código postal: " );
 		direccion.setCodPostal( entrada.nextLine() );
-		// Creamos un array con los valores del enum Provincia
-		Provincia arrP[] = Provincia.values();
-		// Establecemos la provincia según la opción escogida
-		int prov = introducirProvincia();
-		// Establecemos el valor del objeto Provincia
-		Provincia provincia = arrP[prov - 1];
-		// Asignamos la provincia a la dirección
-		direccion.setProvincia(provincia);
+		// Mostramos las provincias que tiene nuestra clase Enumerada.
+		Provincia.mostrarListadoProvincias();
+		// Solicitamos el usuario introduzca un número de provincia válido
+		System.out.println( "Seleccione un número de provincia:" );
+		// Añadimos a la instancia "dirección" la provincia seleccionada
+		direccion.setProvincia(Provincia.values()[entrada.nextInt()-1]);
 		System.out.println( "Localidad: " );
-		direccion.setLocalidad( entrada.nextLine() );
+		direccion.setLocalidad( entrada.next() );
 
 		return direccion;
 
@@ -196,6 +179,9 @@ public class PerVoluntario extends Personal {
 
 	// Método para introducir la provincia
 
+	/**Método que solicita al usuario los datos necesarios para crear una instancia de tipo
+	 *
+	 * */
 	public int introducirProvincia() {
 
 		// crea un objeto Scanner para obtener los datos
