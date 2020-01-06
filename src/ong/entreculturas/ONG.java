@@ -1,4 +1,8 @@
 package ong.entreculturas;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +12,7 @@ import java.util.List;
  *
  * @author Ramón Iglesias
  */
+@XmlRootElement(name = "ong")
 public class ONG {
 
     private String nombre;
@@ -50,6 +55,7 @@ public class ONG {
      *
      * @return nombre Devuelve un String con el nombre de la ONG
      */
+    @XmlElement(name = "nombre")
     public String getNombre() {
         return nombre;
     }
@@ -66,6 +72,7 @@ public class ONG {
      *
      * @return CIF Devuelve un String con el código de identificación fiscal
      */
+    @XmlElement(name = "cif")
     public String getCIF() {
         return CIF;
     }
@@ -83,6 +90,8 @@ public class ONG {
      * @return lequipo devuelve un tipo de colección List, con un listado de objetos de tipo Personal,
      *         que conforman los trabajadores de la ONG.
      */
+
+    @XmlElementWrapper(name="personal")
     public List<Personal> getEquipo() {
         return lequipo;
     }

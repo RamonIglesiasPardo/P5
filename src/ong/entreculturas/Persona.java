@@ -8,8 +8,12 @@
 
 package ong.entreculturas;
 
-import ong.entreculturas.Direccion;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlRootElement(name = "persona")
+@XmlType(propOrder={"nombre","primerApellido","segundoApellido","direccion","telefono","mail"})
 public abstract class Persona {
 
 	private String nombre;
@@ -68,7 +72,7 @@ public abstract class Persona {
 	 *
 	 *	@return String con el nombre de la persona
 	 */
-
+	@XmlElement(name = "nombre")
 	public String getNombre() {
 
 		return nombre;
@@ -89,7 +93,7 @@ public abstract class Persona {
 	 *
 	 *	@return String con el primer apellido de la persona
 	 */
-
+	@XmlElement(name = "prmerApellido")
 	public String getPrimerApellido() {
 
 		return primerApellido;
@@ -111,7 +115,7 @@ public abstract class Persona {
 	 *
 	 *	@return String con el segundo apellido de la persona
 	 */
-
+	@XmlElement(name = "segundoApellido")
 	public String getSegundoApellido() {
 
 		return segundoApellido;
@@ -133,7 +137,7 @@ public abstract class Persona {
 	 *
 	 *	@return un objeto Direccion
 	 */
-
+	@XmlElement(name = "direccion")
 	public Direccion getDireccion() {
 
 		return direccion;
@@ -155,7 +159,7 @@ public abstract class Persona {
 	 *
 	 *	@return String con el teléfono de la persona
 	 */
-
+	@XmlElement(name = "telefono")
 	public String getTelefono() {
 
 		return telefono;
@@ -177,7 +181,7 @@ public abstract class Persona {
 	 *
 	 *	@return String con el correo electrónico de la persona
 	 */
-
+	@XmlElement(name = "mail")
 	public String getMail() {
 
 		return mail;

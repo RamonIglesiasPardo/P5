@@ -1,5 +1,7 @@
 package ong.entreculturas;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Scanner;
 
 /** La clase PerVoluntario es subclase directa de la clase Personal
@@ -9,6 +11,7 @@ import java.util.Scanner;
  *	@author Aware Developers
  *  @version 1.5
  */
+@XmlRootElement(name="PerVoluntario")
 public class PerVoluntario extends Personal {
 
 	private static int idVolCount = 1;
@@ -82,6 +85,7 @@ public class PerVoluntario extends Personal {
 	 *
 	 *	@return Int con el número de horas trabajadas
 	 */
+	@XmlElement(name = "NumHorasVol")
 	public int getNumHorasVol() {
 
 		return numHorasVol;
@@ -158,4 +162,7 @@ public class PerVoluntario extends Personal {
 
 	} // fin del método toString
 
+	public String getIdVoCount() {
+		return null;
+	}
 } // fin de la clase PerVoluntario

@@ -10,8 +10,13 @@
 
 // a falta de implementar la clase Proyecto
 //import ong.entreculturas.Proyecto;
-import ong.entreculturas.Direccion;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "personal")
+@XmlType(propOrder={"id","idCount"})
 public abstract class Personal extends Persona {
 
     // a falta de implementar la clase Sede
@@ -85,7 +90,7 @@ public abstract class Personal extends Persona {
      *
      *	@return String con el id de personal
      */
-
+    @XmlElement(name = "id")
     public String getId() {
 
         return idPersonal;
@@ -96,7 +101,7 @@ public abstract class Personal extends Persona {
      *
      *	@return Int con el número de empleado (por incorporación)
      */
-
+    @XmlElement(name = "idCount")
     public int getIdCount() {
 
         return idCount;

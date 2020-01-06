@@ -8,9 +8,14 @@
 
 		package ong.entreculturas;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.Scanner;
-import ong.entreculturas.Direccion;
 
+
+@XmlRootElement(name="perVolInternacional")
+@XmlType(propOrder={"paisOrigen","direccion","codInternaTelefono"})
 public class PerVolInternacional extends PerVoluntario {
 
 	private static int idVolIntCount = 1;
@@ -68,7 +73,7 @@ public class PerVolInternacional extends PerVoluntario {
 	 *
 	 * @return Int con el número del conteo de este empleado voluntario internacional
 	 */
-
+	@XmlElement(name = "idVolIntCount")
 	public static int getIdVolIntCount() {
 		return idVolIntCount;
 	}
@@ -89,7 +94,7 @@ public class PerVolInternacional extends PerVoluntario {
 	 *
 	 *	@return String con el país de origen del voluntario internacional
 	 */
-
+	@XmlElement(name = "paisOrigen")
 	public String getPaisOrigen() {
 
 		return paisOrigen;
@@ -111,7 +116,7 @@ public class PerVolInternacional extends PerVoluntario {
 	 *
 	 *	@return String con la nueva dirección
 	 */
-
+	@XmlElement(name = "direccion")
 	public String getDir() {
 
 		return direccion;
@@ -133,7 +138,7 @@ public class PerVolInternacional extends PerVoluntario {
 	 *
 	 *	@return String con el código (prefijo) internacional del teléfono
 	 */
-
+	@XmlElement(name = "CodInternaTelefono")
 	public String getCodInternaTelefono() {
 
 		return codInternaTelefono;
@@ -205,5 +210,6 @@ public class PerVolInternacional extends PerVoluntario {
 				"País de origen", getPaisOrigen(), "Número de horas como voluntario", super.getNumHorasVol() );
 
 	} // fin del método toString
+
 
 } // fin de la clase PerVolInternacional
