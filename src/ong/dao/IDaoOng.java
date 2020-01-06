@@ -1,3 +1,18 @@
+/**
+ *
+ *
+ *
+ *
+ *
+ *  TODO Eliminarla. aunque primero debemos acabar con el DAO Factory y JABX.
+ *
+ *
+ *
+ *
+ *
+
+ * */
+
 package ong.dao;
 
 import ong.entreculturas.ONG;
