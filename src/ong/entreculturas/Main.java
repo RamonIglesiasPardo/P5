@@ -1,4 +1,4 @@
-/*package ong.entreculturas;
+package ong.entreculturas;
 
 
 
