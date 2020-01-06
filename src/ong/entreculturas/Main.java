@@ -187,7 +187,8 @@ public class Main {
                         break;
                     case 2:
                         clearScreen();
-                        System.out.printf("%s", ong.lequipo.toString());
+                        //System.out.printf("%s", ong.lequipo.toString());
+                        ong.lequipo.forEach(Personal -> System.out.printf(Personal.toString()+"\n"));
                         pulseEnterParaContinuar();
                         seleccionarTipoListado();
                         break;
