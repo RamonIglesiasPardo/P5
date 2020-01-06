@@ -1,4 +1,6 @@
-package ong.entreculturas;
+/*package ong.entreculturas;
+
+
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -289,3 +291,4 @@ public class Main {
 //TODO: Implementar la funcionalidad de añadir y eliminar empleados a la lista de empleados.
 //TODO: Añadir opción de menú de listar empleados, y quizá alguna opción extra.
 //TODO: Revisar método crearID en subclases de Personal (¿bien implementado?)
+*/
