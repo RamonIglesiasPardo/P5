@@ -173,7 +173,8 @@ public class Main {
         System.out.println( "Seleccione los tipos de datos a consultar:" );
         System.out.println( "1 - Detalles ONG" );
         System.out.println( "2 - Listado de personal" );
-        System.out.println( "3 - Volver al menú principal" );
+        System.out.println( "3 - Listado de proyectos" );
+        System.out.println( "4 - Volver al menú principal" );
         System.out.print(  "\nSu elección: ");
 
         while (!salir) {
@@ -193,13 +194,19 @@ public class Main {
                         break;
                     case 2:
                         clearScreen();
-                        //System.out.printf("%s", ong.lequipo.toString());
                         ong.lequipo.forEach(Personal -> System.out.printf(Personal.toString()+"\n"));
                         pulseEnterParaContinuar();
                         seleccionarTipoListado();
                         salir = true;
                         break;
                     case 3:
+                        clearScreen();
+                        ong.lproyectos.forEach(Proyecto -> System.out.printf(Proyecto.toString()+"\n"));
+                        pulseEnterParaContinuar();
+                        seleccionarTipoListado();
+                        salir = true;
+                        break;
+                    case 4:
                         clearScreen();
                         mostrarMenuPrincipal();
                         salir = true;

@@ -154,6 +154,7 @@ public class Proyecto {
     @Override
     public String toString() {
         return  "Id del proyecto: " + idProyecto + "\n" +
+                "Nombre del proyecto: " + nombre + "\n" +
                 "Descripción: " + acciones + "\n" +
                 "Ambito de acción del proyecto: " + localizacion + ", " + pais+ "\n" +
                 "Fechas inicio: " + fechaInicio + "\n" +
