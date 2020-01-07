@@ -3,9 +3,7 @@ package ong.entreculturas;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import ong.dao.DAOFactory;
-import ong.dao.IDaoOng;
 import ong.dao.IOngDAO;
-import ong.dao.XmlOngDAO;
 
 public class Main {
 
@@ -27,7 +25,7 @@ public class Main {
      * Método que muestra el menú principal de la aplicación
      *
      */
-    public static void mostrarMenu() {
+    public static void mostrarMenuPrincipal() {
 
         clearScreen();
         System.out.println( "-----------------  ENTRECULTURAS  ---------------" );
@@ -70,7 +68,7 @@ public class Main {
                         System.out.println("Lo sentimos. Función no implementada.");
                         pulseEnterParaContinuar();
                         clearScreen();
-                        mostrarMenu();
+                        mostrarMenuPrincipal();
                         salir = true;
                         break;
                     case 3:
@@ -129,7 +127,7 @@ public class Main {
                         ong.addEquipo(perVol);
                         pulseEnterParaContinuar();
                         clearScreen();
-                        mostrarMenu();
+                        mostrarMenuPrincipal();
                         salir = true;
                         break;
                     case 2:
@@ -142,7 +140,7 @@ public class Main {
                         ong.addEquipo(perVolInt);
                         pulseEnterParaContinuar();
                         clearScreen();
-                        mostrarMenu();
+                        mostrarMenuPrincipal();
                         salir = true;
                         break;
                     default:
@@ -203,7 +201,7 @@ public class Main {
                         break;
                     case 3:
                         clearScreen();
-                        mostrarMenu();
+                        mostrarMenuPrincipal();
                         salir = true;
                         break;
                     default:
@@ -257,7 +255,7 @@ public class Main {
         // Creamos nuestra instancia de ONG
         ong = ongDAO.readOngDAO();
         // Abrimos el menú principal de la aplicació
-        mostrarMenu();
+        mostrarMenuPrincipal();
         // Guardamos estado actual de la aplicación antes de salir.
         objetoFactory.getOngDAO().createOngDAO(ong);
 
@@ -268,6 +266,5 @@ public class Main {
 
 
 
-//TODO: Implementar la funcionalidad de añadir y eliminar empleados a la lista de empleados.
-//TODO: Añadir opción de menú de listar empleados, y quizá alguna opción extra.
+//TODO: Eliminar empleados a la lista de empleados.
 //TODO: Revisar método crearID en subclases de Personal (¿bien implementado?)

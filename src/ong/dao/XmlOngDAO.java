@@ -38,9 +38,9 @@ public class XmlOngDAO implements IOngDAO {
                      JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
                      Marshaller marshaller = jaxbContext.createMarshaller();
                      marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-                     marshaller.marshal(ong, new File("XML/ong.xml"));
-
-                     System.out.println("¡Cambios guardados correctamente!");
+                     File archivoXML = new File("XML/ong.xml");
+                     marshaller.marshal(ong, archivoXML);
+                     System.out.println("¡Cambios guardados correctamente en \"" + archivoXML.getAbsolutePath() + "\"!");
 
               } catch (PropertyException e) {
                      e.printStackTrace();
