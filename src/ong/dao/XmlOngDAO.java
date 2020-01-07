@@ -1,6 +1,9 @@
 package ong.dao;
 
-import ong.entreculturas.ONG;
+import ong.entreculturas.*;
+
+import javax.xml.bind.*;
+import java.io.File;
 
 /** En XmlOngDAO forma parte del patrón DAO.
  *  Permite separar la lógica para la persistencia de la lógica del negocio.
@@ -16,6 +19,8 @@ import ong.entreculturas.ONG;
  * */
 public class XmlOngDAO implements IOngDAO {
 
+       private ONG ong;
+
        public XmlOngDAO() {
 
               //Implementación de la lógica
@@ -23,20 +28,43 @@ public class XmlOngDAO implements IOngDAO {
        }
 
        @Override
-       public void createOngDAO(ONG pONG) {
+       public void createOngDAO(ONG ong) {
 
-              //Implementación de la lógica
-              //Crea una nueva instancia de ONG.
+              System.out.println("Por favor, no cierre la aplicación mientras guardamos los cambios...");
+
+              try {
+
+                     //Hacemos un marshaller para transformar la instancia ong en un archivo xml.
+                     JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
+                     Marshaller marshaller = jaxbContext.createMarshaller();
+                     marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+                     File archivoXML = new File("XML/ong.xml");
+                     marshaller.marshal(ong, archivoXML);
+                     System.out.println("¡Cambios guardados correctamente en \"" + archivoXML.getAbsolutePath() + "\"!");
+
+              } catch (PropertyException e) {
+                     e.printStackTrace();
+              } catch (JAXBException e) {
+                     e.printStackTrace();
+              }
 
        }
 
        @Override
        public ONG readOngDAO() {
 
-              //Implementación de la lógica
-              //Devuelve la instancia de ONG.
+              try {
 
-              return null;
+                     File file = new File("XML/ong.xml");
+                     JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
+                     Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+                     ong = (ONG) unmarshaller.unmarshal(file);
+
+              } catch (JAXBException e) {
+                     e.printStackTrace();
+              }
+
+              return ong;
        }
 
        @Override

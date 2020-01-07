@@ -2,9 +2,8 @@ package ong.entreculturas;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import ong.dao.DaoXmlOng;
-import java.util.Scanner;
-import java.io.IOException;
+import ong.dao.DAOFactory;
+import ong.dao.IOngDAO;
 
 public class Main {
 
@@ -26,7 +25,7 @@ public class Main {
      * Método que muestra el menú principal de la aplicación
      *
      */
-    public static void mostrarMenu() {
+    public static void mostrarMenuPrincipal() {
 
         clearScreen();
         System.out.println( "-----------------  ENTRECULTURAS  ---------------" );
@@ -62,21 +61,25 @@ public class Main {
                     case 1:
                         clearScreen();
                         seleccionarTipoEmpleado();
+                        salir = true;
                         break;
                     case 2:
                         clearScreen();
                         System.out.println("Lo sentimos. Función no implementada.");
                         pulseEnterParaContinuar();
                         clearScreen();
-                        mostrarMenu();
+                        mostrarMenuPrincipal();
+                        salir = true;
                         break;
                     case 3:
                         clearScreen();
                         seleccionarTipoListado();
+                        salir = true;
                         break;
                     case 4:
                         System.out.println("\nSaliendo del programa. Gracias por usar nuestra aplicación.");
-                        System.exit(0);
+                        salir = true;
+                        break;
                     default:
                         System.out.print("Selección no válida. Pruebe de nuevo: ");
                 } // fin de switch
@@ -124,7 +127,8 @@ public class Main {
                         ong.addEquipo(perVol);
                         pulseEnterParaContinuar();
                         clearScreen();
-                        mostrarMenu();
+                        mostrarMenuPrincipal();
+                        salir = true;
                         break;
                     case 2:
                         clearScreen();
@@ -136,7 +140,8 @@ public class Main {
                         ong.addEquipo(perVolInt);
                         pulseEnterParaContinuar();
                         clearScreen();
-                        mostrarMenu();
+                        mostrarMenuPrincipal();
+                        salir = true;
                         break;
                     default:
                         System.out.print("Selección no válida. Pruebe de nuevo: ");
@@ -168,7 +173,8 @@ public class Main {
         System.out.println( "Seleccione los tipos de datos a consultar:" );
         System.out.println( "1 - Detalles ONG" );
         System.out.println( "2 - Listado de personal" );
-        System.out.println( "3 - Volver al menú principal" );
+        System.out.println( "3 - Listado de proyectos" );
+        System.out.println( "4 - Volver al menú principal" );
         System.out.print(  "\nSu elección: ");
 
         while (!salir) {
@@ -184,17 +190,26 @@ public class Main {
                         System.out.printf("%s", ong.toString());
                         pulseEnterParaContinuar();
                         seleccionarTipoListado();
+                        salir = true;
                         break;
                     case 2:
                         clearScreen();
-                        //System.out.printf("%s", ong.lequipo.toString());
                         ong.lequipo.forEach(Personal -> System.out.printf(Personal.toString()+"\n"));
                         pulseEnterParaContinuar();
                         seleccionarTipoListado();
+                        salir = true;
                         break;
                     case 3:
                         clearScreen();
-                        mostrarMenu();
+                        ong.lproyectos.forEach(Proyecto -> System.out.printf(Proyecto.toString()+"\n"));
+                        pulseEnterParaContinuar();
+                        seleccionarTipoListado();
+                        salir = true;
+                        break;
+                    case 4:
+                        clearScreen();
+                        mostrarMenuPrincipal();
+                        salir = true;
                         break;
                     default:
                         System.out.print("Selección no válida. Pruebe de nuevo: ");
@@ -239,46 +254,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Precargamos datos existentes desde el XML
-        ong = new DaoXmlOng().getONG();
-
+        // Precargamos datos existentes desde el XML
+        // Creamos una instancia del factory seleccionando XML
+        DAOFactory objetoFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
+        // Creamos una instancia DAO XML
+        IOngDAO ongDAO = objetoFactory.getOngDAO();
+        // Creamos nuestra instancia de ONG
+        ong = ongDAO.readOngDAO();
         // Abrimos el menú principal de la aplicació
-        mostrarMenu();
+        mostrarMenuPrincipal();
+        // Guardamos estado actual de la aplicación antes de salir.
+        objetoFactory.getOngDAO().createOngDAO(ong);
 
-        //TODO Guardamos estado actual en el XML.
-
-
-//        ONG ong = new DaoXmlOng().getONG();
-//        System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> CIF: " + ong.getCIF());
-//        System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> Nombre: " + ong.getNombre());
-
-
-        // Si os parece, de momento voy a comentar esta parte (da error al compilar, quizá porque ya hay un main
-        // antes)
-
-        //public static void main(String[] args) throws IOException {
-        //Proyecto proyecto;
-        //System.out.println("Introduce el Id de Proyecto: ");
-        //Scanner reader = new Scanner(System.in);
-        //int id = reader.nextInt();
-        //System.out.println("Introduce el pais del Proyecto: ");
-        //String pais = reader.next();
-        //System.out.println("Introduce la localizacion del Proyecto: ");
-        //String localizacion = reader.next();
-        //proyecto = new Proyecto(id, pais, localizacion);
-        //System.out.println(proyecto.getPais());
-        //System.out.println(proyecto.getLocalizacion());
-
-        //Test
-        //public void testSetAndGetDescription(id, pais, localizacion){
-        //Proyecto proyecto;
-        //proyecto = new Proyecto();
-        //String testPais = "Pais";
-        //assertNull(proyecto.getPais());
-        //proyecto.setPais(testPais);
-        //assertEquals(testPais, proyecto.getPais());
-        //}
-        //}
     } // fin de main
 
 
@@ -286,6 +273,5 @@ public class Main {
 
 
 
-//TODO: Implementar la funcionalidad de añadir y eliminar empleados a la lista de empleados.
-//TODO: Añadir opción de menú de listar empleados, y quizá alguna opción extra.
+//TODO: Eliminar empleados a la lista de empleados.
 //TODO: Revisar método crearID en subclases de Personal (¿bien implementado?)

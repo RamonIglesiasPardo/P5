@@ -10,7 +10,13 @@ package ong.entreculturas;
 
 import ong.entreculturas.Direccion;
 
+import javax.xml.bind.annotation.*;
+
+
+
+@XmlType(propOrder={"nombre", "primerApellido", "segundoApellido", "telefono", "mail", "direccion"})
 public abstract class Persona {
+
 
 	private String nombre;
 	private String primerApellido;
@@ -68,7 +74,7 @@ public abstract class Persona {
 	 *
 	 *	@return String con el nombre de la persona
 	 */
-
+	@XmlElement(name = "nombre")
 	public String getNombre() {
 
 		return nombre;

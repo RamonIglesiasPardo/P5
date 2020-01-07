@@ -1,15 +1,19 @@
 package ong.entreculturas;
 
+import javax.xml.bind.annotation.*;
 import java.util.List;
 import java.util.Date;
 
 //Clase Proyecto
-
+@XmlRootElement(name = "proyecto")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Proyecto {
 
     //variables de proyecto
 
+    @XmlAttribute(name = "id")
     public int idProyecto;
+    private String nombre;
     private String pais;
     private String localizacion;
     private LineaDeAccion lineaDeAccion;
@@ -18,14 +22,16 @@ public class Proyecto {
     //private List<Socio> socios;
     //private List<FinanciacionProyecto> financiacionProyectos;
     private String acciones;
+    @XmlElement(name = "personalAsignado")
     private List<Personal> personal;
 
     // constructor de Proyecto
 
-    public Proyecto( int idProyecto, String pais, String localizacion, LineaDeAccion lineaDeAccion,
+    public Proyecto( int idProyecto, String nombre, String pais, String localizacion, LineaDeAccion lineaDeAccion,
                      Date fechaInicio, Date fechaFin, String acciones, List<Personal> personal)  {
 
         this.idProyecto = idProyecto;
+        this.nombre = nombre;
         this.pais = pais;
         this.localizacion = localizacion;
         this.lineaDeAccion = lineaDeAccion;
@@ -38,6 +44,13 @@ public class Proyecto {
 
     } //Cerramos el constructor
 
+    /**Constructor por defecto de Proyecto
+     *
+     * */
+    public Proyecto() {
+
+    }
+
 
     // Metodos
 
@@ -45,10 +58,18 @@ public class Proyecto {
         this.idProyecto = idProyecto ;
     }
 
+
     public int getIdProyecto() {
         return idProyecto;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public void setPais(String pais) {
         this.pais = pais;
@@ -130,6 +151,15 @@ public class Proyecto {
        return personal;
     }
 
+    @Override
+    public String toString() {
+        return  "Id del proyecto: " + idProyecto + "\n" +
+                "Nombre del proyecto: " + nombre + "\n" +
+                "Descripción: " + acciones + "\n" +
+                "Ambito de acción del proyecto: " + localizacion + ", " + pais+ "\n" +
+                "Fechas inicio: " + fechaInicio + "\n" +
+                "Fechas finalización: " + fechaFin + "\n";
+    }
 
 
 }
