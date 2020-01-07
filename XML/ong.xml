@@ -79,6 +79,25 @@
         <dir>Baltimore, Maryland, Estados Unidos</dir>
         <paisOrigen>USA</paisOrigen>
     </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="10005100011">
+        <nombre>Raphael</nombre>
+        <primerApellido>Martos</primerApellido>
+        <segundoApellido>Sánchez</segundoApellido>
+        <telefono>646847588</telefono>
+        <mail>raphael@rapahelnet.com</mail>
+        <direccion>
+            <codPostal>10101</codPostal>
+            <escalera>A</escalera>
+            <localidad>Linares</localidad>
+            <nombreVia>Toda una vida</nombreVia>
+            <numero>1</numero>
+            <piso>101</piso>
+            <provincia>JAEN</provincia>
+            <puerta>A</puerta>
+            <tipoVia>PLA</tipoVia>
+        </direccion>
+        <NumHorasVoluntariado>0</NumHorasVoluntariado>
+    </Personal>
     <Proyectos id="1001">
         <nombre>CONVENIO DE EDUCACIÓN TRANSFORMADORA (AECID) </nombre>
         <pais>El Salvador, República Dominicana, Haití, Perú, Colombia y Bolivia</pais>

@@ -28,10 +28,25 @@ public class XmlOngDAO implements IOngDAO {
        }
 
        @Override
-       public void createOngDAO(ONG pONG) {
+       public void createOngDAO(ONG ong) {
 
-              //Implementación de la lógica
-              //Crea una nueva instancia de ONG.
+              System.out.println("Por favor, no cierre la aplicación mientras guardamos los cambios...");
+
+              try {
+
+                     //Hacemos un marshaller para transformar la instancia ong en un archivo xml.
+                     JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
+                     Marshaller marshaller = jaxbContext.createMarshaller();
+                     marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+                     marshaller.marshal(ong, new File("XML/ong.xml"));
+
+                     System.out.println("¡Cambios guardados correctamente!");
+
+              } catch (PropertyException e) {
+                     e.printStackTrace();
+              } catch (JAXBException e) {
+                     e.printStackTrace();
+              }
 
        }
 
@@ -39,14 +54,11 @@ public class XmlOngDAO implements IOngDAO {
        public ONG readOngDAO() {
 
               try {
-                     
+
                      File file = new File("XML/ong.xml");
                      JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
                      Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
                      ong = (ONG) unmarshaller.unmarshal(file);
-                     System.out.println(ong);
-                     ong.lequipo.forEach(Personal -> System.out.printf(Personal.toString()+"\n"));
-                     ong.lproyectos.forEach(Proyecto -> System.out.printf(Proyecto.toString()+"\n"));
 
               } catch (JAXBException e) {
                      e.printStackTrace();

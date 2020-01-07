@@ -63,6 +63,7 @@ public class Main {
                     case 1:
                         clearScreen();
                         seleccionarTipoEmpleado();
+                        salir = true;
                         break;
                     case 2:
                         clearScreen();
@@ -70,14 +71,17 @@ public class Main {
                         pulseEnterParaContinuar();
                         clearScreen();
                         mostrarMenu();
+                        salir = true;
                         break;
                     case 3:
                         clearScreen();
                         seleccionarTipoListado();
+                        salir = true;
                         break;
                     case 4:
                         System.out.println("\nSaliendo del programa. Gracias por usar nuestra aplicación.");
-                        System.exit(0);
+                        salir = true;
+                        break;
                     default:
                         System.out.print("Selección no válida. Pruebe de nuevo: ");
                 } // fin de switch
@@ -126,6 +130,7 @@ public class Main {
                         pulseEnterParaContinuar();
                         clearScreen();
                         mostrarMenu();
+                        salir = true;
                         break;
                     case 2:
                         clearScreen();
@@ -138,6 +143,7 @@ public class Main {
                         pulseEnterParaContinuar();
                         clearScreen();
                         mostrarMenu();
+                        salir = true;
                         break;
                     default:
                         System.out.print("Selección no válida. Pruebe de nuevo: ");
@@ -185,6 +191,7 @@ public class Main {
                         System.out.printf("%s", ong.toString());
                         pulseEnterParaContinuar();
                         seleccionarTipoListado();
+                        salir = true;
                         break;
                     case 2:
                         clearScreen();
@@ -192,10 +199,12 @@ public class Main {
                         ong.lequipo.forEach(Personal -> System.out.printf(Personal.toString()+"\n"));
                         pulseEnterParaContinuar();
                         seleccionarTipoListado();
+                        salir = true;
                         break;
                     case 3:
                         clearScreen();
                         mostrarMenu();
+                        salir = true;
                         break;
                     default:
                         System.out.print("Selección no válida. Pruebe de nuevo: ");
@@ -240,51 +249,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Precargamos datos existentes desde el XML
-        //Creamos una instancia del factory seleccionando XML
+        // Precargamos datos existentes desde el XML
+        // Creamos una instancia del factory seleccionando XML
         DAOFactory objetoFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
-        //Creamos una instancia DAO XML
+        // Creamos una instancia DAO XML
         IOngDAO ongDAO = objetoFactory.getOngDAO();
-        //Creamos nuestra instancia de ONG
+        // Creamos nuestra instancia de ONG
         ong = ongDAO.readOngDAO();
-
         // Abrimos el menú principal de la aplicació
         mostrarMenu();
+        // Guardamos estado actual de la aplicación antes de salir.
+        objetoFactory.getOngDAO().createOngDAO(ong);
 
-        //TODO Guardamos estado actual en el XML.
-
-
-//        ONG ong = new DaoXmlOng().getONG();
-//        System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> CIF: " + ong.getCIF());
-//        System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> Nombre: " + ong.getNombre());
-
-
-        // Si os parece, de momento voy a comentar esta parte (da error al compilar, quizá porque ya hay un main
-        // antes)
-
-        //public static void main(String[] args) throws IOException {
-        //Proyecto proyecto;
-        //System.out.println("Introduce el Id de Proyecto: ");
-        //Scanner reader = new Scanner(System.in);
-        //int id = reader.nextInt();
-        //System.out.println("Introduce el pais del Proyecto: ");
-        //String pais = reader.next();
-        //System.out.println("Introduce la localizacion del Proyecto: ");
-        //String localizacion = reader.next();
-        //proyecto = new Proyecto(id, pais, localizacion);
-        //System.out.println(proyecto.getPais());
-        //System.out.println(proyecto.getLocalizacion());
-
-        //Test
-        //public void testSetAndGetDescription(id, pais, localizacion){
-        //Proyecto proyecto;
-        //proyecto = new Proyecto();
-        //String testPais = "Pais";
-        //assertNull(proyecto.getPais());
-        //proyecto.setPais(testPais);
-        //assertEquals(testPais, proyecto.getPais());
-        //}
-        //}
     } // fin de main
 
 
