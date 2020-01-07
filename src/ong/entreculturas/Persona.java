@@ -13,7 +13,8 @@ import ong.entreculturas.Direccion;
 import javax.xml.bind.annotation.*;
 
 
-@XmlRootElement(name = "datosPersonales")
+
+@XmlType(propOrder={"nombre", "primerApellido", "segundoApellido", "telefono", "mail", "direccion"})
 public abstract class Persona {
 
 

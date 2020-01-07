@@ -13,6 +13,7 @@ public class Proyecto {
 
     @XmlAttribute(name = "id")
     public int idProyecto;
+    private String nombre;
     private String pais;
     private String localizacion;
     private LineaDeAccion lineaDeAccion;
@@ -26,10 +27,11 @@ public class Proyecto {
 
     // constructor de Proyecto
 
-    public Proyecto( int idProyecto, String pais, String localizacion, LineaDeAccion lineaDeAccion,
+    public Proyecto( int idProyecto, String nombre, String pais, String localizacion, LineaDeAccion lineaDeAccion,
                      Date fechaInicio, Date fechaFin, String acciones, List<Personal> personal)  {
 
         this.idProyecto = idProyecto;
+        this.nombre = nombre;
         this.pais = pais;
         this.localizacion = localizacion;
         this.lineaDeAccion = lineaDeAccion;
@@ -61,6 +63,13 @@ public class Proyecto {
         return idProyecto;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public void setPais(String pais) {
         this.pais = pais;
@@ -142,6 +151,14 @@ public class Proyecto {
        return personal;
     }
 
+    @Override
+    public String toString() {
+        return  "Id del proyecto: " + idProyecto + "\n" +
+                "Descripción: " + acciones + "\n" +
+                "Ambito de acción del proyecto: " + localizacion + ", " + pais+ "\n" +
+                "Fechas inicio: " + fechaInicio + "\n" +
+                "Fechas finalización: " + fechaFin + "\n";
+    }
 
 
 }

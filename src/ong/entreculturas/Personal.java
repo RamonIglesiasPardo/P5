@@ -1,3 +1,7 @@
+package ong.entreculturas;
+
+import javax.xml.bind.annotation.*;
+
 /** La clase abstracta Personal hereda de la clase Persona, y a su vez
  *	tiene las subclases PerEmpleado, PerColaborador y PerVoluntario.
  *	Representa a un empleado de la ONG (de cualquier tipo)
@@ -5,15 +9,7 @@
  *	@author Alberto González Casado
  *  @version 1.4
  */
-
-        package ong.entreculturas;
-
-// a falta de implementar la clase Proyecto
-//import ong.entreculturas.Proyecto;
-import ong.entreculturas.Direccion;
-
-import javax.xml.bind.annotation.XmlAttribute;
-
+@XmlSeeAlso({PerVoluntario.class, PerVolInternacional.class}) //Instructs JAXB to also bind other classes when binding this class
 public abstract class Personal extends Persona {
 
     // a falta de implementar la clase Sede

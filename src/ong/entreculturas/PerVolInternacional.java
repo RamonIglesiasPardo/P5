@@ -1,3 +1,10 @@
+package ong.entreculturas;
+
+import java.util.Scanner;
+import ong.entreculturas.Direccion;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
 /** La clase PerVolInternacional es subclase directa de la clase
  *	PerVoluntario.
  *	Representa a un empleado voluntario internacional.
@@ -5,12 +12,7 @@
  *	@author Alberto González Casado
  *  @version 1.4
  */
-
-		package ong.entreculturas;
-
-import java.util.Scanner;
-import ong.entreculturas.Direccion;
-
+@XmlRootElement(name = "TipoVol")
 public class PerVolInternacional extends PerVoluntario {
 
 	private static int idVolIntCount = 1;
@@ -21,7 +23,6 @@ public class PerVolInternacional extends PerVoluntario {
 	/** Constructor de PerVolInternacional sin argumentos
 	 *
 	 */
-
 	public PerVolInternacional() {
 
 		super();
@@ -45,6 +46,7 @@ public class PerVolInternacional extends PerVoluntario {
 	 *	@param codInternaTelefono Código (prefijo) internacional del teléfono
 	 */
 
+	//TODO eliminar dirección, idVolIntCount y reflejarlo en un nuevo constructor en su super clase.
 	public PerVolInternacional( String nombre, String primerApellido,
 								String segundoApellido, Direccion direccion,
 								String telefono, String mail, String idPersonal,
@@ -163,7 +165,7 @@ public class PerVolInternacional extends PerVoluntario {
 		super.setTelefono( entrada.nextLine() );
 		System.out.print( "E-mail: " );
 		super.setMail( entrada.nextLine() );
-		super.crearId( 1150, "72" ); // automatizar este punto
+		super.crearId( 1150, "72" ); // TODO automatizar este punto
 		super.setNumHorasVol( 120 ); // solo prueba: esta opción deberíamos ponerla como un método aparte
 
 
@@ -196,7 +198,7 @@ public class PerVolInternacional extends PerVoluntario {
 
 	public String toString() {
 
-		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s%s\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n%s: %s",
+		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s%s\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n\n",
 				"Nombre", super.getPrimerApellido(), super.getSegundoApellido(), super.getNombre(),
 				"Dirección", getDir(), "Teléfono", getCodInternaTelefono(), super.getTelefono(), "E-mail", super.getMail(),
 				"Id de empleado", super.getId(), "Tipo de empleado", "personal voluntario internacional",

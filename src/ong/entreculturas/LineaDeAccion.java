@@ -8,9 +8,9 @@ import java.util.List;
 
 public class LineaDeAccion {
 
-private  LineasDeAccionActivas tipoAccion;
+private LineasDeAccionActivas tipoAccion;
 private List<SubLineaDeAccion> subLineasDeAccion;
-private  String descripcion;
+private String descripcion;
 
     //Constructor
 

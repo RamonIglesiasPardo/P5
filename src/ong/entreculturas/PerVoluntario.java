@@ -15,7 +15,6 @@ import java.util.Scanner;
 public class PerVoluntario extends Personal {
 
 	private static int idVolCount = 1;
-	@XmlElement(name = "NumHorasVoluntariado")
 	private int numHorasVol;
 
 	/** Constructor de PerVoluntario sin argumentos
@@ -84,6 +83,7 @@ public class PerVoluntario extends Personal {
 	 *
 	 *	@return Int con el número de horas trabajadas
 	 */
+	@XmlElement(name = "NumHorasVoluntariado")
 	public int getNumHorasVol() {
 
 		return numHorasVol;
@@ -154,7 +154,7 @@ public class PerVoluntario extends Personal {
 	@Override
 	public String toString() {
 
-		return String.format( "%s\n%s: %s\n%s: %d",
+		return String.format( "%s\n%s: %s\n%s: %d\n",
 				super.toString(), "Tipo de empleado", "personal voluntario",
 				"Número de horas como voluntario", getNumHorasVol() );
 
