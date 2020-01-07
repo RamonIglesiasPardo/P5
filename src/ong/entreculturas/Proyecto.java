@@ -1,14 +1,17 @@
 package ong.entreculturas;
 
+import javax.xml.bind.annotation.*;
 import java.util.List;
 import java.util.Date;
 
 //Clase Proyecto
-
+@XmlRootElement(name = "proyecto")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Proyecto {
 
     //variables de proyecto
 
+    @XmlAttribute(name = "id")
     public int idProyecto;
     private String pais;
     private String localizacion;
@@ -18,6 +21,7 @@ public class Proyecto {
     //private List<Socio> socios;
     //private List<FinanciacionProyecto> financiacionProyectos;
     private String acciones;
+    @XmlElement(name = "personalAsignado")
     private List<Personal> personal;
 
     // constructor de Proyecto
@@ -38,12 +42,20 @@ public class Proyecto {
 
     } //Cerramos el constructor
 
+    /**Constructor por defecto de Proyecto
+     *
+     * */
+    public Proyecto() {
+
+    }
+
 
     // Metodos
 
     public void setIdProyecto(int idProyecto) {
         this.idProyecto = idProyecto ;
     }
+
 
     public int getIdProyecto() {
         return idProyecto;

@@ -1,5 +1,6 @@
 package ong.entreculturas;
 
+import javax.xml.bind.annotation.*;
 import java.util.Scanner;
 
 /** La clase PerVoluntario es subclase directa de la clase Personal
@@ -9,9 +10,12 @@ import java.util.Scanner;
  *	@author Aware Developers
  *  @version 1.5
  */
+
+@XmlRootElement(name = "TipoVol")
 public class PerVoluntario extends Personal {
 
 	private static int idVolCount = 1;
+	@XmlElement(name = "NumHorasVoluntariado")
 	private int numHorasVol;
 
 	/** Constructor de PerVoluntario sin argumentos
@@ -33,19 +37,17 @@ public class PerVoluntario extends Personal {
 	 *	@param telefono Teléfono de la persona (se pasa al constructor de la superclase)
 	 *	@param mail Correo electrónico de la persona (se pasa al constructor de la superclase)
 	 *	@param idPersonal Identificación de empleado (se pasa al constructor de la superclase)
-	 *	@param idCount Contador del número de empleados (se pasa al constructor de la superclase)
-	 *  @param idVolCount Contador del número de empleados voluntarios
 	 *	@param numHorasVol Número de horas trabajadas por el voluntario
 	 */
 	public PerVoluntario( String nombre, String primerApellido,
 						  String segundoApellido, Direccion direccion,
 						  String telefono, String mail, String idPersonal,
-						  int idCount, int idVolCount, int numHorasVol ) {
+						  int numHorasVol ) {
 
 		// pasa los campos comunes al constructor de la superclase
 
 		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail,
-				idPersonal, idCount );
+				idPersonal, idVolCount );
 
 		super.crearId(idVolCount++, "1");
 		this.numHorasVol = numHorasVol;

@@ -12,10 +12,13 @@
 //import ong.entreculturas.Proyecto;
 import ong.entreculturas.Direccion;
 
+import javax.xml.bind.annotation.XmlAttribute;
+
 public abstract class Personal extends Persona {
 
     // a falta de implementar la clase Sede
     //private Sede delegacionAsignada;
+    @XmlAttribute(name = "id")
     private String idPersonal;
     // variable de clase para contar el número de empleados
     private static int idCount = 1;

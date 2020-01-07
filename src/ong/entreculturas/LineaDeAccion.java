@@ -21,6 +21,11 @@ private  String descripcion;
         this.descripcion = descripcion;
     }
 
+    /**Constructor por defecto
+     * */
+    public LineaDeAccion() {
+
+    }
 
 
 

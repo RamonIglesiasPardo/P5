@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ong nombre="Nombre de la ONG" CIF="XXXXXXXX-X">
-    <Personal>
+<ong nombre="Entreculturas" CIF="G-82409020">
+    <Personal id="10001100011">
         <direccion>
             <codPostal>08041</codPostal>
             <escalera>A</escalera>
@@ -18,4 +18,64 @@
         <segundoApellido>Pardo</segundoApellido>
         <telefono>619201743</telefono>
     </Personal>
+    <Personal id="10002100021">
+        <direccion>
+            <codPostal>08041</codPostal>
+            <escalera>A</escalera>
+            <localidad>Barcelones</localidad>
+            <nombreVia>Mare de Deu</nombreVia>
+            <numero>100</numero>
+            <piso>ENT</piso>
+            <provincia>BAR</provincia>
+            <puerta>1</puerta>
+            <tipoVia>AVDA</tipoVia>
+        </direccion>
+        <mail>mailasd@hotmail.com</mail>
+        <nombre>Manolo</nombre>
+        <primerApellido>Fernandez</primerApellido>
+        <segundoApellido>Cuesta</segundoApellido>
+        <telefono>871125554</telefono>
+    </Personal>
+    <Personal id="10003100031">
+        <direccion>
+            <codPostal>08041</codPostal>
+            <escalera>A</escalera>
+            <localidad>Barcelones</localidad>
+            <nombreVia>Mare de Deu</nombreVia>
+            <numero>100</numero>
+            <piso>ENT</piso>
+            <provincia>BAR</provincia>
+            <puerta>1</puerta>
+            <tipoVia>AVDA</tipoVia>
+        </direccion>
+        <mail>gmail@gmail.com</mail>
+        <nombre>Antonio</nombre>
+        <primerApellido>Carmona</primerApellido>
+        <segundoApellido>Ruiz</segundoApellido>
+        <telefono>671458444</telefono>
+    </Personal>
+    <Proyectos id="1001">
+        <pais>España</pais>
+        <localizacion>Madrid</localizacion>
+        <lineaDeAccion/>
+        <fechaInicio>1970-01-01T01:00:00+01:00</fechaInicio>
+        <fechaFin>1970-01-01T01:00:00+01:00</fechaFin>
+        <acciones>Acciones a realizar en Madrid</acciones>
+    </Proyectos>
+    <Proyectos id="1002">
+        <pais>España</pais>
+        <localizacion>Barcelona</localizacion>
+        <lineaDeAccion/>
+        <fechaInicio>1970-01-01T01:00:00+01:00</fechaInicio>
+        <fechaFin>1970-01-01T01:00:00+01:00</fechaFin>
+        <acciones>Acciones a realizar en Barcelona</acciones>
+    </Proyectos>
+    <Proyectos id="1003">
+        <pais>Haiti</pais>
+        <localizacion>Haiti capital</localizacion>
+        <lineaDeAccion/>
+        <fechaInicio>1970-01-01T01:00:00+01:00</fechaInicio>
+        <fechaFin>1970-01-01T01:00:00+01:00</fechaFin>
+        <acciones>Acciones a realizar en Haiti</acciones>
+    </Proyectos>
 </ong>

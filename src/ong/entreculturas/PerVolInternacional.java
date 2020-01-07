@@ -38,8 +38,6 @@ public class PerVolInternacional extends PerVoluntario {
 	 *	@param telefono Teléfono de la persona (se pasa al constructor de la superclase)
 	 *	@param mail Correo electrónico de la persona (se pasa al constructor de la superclase)
 	 *	@param idPersonal Identificación de empleado (se pasa al constructor de la superclase)
-	 *	@param idCount Contador del número de empleados (se pasa al constructor de la superclase)
-	 *  @param idVolCount Contador del número de empleados voluntarios
 	 *	@param numHorasVol Número de horas trabajadas por el voluntario
 	 *	@param idVolIntCount Contador del número de voluntarios internacionales
 	 *	@param paisOrigen País de origen del voluntario internacional
@@ -50,13 +48,13 @@ public class PerVolInternacional extends PerVoluntario {
 	public PerVolInternacional( String nombre, String primerApellido,
 								String segundoApellido, Direccion direccion,
 								String telefono, String mail, String idPersonal,
-								int idCount, int idVolCount, int numHorasVol, int idVolIntCount,
+								int numHorasVol, int idVolIntCount,
 								String paisOrigen, String sDireccion, String codInternaTelefono ) {
 
 		// pasa los campos comunes al constructor de la superclase
 
 		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail,
-				idPersonal, idCount, idVolCount, numHorasVol );
+				idPersonal, numHorasVol );
 		super.crearId(idVolIntCount++, "1");
 		this.paisOrigen = paisOrigen;
 		this.direccion = sDireccion;	// renombramos pDireccion para evitar ambigüedades

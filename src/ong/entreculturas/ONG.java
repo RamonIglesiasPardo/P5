@@ -10,7 +10,7 @@ import java.util.List;
  * @author Ramón Iglesias
  */
 @XmlRootElement(name = "ong")
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public class ONG {
 
     @XmlAttribute(name = "nombre")
@@ -19,7 +19,8 @@ public class ONG {
     private String CIF;
     @XmlElement(name= "Personal")
     public List<Personal> lequipo;
-//    public List<Proyecto> lproyectos;
+    @XmlElement(name= "Proyectos")
+    public List<Proyecto> lproyectos;
 
 //    Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de las clases Personal y Proyecto
 //    Los siguientes atributos son omitidos intencionadamente. No implementaremos todas las funciones de la aplicación.
@@ -43,11 +44,11 @@ public class ONG {
      * //@param lproyectos utilizando un tipo de colección List, recibe un listado de objetos de tipo Proyecto,
      *               que conforman los diferentes proyectos que tiene la ONG
      */
-    public ONG(String nombre, String CIF, List<Personal> lequipo) {
+    public ONG(String nombre, String CIF, List<Personal> lequipo, List<Proyecto> lproyectos) {
         this.nombre = nombre;
         this.CIF = CIF;
         this.lequipo = lequipo;
-//        this.lproyectos = lproyectos;
+        this.lproyectos = lproyectos;
 
     }
 
@@ -56,7 +57,7 @@ public class ONG {
         this.nombre = nombre;
         this.CIF = CIF;
         this.lequipo = new ArrayList<Personal>();
-//        this.lproyectos = new ArrayList<Proyecto>();
+        this.lproyectos = new ArrayList<Proyecto>();
 
     }
 
@@ -171,8 +172,8 @@ public class ONG {
     public String toString() {
         return  "Nombre Organización: " + nombre + "\n" +
                 "CIF Organización: " + CIF + "\n" +
-                "Número de empleados: " + lequipo.size() + "\n";
-                //"Número de proyectos: " + lproyectos.size() + "\n";
+                "Número de empleados: " + lequipo.size() + "\n" +
+                "Número de proyectos: " + lproyectos.size() + "\n";
     }
 
 
