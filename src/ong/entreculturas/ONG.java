@@ -1,4 +1,5 @@
 package ong.entreculturas;
+import javax.xml.bind.annotation.*;//Importamos librerias JAXB. Desde la versión 1.6 de JDK, JAXB forma parte del JDK.
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +9,12 @@ import java.util.List;
  *
  * @author Ramón Iglesias
  */
+@XmlRootElement(name = "ong")
 public class ONG {
 
+    @XmlAttribute(name = "nombre_ONG")
     private String nombre;
+    @XmlAttribute(name = "CIF_ONG")
     private String CIF;
     public List<Personal> lequipo;
     private List<Proyecto> lproyectos;
@@ -32,9 +36,9 @@ public class ONG {
      *
      * @param nombre recibe un string con el nombre de la ONG
      * @param CIF recibe un string con el CIF de la ONG
-     * @param lequipo utilizando un tipo de colección List, recibe un listado de objetos de tipo Personal,
+     * //@param lequipo utilizando un tipo de colección List, recibe un listado de objetos de tipo Personal,
      *               que conforman los trabajadores de la ONG
-     * @param lproyectos utilizando un tipo de colección List, recibe un listado de objetos de tipo Proyecto,
+     * //@param lproyectos utilizando un tipo de colección List, recibe un listado de objetos de tipo Proyecto,
      *               que conforman los diferentes proyectos que tiene la ONG
      */
     public ONG(String nombre, String CIF) {
@@ -56,7 +60,7 @@ public class ONG {
 
     /** Setter para modificar el nombre de la ONG
      *
-     * @nombre contiene un String con el nuevo nombre de la ONG
+     * @param nombre contiene un String con el nuevo nombre de la ONG
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -72,7 +76,7 @@ public class ONG {
 
     /** Setter para modificar el CIF de la ONG
      *
-     * @CIF Contiene un String con el nuevo código de identificación fiscal
+     * @param CIF Contiene un String con el nuevo código de identificación fiscal
      */
     public void setCIF(String CIF) {
         this.CIF = CIF;
@@ -98,19 +102,19 @@ public class ONG {
         Personal pPersonaBuscada = null;
 
 
-            for (int i=0; i < lequipo.size(); i++ ) {
+        for (Personal personal : lequipo) {
 
-                try {
+            try {
 
-                    if (lequipo.get(i).getId().equals(idPersonal)) {
-                        pPersonaBuscada = lequipo.get(i);
-                        return pPersonaBuscada;
-                    }
-
-                } catch (Exception e) {
-                    System.out.println("ERROR: No existe ningún miembros del personal con el id proporcionado.");
+                if (personal.getId().equals(idPersonal)) {
+                    pPersonaBuscada = personal;
+                    return pPersonaBuscada;
                 }
+
+            } catch (Exception e) {
+                System.out.println("ERROR: No existe ningún miembros del personal con el id proporcionado.");
             }
+        }
 
         return pPersonaBuscada;
 
@@ -124,7 +128,7 @@ public class ONG {
 
         for (Personal element:lequipo) {
 
-            if (element.getId() == nuevoMiembro.getId()) {
+            if (element.getId().equals(nuevoMiembro.getId())) {
 
                 return addEquipo = false;
 
@@ -143,7 +147,7 @@ public class ONG {
 
     /** Getter
      *
-     * @param nombre
+     * //@param nombre
      */
 //    public List<Proyecto> getProyectos() {
 //        return proyectos;
