@@ -2,9 +2,10 @@ package ong.entreculturas;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import ong.dao.DaoXmlOng;
-import java.util.Scanner;
-import java.io.IOException;
+import ong.dao.DAOFactory;
+import ong.dao.IDaoOng;
+import ong.dao.IOngDAO;
+import ong.dao.XmlOngDAO;
 
 public class Main {
 
@@ -240,7 +241,12 @@ public class Main {
     public static void main(String[] args) {
 
         //Precargamos datos existentes desde el XML
-        ong = new DaoXmlOng().getONG();
+        //Creamos una instancia del factory seleccionando XML
+        DAOFactory objetoFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
+        //Creamos una instancia DAO XML
+        IOngDAO ongDAO = objetoFactory.getOngDAO();
+        //Creamos nuestra instancia de ONG
+        ong = ongDAO.readOngDAO();
 
         // Abrimos el menú principal de la aplicació
         mostrarMenu();

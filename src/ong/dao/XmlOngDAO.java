@@ -1,6 +1,9 @@
 package ong.dao;
 
-import ong.entreculturas.ONG;
+import ong.entreculturas.*;
+
+import javax.xml.bind.*;
+import java.io.File;
 
 /** En XmlOngDAO forma parte del patrón DAO.
  *  Permite separar la lógica para la persistencia de la lógica del negocio.
@@ -15,6 +18,8 @@ import ong.entreculturas.ONG;
  *  @version 1.0
  * */
 public class XmlOngDAO implements IOngDAO {
+
+       private ONG ong;
 
        public XmlOngDAO() {
 
@@ -33,10 +38,21 @@ public class XmlOngDAO implements IOngDAO {
        @Override
        public ONG readOngDAO() {
 
-              //Implementación de la lógica
-              //Devuelve la instancia de ONG.
+              try {
+                     
+                     File file = new File("XML/ong.xml");
+                     JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
+                     Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+                     ong = (ONG) unmarshaller.unmarshal(file);
+                     System.out.println(ong);
+                     ong.lequipo.forEach(Personal -> System.out.printf(Personal.toString()+"\n"));
+                     ong.lproyectos.forEach(Proyecto -> System.out.printf(Proyecto.toString()+"\n"));
 
-              return null;
+              } catch (JAXBException e) {
+                     e.printStackTrace();
+              }
+
+              return ong;
        }
 
        @Override

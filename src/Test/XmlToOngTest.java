@@ -16,9 +16,9 @@ public class XmlToOngTest {
     @Test
     public void testObjectToXml() throws JAXBException, FileNotFoundException {
 
-        File file = new File("XML/ong.xml");
-        JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
-        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        File file = new File("src/Test/XML/ong.xml");
+        JAXBContext JABXContext = JAXBContext.newInstance(ONG.class);
+        Unmarshaller unmarshaller = JABXContext.createUnmarshaller();
         ong = (ONG) unmarshaller.unmarshal(file);
         System.out.println(ong);
         ong.lequipo.forEach(Personal -> System.out.printf(Personal.toString()+"\n"));

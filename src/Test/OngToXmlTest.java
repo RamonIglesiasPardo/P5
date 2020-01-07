@@ -61,7 +61,7 @@ public class OngToXmlTest {
             JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(ong, new File("XML/ong.xml"));
+            marshaller.marshal(ong, new File("src/Test/XML/ong.xml"));
             marshaller.marshal(ong, System.out);
     }
 
