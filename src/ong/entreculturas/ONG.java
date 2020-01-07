@@ -1,4 +1,5 @@
 package ong.entreculturas;
+import javax.xml.bind.annotation.*;//Importamos librerias JAXB. Desde la versión 1.6 de JDK, JAXB forma parte del JDK.
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,23 +7,19 @@ import java.util.List;
  * La clase ONG, que por agregación se relaciona con la mayoría de las otras clases,
  * es una de las clases vertebrales del programa, conteniendo de forma directa o indirecta, las demás clases.
  *
- * Por ejemplo, el Array "lequipo" contedrá todo el personal/equipo que trabaja en la ONG. Son personas que se reflejan
- * como objetos de tipo Personal (ya que esa clase define sus propiedades y métodos) creando un listado tipo :
- * [persona1, persona2, persona3,..., personaN]
- *
- * @author Aware Developers
+ * @author Ramón Iglesias
  */
+@XmlRootElement(name = "ong")
 public class ONG {
 
+    @XmlAttribute(name = "nombre_ONG")
     private String nombre;
+    @XmlAttribute(name = "CIF_ONG")
     private String CIF;
-    private List<Personal> lequipo;
+    public List<Personal> lequipo;
     private List<Proyecto> lproyectos;
 
 //    Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de las clases Personal y Proyecto
-
-
-
 //    Los siguientes atributos son omitidos intencionadamente. No implementaremos todas las funciones de la aplicación.
 //    private SedeCentral sedeCentral;
 //    private List<Delegacion> delegaciones;
@@ -30,14 +27,18 @@ public class ONG {
 //    private List<IngresoPublico> ingresosPublicos;
 //    private List<IngresoPrivado> ingresosPrivados;
 
+    /**Constructor por defecto de ONG
+     *
+     * */
+    public ONG() {}
 
     /** Constructor de ONG
      *
      * @param nombre recibe un string con el nombre de la ONG
      * @param CIF recibe un string con el CIF de la ONG
-     * @param lequipo utilizando un tipo de colección List, recibe un listado de objetos de tipo Personal,
+     * //@param lequipo utilizando un tipo de colección List, recibe un listado de objetos de tipo Personal,
      *               que conforman los trabajadores de la ONG
-     * @param lproyectos utilizando un tipo de colección List, recibe un listado de objetos de tipo Proyecto,
+     * //@param lproyectos utilizando un tipo de colección List, recibe un listado de objetos de tipo Proyecto,
      *               que conforman los diferentes proyectos que tiene la ONG
      */
     public ONG(String nombre, String CIF) {
@@ -45,9 +46,7 @@ public class ONG {
         this.nombre = nombre;
         this.CIF = CIF;
         this.lequipo = new ArrayList<Personal>();
-
-//      Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de clases Personal y Proyecto
-//     this.lproyectos = new ArrayList<Proyecto>();
+        this.lproyectos = new ArrayList<Proyecto>();
 
     }
 
@@ -61,7 +60,7 @@ public class ONG {
 
     /** Setter para modificar el nombre de la ONG
      *
-     * @nombre contiene un String con el nuevo nombre de la ONG
+     * @param nombre contiene un String con el nuevo nombre de la ONG
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -77,7 +76,7 @@ public class ONG {
 
     /** Setter para modificar el CIF de la ONG
      *
-     * @CIF Contiene un String con el nuevo código de identificación fiscal
+     * @param CIF Contiene un String con el nuevo código de identificación fiscal
      */
     public void setCIF(String CIF) {
         this.CIF = CIF;
@@ -103,19 +102,19 @@ public class ONG {
         Personal pPersonaBuscada = null;
 
 
-            for (int i=0; i < lequipo.size(); i++ ) {
+        for (Personal personal : lequipo) {
 
-                try {
+            try {
 
-                    if (lequipo.get(i).getId().equals(idPersonal)) {
-                        pPersonaBuscada = lequipo.get(i);
-                        return pPersonaBuscada;
-                    }
-
-                } catch (Exception e) {
-                    System.out.println("ERROR: No existe ningún miembros del personal con el id proporcionado.");
+                if (personal.getId().equals(idPersonal)) {
+                    pPersonaBuscada = personal;
+                    return pPersonaBuscada;
                 }
+
+            } catch (Exception e) {
+                System.out.println("ERROR: No existe ningún miembros del personal con el id proporcionado.");
             }
+        }
 
         return pPersonaBuscada;
 
@@ -129,7 +128,7 @@ public class ONG {
 
         for (Personal element:lequipo) {
 
-            if (element.getId() == nuevoMiembro.getId()) {
+            if (element.getId().equals(nuevoMiembro.getId())) {
 
                 return addEquipo = false;
 
@@ -148,7 +147,7 @@ public class ONG {
 
     /** Getter
      *
-     * @param nombre
+     * //@param nombre
      */
 //    public List<Proyecto> getProyectos() {
 //        return proyectos;
@@ -160,12 +159,10 @@ public class ONG {
 
     @Override
     public String toString() {
-        return "ONG{" +
-                "nombre='" + nombre + '\'' +
-                ", CIF='" + CIF + '\'' +
-                ", equipo=" + lequipo +
-//                ", proyectos=" + proyectos +
-                '}';
+        return  "Nombre Organización: " + nombre + "\n" +
+                "CIF Organización: " + CIF + "\n" +
+                "Número de empleados: " + lequipo.size() + "\n" +
+                "Número de proyectos: " + lproyectos.size() + "\n";
     }
 
 

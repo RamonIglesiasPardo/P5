@@ -1,16 +1,12 @@
-/** La clase Direccion es un tipo de datos personalizado para almacenar 
+package ong.entreculturas;
+
+/** La clase Direccion es un tipo de datos personalizado para almacenar
  *  una dirección, con campos prefijados.
  *	La clase importa las clases TipoVia y Provincia
  *
- *	@author Alberto González Casado
- *	@version 1.3
+ *	@author Aware Developers
+ *	@version 1.4
  */
-
-package ong.entreculturas;
-
-import ong.entreculturas.TipoVia;
-import ong.entreculturas.Provincia;
-
 public class Direccion {
 
 	private TipoVia tipoVia;
@@ -23,7 +19,11 @@ public class Direccion {
 	private Provincia provincia;
 	private String localidad;
 
-	/** Constructor TipoVia
+	// Constructor Direccion por defecto
+
+	Direccion() {}
+
+	/** Constructor Direccion
 	 *
 	 *	@param tipoVia Tipo de vía (utiliza la clase enum TipoVia)
 	 *	@param nombreVia Nombre de la vía, calle, etc...
@@ -35,7 +35,6 @@ public class Direccion {
 	 *	@param provincia Provincia (utiliza la clase enum Provincia)
 	 *	@param localidad Localidad 
 	 */
-
 	public Direccion( TipoVia tipoVia, String nombreVia, String numero, 
 		String piso, String puerta, String escalera, String codPostal,
 		Provincia provincia, String localidad ) {
@@ -56,7 +55,6 @@ public class Direccion {
 	 *
 	 *	@param tipoVia Tipo de vía (utiliza la clase enum TipoVia)
 	 */
-
 	public void setTipoVia( TipoVia tipoVia ) {
 
 		this.tipoVia = tipoVia;
@@ -67,7 +65,6 @@ public class Direccion {
 	 *
 	 *  @return El tipo de la vía (tipo personalizado TipoVia)
 	 */
-
 	public TipoVia getTipoVia() {
 
 		return tipoVia;
@@ -78,7 +75,6 @@ public class Direccion {
 	 *
 	 *	@param nombreVia Nombre de la vía, calle, etc...
 	 */
-
 	public void setNombreVia( String nombreVia ) {
 
 		this.nombreVia = nombreVia;
@@ -89,7 +85,6 @@ public class Direccion {
 	 *
 	 *	@return String con el nombre de la vía, calle, etc... 
 	 */
-
 	public String getNombreVia() {
 
 		return nombreVia;
@@ -100,7 +95,6 @@ public class Direccion {
 	 *
 	 *	@param numero Número de la dirección del domicilio
 	 */
-
 	public void setNumero( String numero ) {
 
 		this.numero = numero;
@@ -111,7 +105,6 @@ public class Direccion {
 	 *
 	 *	@return String con el número de la dirección
 	 */
-
 	public String getNumero() {
 
 		return numero;
@@ -122,7 +115,6 @@ public class Direccion {
 	 *
 	 *	@param piso Piso de la dirección del domicilio
 	 */
-
 	public void setPiso( String piso ) {
 
 		this.piso = piso;
@@ -133,7 +125,6 @@ public class Direccion {
 	 *
 	 *	@return String con el piso de la dirección
 	 */
-
 	public String getPiso() {
 
 		return piso;
@@ -154,7 +145,6 @@ public class Direccion {
 	 *
 	 *	@return String con la letra de la dirección
 	 */
-
 	public String getPuerta() {
 
 		return puerta;
@@ -165,7 +155,6 @@ public class Direccion {
 	 *
 	 *	@param escalera Escalera de la dirección del domicilio
 	 */
-
 	public void setEscalera( String escalera ) {
 
 		this.escalera = escalera;
@@ -176,7 +165,6 @@ public class Direccion {
 	 *
 	 *	@return String con la escalera de la dirección
 	 */
-
 	public String getEscalera() {
 
 		return escalera;
@@ -187,7 +175,6 @@ public class Direccion {
 	 *
 	 *	@param codPostal Código postal
 	 */
-
 	public void setCodPostal( String codPostal ) {
 
 		this.codPostal = codPostal;
@@ -198,7 +185,6 @@ public class Direccion {
 	 *
 	 *	@return String con el código postal
 	 */
-
 	public String getCodPostal() {
 
 		return codPostal;
@@ -209,7 +195,6 @@ public class Direccion {
 	 *
 	 *	@param provincia Provincia (tipo personalizado Provincia)
 	 */
-
 	public void setProvincia( Provincia provincia ) {
 
 		this.provincia = provincia;
@@ -220,7 +205,6 @@ public class Direccion {
 	 *
 	 *	@return String con la provincia
 	 */
-
 	public Provincia getProvincia() {
 
 		return provincia;
@@ -231,7 +215,6 @@ public class Direccion {
 	 *
 	 *	@param localidad Localidad
 	 */
-
 	public void setLocalidad( String localidad ) {
 
 		this.localidad = localidad;
@@ -242,7 +225,6 @@ public class Direccion {
 	 *
 	 *	@return String con la localidad
 	 */
-
 	public String getLocalidad() {
 
 		return localidad;
@@ -253,7 +235,6 @@ public class Direccion {
 	 *
 	 *	@return representación String de un objeto Direccion
 	 */
-
 	@Override
 	public String toString() {
 

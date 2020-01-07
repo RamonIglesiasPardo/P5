@@ -1,138 +1,291 @@
 package ong.entreculturas;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import ong.dao.DaoXmlOng;
-
 import java.util.Scanner;
 import java.io.IOException;
 
 public class Main {
 
-	// Variables de clase
+    //Declaramos e instanciamos ONG, ya que contendrá toda las otras instancias de la aplicación.
+    static ONG ong = new ONG();
 
-	/*
-	* TODO El main tendrá que tener una implementación tal que así:
-	*
-	* 1 recuperar objetos de los XML:
-	* getONG();
-	*
-	* 2 ya con las instancias creadas (los datos del programa) mostraremos el menu:
-	* (Lo suyo sería utilizar sus clases)
-	* mostrarMenu();
-	*
-	* NOTA: Ya dependiendo de la lógica del mostrarMenu() iremos a parar a diferentes
-	* métodos que guardarán nuevas instancias en el XML que toque, borrarán una existente, etc...
-	* */
+    /**
+     * Método para borrar la pantalla de la consola (multiplataforma)
+     *
+     */
+    public static void clearScreen() {
 
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 
+    } // fin del método clearScreen
 
+    /**
+     * Método que muestra el menú principal de la aplicación
+     *
+     */
+    public static void mostrarMenu() {
 
-	private static String nombre;
-	private static String primerApellido;
-	private static String segundoApellido;
-	private static Scanner entrada;
-	private static Direccion direccionInt;
+        clearScreen();
+        System.out.println( "-----------------  ENTRECULTURAS  ---------------" );
+        System.out.println( "  ONG jesuíta para la educación y el desarrollo");
+        System.out.println(  "-------------------------------------------------");
+        System.out.println( "\n1 - Dar de alta un empleado" );
+        System.out.println(  "2 - Dar de baja un empleado" );
+        System.out.println(  "3 - Mostrar datos del sistema" );
+        System.out.println(  "4 - Salir de la aplicación" );
+        System.out.println(  "\nSeleccione una opción: ");
+        seleccionarOpcionDeMenu();
 
-	public static Direccion getDireccionInt() {
-		return direccionInt;
-	}
+    } // fin del método mostrarMenu
 
-	public static void setDireccionInt(Direccion direccionInt) {
-		Main.direccionInt = direccionInt;
-	}
+    /**
+     * Método para seleccionar una opción del menú principal.
+     * Llama a los métodos adecuados en función de la opción escogida.
+     *
+     */
+    public static void seleccionarOpcionDeMenu() {
 
-	// Método para obtener la información (parcialmente implementado, solo para probar la entrada de datos)
+        Scanner entrada = new Scanner( System.in );
+        boolean salir = false;
 
-	public static void obtenerDatosPersona() {
+        while (!salir) {
 
-		entrada = new Scanner(System.in);
+            try {
 
-		System.out.print( "Introduzca el nombre de pila: " );
-		nombre = entrada.nextLine();
-		System.out.print( "\nIntroduzca el primer apellido: " );
-		primerApellido = entrada.nextLine();
-		System.out.print( "\nIntroduzca el segundo apellido: " );
-		segundoApellido = entrada.nextLine();
+                int opcion = entrada.nextInt();
 
-	} // fin del método obtenerDatosPersona
+                switch (opcion) {
+
+                    case 1:
+                        clearScreen();
+                        seleccionarTipoEmpleado();
+                        break;
+                    case 2:
+                        clearScreen();
+                        System.out.println("Lo sentimos. Función no implementada.");
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        mostrarMenu();
+                        break;
+                    case 3:
+                        clearScreen();
+                        seleccionarTipoListado();
+                        break;
+                    case 4:
+                        System.out.println("\nSaliendo del programa. Gracias por usar nuestra aplicación.");
+                        System.exit(0);
+                    default:
+                        System.out.print("Selección no válida. Pruebe de nuevo: ");
+                } // fin de switch
+            } catch ( InputMismatchException e ) {
+
+                System.out.print( "Solo se aceptan las opciones indicadas. Pruebe de nuevo:  " );
+                entrada.next();
+
+            } // fin de try...catch
+
+        } // fin de while
+
+    } // fin del método seleccionarOpcionDeMenu
+
+    /**
+     * Método para seleccionar el tipo de empleado a dar de alta.
+     * Según el tipo de empleado seleccionado, crea un objeto apropiado y llama
+     * al método correspondiente.
+     *
+     */
+    public static void seleccionarTipoEmpleado() {
+
+        Scanner entrada = new Scanner( System.in );
+        boolean salir = false;
+        System.out.println( "Seleccione el tipo de empleado a dar de alta:" );
+        System.out.println( "1 - Personal voluntario" );
+        System.out.println( "2 - Personal voluntario internacional" );
+        System.out.print(  "\nSu elección: ");
+
+        while (!salir) {
+
+            try {
+
+                int opcion = entrada.nextInt();
+
+                switch (opcion) {
+
+                    case 1:
+                        clearScreen();
+                        PerVoluntario perVol = new PerVoluntario();
+                        perVol.introducirDatosPersona();
+                        // Mostramos los datos del empleado
+                        System.out.println("\n" + perVol.toString());
+                        //Añadimos el nuevo empleado a la ONG
+                        ong.addEquipo(perVol);
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        mostrarMenu();
+                        break;
+                    case 2:
+                        clearScreen();
+                        PerVolInternacional perVolInt = new PerVolInternacional();
+                        perVolInt.introducirDatosPersona();
+                        // Mostramos los datos del empleado
+                        System.out.println("\n" + perVolInt.toString());
+                        //Añadimos el nuevo empleado a la ONG
+                        ong.addEquipo(perVolInt);
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        mostrarMenu();
+                        break;
+                    default:
+                        System.out.print("Selección no válida. Pruebe de nuevo: ");
+                        opcion = entrada.nextInt();
+
+                } // fin de switch
+
+            } catch ( InputMismatchException e ) {
+
+                System.out.print( "Solo se aceptan las opciones indicadas. Pruebe de nuevo:  " );
+                entrada.next();
+
+            } // fin de try...catch
+
+        } // fin de while
+
+    } // fin del método seleccionarTipoEmpleado
+
+    /**
+     * Método para seleccionar el tipo de empleado a dar de alta.
+     * Según el tipo de empleado seleccionado, crea un objeto apropiado y llama
+     * al método correspondiente.
+     *
+     */
+    public static void seleccionarTipoListado() {
+
+        Scanner entrada = new Scanner( System.in );
+        boolean salir = false;
+        System.out.println( "Seleccione los tipos de datos a consultar:" );
+        System.out.println( "1 - Detalles ONG" );
+        System.out.println( "2 - Listado de personal" );
+        System.out.println( "3 - Volver al menú principal" );
+        System.out.print(  "\nSu elección: ");
+
+        while (!salir) {
+
+            try {
+
+                int opcion = entrada.nextInt();
+
+                switch (opcion) {
+
+                    case 1:
+                        clearScreen();
+                        System.out.printf("%s", ong.toString());
+                        pulseEnterParaContinuar();
+                        seleccionarTipoListado();
+                        break;
+                    case 2:
+                        clearScreen();
+                        //System.out.printf("%s", ong.lequipo.toString());
+                        ong.lequipo.forEach(Personal -> System.out.printf(Personal.toString()+"\n"));
+                        pulseEnterParaContinuar();
+                        seleccionarTipoListado();
+                        break;
+                    case 3:
+                        clearScreen();
+                        mostrarMenu();
+                        break;
+                    default:
+                        System.out.print("Selección no válida. Pruebe de nuevo: ");
+                        opcion = entrada.nextInt();
+
+                } // fin de switch
+
+            } catch ( InputMismatchException e ) {
+
+                System.out.print( "Solo se aceptan las opciones indicadas. Pruebe de nuevo:  " );
+                entrada.next();
+
+            } // fin de try...catch
+
+        } // fin de while
+
+    } // fin del método seleccionarTipoEmpleado
+
+    /**
+     * Método para continuar tras pulsar la tecla Enter.
+     *
+     */
+    public static void pulseEnterParaContinuar() {
+
+        String tecla;
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Presione Enter para continuar...");
+
+        try {
+
+            tecla = teclado.nextLine();
+
+        }
+
+        catch(Exception e)
+
+        {}
+
+    } // fin del método pulseEnterParaContinuar
+
+    // Variables de clase (eliminadas: no son necesarias)
 
     public static void main(String[] args) {
 
-    	// Prueba de las clases Persona, Personal PerVoluntario
+        //Precargamos datos existentes desde el XML
+        ong = new DaoXmlOng().getONG();
 
-        ONG ong1 = new DaoXmlOng().getONG();
+        // Abrimos el menú principal de la aplicació
+        mostrarMenu();
 
-        System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> CIF: " + ong1.getCIF());
-        System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> Nombre: " + ong1.getNombre());
+        //TODO Guardamos estado actual en el XML.
 
-        System.out.println( "--- Prueba de la clase Persona y sus subclases" );
-        System.out.println( "--- ------------------------------------------\n");
-        System.out.println( "--- Personal Voluntario:\n" );
 
-        // Creamos un objeto TipoVia y uno provincia
+//        ONG ong = new DaoXmlOng().getONG();
+//        System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> CIF: " + ong.getCIF());
+//        System.out.println("IMPRIMIENDO DESDE INSTANCIA ONG ----> Nombre: " + ong.getNombre());
 
-        TipoVia tipoVia = TipoVia.AVDA;
-        Provincia provincia = Provincia.ZAR;
 
-        // Creamos un objeto Direccion, utilizando el tipo de vía y la provincia recién creados
+        // Si os parece, de momento voy a comentar esta parte (da error al compilar, quizá porque ya hay un main
+        // antes)
 
-        Direccion direccion = new Direccion( tipoVia, "de Madrid", "192", "6º", "B", "izqda.",
-            "50017", provincia, "Zaragoza" );
+        //public static void main(String[] args) throws IOException {
+        //Proyecto proyecto;
+        //System.out.println("Introduce el Id de Proyecto: ");
+        //Scanner reader = new Scanner(System.in);
+        //int id = reader.nextInt();
+        //System.out.println("Introduce el pais del Proyecto: ");
+        //String pais = reader.next();
+        //System.out.println("Introduce la localizacion del Proyecto: ");
+        //String localizacion = reader.next();
+        //proyecto = new Proyecto(id, pais, localizacion);
+        //System.out.println(proyecto.getPais());
+        //System.out.println(proyecto.getLocalizacion());
 
-        // Llamamos al método obtenerDatosPersona
+        //Test
+        //public void testSetAndGetDescription(id, pais, localizacion){
+        //Proyecto proyecto;
+        //proyecto = new Proyecto();
+        //String testPais = "Pais";
+        //assertNull(proyecto.getPais());
+        //proyecto.setPais(testPais);
+        //assertEquals(testPais, proyecto.getPais());
+        //}
+        //}
+    } // fin de main
 
-        obtenerDatosPersona();
 
-        // Creamos un objeto PerVoluntario y establecemos sus datos
-
-        PerVoluntario perVoluntario = new PerVoluntario( nombre, primerApellido, segundoApellido, direccion, "876425597",
-            "jgimenezmoreno@gmail.com", 68 );
-
-        // Obtenemos un String con los datos completos de la persona
-
-        System.out.println( "\n" + perVoluntario.toString() );
-
-        System.out.println( "\n--- Personal Voluntario Internacional:\n" );
-
-        // Creamos un objeto Direccion, sobreescribiendo el campo de Persona
-
-        setDireccionInt(new Direccion( tipoVia, "de Madrid", "192", "6º", "B",
-				"izqda.","50017", provincia, "Zaragoza" ));
-
-        // Creamos un objeto PerVoluntario y establecemos sus datos
-
-        PerVolInternacional perVolInt = new PerVolInternacional( "Michael", "Johnson",
-				"Smith", direccion, "555424687",
-            "mjohnsonsmith@gmail.com", 42,"Estados Unidos",
-            "Park Avenue, 323 - PO BOX: 505423 - New York (USA)", "+34" );
-
-        // Obtenemos un String con los datos completos de la persona
-
-        System.out.println( perVolInt.toString() );
+} // fin de la clase Main
 
 
 
-
-//        Proyecto proyecto;
-//        System.out.println("Introduce el Id de Proyecto: ");
-//        Scanner reader = new Scanner(System.in);
-//        int id = reader.nextInt();
-//        System.out.println("Introduce el pais del Proyecto: ");
-//        String pais = reader.next();
-//        System.out.println("Introduce la localizacion del Proyecto: ");
-//        String localizacion = reader.next();
-//        proyecto = new Proyecto(id, pais, localizacion);
-//        System.out.println(proyecto.getPais());
-//        System.out.println(proyecto.getLocalizacion());
-//
-//        //Test
-//    public void testSetAndGetDescription(id, pais, localizacion){
-//            Proyecto proyecto;
-//            proyecto = new Proyecto();
-//            String testPais = "Pais";
-//            assertNull(proyecto.getPais());
-//            proyecto.setPais(testPais);
-//            assertEquals(testPais, proyecto.getPais());
-   }
-
-}
+//TODO: Implementar la funcionalidad de añadir y eliminar empleados a la lista de empleados.
+//TODO: Añadir opción de menú de listar empleados, y quizá alguna opción extra.
+//TODO: Revisar método crearID en subclases de Personal (¿bien implementado?)

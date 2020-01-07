@@ -1,9 +1,7 @@
 package ong.entreculturas;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
-import java.lang.Exception;
 
 //Clase Proyecto
 
@@ -11,7 +9,7 @@ public class Proyecto {
 
     //variables de proyecto
 
-    public int idProyecto = 1;
+    public int idProyecto;
     private String pais;
     private String localizacion;
     private LineaDeAccion lineaDeAccion;
@@ -20,22 +18,23 @@ public class Proyecto {
     //private List<Socio> socios;
     //private List<FinanciacionProyecto> financiacionProyectos;
     private String acciones;
-    //private List<Personal> personal;
+    private List<Personal> personal;
 
     // constructor de Proyecto
 
-    public Proyecto( int idProyecto, String pais, String localizacion)  {
+    public Proyecto( int idProyecto, String pais, String localizacion, LineaDeAccion lineaDeAccion,
+                     Date fechaInicio, Date fechaFin, String acciones, List<Personal> personal)  {
 
         this.idProyecto = idProyecto;
         this.pais = pais;
         this.localizacion = localizacion;
-        //this.lineaDeAccion = lineaDeAccion;
+        this.lineaDeAccion = lineaDeAccion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        //List<Socio> socios = new ArrayList<Socio>;
-        //List<FinanciacionProyectos> financiacionProyectos = new ArrayList<FinanciacionProyecto>;
+        //this.socios = socios;
+        //this.financiacionProyectos = FinanciacionProyecto;
         this.acciones =  acciones;
-        //List<Personal> personal = new ArrayList<Personal>;
+        this.personal = personal;
 
     } //Cerramos el constructor
 
@@ -43,7 +42,7 @@ public class Proyecto {
     // Metodos
 
     public void setIdProyecto(int idProyecto) {
-        this.idProyecto = idProyecto ++;
+        this.idProyecto = idProyecto ;
     }
 
     public int getIdProyecto() {
@@ -70,18 +69,19 @@ public class Proyecto {
         return localizacion;
     }
 
-    //public void setLineaDeAccion(LineaDeAccion lineaDeAccion) {
-    //    this.lineaDeAccion = lineaDeAccion;
-    //}
+    public void setLineaDeAccion(LineaDeAccion lineaDeAccion) {
+        this.lineaDeAccion = lineaDeAccion;
+    }
 
 
-    //public String getLineaDeAccion() {
-    //    return lineaDeAccion;
-    //}
+    public LineaDeAccion getLineaDeAccion() {
+        return lineaDeAccion;
+    }
 
-    //public void setFechaInicio(Fecha fechaInicio) {
-    //    this.fechaInicio = fechaInicio;
-    //}
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
 
 
     public Date getFechaInicio() {
@@ -122,13 +122,13 @@ public class Proyecto {
         return acciones;
     }
 
-    //public void setPersonal(List<Personal> personal) {
-    //    this.personal = personal;
-    //}
+    public void setPersonal(List<Personal> personal) {
+        this.personal = personal;
+    }
 
-    //public List<personal> getPersonal() {
-    //    return personal;
-    //}
+    public List<Personal> getPersonal() {
+       return personal;
+    }
 
 
 
