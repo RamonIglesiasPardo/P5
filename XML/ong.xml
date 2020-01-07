@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ong nombre="Nombre de la ONG" CIF="XXXXXXXX-X">
+    <Personal>
+        <direccion>
+            <codPostal>08041</codPostal>
+            <escalera>A</escalera>
+            <localidad>Barcelones</localidad>
+            <nombreVia>Mare de Deu</nombreVia>
+            <numero>100</numero>
+            <piso>ENT</piso>
+            <provincia>BAR</provincia>
+            <puerta>1</puerta>
+            <tipoVia>AVDA</tipoVia>
+        </direccion>
+        <mail>asd@asd.com</mail>
+        <nombre>Ramon</nombre>
+        <primerApellido>Iglesias</primerApellido>
+        <segundoApellido>Pardo</segundoApellido>
+        <telefono>619201743</telefono>
+    </Personal>
+</ong>

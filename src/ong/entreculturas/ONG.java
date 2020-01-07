@@ -10,14 +10,16 @@ import java.util.List;
  * @author Ramón Iglesias
  */
 @XmlRootElement(name = "ong")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ONG {
 
-    @XmlAttribute(name = "nombre_ONG")
+    @XmlAttribute(name = "nombre")
     private String nombre;
-    @XmlAttribute(name = "CIF_ONG")
+    @XmlAttribute(name = "CIF")
     private String CIF;
+    @XmlElement(name= "Personal")
     public List<Personal> lequipo;
-    private List<Proyecto> lproyectos;
+//    public List<Proyecto> lproyectos;
 
 //    Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de las clases Personal y Proyecto
 //    Los siguientes atributos son omitidos intencionadamente. No implementaremos todas las funciones de la aplicación.
@@ -36,17 +38,25 @@ public class ONG {
      *
      * @param nombre recibe un string con el nombre de la ONG
      * @param CIF recibe un string con el CIF de la ONG
-     * //@param lequipo utilizando un tipo de colección List, recibe un listado de objetos de tipo Personal,
+     * @param lequipo utilizando un tipo de colección List, recibe un listado de objetos de tipo Personal,
      *               que conforman los trabajadores de la ONG
      * //@param lproyectos utilizando un tipo de colección List, recibe un listado de objetos de tipo Proyecto,
      *               que conforman los diferentes proyectos que tiene la ONG
      */
+    public ONG(String nombre, String CIF, List<Personal> lequipo) {
+        this.nombre = nombre;
+        this.CIF = CIF;
+        this.lequipo = lequipo;
+//        this.lproyectos = lproyectos;
+
+    }
+
+    /**Constructor sobrecargado. Pendiente eliminarlo...*/
     public ONG(String nombre, String CIF) {
-//    public ONG(String nombre, String CIF, List<Personal> lequipo, List<Proyecto> lproyectos) {
         this.nombre = nombre;
         this.CIF = CIF;
         this.lequipo = new ArrayList<Personal>();
-        this.lproyectos = new ArrayList<Proyecto>();
+//        this.lproyectos = new ArrayList<Proyecto>();
 
     }
 
@@ -161,8 +171,8 @@ public class ONG {
     public String toString() {
         return  "Nombre Organización: " + nombre + "\n" +
                 "CIF Organización: " + CIF + "\n" +
-                "Número de empleados: " + lequipo.size() + "\n" +
-                "Número de proyectos: " + lproyectos.size() + "\n";
+                "Número de empleados: " + lequipo.size() + "\n";
+                //"Número de proyectos: " + lproyectos.size() + "\n";
     }
 
 
