@@ -1,6 +1,7 @@
 package ong.entreculturas;
 
 import javax.xml.bind.annotation.*;
+import java.util.*;
 
 /** La clase abstracta Personal hereda de la clase Persona, y a su vez
  *	tiene las subclases PerEmpleado, PerColaborador y PerVoluntario.
@@ -9,32 +10,24 @@ import javax.xml.bind.annotation.*;
  *	@author Alberto González Casado
  *  @version 1.4
  */
-@XmlSeeAlso({PerVoluntario.class, PerVolInternacional.class}) //Instructs JAXB to also bind other classes when binding this class
+
+@XmlSeeAlso({PerVoluntario.class, PerVolInternacional.class})
 public abstract class Personal extends Persona {
 
     // a falta de implementar la clase Sede
     //private Sede delegacionAsignada;
-    @XmlAttribute(name = "id")
     private String idPersonal;
     // variable de clase para contar el número de empleados
     private static int idCount = 1;
-    // a falta de implementar la clase Proyecto
-    // declarar la variable tipo list de proyectosAsignados
-    //private List<Proyecto> proyectosAsignados;
+    private List<Proyecto> proyectosAsignados;
 
-
-    /** Constructor de Personal sin parámetros
+    /**Constructor por defecto
      *
      */
 
-    public Personal() {
+    public Personal() { super(); }
 
-        super();
-
-    } // fin del constructor de Personal sin parámetros
-
-    /** Constructor de Personal con todos los parámetros
-     *
+    /**Constructor de Personal
      *  @param nombre Nombre de la persona (se pasa al constructor de la superclase)
      *  @param primerApellido Primer apellido de la persona (se pasa al constructor de la superclase)
      *	@param segundoApellido Segundo apellido de la persona (se pasa al constructor de la superclase)
@@ -49,17 +42,12 @@ public abstract class Personal extends Persona {
                      String segundoApellido, Direccion direccion,
                      String telefono, String mail, String idPersonal,
                      int idCount ) {
-
-        // pasa los campos comunes al constructor de la superclase
-
         super( nombre, primerApellido, segundoApellido, direccion, telefono, mail );
-
         this.idPersonal = idPersonal;
         Personal.idCount = idCount++;
+    }
 
-    } // fin del constructor de Personal sin argumentos
-
-    /** Método protegido para crear un id de empleado
+    /** Método protegido para crear un id de empleado.
      *	El identificador está formado por doce dígitos que representan
      *	el número de incorporación como personal, el número de incorporación
      *	como miembro del equipo y un dígito que identifique al equipo.
@@ -67,24 +55,21 @@ public abstract class Personal extends Persona {
      *	Miembro #1150
      *	Empleado #72
      *  NOTA: este método equivale al setter de idPersonal
-     *
      * 	@param idHijo Identificador de la subclase
      *	@param idTpo Identificador del equipo
      */
 
     protected void crearId( int idHijo, String idTpo ) {
-
         String a = Integer.toString( idHijo + 10000 );
         String b = Integer.toString( idCount + 10000 );
         idPersonal = a.concat(b).concat(idTpo);
+    }
 
-    } // fin del método protegido crearId
-
-    /** Obtiene el idPersonal
-     *
-     *	@return String con el id de personal
+    /**Obtiene el idPersonal.
+     * @return String con el id de personal.
      */
 
+    @XmlAttribute(name = "id")
     public String getId() {
 
         return idPersonal;
