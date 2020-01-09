@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ong" type="ongType"/>
+  <xs:complexType name="direccionType">
+    <xs:sequence>
+      <xs:element name="codPostal">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="08041"/>
+            <xs:enumeration value="10101"/>
+            <xs:enumeration value="08001"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="escalera">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="A"/>
+            <xs:enumeration value="B"/>
+            <xs:enumeration value="a"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="localidad">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Barcelones"/>
+            <xs:enumeration value="Linares"/>
+            <xs:enumeration value="El ejido "/>
+            <xs:enumeration value="Toledo"/>
+            <xs:enumeration value="Madrid"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="nombreVia">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Mare de Deu"/>
+            <xs:enumeration value="Toda una vida"/>
+            <xs:enumeration value="Madrid"/>
+            <xs:enumeration value="Alcala"/>
+            <xs:enumeration value="Papuchi"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="numero">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="100"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="123"/>
+            <xs:enumeration value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="piso">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ENT"/>
+            <xs:enumeration value="101"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="12"/>
+            <xs:enumeration value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="provincia">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="BAR"/>
+            <xs:enumeration value="JAEN"/>
+            <xs:enumeration value="MUR"/>
+            <xs:enumeration value="TOL"/>
+            <xs:enumeration value="MAD"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="puerta">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="A"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="tipoVia">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="AVDA"/>
+            <xs:enumeration value="PLA"/>
+            <xs:enumeration value="RON"/>
+            <xs:enumeration value="CALL"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonalType">
+    <xs:sequence>
+      <xs:element name="nombre">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Ramon"/>
+            <xs:enumeration value="Manolo"/>
+            <xs:enumeration value="Antonio"/>
+            <xs:enumeration value="Michael"/>
+            <xs:enumeration value="Raphael"/>
+            <xs:enumeration value="El Fari"/>
+            <xs:enumeration value="Barack"/>
+            <xs:enumeration value="Julio"/>
+            <xs:enumeration value="Homer"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="primerApellido">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Iglesias"/>
+            <xs:enumeration value="Fernandez"/>
+            <xs:enumeration value="Carmona"/>
+            <xs:enumeration value="Knight"/>
+            <xs:enumeration value="Martos"/>
+            <xs:enumeration value="Sanchez"/>
+            <xs:enumeration value="Hussein"/>
+            <xs:enumeration value="Simpson"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="segundoApellido">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Pardo"/>
+            <xs:enumeration value="Cuesta"/>
+            <xs:enumeration value="Ruiz"/>
+            <xs:enumeration value="Hasselhoff"/>
+            <xs:enumeration value="Sánchez"/>
+            <xs:enumeration value="Sanchez"/>
+            <xs:enumeration value="Obama"/>
+            <xs:enumeration value="De la Cueva"/>
+            <xs:enumeration value=" "/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="telefono">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="619201743"/>
+            <xs:enumeration value="871125554"/>
+            <xs:enumeration value="671458444"/>
+            <xs:enumeration value="+011 1251215"/>
+            <xs:enumeration value="646847588"/>
+            <xs:enumeration value="615801022"/>
+            <xs:enumeration value="6161616"/>
+            <xs:enumeration value="61651658"/>
+            <xs:enumeration value="615845466"/>
+            <xs:enumeration value="2165165"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="mail">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="asd@asd.com"/>
+            <xs:enumeration value="mailasd@hotmail.com"/>
+            <xs:enumeration value="gmail@gmail.com"/>
+            <xs:enumeration value="raphael@rapahelnet.com"/>
+            <xs:enumeration value="obama@presi.com"/>
+            <xs:enumeration value="julio@iglesias.com"/>
+            <xs:enumeration value="homer@gmail.com"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="direccionType" name="direccion" minOccurs="0"/>
+      <xs:element name="NumHorasVoluntariado">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="105"/>
+            <xs:enumeration value="22"/>
+            <xs:enumeration value="1141"/>
+            <xs:enumeration value="10"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="120"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="codInternaTelefono" minOccurs="0"/>
+      <xs:element name="dir" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Baltimore, Maryland, Estados Unidos"/>
+            <xs:enumeration value="USA"/>
+            <xs:enumeration value="Springfield"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="paisOrigen" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="ProyectosType">
+    <xs:sequence>
+      <xs:element name="nombre">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="CONVENIO DE EDUCACIÓN TRANSFORMADORA (AECID) "/>
+            <xs:enumeration value="FONDO “LA LUZ DE LAS NIÑAS”"/>
+            <xs:enumeration value="PROGRAMA DE EDUCACIÓN DIGITAL (PROFUTURO)"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="pais">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="El Salvador, República Dominicana, Haití, Perú, Colombia y Bolivia"/>
+            <xs:enumeration value="Nicaragua, Haití, Chad, Sudán del Sur y República Centroafricana"/>
+            <xs:enumeration value="Guatemala y Colombia"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="localizacion"/>
+      <xs:element type="xs:string" name="lineaDeAccion"/>
+      <xs:element type="xs:string" name="fechaInicio"/>
+      <xs:element type="xs:string" name="fechaFin"/>
+      <xs:element name="acciones">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Para cambiar una sociedad que ha naturalizado la violencia y la desigualdad de sexos es clave el papel de la educación. Por ello, el trabajo conjunto de Entreculturas, Alboan y las Fe y Alegría de Nicaragua, El Salvador, República Dominicana, Haití, Perú, Colombia y Bolivia, gracias a la financiación de la AECID, ha permitido que, a lo largo de 2017, 12.186 estudiantes (con una participación femenina mayoritaria) hayan organizado y participado en acciones que promueven la cultura de paz y la igualdad de género en sus escuelas y comunidades. Todo ello les ha permitido conocer y analizar las problemáticas que les rodean y convertirse en agentes de cambio en sus entornos más cercanos."/>
+            <xs:enumeration value="El Fondo “La LUZ de las NIÑAS” es una iniciativa que pusimos en marcha en 2012 para apoyar proyectos orientados específicamente a la mejora de las condiciones de vida y el desarrollo de niñas y jóvenes que viven situaciones de extrema vulnerabilidad. Con este fondo queremos, además, visibilizar y denunciar las prácticas dañinas que soportan las niñas, las jóvenes y las mujeres en todo el mundo: mutilación genital, violencia sexual, matrimonios precoces, prostitución infantil y cualquier tipo de vulneración de derechos. Estas prácticas atentan contra su integridad física y psíquica causándoles, a veces, la muerte. Cada año se han sumado nuevos proyectos en nuevos países. Durante el año 2017 continuamos el trabajo en Nicaragua, Haití, Chad, Sudán del Sur y República Centroafricana y comenzamos en Camerún, R.D. Congo, Guatemala, El Salvador, Perú, Honduras y Bolivia."/>
+            <xs:enumeration value="En marzo de 2017 tuvo lugar la firma de un convenio de colaboración entre la Fundación Profuturo y Entreculturas para el desarrollo de dos proyectos piloto de educación digital en Guatemala y Colombia, encaminados a proveer acceso a una educación universal y de calidad a niños y jóvenes de entornos vulnerables. Este programa se enfoca en la adquisición de competencias a través de la tecnología y el empoderamiento de los docentes mediante la aplicación de metodologías innovadoras de enseñanza. En Guatemala el proyecto está beneficiando a 3.624 alumnos y 174 docentes mientras que en Colombia está beneficiando a 4.832 alumnos y 138 docentes."/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="ongType">
+    <xs:sequence>
+      <xs:element type="PersonalType" name="Personal" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="ProyectosType" name="Proyectos" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="nombre"/>
+    <xs:attribute type="xs:string" name="CIF"/>
+  </xs:complexType>
+</xs:schema>

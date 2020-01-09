@@ -177,6 +177,25 @@
         <dir>Springfield</dir>
         <paisOrigen>USA</paisOrigen>
     </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="10011100011">
+        <nombre>Paco</nombre>
+        <primerApellido>Porras</primerApellido>
+        <segundoApellido>Perejil</segundoApellido>
+        <telefono>15615811</telefono>
+        <mail>123@123.com</mail>
+        <direccion>
+            <codPostal>08001</codPostal>
+            <escalera>a</escalera>
+            <localidad>Perejil</localidad>
+            <nombreVia>De los amores</nombreVia>
+            <numero>51</numero>
+            <piso>2</piso>
+            <provincia>GUA</provincia>
+            <puerta>1</puerta>
+            <tipoVia>TRAV</tipoVia>
+        </direccion>
+        <NumHorasVoluntariado>0</NumHorasVoluntariado>
+    </Personal>
     <Proyectos id="1001">
         <nombre>CONVENIO DE EDUCACIÓN TRANSFORMADORA (AECID) </nombre>
         <pais>El Salvador, República Dominicana, Haití, Perú, Colombia y Bolivia</pais>

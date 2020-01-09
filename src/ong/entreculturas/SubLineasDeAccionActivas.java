@@ -9,28 +9,28 @@ public enum SubLineasDeAccionActivas {
 
     PROMOCIONSOCIAL ("Promoción Social"),
     CALIDADAD ("Calidad"),
-    UNIVERSALIZACIÓN ("Universalización"),
+    UNIVERSALIZACION ("Universalización"),
     AYUDAHUMANITARIA ("Ayuda Humanitaria"),
     FORTALECIMIENTO ("Fortalecimiento"),
-    TÉCNICA ("Técnica"),
+    TECNICA ("Técnica"),
     EDUDESAROLLO ("Educación para el desarollo"),
     EMERGENCIA ("Emergencia");
 
-    private String sublineaDeAcciónActiva;
+    private String sublineaDeAccionActiva;
     //¿¿¿Por definir algo más???
 
     //CONSTRUCTOR
-    SubLineasDeAccionActivas(String sublineaDeAcciónActiva) {
-        this.sublineaDeAcciónActiva = sublineaDeAcciónActiva;
+    SubLineasDeAccionActivas(String sublineaDeAccionActiva) {
+        this.sublineaDeAccionActiva = sublineaDeAccionActiva;
     }
 
     //GETTER
-    public String getSublineaDeAcciónActiva() {
-        return sublineaDeAcciónActiva;
+    public String getSublineaDeAccionActiva() {
+        return sublineaDeAccionActiva;
     }
 
     //SETTER
-    public void setSublineaDeAcciónActiva(String sublineaDeAcciónActiva) {
-        this.sublineaDeAcciónActiva = sublineaDeAcciónActiva;
+    public void setSublineaDeAccionActiva(String sublineaDeAccionActiva) {
+        this.sublineaDeAccionActiva = sublineaDeAccionActiva;
     }
 }

@@ -3,13 +3,16 @@ package ong.entreculturas;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**Esta clase contiene todos los métodos que se encargan de interactuar con el usuario desde consola.
+ *
+ * */
 public class MenusConsola {
 
     /**
      * Método para borrar la pantalla de la consola (multiplataforma)
      *
      */
-    public static void clearScreen() {
+    public void clearScreen() {
 
         System.out.print("\033[H\033[2J");
         System.out.flush();
