@@ -7,7 +7,7 @@ import java.util.List;
  * La clase ONG, que por agregación se relaciona con la mayoría de las otras clases,
  * es una de las clases vertebrales del programa, conteniendo de forma directa o indirecta, las demás clases.
  *
- * @author Ramón Iglesias
+ * @author Aware Developers
  */
 @XmlRootElement(name = "ong")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -237,9 +237,9 @@ public class ONG {
         return  "Nombre Organización: " + nombre + "\n" +
                 "CIF Organización: " + CIF + "\n" +
                 "Número de proyectos: " + lproyectos.size() + "\n" +
-                "Número de empleados: " + lequipo.size() + "\n" +
-                " ╠════ Número volutanrios nacionales: " + numVoluntariosNacionales() + "\n" +
-                " ╚════ Número volutanrios internacionales: " + numVoluntariosInternacionales() + "\n\n";
+                "Número de empleados total: " + lequipo.size() + "\n" +
+                " ╠════ Número voluntarios nacionales: " + numVoluntariosNacionales() + "\n" +
+                " ╚════ Número voluntarios internacionales: " + numVoluntariosInternacionales() + "\n\n";
     }
 
 
