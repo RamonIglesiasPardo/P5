@@ -98,6 +98,55 @@
         </direccion>
         <NumHorasVoluntariado>0</NumHorasVoluntariado>
     </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="10006100011">
+        <nombre>El Fari</nombre>
+        <primerApellido>Sanchez</primerApellido>
+        <segundoApellido>Sanchez</segundoApellido>
+        <telefono>615801022</telefono>
+        <mail>asd@asd.com</mail>
+        <direccion>
+            <codPostal>08001</codPostal>
+            <escalera>B</escalera>
+            <localidad>El ejido </localidad>
+            <nombreVia>Madrid</nombreVia>
+            <numero>123</numero>
+            <piso>1</piso>
+            <provincia>MUR</provincia>
+            <puerta>2</puerta>
+            <tipoVia>RON</tipoVia>
+        </direccion>
+        <NumHorasVoluntariado>0</NumHorasVoluntariado>
+    </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="10007100011">
+        <nombre>Manolo</nombre>
+        <primerApellido>Sanchez</primerApellido>
+        <segundoApellido>Sanchez</segundoApellido>
+        <telefono>6161616</telefono>
+        <mail>asd@asd.com</mail>
+        <direccion>
+            <codPostal>08001</codPostal>
+            <escalera>a</escalera>
+            <localidad>Toledo</localidad>
+            <nombreVia>Alcala</nombreVia>
+            <numero>100</numero>
+            <piso>12</piso>
+            <provincia>TOL</provincia>
+            <puerta>1</puerta>
+            <tipoVia>CALL</tipoVia>
+        </direccion>
+        <NumHorasVoluntariado>0</NumHorasVoluntariado>
+    </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="111501000172">
+        <nombre>Barack</nombre>
+        <primerApellido>Hussein</primerApellido>
+        <segundoApellido>Obama</segundoApellido>
+        <telefono>61651658</telefono>
+        <mail>obama@presi.com</mail>
+        <NumHorasVoluntariado>120</NumHorasVoluntariado>
+        <codInternaTelefono>+001</codInternaTelefono>
+        <dir>USA</dir>
+        <paisOrigen>USA</paisOrigen>
+    </Personal>
     <Proyectos id="1001">
         <nombre>CONVENIO DE EDUCACIÓN TRANSFORMADORA (AECID) </nombre>
         <pais>El Salvador, República Dominicana, Haití, Perú, Colombia y Bolivia</pais>
