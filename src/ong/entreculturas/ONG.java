@@ -131,6 +131,61 @@ public class ONG {
 
     }
 
+    /**Este método devuelve un int con el número de Voluntarios nacionales registrados en el sistema
+     * lequipo contiene instancias de tipo Personal, que a su vez tiene la subclase PerVoluntario
+     * y esta otra subclase PerVoluntarioInternacional.
+     *
+     * Como al final lequipo solo contiene instancias de vol nacional o vol internacional calcularemos el
+     * número de instancias de vol internacional (que es la que herera de todas las anteriores) y se la
+     * restaremos al número total de elementos en lequipo.
+     *
+     * NOTA: No podemos aplicar un polimorfismo directo porque las instancias PerVolInternacional también
+     * son instancias de PerVoluntario.
+     *
+     * @return int con el número de voluntarios nacionales registrados en el sistema.
+     * */
+    public int numVoluntariosNacionales(){
+
+        int numVoluntariosInternacionales = 0;
+
+        for (Personal miembroEquipo: lequipo){
+
+            if (miembroEquipo instanceof PerVolInternacional){
+
+                numVoluntariosInternacionales ++;
+
+            }
+
+        }
+
+        return lequipo.size() - numVoluntariosInternacionales;
+    }
+
+    /**Este método devuelve un int con el número de Voluntarios internacionales registrados en el sistema
+     * lequipo contiene instancias de tipo Personal, que a su vez tiene la subclase PerVoluntario
+     * y esta otra subclase PerVoluntarioInternacional.
+     *
+     * Tan solo sumamos el número de instancias que son de la clase PerVolInternacional.
+     *
+     * @return int con el número de voluntarios nacionales registrados en el sistema.
+     * */
+    public int numVoluntariosInternacionales(){
+
+        int numVoluntariosInternacionales = 0;
+
+        for (Personal miembroEquipo: lequipo){
+
+            if (miembroEquipo instanceof PerVolInternacional){
+
+                numVoluntariosInternacionales ++;
+
+            }
+
+        }
+
+        return numVoluntariosInternacionales;
+    }
+
 //TODO DE AQUÍ EN ADELANTE ESTA POR REVISAR...
 
     public boolean addEquipo(Personal nuevoMiembro) {
@@ -172,8 +227,10 @@ public class ONG {
     public String toString() {
         return  "Nombre Organización: " + nombre + "\n" +
                 "CIF Organización: " + CIF + "\n" +
+                "Número de proyectos: " + lproyectos.size() + "\n" +
                 "Número de empleados: " + lequipo.size() + "\n" +
-                "Número de proyectos: " + lproyectos.size() + "\n";
+                " ╠════ Número volutanrios nacionales: " + numVoluntariosNacionales() + "\n" +
+                " ╚════ Número volutanrios internacionales: " + numVoluntariosInternacionales() + "\n\n";
     }
 
 
