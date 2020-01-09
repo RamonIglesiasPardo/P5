@@ -12,12 +12,12 @@ public enum Provincia {
 	// declaramos las constantes de tipo enum
 
 	CORU( "La Coruña" ),
-	ALA ( "Álava" ),
+	ALA ( "Alava" ),
 	ALB ( "Albacete" ),
 	ALI ( "Alicante" ),
 	ALM ( "Almería" ),
 	AST ( "Asturias" ),
-	AVI ( "Ávila" ),
+	AVI ( "Avila" ),
 	BADJ( "Badajoz" ),
 	BAL ( "Baleares" ),
 	BAR ( "Barcelona" ),

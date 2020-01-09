@@ -7,7 +7,7 @@ import java.util.List;
  * La clase ONG, que por agregación se relaciona con la mayoría de las otras clases,
  * es una de las clases vertebrales del programa, conteniendo de forma directa o indirecta, las demás clases.
  *
- * @author Ramón Iglesias
+ * @author Aware Developers
  */
 @XmlRootElement(name = "ong")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -131,8 +131,65 @@ public class ONG {
 
     }
 
-//TODO DE AQUÍ EN ADELANTE ESTA POR REVISAR...
+    /**Este método devuelve un int con el número de Voluntarios nacionales registrados en el sistema
+     * lequipo contiene instancias de tipo Personal, que a su vez tiene la subclase PerVoluntario
+     * y esta otra subclase PerVoluntarioInternacional.
+     *
+     * Como al final lequipo solo contiene instancias de vol nacional o vol internacional calcularemos el
+     * número de instancias de vol internacional (que es la que herera de todas las anteriores) y se la
+     * restaremos al número total de elementos en lequipo.
+     *
+     * NOTA: No podemos aplicar un polimorfismo directo porque las instancias PerVolInternacional también
+     * son instancias de PerVoluntario.
+     *
+     * @return int con el número de voluntarios nacionales registrados en el sistema.
+     * */
+    public int numVoluntariosNacionales(){
 
+        int numVoluntariosInternacionales = 0;
+
+        for (Personal miembroEquipo: lequipo){
+
+            if (miembroEquipo instanceof PerVolInternacional){
+
+                numVoluntariosInternacionales ++;
+
+            }
+
+        }
+
+        return lequipo.size() - numVoluntariosInternacionales;
+    }
+
+    /**Este método devuelve un int con el número de Voluntarios internacionales registrados en el sistema
+     * lequipo contiene instancias de tipo Personal, que a su vez tiene la subclase PerVoluntario
+     * y esta otra subclase PerVoluntarioInternacional.
+     *
+     * Tan solo sumamos el número de instancias que son de la clase PerVolInternacional.
+     *
+     * @return int con el número de voluntarios nacionales registrados en el sistema.
+     * */
+    public int numVoluntariosInternacionales(){
+
+        int numVoluntariosInternacionales = 0;
+
+        for (Personal miembroEquipo: lequipo){
+
+            if (miembroEquipo instanceof PerVolInternacional){
+
+                numVoluntariosInternacionales ++;
+
+            }
+
+        }
+
+        return numVoluntariosInternacionales;
+    }
+
+    /** Este método añade un nuevo miembro al listado lequipo comprobando previamente que no exista nadie con mismo id.
+     *
+     * @return bool true si ha habido éxito añadiendo el nuevo miembro, false en caso contrario.
+     * */
     public boolean addEquipo(Personal nuevoMiembro) {
 
         boolean addEquipo = true;
@@ -149,6 +206,7 @@ public class ONG {
         if (addEquipo) {
 
             lequipo.add(nuevoMiembro);
+            return addEquipo;
 
         }
 
@@ -156,24 +214,32 @@ public class ONG {
 
     }
 
-    /** Getter
+    /** Getter para obtener el listado de proyectos
      *
-     * //@param nombre
+     * @return lproyectos con el listado de proyectos de la ONG
      */
-//    public List<Proyecto> getProyectos() {
-//        return proyectos;
-//    }
+    public List<Proyecto> getProyectos() {
+        return lproyectos;
+    }
 
-//    public void setProyectos(List<Proyecto> proyectos) {
-//        this.proyectos = proyectos;
-//    }
+    /**Setter para precargar un listado de proyectos en la ONG
+     *
+     * @param proyectos El nuevo listado de proyectos que recibiría la ONG.
+     * */
+    public void setProyectos(List<Proyecto> proyectos) {
+        this.lproyectos = lproyectos;
+    }
 
+    /**Se sobreescribe el método toString() para facilitar una presentación más legible al consultar la clase ONG
+     * */
     @Override
     public String toString() {
         return  "Nombre Organización: " + nombre + "\n" +
                 "CIF Organización: " + CIF + "\n" +
-                "Número de empleados: " + lequipo.size() + "\n" +
-                "Número de proyectos: " + lproyectos.size() + "\n";
+                "Número de proyectos: " + lproyectos.size() + "\n" +
+                "Número de empleados total: " + lequipo.size() + "\n" +
+                " ╠════ Número voluntarios nacionales: " + numVoluntariosNacionales() + "\n" +
+                " ╚════ Número voluntarios internacionales: " + numVoluntariosInternacionales() + "\n\n";
     }
 
 

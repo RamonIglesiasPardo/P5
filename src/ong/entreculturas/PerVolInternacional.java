@@ -165,8 +165,7 @@ public class PerVolInternacional extends PerVoluntario {
 		super.setTelefono( entrada.nextLine() );
 		System.out.print( "E-mail: " );
 		super.setMail( entrada.nextLine() );
-		super.crearId( 1150, "72" ); // TODO automatizar este punto
-		super.setNumHorasVol( 120 ); // solo prueba: esta opción deberíamos ponerla como un método aparte
+		super.setNumHorasVol( 0 ); // solo prueba: esta opción deberíamos ponerla como un método aparte
 
 
 	} // fin del método introducirDatosPersona

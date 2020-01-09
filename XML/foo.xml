@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--DOCTYPE foo SYSTEM "foo.dtd">-->
-<!-- Pruebas utilizando patrón DAO y presistencia en XML -->
-<ONG>
-    <nombre>ONG Entreculturas</nombre>
-    <CIF>G-82409020</CIF>
-</ONG>
