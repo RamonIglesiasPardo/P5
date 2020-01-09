@@ -186,8 +186,10 @@ public class ONG {
         return numVoluntariosInternacionales;
     }
 
-//TODO DE AQUÍ EN ADELANTE ESTA POR REVISAR...
-
+    /** Este método añade un nuevo miembro al listado lequipo comprobando previamente que no exista nadie con mismo id.
+     *
+     * @return bool true si ha habido éxito añadiendo el nuevo miembro, false en caso contrario.
+     * */
     public boolean addEquipo(Personal nuevoMiembro) {
 
         boolean addEquipo = true;
@@ -204,6 +206,7 @@ public class ONG {
         if (addEquipo) {
 
             lequipo.add(nuevoMiembro);
+            return addEquipo;
 
         }
 
@@ -211,18 +214,24 @@ public class ONG {
 
     }
 
-    /** Getter
+    /** Getter para obtener el listado de proyectos
      *
-     * //@param nombre
+     * @return lproyectos con el listado de proyectos de la ONG
      */
-//    public List<Proyecto> getProyectos() {
-//        return proyectos;
-//    }
+    public List<Proyecto> getProyectos() {
+        return lproyectos;
+    }
 
-//    public void setProyectos(List<Proyecto> proyectos) {
-//        this.proyectos = proyectos;
-//    }
+    /**Setter para precargar un listado de proyectos en la ONG
+     *
+     * @param proyectos El nuevo listado de proyectos que recibiría la ONG.
+     * */
+    public void setProyectos(List<Proyecto> proyectos) {
+        this.lproyectos = lproyectos;
+    }
 
+    /**Se sobreescribe el método toString() para facilitar una presentación más legible al consultar la clase ONG
+     * */
     @Override
     public String toString() {
         return  "Nombre Organización: " + nombre + "\n" +
