@@ -1,40 +1,36 @@
 package ong.entreculturas;
 
 import javax.xml.bind.annotation.*;
+import java.util.Scanner;
 
 /** La clase abstracta Personal hereda de la clase Persona, y a su vez
  *	tiene las subclases PerEmpleado, PerColaborador y PerVoluntario.
  *	Representa a un empleado de la ONG (de cualquier tipo)
  *
- *	@author Alberto González Casado
- *  @version 1.4
+ *	@author Aware Developers
+ *  @version 1.5
  */
-@XmlSeeAlso({PerVoluntario.class, PerVolInternacional.class}) //Instructs JAXB to also bind other classes when binding this class
-public abstract class Personal extends Persona {
+//Creo que @XmlSeeAlso se utiliza para mostrar únicamente los campos de las superclases
+//ver: http://www.techferry.com/articles/jaxb-annotations.html#XmlSeeAlso
+//@XmlSeeAlso({PerVoluntario.class, PerVolInternacional.class})
+@XmlSeeAlso(Persona.class)
+public class Personal extends Persona {
 
     // a falta de implementar la clase Sede
     //private Sede delegacionAsignada;
-    @XmlAttribute(name = "id")
     private String idPersonal;
-    // variable de clase para contar el número de empleados
+    // variable de clase utilizada para crear la Id de empleado
     private static int idCount = 1;
-    // a falta de implementar la clase Proyecto
-    // declarar la variable tipo list de proyectosAsignados
-    //private List<Proyecto> proyectosAsignados;
+    // --Commented out by Inspection (8/1/20 16:21):private List<Proyecto> proyectosAsignados;
+    // TODO: ¿Incluir campo List<Personal> listaEmpleados?
 
-
-    /** Constructor de Personal sin parámetros
+    /**Constructor por defecto
      *
      */
 
-    public Personal() {
+    public Personal() { super(); }
 
-        super();
-
-    } // fin del constructor de Personal sin parámetros
-
-    /** Constructor de Personal con todos los parámetros
-     *
+    /**Constructor de Personal
      *  @param nombre Nombre de la persona (se pasa al constructor de la superclase)
      *  @param primerApellido Primer apellido de la persona (se pasa al constructor de la superclase)
      *	@param segundoApellido Segundo apellido de la persona (se pasa al constructor de la superclase)
@@ -49,17 +45,13 @@ public abstract class Personal extends Persona {
                      String segundoApellido, Direccion direccion,
                      String telefono, String mail, String idPersonal,
                      int idCount ) {
-
-        // pasa los campos comunes al constructor de la superclase
-
         super( nombre, primerApellido, segundoApellido, direccion, telefono, mail );
-
         this.idPersonal = idPersonal;
-        Personal.idCount = idCount++;
+        //noinspection UnusedAssignment
+        Personal.idCount = idCount++; // Revisar este último punto, no lo tengo claro...
+    }
 
-    } // fin del constructor de Personal sin argumentos
-
-    /** Método protegido para crear un id de empleado
+    /** Método protegido para crear un id de empleado.
      *	El identificador está formado por doce dígitos que representan
      *	el número de incorporación como personal, el número de incorporación
      *	como miembro del equipo y un dígito que identifique al equipo.
@@ -67,60 +59,87 @@ public abstract class Personal extends Persona {
      *	Miembro #1150
      *	Empleado #72
      *  NOTA: este método equivale al setter de idPersonal
-     *
      * 	@param idHijo Identificador de la subclase
      *	@param idTpo Identificador del equipo
      */
 
-    protected void crearId( int idHijo, String idTpo ) {
-
+    // TODO: ¿Debería ser este método abstracto, al estilo de introducirDireccion?
+    public void crearId(int idHijo, String idTpo) {
         String a = Integer.toString( idHijo + 10000 );
         String b = Integer.toString( idCount + 10000 );
         idPersonal = a.concat(b).concat(idTpo);
+    }
 
-    } // fin del método protegido crearId
-
-    /** Obtiene el idPersonal
-     *
-     *	@return String con el id de personal
+    /**Obtiene el idPersonal.
+     * @return String con el id de personal.
      */
 
+    @XmlAttribute(name = "id")
     public String getId() {
 
         return idPersonal;
 
-    } // fin del método getId
+    }
 
-    /** Obtiene el número de empleado (por incorporación)
-     *
-     *	@return Int con el número de empleado (por incorporación)
+    /**Obtiene el idCount utilizado para crear la id del empleado.
+     * @return Int con el idCount
      */
 
-    public int getIdCount() {
+    public int getIdCount() { return idCount; }
 
-        return idCount;
-
-    } // fin del método getIdCount
-
-    /** Devuelve la representación String de un objeto Personal
-     *  NOTA: modificar si implementamos la clase Sede
-     *
-     *	@return Representación String de un objeto Personal
+    /**Método abstracto para introducir los datos de la persona.
+     * No se implementa en las clases abstractas, unicamente en las subclases concretas.
      */
 
-    /** Método abstracto para introducir los datos de la persona.
-     *  No se implementa en las clases abstractas, unicamente en las subclases concretas.
-     *
+    @Override
+    public void introducirDatosPersona() {
+        Scanner entrada = new Scanner( System.in );
+
+        System.out.print( "Nombre: " );
+        super.setNombre( entrada.nextLine() );
+        System.out.print( "Primer apellido: " );
+        super.setPrimerApellido( entrada.nextLine() );
+        System.out.print( "Segundo apellido: " );
+        super.setSegundoApellido( entrada.nextLine() );
+        super.setDireccion(introducirDireccion());
+        System.out.print( "Teléfono: " );
+        super.setTelefono( entrada.nextLine() );
+        System.out.print( "E-mail: " );
+        super.setMail( entrada.nextLine() );
+        crearId( getIdCount(), String.valueOf(idCount)); // TODO: Revisar
+
+    }
+
+    /**Método abstracto para introducir la dirección de la persona.
+     * No se implementa en las clases abstractas, unicamente en las subclases concretas.
      */
 
-    abstract public void introducirDatosPersona();
+    public Direccion introducirDireccion() {
+        Scanner entrada = new Scanner( System.in );
+        Direccion direccion = new Direccion();
+        TipoVia.introducirTipoVia(direccion);
+        System.out.println( "Nombre de la vía: " );
+        direccion.setNombreVia( entrada.nextLine() );
+        System.out.println( "Número: " );
+        direccion.setNumero( entrada.nextLine() );
+        System.out.println( "Piso: " );
+        direccion.setPiso( entrada.nextLine() );
+        System.out.println( "Puerta: " );
+        direccion.setPuerta( entrada.nextLine() );
+        System.out.println( "Escalera: " );
+        direccion.setEscalera( entrada.nextLine() );
+        System.out.println( "Código postal: " );
+        direccion.setCodPostal( entrada.nextLine() );
+        Provincia.introducirProvincia(direccion);
+        System.out.println( "Localidad: " );
+        direccion.setLocalidad( entrada.nextLine() );
 
-    /** Método abstracto para introducir la direcció de la persona.
-     *  No se implementa en las clases abstractas, unicamente en las subclases concretas.
-     *
+        return direccion;
+    }
+
+    /**Devuelve la representación String de un objeto Personal.
+     * @return Representación String de un objeto Personal.
      */
-
-    abstract public Direccion introducirDireccion();
 
     @Override
     public String toString() {
@@ -131,7 +150,4 @@ public abstract class Personal extends Persona {
 
     } // fin del método toString
 
-    // Podría implementarse al menos un método abstracto que nos permitiera
-    // aplicar polimorfismo en las clases hijas
-
-} // fin de la clase abstracta Personal
+}

@@ -1,221 +1,169 @@
-/**
- * La clase Persona es una clase abstracta que representa una persona.
- * Tiene las subclases directas Personal y Socio.
- *
- * @author Alberto González Casado
- * @version 1.4
- */
-
 package ong.entreculturas;
 
-import ong.entreculturas.Direccion;
-
-import javax.xml.bind.annotation.*;
-
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
-@XmlType(propOrder={"nombre", "primerApellido", "segundoApellido", "telefono", "mail", "direccion"})
+@XmlType(propOrder = {"nombre", "primerApellido", "segundoApellido", "direccion", "telefono", "mail", })
 public abstract class Persona {
 
 
-	private String nombre;
-	private String primerApellido;
-	private String segundoApellido;
-	private Direccion direccion;
-	private String telefono;
-	private String mail;
+    private String nombre;
+    private String primerApellido;
+    private String segundoApellido;
+    private Direccion direccion;
+    private String telefono;
+    private String mail;
 
-	/** Constructor de Persona (sin argumentos)
+    /**Constructor de Persona por defecto
 	 *
-	 */
+     */
 
-	public Persona() {
+    public Persona() {
+        super();
+    }
 
-		super();
+    /**Constructor de Persona
+     * @param nombre          Nombre de la persona
+     * @param primerApellido  Primer apellido de la persona
+     * @param segundoApellido Segundo apellido de la persona
+     * @param direccion       Dirección de la persona (no definida aún)
+     * @param telefono        Teléfono de la persona
+     * @param mail            Correo electrónico de la persona
+     */
 
-	} // fin del constructor de Persona sin argumentos
+    public Persona(String nombre, String primerApellido,
+                   String segundoApellido, Direccion direccion,
+                   String telefono, String mail) {
+        super();
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        setDireccion(direccion);
+        this.telefono = telefono;
+        this.mail = mail;
+    }
 
-	/** Constructor de Persona con todos los argumentos
-	 *
-	 *  @param nombre Nombre de la persona
-	 *  @param primerApellido Primer apellido de la persona
-	 *	@param segundoApellido Segundo apellido de la persona
-	 *	@param direccion Dirección de la persona (no definida aún)
-	 *	@param telefono Teléfono de la persona
-	 *	@param mail Correo electrónico de la persona
-	 */
+    /**Obtiene el nombre de la persona
+     * @return String con el nombre de la persona
+     */
 
-	public Persona( String nombre, String primerApellido,
-					String segundoApellido, Direccion direccion,
-					String telefono, String mail ) {
+    @XmlElement(name = "nombre")
+    public String getNombre() { return nombre; }
 
-		super();
-		this.nombre = nombre;
-		this.primerApellido = primerApellido;
-		this.segundoApellido = segundoApellido;
-		setDireccion( direccion );
-		this.telefono = telefono;
-		this.mail = mail;
+    /**Establece el nombre de la persona
+     * @param nombre nombre de la persona
+     */
 
-	} // fin del constructor de Persona con todos los argumentos
+    public void setNombre(String nombre) { this.nombre = nombre; }
 
-	/** Establece el nombre de la persona
-	 *
-	 *	@param nombre nombre de la persona
-	 */
+    /**Obtiene el primer apellido de la persona
+     * @return String con el primer apellido de la persona
+     */
 
-	public void setNombre( String nombre ) {
+	@XmlElement(name = "primerApellido")
+    public String getPrimerApellido() { return primerApellido; }
 
-		this.nombre = nombre;
+    /**Establece el primer apellido de la persona
+     * @param primerApellido primer apellido de la persona
+     */
 
-	} // fin del método setNombre
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
+    }
 
-	/** Obtiene el nombre de la persona
-	 *
-	 *	@return String con el nombre de la persona
-	 */
-	@XmlElement(name = "nombre")
-	public String getNombre() {
+    /**Obtiene el segundo apellido de la persona
+     * @return String con el segundo apellido de la persona
+     */
 
-		return nombre;
+	@XmlElement(name = "segundoApellido")
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
 
-	} // fin del método getNombre
+    /**Establece el segundo apellido de la persona
+     * @param segundoApellido segundo apellido la persona
+     */
 
-	/** Establece el primer apellido de la persona
-	 *
-	 *  @param primerApellido primer apellido de la persona
-	 */
-	public void setPrimerApellido( String primerApellido ) {
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
+    }
 
-		this.primerApellido = primerApellido;
+// --Commented out by Inspection START (8/1/20 15:41):
+    /**Obtiene la dirección del empleado (utiliza el tipo de datos Direccion)
+     * @return un objeto Direccion
+     */
 
-	} // fin del método setPrimerApellido
+	@XmlElement(name = "direccion")
+    public Direccion getDireccion() {
+        return direccion;
+    }
+// --Commented out by Inspection STOP (8/1/20 15:41)
 
-	/** Obtiene el primer apellido de la persona
-	 *
-	 *	@return String con el primer apellido de la persona
-	 */
+    /**Establece la dirección del empleado (utiliza el tipo de datos Direccion)
+     * @param direccion nombre del objeto Direccion
+     */
 
-	public String getPrimerApellido() {
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
 
-		return primerApellido;
+    /**Obtiene el teléfono de la persona
+     * @return String con el teléfono de la persona
+     */
 
-	} // fin del método getPrimerApellido
+	@XmlElement(name = "telefono")
+    public String getTelefono() {
+        return telefono;
+    }
 
-	/** Establece el segundo apellido de la persona
-	 *
-	 *	@param segundoApellido segundo apellido la persona
-	 */
+    /**Establece el teléfono de la persona
+     * @param telefono teléfono de la persona
+     */
 
-	public void setSegundoApellido( String segundoApellido ) {
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
-		this.segundoApellido = segundoApellido;
+    /**Obtiene el correo electrónico de la persona
+     * @return String con el correo electrónico de la persona
+     */
 
-	} // fin del método setSegundoApellido
+	@XmlElement(name = "email")
+    public String getMail() {
+        return mail;
+    }
 
-	/** obtiene el segundo apellido de la persona
-	 *
-	 *	@return String con el segundo apellido de la persona
-	 */
+    /**Establece el correo electrónico de la persona
+     * @param mail correo electrónico de la persona
+     */
 
-	public String getSegundoApellido() {
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
-		return segundoApellido;
+    /**Método abstracto para introducir los datos de la persona.
+     * No se implementa en las clases abstractas, unicamente en las subclases concretas.
+     */
 
-	} // fin del método getSegundoApellido
+    abstract public void introducirDatosPersona();
 
-	/** Establece la dirección del empleado (utiliza el tipo de datos Direccion)
-	 *
-	 *	@param direccion nombre del objeto Direccion
-	 */
+    /**Método abstracto para introducir la dirección de la persona.
+     * No se implementa en las clases abstractas, unicamente en las subclases concretas.
+     */
 
-	public void setDireccion( Direccion direccion ) {
+    abstract public Direccion introducirDireccion();
 
-		this.direccion = direccion;
+    /**Devuelve la representación String de un objeto Persona.
+     * @return representación String de un objeto Persona.
+     */
 
-	} // fin del método setDireccion
+    public String toString() {
+        return String.format("%s: %s %s, %s\n%s: %s\n%s: %s\n%s: %s",
+                "Nombre", getPrimerApellido(), getSegundoApellido(), getNombre(),
+                "Dirección", direccion.toString(),
+                "Teléfono", getTelefono(), "E-mail", getMail());
+    }
 
-	/** Obtiene la dirección del empleado (utiliza el tipo de datos Direccion)
-	 *
-	 *	@return un objeto Direccion
-	 */
-
-	public Direccion getDireccion() {
-
-		return direccion;
-
-	} // fin del método getDireccion
-
-	/** Establece el teléfono de la persona
-	 *
-	 *	@param telefono teléfono de la persona
-	 */
-
-	public void setTelefono( String telefono ) {
-
-		this.telefono = telefono;
-
-	} // fin del método setTelefono
-
-	/** Obtiene el teléfono de la persona
-	 *
-	 *	@return String con el teléfono de la persona
-	 */
-
-	public String getTelefono() {
-
-		return telefono;
-
-	} // fin del método getTelefono
-
-	/** establece el correo electrónico de la persona
-	 *
-	 *	@param mail correo electrónico de la persona
-	 */
-
-	public void setMail( String mail ) {
-
-		this.mail = mail;
-
-	} // fin del método setMail
-
-	/** Obtiene el correo electrónico de la persona
-	 *
-	 *	@return String con el correo electrónico de la persona
-	 */
-
-	public String getMail() {
-
-		return mail;
-
-	} // fin del método getMail
-
-	/** Método abstracto para introducir los datos de la persona.
-	 *  No se implementa en las clases abstractas, unicamente en las subclases concretas.
-	 *
-	 */
-
-	abstract public void introducirDatosPersona();
-
-	/** Método abstracto para introducir la direcció de la persona.
-	 *  No se implementa en las clases abstractas, unicamente en las subclases concretas.
-	 *
-	 */
-
-	abstract public Direccion introducirDireccion();
-
-	/** Devuelve la representación String de un objeto Persona
-	 *
-	 *	@return representación String de un objeto Persona
-	 */
-
-	public String toString() {
-
-		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s\n%s: %s",
-				"Nombre", getPrimerApellido(), getSegundoApellido(), getNombre(),
-				"Dirección", direccion.toString(),
-				"Teléfono", getTelefono(), "E-mail", getMail() );
-
-	} // fin del método toString
-
-} // fin de la clase abstracta Persona
+    public abstract void crearId(int idCount, String valueOf);
+}
