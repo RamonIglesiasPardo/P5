@@ -3,12 +3,13 @@ package ong.entreculturas;
 import javax.xml.bind.annotation.*;
 import java.util.Scanner;
 
-/** La clase abstracta Personal hereda de la clase Persona, y a su vez
- *	tiene las subclases PerEmpleado, PerColaborador y PerVoluntario.
- *	Representa a un empleado de la ONG (de cualquier tipo)
+/**
+ * La clase Personal hereda de la clase Persona, y a su vez
+ * tiene las subclases PerEmpleado, PerColaborador y PerVoluntario.
+ * Representa a un empleado de la ONG (de cualquier tipo)
  *
- *	@author Aware Developers
- *  @version 1.5
+ * @author Aware Developers
+ * @version 1.5
  */
 //Creo que @XmlSeeAlso se utiliza para mostrar únicamente los campos de las superclases
 //ver: http://www.techferry.com/articles/jaxb-annotations.html#XmlSeeAlso
@@ -21,74 +22,67 @@ public class Personal extends Persona {
     private String idPersonal;
     // variable de clase utilizada para crear la Id de empleado
     private static int idCount = 1;
-    // --Commented out by Inspection (8/1/20 16:21):private List<Proyecto> proyectosAsignados;
-    // TODO: ¿Incluir campo List<Personal> listaEmpleados?
 
-    /**Constructor por defecto
-     *
+    /**
+     * Constructor por defecto
      */
 
     public Personal() { super(); }
 
-    /**Constructor de Personal
-     *  @param nombre Nombre de la persona (se pasa al constructor de la superclase)
-     *  @param primerApellido Primer apellido de la persona (se pasa al constructor de la superclase)
-     *	@param segundoApellido Segundo apellido de la persona (se pasa al constructor de la superclase)
-     *	@param direccion Dirección de la persona (se pasa al constructor de la superclase)
-     *	@param telefono Teléfono de la persona (se pasa al constructor de la superclase)
-     *	@param mail Correo electrónico de la persona (se pasa al constructor de la superclase)
-     *	@param idPersonal Identificación de empleado
-     *	@param idCount Contador del número de empleados
+    /**
+     * Constructor de Personal
+     * @param nombre Nombre de la persona (se pasa al constructor de la superclase)
+     * @param primerApellido Primer apellido de la persona (se pasa al constructor de la superclase)
+     * @param segundoApellido Segundo apellido de la persona (se pasa al constructor de la superclase)
+     * @param direccion Dirección de la persona (se pasa al constructor de la superclase)
+     * @param telefono Teléfono de la persona (se pasa al constructor de la superclase)
+     * @param mail Correo electrónico de la persona (se pasa al constructor de la superclase)
      */
 
     public Personal( String nombre, String primerApellido,
                      String segundoApellido, Direccion direccion,
-                     String telefono, String mail, String idPersonal,
-                     int idCount ) {
+                     String telefono, String mail ) {
         super( nombre, primerApellido, segundoApellido, direccion, telefono, mail );
-        this.idPersonal = idPersonal;
-        //noinspection UnusedAssignment
-        Personal.idCount = idCount++; // Revisar este último punto, no lo tengo claro...
+
     }
 
-    /** Método protegido para crear un id de empleado.
-     *	El identificador está formado por doce dígitos que representan
-     *	el número de incorporación como personal, el número de incorporación
-     *	como miembro del equipo y un dígito que identifique al equipo.
-     *	Por ejemplo, el id 1011501000721 sería:
-     *	Miembro #1150
-     *	Empleado #72
-     *  NOTA: este método equivale al setter de idPersonal
-     * 	@param idHijo Identificador de la subclase
-     *	@param idTpo Identificador del equipo
+    /**
+     * Método para crear un id de empleado.
+     * El identificador está formado por una combinación alfanumérica que consiste
+     * en las siglas EC seguidas de un número correlativo de cuatro cifras de empleado general
+     * y unas siglas identificativas del subgrupo, más el número de empleado del subgrupo.
+     * Por ejemplo, EC0001V0001 equivaldría al primer voluntario asignado.
+     * NOTA: este método equivale al setter de idPersonal
+     * @param idHijo Identificador de la subclase
+     * @param idTipo Identificador del equipo
      */
 
-    // TODO: ¿Debería ser este método abstracto, al estilo de introducirDireccion?
-    public void crearId(int idHijo, String idTpo) {
-        String a = Integer.toString( idHijo + 10000 );
-        String b = Integer.toString( idCount + 10000 );
-        idPersonal = a.concat(b).concat(idTpo);
+    public void crearId(String idTipo, int idHijo) {
+        String s = String.format("EC%04d", idCount);
+        this.idPersonal = s + idTipo + String.format("%04d", idHijo);
+        idCount++;
+        idHijo++;
     }
 
-    /**Obtiene el idPersonal.
+    /**
+     * Obtiene el idPersonal.
      * @return String con el id de personal.
      */
 
-    @XmlAttribute(name = "id")
+    @XmlAttribute(name = "idPersonal")
     public String getId() {
-
         return idPersonal;
-
     }
 
-    /**Obtiene el idCount utilizado para crear la id del empleado.
+    /**
+     * Obtiene el idCount utilizado para crear la id del empleado.
      * @return Int con el idCount
      */
 
     public int getIdCount() { return idCount; }
 
-    /**Método abstracto para introducir los datos de la persona.
-     * No se implementa en las clases abstractas, unicamente en las subclases concretas.
+    /**
+     * Método para introducir los datos de la persona.
      */
 
     @Override
@@ -106,12 +100,10 @@ public class Personal extends Persona {
         super.setTelefono( entrada.nextLine() );
         System.out.print( "E-mail: " );
         super.setMail( entrada.nextLine() );
-        crearId( getIdCount(), String.valueOf(idCount)); // TODO: Revisar
-
     }
 
-    /**Método abstracto para introducir la dirección de la persona.
-     * No se implementa en las clases abstractas, unicamente en las subclases concretas.
+    /**
+     * Método para introducir la dirección de la persona.
      */
 
     public Direccion introducirDireccion() {
@@ -144,10 +136,9 @@ public class Personal extends Persona {
     @Override
     public String toString() {
 
-        return String.format( "%s\n%s: %s",
-                super.toString(), "Id de empleado",
-                getId() );
-
-    } // fin del método toString
+        return String.format("Nombre: %s %s, %s\nDirección: %s\nTeléfono: %s\nE-mail: %s",
+                super.getPrimerApellido(), super.getSegundoApellido(), super.getNombre(),
+                super.getDireccion(), super.getTelefono(), super.getMail());
+    }
 
 }

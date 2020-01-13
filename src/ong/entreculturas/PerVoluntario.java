@@ -3,12 +3,13 @@ package ong.entreculturas;
 import javax.xml.bind.annotation.*;
 import java.util.*;
 
-/** La clase PerVoluntario es subclase directa de la clase Personal
- *	y tiene la subclase PerVolInternacional.
- *	Representa a un empleado voluntario
+/**
+ * La clase PerVoluntario es subclase directa de la clase Personal
+ * y tiene la subclase PerVolInternacional.
+ * Representa a un empleado voluntario
  *
- *	@author Aware Developers
- *  @version 1.6
+ * @author Aware Developers
+ * @version 1.6
  */
 
 //Creo que habría que utilizar también @XmlSeeAlso, que nos mostrará además
@@ -18,60 +19,46 @@ import java.util.*;
 @XmlSeeAlso({Persona.class, Personal.class})
 public class PerVoluntario extends Personal {
 
+	private String idVol = "V";
 	private static int idVolCount = 1;
 	private int numHorasVol;
 
-	/** Constructor por defecto
-	 *
+	/**
+	 * Constructor por defecto
 	 */
+
 	public PerVoluntario() {
 		super();
-		super.crearId(idVolCount++, "1");
+		super.crearId(idVol, idVolCount);
+		idVolCount++;
+		this.numHorasVol = 0; // si desconocemos las horas las establecemos a 0
 	}
 
-	/** Constructor de PerVoluntario
-	 *  @param nombre Nombre de la persona (se pasa al constructor de la superclase)
-	 *  @param primerApellido Primer apellido de la persona (se pasa al constructor de la superclase)
-	 *	@param segundoApellido Segundo apellido de la persona (se pasa al constructor de la superclase)
-	 *	@param direccion Dirección de la persona (se pasa al constructor de la superclase)
-	 *	@param telefono Teléfono de la persona (se pasa al constructor de la superclase)
-	 *	@param mail Correo electrónico de la persona (se pasa al constructor de la superclase)
-	 *	@param idPersonal Identificación de empleado (se pasa al constructor de la superclase)
-	 *	@param numHorasVol Número de horas trabajadas por el voluntario
+	/**
+	 * Constructor de PerVoluntario
+	 * @param nombre Nombre de la persona (se pasa al constructor de la superclase)
+	 * @param primerApellido Primer apellido de la persona (se pasa al constructor de la superclase)
+	 * @param segundoApellido Segundo apellido de la persona (se pasa al constructor de la superclase)
+	 * @param direccion Dirección de la persona (se pasa al constructor de la superclase)
+	 * @param telefono Teléfono de la persona (se pasa al constructor de la superclase)
+	 * @param mail Correo electrónico de la persona (se pasa al constructor de la superclase)
+	 * @param numHorasVol Número de horas trabajadas por el voluntario
 	 */
 
 	public PerVoluntario( String nombre, String primerApellido,
 						  String segundoApellido, Direccion direccion,
-						  String telefono, String mail, String idPersonal,
-						  int numHorasVol ) {
+						  String telefono, String mail, int numHorasVol ) {
 
-		// pasa los campos comunes al constructor de la superclase
+		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail);
 
-		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail,
-				idPersonal, idVolCount );
-
-		super.crearId(idVolCount++, "1");
+		super.crearId(idVol, idVolCount);
+		idVolCount++;
 		this.numHorasVol = numHorasVol;
 
 	}
 
-//	Métodos innecesarios (redundantes; idVolCount se incrementa en el constructor y no necesitamos obtenerlo)
-//	/**Obtiene el idVolCount de este empleado voluntario.
-//	 * @return Int con el número del conteo de este empleado voluntario.
-//	 */
-//	public static int getIdVolCount() {
-//		return idVolCount;
-//	}
-//
-//	/**Establece el idVolCount de este empleado voluntario
-//	 *
-//	 * @param idVolCount se define el contador.
-//	 */
-//	public static void setIdVolCount(int idVolCount) {
-//		PerVoluntario.idVolCount = idVolCount;
-//	}
-
-	/**Establece el número de horas trabajadas como voluntario.
+	/**
+	 * Establece el número de horas trabajadas como voluntario.
 	 * @param numHorasVol Número de horas trabajadas por el voluntario.
 	 */
 
@@ -79,7 +66,8 @@ public class PerVoluntario extends Personal {
 		this.numHorasVol = numHorasVol;
 	}
 
-	/**Obtiene el número de horas trabajadas como voluntario.
+	/**
+	 * Obtiene el número de horas trabajadas como voluntario.
 	 * @return Int con el número de horas trabajadas.
 	 */
 
@@ -88,10 +76,10 @@ public class PerVoluntario extends Personal {
 		return numHorasVol;
 	}
 
-	/**Método para introducir los datos de la persona.
-	 * Es el método abstracto de las superclases, que aquí sí se implementa.
-	 *
+	/**
+	 * Método para introducir los datos de la persona.
 	 */
+
 	@Override
 	public void introducirDatosPersona() {
 		Scanner entrada = new Scanner( System.in );
@@ -107,9 +95,8 @@ public class PerVoluntario extends Personal {
 		super.setTelefono( entrada.nextLine() );
 		System.out.print( "E-mail: " );
 		super.setMail( entrada.nextLine() );
-		super.crearId( getIdCount(), String.valueOf(idVolCount)); // TODO: Revisar
-		// Inicialmente el voluntario no ha realizado horas. Podemos modificarlo posteriormente.
-		setNumHorasVol( 0 );
+		System.out.print( "Número de horas de voluntariado: " );
+		setNumHorasVol( entrada.nextInt() );
 	}
 
 	/**Método para introducir la dirección. Sobreescribe al de las superclases.
@@ -140,9 +127,19 @@ public class PerVoluntario extends Personal {
 		return direccion;
 	}
 
-//	NOTA: Si implementamos en la superclase Personal el método crearId como abstracto,
-//	deberíamos implementarlo en esta subclase y en PerVolInternacional, ya que cada una
-//	de ellas tiene id específicos y distintos.
+	/**
+	 * Obtiene el id del voluntario.
+	 * @return String con el id del voluntario.
+	 */
+
+	public String getIdVol() { return idVol; }
+
+	/**
+	 * Obtiene el idVolCount.
+	 * @return Int con el idVolCount.
+	 */
+
+	public int getIdVolCount() { return idVolCount; }
 
 	/**Devuelve la representación String de un objeto PerVoluntario.
 	 * @return Representación String de un objeto PerVoluntario.
@@ -150,8 +147,9 @@ public class PerVoluntario extends Personal {
 
 	@Override
 	public String toString() {
-		return String.format( "%s\n%s: %s\n%s: %d\n",
-				super.toString(), "Tipo de empleado", "personal voluntario",
-				"Número de horas como voluntario", getNumHorasVol() );
+		return String.format("Id de Empleado: %s\nNombre: %s %s, %s\nDirección: %s\nTeléfono: %s\nE-mail: %s"
+				+ "\nTipo de empeado: empleado voluntario\nNúmero de horas de voluntariado: %d",
+				super.getId(), super.getPrimerApellido(), super.getSegundoApellido(), super.getNombre(),
+				super.getDireccion(), super.getTelefono(), super.getMail(), getNumHorasVol());
 	}
 }

@@ -24,14 +24,20 @@ public class OngToXmlTest {
 
             //Creamos una dirección para el nuevo volutanrio.
             Direccion direccion;
-            direccion = new Direccion(TipoVia.AVDA, "Mare de Deu", "100", "ENT","1", "A", "08041", Provincia.BAR, "Barcelones");
+            direccion = new Direccion(TipoVia.AVDA, "Mare de Deu", "100", "ENT",
+                    "1", "A", "08041", Provincia.BAR, "Barcelones");
 
             //Creamos un voluntario para añadirlo al listado de voluntarios.
             PerVoluntario perVoluntario1, perVoluntario2, perVoluntario3;
-            perVoluntario1 = new PerVoluntario("Ramon", "Iglesias", "Pardo", direccion, "619201743", "asd@asd.com", "1", 105);
-            perVoluntario2 = new PerVoluntario("Manolo", "Fernandez", "Cuesta", direccion, "871125554", "mailasd@hotmail.com", "1", 22);
-            perVoluntario3 = new PerVoluntario("Antonio", "Carmona", "Ruiz", direccion, "671458444", "gmail@gmail.com", "1", 1141);
-            PerVolInternacional perVoluntario4 = new PerVolInternacional("Michael", "Knight", "Hasselhoff", direccion, "+011 1251215", "gmail@gmail.com", "1", 10, 1200, "USA", "Baltimore, Maryland, Estados Unidos", "+001");
+            perVoluntario1 = new PerVoluntario("Ramon", "Iglesias", "Pardo",
+                    direccion, "619201743", "asd@asd.com", 105);
+            perVoluntario2 = new PerVoluntario("Manolo", "Fernandez", "Cuesta",
+                    direccion, "871125554", "mailasd@hotmail.com", 22);
+            perVoluntario3 = new PerVoluntario("Antonio", "Carmona", "Ruiz",
+                    direccion, "671458444", "gmail@gmail.com", 1141);
+            PerVolInternacional perVoluntario4 = new PerVolInternacional("Michael", "Knight",
+                    "Hasselhoff", direccion, "1251215", "gmail@gmail.com", 10,
+                    "USA", "Baltimore, Maryland, Estados Unidos", "+001");
 
 
             //Creamos un listado de personal y añadimos el voluntario al listado.
