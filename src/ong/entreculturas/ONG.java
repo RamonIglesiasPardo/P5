@@ -2,13 +2,16 @@ package ong.entreculturas;
 import javax.xml.bind.annotation.*;//Importamos librerias JAXB. Desde la versión 1.6 de JDK, JAXB forma parte del JDK.
 import java.util.ArrayList;
 import java.util.List;
+import static java.lang.System.*;
 
 /**
  * La clase ONG, que por agregación se relaciona con la mayoría de las otras clases,
  * es una de las clases vertebrales del programa, conteniendo de forma directa o indirecta, las demás clases.
  *
- * @author Ramón Iglesias
+ * @author Aware Developers
+ * @version 1.3
  */
+
 @XmlRootElement(name = "ong")
 @XmlAccessorType(XmlAccessType.NONE)
 public class ONG {
@@ -22,14 +25,6 @@ public class ONG {
     @XmlElement(name= "Proyectos")
     public List<Proyecto> lproyectos;
 
-//    Estos atributos se comentan momentaniamente, a la espera de un merge y disponer de las clases Personal y Proyecto
-//    Los siguientes atributos son omitidos intencionadamente. No implementaremos todas las funciones de la aplicación.
-//    private SedeCentral sedeCentral;
-//    private List<Delegacion> delegaciones;
-//    private List<Socio> socios;
-//    private List<IngresoPublico> ingresosPublicos;
-//    private List<IngresoPrivado> ingresosPrivados;
-
     /**Constructor por defecto de ONG
      *
      * */
@@ -41,7 +36,7 @@ public class ONG {
      * @param CIF recibe un string con el CIF de la ONG
      * @param lequipo utilizando un tipo de colección List, recibe un listado de objetos de tipo Personal,
      *               que conforman los trabajadores de la ONG
-     * //@param lproyectos utilizando un tipo de colección List, recibe un listado de objetos de tipo Proyecto,
+     * @param lproyectos utilizando un tipo de colección List, recibe un listado de objetos de tipo Proyecto,
      *               que conforman los diferentes proyectos que tiene la ONG
      */
     public ONG(String nombre, String CIF, List<Personal> lequipo, List<Proyecto> lproyectos) {
@@ -56,8 +51,8 @@ public class ONG {
     public ONG(String nombre, String CIF) {
         this.nombre = nombre;
         this.CIF = CIF;
-        this.lequipo = new ArrayList<Personal>();
-        this.lproyectos = new ArrayList<Proyecto>();
+        this.lequipo = new ArrayList<>();
+        this.lproyectos = new ArrayList<>();
 
     }
 
@@ -108,18 +103,19 @@ public class ONG {
      *
      * @return devuelve un tipo Personal, que contiene un miembro concreto del personal según idPersonal
      */
-    public Personal getMiembroDelEquipo(String idPersonal) {
+    public Personal getMiembroDelEquipo(int idPersonal) {
 
         Personal pPersonaBuscada = null;
-
 
         for (Personal personal : lequipo) {
 
             try {
 
-                if (personal.getId().equals(idPersonal)) {
+                if (personal.getId() == idPersonal) {
                     pPersonaBuscada = personal;
                     return pPersonaBuscada;
+                } else {
+                    return null;
                 }
 
             } catch (Exception e) {
@@ -139,20 +135,16 @@ public class ONG {
 
         for (Personal element:lequipo) {
 
-            if (element.getId().equals(nuevoMiembro.getId())) {
+            if (element.getId() == nuevoMiembro.getId()) {
 
-                return addEquipo = false;
+                return false;
 
             }
         }
 
-        if (addEquipo) {
+        lequipo.add(nuevoMiembro);
 
-            lequipo.add(nuevoMiembro);
-
-        }
-
-        return addEquipo;
+        return true;
 
     }
 

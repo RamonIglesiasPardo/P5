@@ -1,11 +1,14 @@
 /** La clase enum SubLineasDeAccionActivas es una enumeración de las
  * distintas lineas de acción de la ONG.
+ *
+ * @author Aware Developers
+ * @version 1.2
  */
 package ong.entreculturas;
 
 public enum SubLineasDeAccionActivas {
 
-    //variables
+    //Constantes enum
 
     PROMOCIONSOCIAL ("Promoción Social"),
     CALIDADAD ("Calidad"),
@@ -16,20 +19,32 @@ public enum SubLineasDeAccionActivas {
     EDUDESAROLLO ("Educación para el desarollo"),
     EMERGENCIA ("Emergencia");
 
-    private String sublineaDeAcciónActiva;
-    //¿¿¿Por definir algo más???
+    //Variables de clase
 
-    //CONSTRUCTOR
+    private String sublineaDeAcciónActiva;
+
+    /**Constructor SubLineasDeAccionActivas
+     *
+     * @param sublineaDeAcciónActiva String con la subLineaDeAccion activa
+     */
     SubLineasDeAccionActivas(String sublineaDeAcciónActiva) {
         this.sublineaDeAcciónActiva = sublineaDeAcciónActiva;
     }
 
-    //GETTER
+    /**Getter de subLineaDeAccionActiva
+     *
+     * @return String con la subLineaDeAccion activa
+     */
+
     public String getSublineaDeAcciónActiva() {
         return sublineaDeAcciónActiva;
     }
 
-    //SETTER
+    /**Setter de subLineaDeAccionActiva
+     *
+     * @param sublineaDeAcciónActiva String con la subLineaDeAccion activa
+     */
+
     public void setSublineaDeAcciónActiva(String sublineaDeAcciónActiva) {
         this.sublineaDeAcciónActiva = sublineaDeAcciónActiva;
     }
