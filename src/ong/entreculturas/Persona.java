@@ -1,21 +1,16 @@
-/**
- * La clase Persona es una clase abstracta que representa una persona.
+/**La clase Persona es una clase abstracta que representa una persona.
  * Tiene las subclases directas Personal y Socio.
  *
- * @author Alberto González Casado
- * @version 1.4
+ * @author Aware Developers
+ * @version 1.5
  */
 
 package ong.entreculturas;
 
-import ong.entreculturas.Direccion;
-
 import javax.xml.bind.annotation.*;
-
 
 @XmlType(propOrder = {"nombre", "primerApellido", "segundoApellido", "telefono", "mail", "direccion"})
 public abstract class Persona {
-
 
     private String nombre;
     private String primerApellido;
@@ -36,7 +31,7 @@ public abstract class Persona {
      * @param nombre          Nombre de la persona
      * @param primerApellido  Primer apellido de la persona
      * @param segundoApellido Segundo apellido de la persona
-     * @param direccion       Dirección de la persona (no definida aún)
+     * @param direccion       Dirección de la persona, de tipo Direccion
      * @param telefono        Teléfono de la persona
      * @param mail            Correo electrónico de la persona
      */
@@ -49,6 +44,23 @@ public abstract class Persona {
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
         setDireccion(direccion);
+        this.telefono = telefono;
+        this.mail = mail;
+    }
+
+    /**Constructor de Persona (para perVolInternacional)
+     *
+     * @param nombre nombre de la persona
+     * @param primerApellido primer apellido de la persona
+     * @param segundoApellido segundo apellido de la persona
+     * @param telefono teléfono de la persona
+     * @param mail mail de la persona
+     */
+
+    public Persona(String nombre, String primerApellido, String segundoApellido, String telefono, String mail) {
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
         this.telefono = telefono;
         this.mail = mail;
     }
@@ -108,7 +120,7 @@ public abstract class Persona {
     }
 
     /**Establece la dirección del empleado (utiliza el tipo de datos Direccion)
-     * @param direccion nombre del objeto Direccion
+     * @param direccion objeto Direccion
      */
 
     public void setDireccion(Direccion direccion) {
@@ -149,6 +161,8 @@ public abstract class Persona {
         this.mail = mail;
     }
 
+   //Métodos de clase
+
     /**Método abstracto para introducir los datos de la persona.
      * No se implementa en las clases abstractas, unicamente en las subclases concretas.
      */
@@ -166,10 +180,9 @@ public abstract class Persona {
      */
 
     public String toString() {
-        return String.format("%s: %s %s, %s\n%s: %s\n%s: %s\n%s: %s",
-                "Nombre", getPrimerApellido(), getSegundoApellido(), getNombre(),
-                "Dirección", direccion.toString(),
-                "Teléfono", getTelefono(), "E-mail", getMail());
+        return String.format("%Nombre: %s %s, %s\nDirección: %s\nTeléfono: %s\n%E-mail: %s",
+                getPrimerApellido(), getSegundoApellido(), getNombre(),
+                direccion.toString(), getTelefono(), getMail());
     }
 
 }

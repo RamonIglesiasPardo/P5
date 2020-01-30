@@ -1,7 +1,6 @@
 package ong.entreculturas;
 
-import java.util.Scanner;
-import ong.entreculturas.Direccion;
+import java.util.*;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -9,70 +8,52 @@ import javax.xml.bind.annotation.XmlRootElement;
  *	PerVoluntario.
  *	Representa a un empleado voluntario internacional.
  *
- *	@author Alberto González Casado
- *  @version 1.4
+ *	@author Aware Developers
+ *  @version 1.5
  */
+
 @XmlRootElement(name = "TipoVol")
 public class PerVolInternacional extends PerVoluntario {
 
-	private static int idVolIntCount = 1;
+	//Variables de clase
+
 	private String paisOrigen;
-	private String direccion;	// sobreescribe al campo de la superclase Persona
+	private String sDireccion;	// sobreescribe al campo de la superclase Persona
 	private String codInternaTelefono;
 
-	/** Constructor de PerVolInternacional sin argumentos
+	/** Constructor por defecto
 	 *
 	 */
 	public PerVolInternacional() {
-
 		super();
-		super.crearId(idVolIntCount++, "1");
-
-	} // fin del Constructor de PerVolInternacional sin argumentos
+	}
 
 	/** Constructor de PerVolInternacional
 	 *
 	 *  @param nombre Nombre de la persona (se pasa al constructor de la superclase)
 	 *  @param primerApellido Primer apellido de la persona (se pasa al constructor de la superclase)
 	 *	@param segundoApellido Segundo apellido de la persona (se pasa al constructor de la superclase)
-	 *	@param direccion Dirección de la persona (se pasa al constructor de la superclase)
 	 *	@param telefono Teléfono de la persona (se pasa al constructor de la superclase)
 	 *	@param mail Correo electrónico de la persona (se pasa al constructor de la superclase)
-	 *	@param idPersonal Identificación de empleado (se pasa al constructor de la superclase)
-	 *	@param numHorasVol Número de horas trabajadas por el voluntario
-	 *	@param idVolIntCount Contador del número de voluntarios internacionales
 	 *	@param paisOrigen País de origen del voluntario internacional
 	 *	@param sDireccion Dirección internacional (sobreescribe al campo direccion de Persona)
 	 *	@param codInternaTelefono Código (prefijo) internacional del teléfono
 	 */
 
-	//TODO eliminar dirección, idVolIntCount y reflejarlo en un nuevo constructor en su super clase.
 	public PerVolInternacional( String nombre, String primerApellido,
-								String segundoApellido, Direccion direccion,
-								String telefono, String mail, String idPersonal,
-								int numHorasVol, int idVolIntCount,
+								String segundoApellido,	String telefono, String mail,
 								String paisOrigen, String sDireccion, String codInternaTelefono ) {
 
 		// pasa los campos comunes al constructor de la superclase
 
-		super( nombre, primerApellido, segundoApellido, direccion, telefono, mail,
-				idPersonal, numHorasVol );
-		super.crearId(idVolIntCount++, "1");
+		super( nombre, primerApellido, segundoApellido,telefono, mail);
 		this.paisOrigen = paisOrigen;
-		this.direccion = sDireccion;	// renombramos pDireccion para evitar ambigüedades
+		this.sDireccion = sDireccion;	// renombramos pDireccion para evitar ambigüedades
 		this.codInternaTelefono = codInternaTelefono;
 
-	} // fin del constructor de PerVoluntario con todos los argumentos
-
-	/** Obtiene el número del conteo de este empleado voluntario internacional
-	 *
-	 * @return Int con el número del conteo de este empleado voluntario internacional
-	 */
-
-	public static int getIdVolIntCount() {
-		return idVolIntCount;
 	}
 
+	//Getters y Setters
 
 	/** Establece el pais de origen
 	 *
@@ -103,7 +84,7 @@ public class PerVolInternacional extends PerVoluntario {
 
 	public void setDir( String sDireccion ) {
 
-		this.direccion = sDireccion;
+		this.sDireccion = sDireccion;
 
 	} // fin del método setDireccion
 
@@ -114,7 +95,7 @@ public class PerVolInternacional extends PerVoluntario {
 
 	public String getDir() {
 
-		return direccion;
+		return sDireccion;
 
 	} // fin del método getDireccion
 
@@ -140,10 +121,14 @@ public class PerVolInternacional extends PerVoluntario {
 
 	} // fin del método setCodInternaTelefono
 
+	//Métodos de clase
+
 	/** Método para introducir los datos de la persona.
-	 *  Es el método abstracto de las superclases, que aquí sí se implementa.
+	 *  Es el método abstracto de la superclase, que aquí sí se implementa.
 	 *
 	 */
+	//TODO:unificar con el método setDatosPerVolInternacional, y modificar las
+	//llamadas a estos métodos en otras clases.
 
 	@Override
 	public void introducirDatosPersona() {
@@ -160,20 +145,22 @@ public class PerVolInternacional extends PerVoluntario {
 		super.setPrimerApellido( entrada.nextLine() );
 		System.out.print( "Segundo apellido: " );
 		super.setSegundoApellido( entrada.nextLine() );
-		setDatosPerVolInternacional();
 		System.out.print( "Teléfono: " );
 		super.setTelefono( entrada.nextLine() );
 		System.out.print( "E-mail: " );
 		super.setMail( entrada.nextLine() );
-		super.crearId( 1150, "72" ); // TODO automatizar este punto
-		super.setNumHorasVol( 120 ); // solo prueba: esta opción deberíamos ponerla como un método aparte
+		//Al introducir los datos del nuevo personal voluntario, se nos da la opción de establecer
+		//el número de horas de voluntariado
+		System.out.print("Número de horas de voluntariado: ");
+		super.setNumHorasVol( entrada.nextInt() );
 
-
-	} // fin del método introducirDatosPersona
+	}
 
 	/** Método para establecer los datos específicos de un personal voluntario internacional
 	 *
 	 */
+
+	//TODO:unificar con el método anterior
 
 	public void setDatosPerVolInternacional() {
 
@@ -195,6 +182,8 @@ public class PerVolInternacional extends PerVoluntario {
 	 *
 	 *	@return La representación String de un objeto PerVolInternacional
 	 */
+
+	//TODO:modificar una vez unificados los métodos anteriores
 
 	public String toString() {
 

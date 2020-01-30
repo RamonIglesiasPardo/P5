@@ -1,34 +1,48 @@
-/** La clase enum LineasDeAccionActivas es una enumeración de las
+/**La clase enum LineasDeAccionActivas es una enumeración de las
  * distintas lineas de acción de la ONG.
+ *
+ * @author Aware Developers
+ * @version 1.1
  */
+
 package ong.entreculturas;
 
 public enum LineasDeAccionActivas {
 
-    //Variables
+    //Constantes enum
 
     COOPDESARROLLO ( "Cooperación al desarrollo" ),
     ACCIONHUMANITARIA ( "Acción Humanitaria" ),
     FORTINST ( "Fortaleimiento Institucional" ),
     EDUDESARROLLO ( "Educación para el desarrollo" );
 
+    //Variables de clase
 
     private String lineaDeAccionActiva;
-    //¿¿¿Por definir algo más???
 
-    //Constructor
-
+    /**Constructor
+     *
+     * @param lineaDeAccionActiva String con la línea de acción activa.
+     */
 
     LineasDeAccionActivas(String lineaDeAccionActiva) {
         this.lineaDeAccionActiva = lineaDeAccionActiva;
     }
 
-    //GETTER
+    /**Getter de lineaDeAccionActiva.
+     *
+     * @return String con la línea de acción activa.
+     */
+
     public String getLineaDeAccionActiva() {
         return lineaDeAccionActiva;
     }
 
-    //SETTER
+    /**Setter de lineaDeAccionActiva.
+     *
+     * @param lineaDeAccionActiva String con la línea de acción activa.
+     */
+
     public void setLineaDeAccionActiva(String lineaDeAccionActiva) {
         this.lineaDeAccionActiva = lineaDeAccionActiva;
     }
