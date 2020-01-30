@@ -1,36 +1,51 @@
 /** La clase enum SubLineasDeAccionActivas es una enumeración de las
  * distintas lineas de acción de la ONG.
+ *
+ * @author Aware Developers
+ * @version 1.2
  */
 package ong.entreculturas;
 
 public enum SubLineasDeAccionActivas {
 
-    //variables
+    //Constantes enum
 
     PROMOCIONSOCIAL ("Promoción Social"),
     CALIDADAD ("Calidad"),
-    UNIVERSALIZACION ("Universalización"),
+    UNIVERSALIZACIÓN ("Universalización"),
     AYUDAHUMANITARIA ("Ayuda Humanitaria"),
     FORTALECIMIENTO ("Fortalecimiento"),
-    TECNICA ("Técnica"),
+    TÉCNICA ("Técnica"),
     EDUDESAROLLO ("Educación para el desarollo"),
     EMERGENCIA ("Emergencia");
 
-    private String sublineaDeAccionActiva;
-    //¿¿¿Por definir algo más???
+    //Variables de clase
 
-    //CONSTRUCTOR
-    SubLineasDeAccionActivas(String sublineaDeAccionActiva) {
-        this.sublineaDeAccionActiva = sublineaDeAccionActiva;
+    private String sublineaDeAcciónActiva;
+
+    /**Constructor SubLineasDeAccionActivas
+     *
+     * @param sublineaDeAcciónActiva String con la subLineaDeAccion activa
+     */
+    SubLineasDeAccionActivas(String sublineaDeAcciónActiva) {
+        this.sublineaDeAcciónActiva = sublineaDeAcciónActiva;
     }
 
-    //GETTER
-    public String getSublineaDeAccionActiva() {
-        return sublineaDeAccionActiva;
+    /**Getter de subLineaDeAccionActiva
+     *
+     * @return String con la subLineaDeAccion activa
+     */
+
+    public String getSublineaDeAcciónActiva() {
+        return sublineaDeAcciónActiva;
     }
 
-    //SETTER
-    public void setSublineaDeAccionActiva(String sublineaDeAccionActiva) {
-        this.sublineaDeAccionActiva = sublineaDeAccionActiva;
+    /**Setter de subLineaDeAccionActiva
+     *
+     * @param sublineaDeAcciónActiva String con la subLineaDeAccion activa
+     */
+
+    public void setSublineaDeAcciónActiva(String sublineaDeAcciónActiva) {
+        this.sublineaDeAcciónActiva = sublineaDeAcciónActiva;
     }
 }

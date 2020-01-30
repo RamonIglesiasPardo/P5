@@ -1,88 +1,103 @@
 package ong.entreculturas;
 
-/**Representa la sublínea de acción de una línea de acción.
+/**La clase SubLineaDeAccion representa las sublíneas de acción asociadas
+ * a una línea de acción de un proyecto.
+ *
  * @author Aware Developers
  * @version 1.2
  */
 
 public class SubLineaDeAccion {
 
+   //Variables de clase
+
     private SubLineasDeAccionActivas areaDeAccion ;
     private LineaDeAccion lineaDeAccion ;
-    private String descripcion;
+    private  String descripcion;
 
-    /**Constructor por defecto.
+    /**Constructor SubLineaDeAccion
      *
+     * @param areaDeAccion objeto SubLineasDeAccionActivas con las áreas de acción asociadas
+     * @param lineaDeAccion objeto LineaDeAccion asociado a esta SubLineaDeAccion
+     * @param descripcion Descripción de la sublínea de acción
      */
 
-    public SubLineaDeAccion() {}
-
-    /**Constructor.
-     * @param areaDeAccion Tipo de sublínea de acción.
-     * @param lineaDeAccion Línea de acción a la que se asigna esta sublínea de acción.
-     * @param descripcion Descripción de la sublínea de acción.
-     */
-
-    public SubLineaDeAccion(SubLineasDeAccionActivas areaDeAccion,
-                            LineaDeAccion lineaDeAccion, String descripcion) {
+    public SubLineaDeAccion(SubLineasDeAccionActivas areaDeAccion, LineaDeAccion lineaDeAccion, String descripcion) {
         this.areaDeAccion = areaDeAccion;
         this.lineaDeAccion = lineaDeAccion;
         this.descripcion = descripcion;
     }
 
-    /**Obtiene el área de acción.
-     * @return String con el área de acción.
+    //Métodos Setters y Getters
+
+    /**Getter de areaDeAccion
+     *
+     * @return objeto SubLineasDeAccionActivas con las áreas de acción asociadas
      */
 
-    public SubLineasDeAccionActivas getAreaDeAccion() { return areaDeAccion; }
+    public SubLineasDeAccionActivas getAreaDeAccion() {
+        return areaDeAccion;
+    }
 
-    /**Establece el área de acción.
-     * @param areaDeAccion
+    /**Setter de areaDeAccion
+     *
+     * @param areaDeAccion objeto SubLineasDeAccionActivas con las áreas de acción asociadas
      */
 
     public void setAreaDeAccion(SubLineasDeAccionActivas areaDeAccion) {
         this.areaDeAccion = areaDeAccion;
     }
 
-    /**Obtiene la línea de acción a la que se asigna esta sublínea de acción.
-     * @return Objeto LineaDeAccion.
+    /**Getter de lineaDeAccion
+     *
+     * @return objeto LineaDeAccion asociado a esta SubLineaDeAccion
      */
 
-    public LineaDeAccion getLineaDeAccion() { return lineaDeAccion; }
+    public LineaDeAccion getLineaDeAccion() {
+        return lineaDeAccion;
+    }
 
-    /**Establece la línea de acción a la que se asigna esta sublínea de acción.
-     * @param lineaDeAccion Objeto LineaDeAccion.
+    /**Setter de lineaDeAccion
+     *
+     * @param lineaDeAccion objeto LineaDeAccion asociado a esta SubLineaDeAccion
      */
 
     public void setLineaDeAccion(LineaDeAccion lineaDeAccion) {
         this.lineaDeAccion = lineaDeAccion;
     }
 
-    /**Obtiene la descripción de la sublínea de acción.
-     * @return String con descripción de la sublínea de acción.
+    /**Getter de descripcion
+     *
+     * @return String con la descripción de la sublínea de acción
      */
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    /**Establece la descripción de la sublínea de acción.
-     * @param descripcion
+    /**Setter de descripcion
+     *
+     * @param descripcion String con la descripción de la sublínea de acción
      */
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    /**Devuelve la representación String de un objeto SubLineaDeAccion.
-     * @return representación String de un objeto SubLineaDeAccion.
-     */
+    //Métods de clase
 
+    /**ToString de SubLineaDeAccion
+     *
+     * @return representación String de la sublínea de acción
+     */
     @Override
     public String toString() {
-        return String.format( "%s: %s\n%s: %s\n%s:\n%s",
-                "Linea de acción", getAreaDeAccion(),
-                "Sublíneas de acción:",  getLineaDeAccion(),
-                "Descripción:", getDescripcion() );
+        return "SubLineaDeAccion{" +
+                "areaDeAccion=" + areaDeAccion +
+                ", lineaDeAccion=" + lineaDeAccion +
+                ", descripcion='" + descripcion + '\'' +
+                '}';
     }
+
+    
 }

@@ -1,44 +1,48 @@
 package ong.entreculturas;
 
 import javax.xml.bind.annotation.*;
-import java.util.*;
+import java.util.List;
+import java.util.Date;
 
-/**Representa un proyecto puesto en marcha por la ONG.
+/**La clase Proyecto representa un proyecto de la ONG Entreculturas.
+ *
  * @author Aware Developers
- * @version 1.3
+ * @version 1.2
  */
 
 @XmlRootElement(name = "proyecto")
-@XmlAccessorType(XmlAccessType.NONE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Proyecto {
 
-    public int idProyecto;
+    //variables de clase
+
+    @XmlAttribute(name = "id")
+    private int idProyecto;
+    private static int idProyectoCount = 1;
     private String nombre;
     private String pais;
     private String localizacion;
     private LineaDeAccion lineaDeAccion;
     private Date fechaInicio;
     private Date fechaFin;
-    //Por implementar las clases Socio y FinanciacionProyecto
-    //private List<Socio> socios;
-    //private List<FinanciacionProyecto> financiacionProyectos;
     private String acciones;
+    @XmlElement(name = "personalAsignado")
     private List<Personal> personal;
 
-    /**Constructor
-     * @param idProyecto Id del proyecto.
-     * @param nombre Nombre del proyecto.
-     * @param pais País en el que se desarrolla el proyecto.
-     * @param localizacion
-     * @param lineaDeAccion Línea de acción del proyecto.
-     * @param fechaInicio Fecha de inicio del proyecto.
-     * @param fechaFin Fecha de finalización del proyecto.
-     * @param acciones Acciones a desarrollar en el proyecto.
-     * @param personal Personal asignado al proyecto.
+    /**Constructor de Proyecto
+     *
+     * @param nombre nombre del proyecto
+     * @param pais país en el que se desarrolla el proyecto
+     * @param localizacion localización (localidad?) donde se desarrolla el proyecto
+     * @param lineaDeAccion línea de acción asociada al proyecto
+     * @param fechaInicio fecha de inicio del proyecto
+     * @param fechaFin fecha de fin de proyecto
+     * @param acciones acciones asociadas al proyecto
+     * @param personal lista de personal que participa en el proyecto
      */
-    public Proyecto( int idProyecto, String nombre, String pais, String localizacion,
-                     LineaDeAccion lineaDeAccion, Date fechaInicio, Date fechaFin,
-                     String acciones, List<Personal> personal)  {
+
+    public Proyecto( int idProyecto, String nombre, String pais, String localizacion, LineaDeAccion lineaDeAccion,
+                     Date fechaInicio, Date fechaFin, String acciones, List<Personal> personal)  {
 
         this.idProyecto = idProyecto;
         this.nombre = nombre;
@@ -47,172 +51,199 @@ public class Proyecto {
         this.lineaDeAccion = lineaDeAccion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        //this.socios = socios;
-        //this.financiacionProyectos = FinanciacionProyecto;
         this.acciones =  acciones;
         this.personal = personal;
-    }
+        //Asignamos automáticamente un id de proyecto autoincrementable al crear un proyecto
+        idProyecto = idProyectoCount;
+        idProyectoCount++;
+
+    } //Cerramos el constructor
 
     /**Constructor por defecto de Proyecto
      *
      * */
-    public Proyecto() {}
-
-    /**Establece el id del proyecto.
-     * @param idProyecto
-     */
-
-    public void setIdProyecto(int idProyecto) {
-        this.idProyecto = idProyecto ;
+    public Proyecto() {
+        //Asignamos automáticamente un id de proyecto autoincrementable al crear un proyecto
+        idProyecto = idProyectoCount;
+        idProyectoCount++;
     }
 
-    /**Obtiene el id del proyecto.
-     * @return Int con el id del proyecto.
+    //Getters y Setters
+
+    /**Getter de idProyecto
+     *
+     * @return int con el id del proyecto
      */
 
-    @XmlAttribute(name = "id")
-    public int getIdProyecto() { return idProyecto; }
+    public int getIdProyecto() {
+        return idProyecto;
+    }
 
-    @XmlElement(name = "nombreProyecto")
+    /**Getter del nombre del proyecto
+     *
+     * @return String con el nombre del proyecto
+     */
+
     public String getNombre() {
         return nombre;
     }
 
-    /**Establece el nombre del proyecto.
-     * @param nombre
+    /**Setter del nombre del proyecto
+     *
+     * @param nombre String con el nombre del proyecto
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**Setter de pais
+     *
+     * @param pais String con el país en el que se desarrolla el proyecto
      */
 
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
 
-    /**Establece el país en el que se desarrolla el proyecto.
-     * @param pais
+
+    /**Getter de pais
+     *
+     * @return String con el país en el que se desarrolla el proyecto
      */
 
-    public void setPais(String pais) { this.pais = pais; }
+    public String getPais() {
+        return pais;
+    }
 
-    /**Obtiene el país en el que se desarrolla el proyecto.
-     * @return String con el país en el que se desarrolla el proyecto.
-     */
 
-    @XmlElement(name = "paisProyecto")
-    public String getPais() { return pais; }
-
-    /**Establece la localización del proyecto.
-     * @param localizacion
+    /**Setter de localizacion
+     *
+     * @param localizacion String con la localización del proyecto
      */
 
     public void setLocalizacion(String localizacion) {
         this.localizacion = localizacion;
     }
 
-    /**Obtiene la localización del proyecto.
-     * @return String con la localización del proyecto.
+    /**Getter de localizacion
+     *
+     * @return String con la localización del proyecto
      */
-    @XmlElement(name = "localizacion")
-    public String getLocalizacion() { return localizacion; }
 
-    /**Establece la línea de acción asignada al proyecto.
-     * @param lineaDeAccion
+    public String getLocalizacion() {
+        return localizacion;
+    }
+
+    /**Setter de lineaDeAccion
+     *
+     * @param lineaDeAccion Objeto LineaDeAccion asociado al proyecto
      */
+
     public void setLineaDeAccion(LineaDeAccion lineaDeAccion) {
         this.lineaDeAccion = lineaDeAccion;
     }
 
-    /**Obtiene la línea de acción asignada al proyecto.
-     * @return String con la línea de acción asignada al proyecto.
+
+    /**Getter de lineaDeAccion
+     *
+     * @return Objeto LineaDeAccion asociado al proyecto
      */
 
-    @XmlElement(name = "lineaDeAccion")
-    public LineaDeAccion getLineaDeAccion() { return lineaDeAccion; }
+    public LineaDeAccion getLineaDeAccion() {
+        return lineaDeAccion;
+    }
 
-    /**Establece la fecha de inicio del proyecto.
-     * @param fechaInicio
+
+    /**Setter fechaInicio
+     *
+     * @param fechaInicio objeto Date con la fecha de inicio del proyecto
      */
 
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    /**Obtiene la fecha de inicio del proyecto.
-     * @return Objeto Date con la fecha de inicio del proyecto.
+    /**Getter fechaInicio
+     *
+     * @return objeto Date con la fecha de inicio del proyecto
      */
 
-    @XmlElement(name = "fechaInicio")
-    public Date getFechaInicio() { return fechaInicio; }
+    public Date getFechaInicio() {
+        return fechaInicio;
+    }
 
 
-    /**Establece la fecha de finalización del proyecto.
-     * @param fechaFin
+    /**Setter fechaFin
+     *
+     * @param fechaFin objeto Date con la fecha de fin del proyecto
      */
 
-    public void setFechaFin(Date fechaFin) { this.fechaFin = fechaFin; }
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
 
 
-    //@XmlElement(name = fechaFin)
-    public Date getFechaFin() { return fechaFin; }
+    /**Getter fechaFin
+     *
+     * @return objeto Date con la fecha de fin del proyecto
+     */
 
-//    public void setSocios(List<Socio> socios) {
-//        this.socios = socios;
-//    }
-//
-//    public List<Socio> getSocios() {
-//        return socios;
-//    }
-//
-//    public void setFinanciacionProyecto(List<FinanciacionProyecto> financiacionProyectos) {
-//        this.financiacionProyectos = financiacionProyectos;
-//    }
-//
-//    public List<FinanciacionProyecto> getFinanciacionProyectos() {
-//        return financiacionProyectos;
-//    }
+    public Date getFechaFin() {
+        return fechaFin;
+    }
 
-    /**Establece las acciones que se desarrollan en el proyecto.
-     * @param acciones
+    /**Setter acciones
+     *
+     * @param acciones String con las acciones asociadas al proyecto
      */
 
     public void setAcciones(String acciones) {
         this.acciones = acciones;
     }
 
-    /**Obtiene las acciones que se desarrollan en el proyecto.
-     * @return String con las acciones que se desarrollan en el proyecto.
+    /**Getter acciones
+     *
+     * @return String con las acciones asociadas al proyecto
      */
 
-    @XmlElement(name = "acciones")
     public String getAcciones() {
         return acciones;
     }
 
-    /**Establece el personal asignado al proyecto.
-     * @param personal
+    /**Setter personal
+     *
+     * @param personal objeto Personal para lista de personal que participa en el proyecto
      */
 
     public void setPersonal(List<Personal> personal) {
         this.personal = personal;
     }
 
-    /**Obtiene el personal asignado al proyecto.
-     * @return el personal asignado al proyecto.
+    /**Getter personal
+     *
+     * @return objeto Personal para lista de personal que participa en el proyecto
      */
 
-    @XmlElement(name = "personalAsignado")
     public List<Personal> getPersonal() {
        return personal;
     }
 
-    /**Obtiene la representación String de un objeto Proyecto.
-     * @return la representación String de un objeto Proyecto.
+    //Métodos de clase
+
+    /**ToString de Proyecto
+     *
+     * @return representación String de un Proyecto
      */
 
     @Override
     public String toString() {
-        return  "Id del proyecto: " + getIdProyecto() + "\n" +
-                "Nombre del proyecto: " + getNombre() + "\n" +
-                "Descripción: " + getAcciones() + "\n" +
-                "Ambito de acción del proyecto: " + getLocalizacion() + ", "
-                + " (" + getPais() + ")\n" +
-                "Fecha de inicio del proyecto: " + getFechaInicio() + "\n" +
-                "Fechas finalización del proyecto : " + getFechaFin();
+        return  "Id del proyecto: " + idProyecto + "\n" +
+                "Nombre del proyecto: " + nombre + "\n" +
+                "Descripción: " + acciones + "\n" +
+                "Ambito de acción del proyecto: " + localizacion + ", " + pais+ "\n" +
+                "Fecha inicio: " + fechaInicio + "\n" +
+                "Fecha finalización: " + fechaFin + "\n";
     }
+
+
 }
