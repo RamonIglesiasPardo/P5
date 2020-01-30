@@ -18,6 +18,7 @@ public class Main {
         // Creamos una instancia del factory seleccionando XML
         DAOFactory objetoFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
         // Creamos una instancia DAO XML
+        assert objetoFactory != null;
         IOngDAO ongDAO = objetoFactory.getOngDAO();
         // Creamos nuestra instancia de ONG
         ong = ongDAO.readOngDAO();

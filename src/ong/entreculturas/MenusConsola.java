@@ -22,6 +22,7 @@ public class MenusConsola {
     /**
      * Método que muestra el menú principal de la aplicación
      *
+     * @param ong objeto ONG
      */
     public void mostrarMenuPrincipal(ONG ong) {
 
@@ -42,6 +43,7 @@ public class MenusConsola {
      * Método para seleccionar una opción del menú principal.
      * Llama a los métodos adecuados en función de la opción escogida.
      *
+     * @param ong objeto ONG
      */
     public void seleccionarOpcionDeMenu(ONG ong) {
 
@@ -96,7 +98,7 @@ public class MenusConsola {
      * Método para seleccionar el tipo de empleado a dar de alta.
      * Según el tipo de empleado seleccionado, crea un objeto apropiado y llama
      * al método correspondiente.
-     *
+     * @param ong objeto ONG
      */
     public void seleccionarTipoEmpleado(ONG ong) {
 
@@ -163,6 +165,7 @@ public class MenusConsola {
      * Según el tipo de listado, crea un objeto apropiado y llama
      * al método correspondiente.
      *
+     * @param ong objeto ONG
      */
     public void seleccionarTipoListado(ONG ong) {
 

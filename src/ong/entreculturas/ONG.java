@@ -47,7 +47,11 @@ public class ONG {
 
     }
 
-    /**Constructor sobrecargado. Pendiente eliminarlo...*/
+    /**Constructor sobrecargado. Pendiente eliminarlo...
+     *
+     * @param nombre nombre de la ONG
+     * @param CIF CIF de la ONG
+     */
     public ONG(String nombre, String CIF) {
         this.nombre = nombre;
         this.CIF = CIF;
@@ -101,6 +105,7 @@ public class ONG {
      * Si no existe un miembro del personal con el id proporcionado devolverá una excepción controlada y
      * una instancia de tipo Personal vacia.
      *
+     * @param idPersonal int con el id de personal
      * @return devuelve un tipo Personal, que contiene un miembro concreto del personal según idPersonal
      */
     public Personal getMiembroDelEquipo(int idPersonal) {
@@ -127,7 +132,7 @@ public class ONG {
 
     }
 
-//TODO DE AQUÍ EN ADELANTE ESTA POR REVISAR...
+//TODO DE AQUI EN ADELANTE ESTA POR REVISAR...
 
     public boolean addEquipo(Personal nuevoMiembro) {
 

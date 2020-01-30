@@ -24,7 +24,7 @@ public enum LineasDeAccionActivas {
 //    }
 
     /**Constructor.
-     * @param lineaDeAccionActiva
+     * @param lineaDeAccionActiva String con la línea de acción activa
      */
 
     LineasDeAccionActivas(String lineaDeAccionActiva) {
@@ -37,7 +37,7 @@ public enum LineasDeAccionActivas {
     public String getLineaDeAccionActiva() { return lineaDeAccionActiva; }
 
     /**Establece la línea de acción activa.
-     * @param lineaDeAccionActiva
+     * @param lineaDeAccionActiva String con la línea de acción activa
      */
     public void setLineaDeAccionActiva(String lineaDeAccionActiva) {
         this.lineaDeAccionActiva = lineaDeAccionActiva;

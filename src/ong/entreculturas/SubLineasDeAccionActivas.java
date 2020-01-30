@@ -11,24 +11,24 @@ public enum SubLineasDeAccionActivas {
     //Constantes enum
 
     PROMOCIONSOCIAL ("Promoción Social"),
-    CALIDADAD ("Calidad"),
-    UNIVERSALIZACIÓN ("Universalización"),
+    CALIDAD ("Calidad"),
+    UNIVERSALIZACION ("Universalización"),
     AYUDAHUMANITARIA ("Ayuda Humanitaria"),
     FORTALECIMIENTO ("Fortalecimiento"),
-    TÉCNICA ("Técnica"),
+    TECNICA ("Técnica"),
     EDUDESAROLLO ("Educación para el desarollo"),
     EMERGENCIA ("Emergencia");
 
     //Variables de clase
 
-    private String sublineaDeAcciónActiva;
+    private String sublineaDeAccionActiva;
 
     /**Constructor SubLineasDeAccionActivas
      *
-     * @param sublineaDeAcciónActiva String con la subLineaDeAccion activa
+     * @param sublineaDeAccionActiva String con la subLineaDeAccion activa
      */
-    SubLineasDeAccionActivas(String sublineaDeAcciónActiva) {
-        this.sublineaDeAcciónActiva = sublineaDeAcciónActiva;
+    SubLineasDeAccionActivas(String sublineaDeAccionActiva) {
+        this.sublineaDeAccionActiva = sublineaDeAccionActiva;
     }
 
     /**Getter de subLineaDeAccionActiva
@@ -36,16 +36,16 @@ public enum SubLineasDeAccionActivas {
      * @return String con la subLineaDeAccion activa
      */
 
-    public String getSublineaDeAcciónActiva() {
-        return sublineaDeAcciónActiva;
+    public String getSublineaDeAccionActiva() {
+        return sublineaDeAccionActiva;
     }
 
     /**Setter de subLineaDeAccionActiva
      *
-     * @param sublineaDeAcciónActiva String con la subLineaDeAccion activa
+     * @param sublineaDeAccionActiva String con la subLineaDeAccion activa
      */
 
-    public void setSublineaDeAcciónActiva(String sublineaDeAcciónActiva) {
-        this.sublineaDeAcciónActiva = sublineaDeAcciónActiva;
+    public void setSublineaDeAccionActiva(String sublineaDeAccionActiva) {
+        this.sublineaDeAccionActiva = sublineaDeAccionActiva;
     }
 }

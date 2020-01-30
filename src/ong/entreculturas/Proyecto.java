@@ -41,10 +41,9 @@ public class Proyecto {
      * @param personal lista de personal que participa en el proyecto
      */
 
-    public Proyecto( int idProyecto, String nombre, String pais, String localizacion, LineaDeAccion lineaDeAccion,
+    public Proyecto( String nombre, String pais, String localizacion, LineaDeAccion lineaDeAccion,
                      Date fechaInicio, Date fechaFin, String acciones, List<Personal> personal)  {
 
-        this.idProyecto = idProyecto;
         this.nombre = nombre;
         this.pais = pais;
         this.localizacion = localizacion;

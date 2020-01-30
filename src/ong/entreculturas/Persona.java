@@ -171,6 +171,7 @@ public abstract class Persona {
 
     /**Método abstracto para introducir la dirección de la persona.
      * No se implementa en las clases abstractas, unicamente en las subclases concretas.
+     * @return objeto Direccion
      */
 
     abstract public Direccion introducirDireccion();
@@ -180,7 +181,7 @@ public abstract class Persona {
      */
 
     public String toString() {
-        return String.format("%Nombre: %s %s, %s\nDirección: %s\nTeléfono: %s\n%E-mail: %s",
+        return String.format("Nombre: %s %s, %s\nDirección: %s\nTeléfono: %s\nE-mail: %s",
                 getPrimerApellido(), getSegundoApellido(), getNombre(),
                 direccion.toString(), getTelefono(), getMail());
     }

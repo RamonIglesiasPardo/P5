@@ -158,7 +158,7 @@ public class Personal extends Persona {
     public String toString() {
 
         return String.format("Id de empleado: %04d\n%s",
-                super.toString(), getId());
+                getId(), super.toString());
 
     }
 
