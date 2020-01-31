@@ -1,4 +1,4 @@
-package ong.sql;
+package sql;
 
 import java.sql.*;
 
@@ -10,7 +10,7 @@ public class Prueba_Sql {
 
             //1.Creamos una conexion a la base de datos mediante un objeto Connection
 
-            Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/entreculturas?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+            Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/entreculturas?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
                     "root", "");
 
             //2.Creamos un objeto Statement, para poder crear una sentencia después
