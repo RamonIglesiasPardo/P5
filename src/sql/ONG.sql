@@ -100,3 +100,55 @@ CREATE TABLE IF NOT EXISTS Personal (
 		ON UPDATE CASCADE ON DELETE CASCADE
 
    ) ENGINE = InnoDb;
+
+   -- PRUEBA DE CREACIÓN DE INSTANCIAS DE EMPLEADOS
+
+   /** A continuación mostramos el proceso de cómo sería la creación de
+    *  un empleado implementando una "falsa" herencia. El proceso es un
+    *  poco largo, pero vemos cómo por medio de referencias es posible
+    *  realizar una consulta que nos muestre los datos de un empleado
+    *  voluntario concreto con sus campos asociados a las tablas
+    *  Persona y Personal.
+    */
+
+   -- Creamos primero una instancia de Persona
+
+   INSERT INTO Persona
+		( Nombre, PrimerApellido, SegundoApellido, Direccion,
+        Telefono, Mail )
+        VALUES ( "Miguel", "Arias", "Valdemar",
+        "C/ Navas de Tolosa, 6 2ºB 23003 Jaén", "696238755",
+        "valdemarrules@yahoo.com" );
+
+    -- Consultamos los datos creados, y comprobamos que el IdPersona es 1
+
+    SELECT * FROM Persona;
+
+    -- Creamos una instancia de Personal con los datos concretos y referenciando
+	-- a la tabla Persona con el campo IdPersona
+
+    INSERT INTO Personal (IdPersona) VALUES (1);
+
+    -- De esta manera, hemos creado un elemento personal que referencia a la persona
+    -- creada anteriormente, con su IdPersonal autogenerado. Vamos a comprobarlo.
+
+    SELECT * FROM Personal JOIN Persona
+		WHERE Personal.IdPersona = Persona.IdPersona;
+
+    -- Creamos ahora una instancia de PerVoluntario, referenciando a las tablas anteriores
+    -- (solo a la tabla Personal, en realidad) y con sus campos específicos
+
+    INSERT INTO PerVoluntario (IdPersonal, IdPersona, NumHorasVol)
+		VALUES(1, 1, 80);
+
+    -- Con esto ya tenemos finalizada la instancia de un empleado voluntario. Si hecemos
+    -- una consulta conbinada veremos cómo nos muestra todos los datos correctamente.
+
+    SELECT Personal.IdPersonal AS "Id de Empleado", Persona.PrimerApellido
+		AS "Primer Apellido", Persona.SegundoApellido AS "Segundo Apellido",
+        Persona.Direccion AS "Dirección", Persona.Telefono AS "Teléfono",
+        Persona.mail AS "E-Mail", PerVoluntario.NumHorasVol AS "Horas de Voluntariado"
+        FROM Persona INNER JOIN Personal INNER JOIN PerVoluntario
+        ON Personal.IdPersona = Persona.IdPersona
+        AND PerVoluntario.IdPersonal = Personal.idPersonal;
+
