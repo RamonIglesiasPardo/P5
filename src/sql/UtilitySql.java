@@ -1,35 +1,71 @@
 package sql;
 
 import java.sql.*;
-import java.util.*;
+import java.util.Scanner;
+
 
 /**La clse UtilitySql contiene todos los métodos necesarios para realizar operaciones
- * desde Java sonbre una base de datos.
+ * desde Java sobre una base de datos, incluyendo la conexión inicial con la BD.
  *
  * @author Aware Developers
- * @version 1.0
+ * @version 1.1
  *
  */
 
 public class UtilitySql {
 
-    private static String host = "localhost";
-    private static int puerto = 3306;
-    private static String nombreBD = "Entreculturas";
-    private static String user = "root";
-    private static String pass = "";
+    //Variables de clase
+    //Ub objeto Conexion que llamará a los métodos deseados.
+    Conexion miConexion;
+
+    //Constructores
+
+
+    public UtilitySql() {
+    }
+
+    public UtilitySql(Conexion miConexion) {
+        this.miConexion = miConexion;
+    }
+
+    //Getters y Setters
+
+
+    public Conexion getMiConexion() {
+        return miConexion;
+    }
+
+    public void setMiConexion(Conexion miConexion) {
+        this.miConexion = miConexion;
+    }
+
+    //Método main de prueba
 
     public static void main(String[] args) {
 
-        // Llamamos al método conexionBD para conectar con la base de datos, con
-        // los argumentos: host = localhost; puerto = 3306; nombreBD = Entreculturas
-        // user = root; pass = ""
+        //Para crear una conexión a nuestra base de datos, tenemos dos opciones:
+        //1 - Crear un objeto conexión llamando al constructor por defecto (lo cual
+        // nos dará los datos de conexión por defecto)
 
-        Connection connection = conexionBD(host, puerto, nombreBD, user, pass);
+        Conexion miConexion = new Conexion();
 
-        //Llamamos al método ejecutarSentenciaSql con la sentencia deseada como parámetro.
-        //Si quisiéramos preguntar la sentencia a ejecutar, llamaríamos al método
-        //preguntarSentenciaSql
+        //2- Llamar al método setDatosConexion para que nos pregunte dichos datos. En cualquier caso
+        //necesitamos tanto un objeto Conexion como un objeto UtilitySql, al que pasaremos como
+        //parámetro el oibjeto Conexion.
+
+        UtilitySql sesionSql = new UtilitySql(miConexion);
+
+        // Así tendríamos los datos de la conexión por defecto, pero vamos a introducirlos de nuevo:
+        // NOTA: comentar la siguiente línea si se quieren usar los datos por defecto
+
+        sesionSql.setDatosConexion(miConexion);
+
+        // Ahora llamamos al método conectarBD con miConexion como parámetro para efectivamente
+        //conectar con la base de datos deseada.
+
+        Connection nuevaConexion = sesionSql.conectarBD(miConexion);
+
+        //Pasamos a llamar al método que establecerá y ejecutará la consulta.
 
         //Aquí la llamada a preguntarSentenciaSql
         //String sentenciaSql = preguntarSentenciaSql();
@@ -48,7 +84,7 @@ public class UtilitySql {
                         "\n" +
                         ") ENGINE = InnoDB;";
         try {
-            ResultSet newResultSet = ejecutarSentenciaSql(connection, sentenciaSql);
+            ResultSet newResultSet = ejecutarSentenciaSql(nuevaConexion, sentenciaSql);
         } catch (SQLException e) {
             System.out.println("Error al ejecutar la sentencia SQL.");
             e.printStackTrace();
@@ -60,39 +96,40 @@ public class UtilitySql {
 
     }
 
-    // Métodos de clase
 
-    /**Establece una conexión con una base de datos.
-     *
-     * @param pHost String con el nombre de host o la IP
-     * @param pPuerto int con el número de puerto para establecer la conexión con la BD
-     * @param pNombreBD String con el nombre de la BD a conectar
-     * @param pUser String con el nombre de usuario de la BD
-     * @param pPass String con el password del usuario anterior
-     * @return Objeto Connection con una conexión establecida
-     */
+    //Métodos de clase
 
-    public static Connection conexionBD(String pHost, int pPuerto, String pNombreBD, String pUser, String pPass) {
+    public void setDatosConexion(Conexion miConexion) {
 
-        host = pHost;
-        puerto = pPuerto;
-        nombreBD = pNombreBD;
-        user = pUser;
-        pass = pPass;
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Introduzca el nombre o la IP del host: ");
+        miConexion.setHost(entrada.nextLine());
+        System.out.print("Introduzca el puerto para la conexión: ");
+        miConexion.setPuerto(entrada.nextInt());
+        System.out.print("Introduzca el nombre de la Base de Datos a conectar: ");
+        miConexion.setNombreBD(entrada.nextLine());
+        System.out.print("Introduzca el nombre de usuario: ");
+        miConexion.setUser(entrada.nextLine());
+        System.out.print("Introduzca la contraseña: ");
+        miConexion.setPass(entrada.nextLine());
 
-        //Creamos una conexión a la base de datos mediante un objeto Connection
+    }
 
-        Connection miConexion = null;
+    public Connection conectarBD(Conexion miConexion) {
+
+        Connection newConnection = null;
+
         try {
-            miConexion = DriverManager.getConnection("jdbc:mysql://" + host
-                    + ":" + puerto + "/" + nombreBD
-                    + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
-                    , user, pass);
+            newConnection = DriverManager.getConnection("jdbc:mysql://" + miConexion.getHost()
+                            + ":" + miConexion.getPuerto() + "/" + miConexion.getNombreBD()
+                            + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+                    , miConexion.getUser(), miConexion.getPass());
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return miConexion;
+        return newConnection;
+
     }
 
     /**Ejecuta una consulta determinada por el usuario sobre una BD conectada.
@@ -124,5 +161,84 @@ public class UtilitySql {
         System.out.print("Introduzca la sentencia Sql a ejecutar\n>>> ");
         return entrada.nextLine();
 
+    }
+}
+
+/**Se incluye la clase Conexion, que utilizará la clase UtilitySql.
+ *
+ */
+
+class Conexion {
+
+    //Variables de clase
+
+    private String host;
+    private int puerto;
+    private String nombreBD;
+    private String user;
+    private String pass;
+
+    //Constructores
+
+    //Al llamar al constructor por defecto, le pasaremos automáticamente unos datos
+    //de conexión prefijados
+
+    public Conexion() {
+        this.host = "localhost";
+        this.puerto = 3306;
+        this.nombreBD = "Entreculturas";
+        this.user = "root";
+        this.pass = "";
+    }
+
+    public Conexion(String host, int puerto, String nombreBD, String user, String pass) {
+        this.host = host;
+        this.puerto = puerto;
+        this.nombreBD = nombreBD;
+        this.user = user;
+        this.pass = pass;
+    }
+
+    //Getters y Setters
+
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public int getPuerto() {
+        return puerto;
+    }
+
+    public void setPuerto(int puerto) {
+        this.puerto = puerto;
+    }
+
+    public String getNombreBD() {
+        return nombreBD;
+    }
+
+    public void setNombreBD(String nombreBD) {
+        this.nombreBD = nombreBD;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 }
