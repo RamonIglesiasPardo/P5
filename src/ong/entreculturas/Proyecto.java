@@ -10,7 +10,6 @@ import java.util.Date;
  * @version 1.2
  */
 
-@XmlRootElement(name = "proyecto")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Proyecto {
 

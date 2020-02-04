@@ -12,7 +12,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  *  @version 1.5
  */
 
-@XmlRootElement(name = "TipoVol")
 public class PerVolInternacional extends PerVoluntario {
 
 	//Variables de clase

@@ -1,8 +1,9 @@
 package ong.entreculturas;
-import javax.xml.bind.annotation.*;//Importamos librerias JAXB. Desde la versión 1.6 de JDK, JAXB forma parte del JDK.
+
+import javax.xml.bind.annotation.*;
+//Importamos librerias JAXB. Desde la versión 1.6 de JDK, JAXB forma parte del JDK.
 import java.util.ArrayList;
 import java.util.List;
-import static java.lang.System.*;
 
 /**
  * La clase ONG, que por agregación se relaciona con la mayoría de las otras clases,
@@ -12,7 +13,6 @@ import static java.lang.System.*;
  * @version 1.3
  */
 
-@XmlRootElement(name = "ong")
 @XmlAccessorType(XmlAccessType.NONE)
 public class ONG {
 

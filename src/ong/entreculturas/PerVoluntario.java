@@ -11,7 +11,6 @@ import java.util.Scanner;
  *  @version 1.6
  */
 
-@XmlRootElement(name = "TipoVol")
 public class PerVoluntario extends Personal {
 
 	//Variables de clase
