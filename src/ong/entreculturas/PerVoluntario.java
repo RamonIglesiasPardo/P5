@@ -11,6 +11,9 @@ import java.util.Scanner;
  *  @version 1.6
  */
 
+@XmlRootElement(name="perVoluntario")
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder = {"numHorasVol"})
 public class PerVoluntario extends Personal {
 
 	//Variables de clase
@@ -77,7 +80,7 @@ public class PerVoluntario extends Personal {
 	 *
 	 *	@return Int con el número de horas trabajadas
 	 */
-	@XmlElement(name = "NumHorasVoluntariado")
+	@XmlElement(name = "numHorasVol")
 	public int getNumHorasVol() {
 
 		return numHorasVol;

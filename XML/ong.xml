@@ -16,7 +16,7 @@
             <puerta>1</puerta>
             <tipoVia>AVDA</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>105</NumHorasVoluntariado>
+        <numHorasVol>0</numHorasVol>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="2">
         <nombre>Manolo</nombre>
@@ -34,7 +34,7 @@
             <puerta>1</puerta>
             <tipoVia>AVDA</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>22</NumHorasVoluntariado>
+        <numHorasVol>0</numHorasVol>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="3">
         <nombre>Antonio</nombre>
@@ -52,7 +52,7 @@
             <puerta>1</puerta>
             <tipoVia>AVDA</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>1141</NumHorasVoluntariado>
+        <numHorasVol>0</numHorasVol>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="4">
         <nombre>Michael</nombre>
@@ -70,10 +70,10 @@
             <puerta>1</puerta>
             <tipoVia>AVDA</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>10</NumHorasVoluntariado>
-        <codInternaTelefono>+001</codInternaTelefono>
+        <numHorasVol>0</numHorasVol>
         <dir>Baltimore, Maryland, Estados Unidos</dir>
         <paisOrigen>USA</paisOrigen>
+        <codInternaTelefono>+001</codInternaTelefono>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="5">
         <nombre>Raphael</nombre>
@@ -91,7 +91,7 @@
             <puerta>A</puerta>
             <tipoVia>PLA</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>0</NumHorasVoluntariado>
+        <numHorasVol>0</numHorasVol>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="6">
         <nombre>El Fari</nombre>
@@ -109,7 +109,7 @@
             <puerta>2</puerta>
             <tipoVia>RON</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>0</NumHorasVoluntariado>
+        <numHorasVol>0</numHorasVol>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="7">
         <nombre>Manolo</nombre>
@@ -127,17 +127,17 @@
             <puerta>1</puerta>
             <tipoVia>CALL</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>0</NumHorasVoluntariado>
+        <numHorasVol>0</numHorasVol>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="8">
         <nombre>Barack</nombre>
         <primerApellido>Hussein</primerApellido>
         <segundoApellido>Obama</segundoApellido>
         <telefono>61651658</telefono>
-        <NumHorasVoluntariado>120</NumHorasVoluntariado>
-        <codInternaTelefono>+001</codInternaTelefono>
+        <numHorasVol>0</numHorasVol>
         <dir>USA</dir>
         <paisOrigen>USA</paisOrigen>
+        <codInternaTelefono>+001</codInternaTelefono>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="9">
         <nombre>Julio</nombre>
@@ -155,17 +155,17 @@
             <puerta>1</puerta>
             <tipoVia>CALL</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>0</NumHorasVoluntariado>
+        <numHorasVol>0</numHorasVol>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="10">
         <nombre>Homer</nombre>
         <primerApellido>Simpson</primerApellido>
         <segundoApellido> </segundoApellido>
         <telefono>2165165</telefono>
-        <NumHorasVoluntariado>0</NumHorasVoluntariado>
-        <codInternaTelefono>+001</codInternaTelefono>
+        <numHorasVol>0</numHorasVol>
         <dir>Springfield</dir>
         <paisOrigen>USA</paisOrigen>
+        <codInternaTelefono>+001</codInternaTelefono>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="11">
         <nombre>Paco</nombre>
@@ -183,7 +183,7 @@
             <puerta>1</puerta>
             <tipoVia>TRAV</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>0</NumHorasVoluntariado>
+        <numHorasVol>0</numHorasVol>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="12">
         <nombre>asas</nombre>
@@ -202,7 +202,34 @@
             <puerta>d</puerta>
             <tipoVia>AVDA</tipoVia>
         </direccion>
-        <NumHorasVoluntariado>45</NumHorasVoluntariado>
+        <numHorasVol>0</numHorasVol>
+    </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="13">
+        <nombre>Manuela</nombre>
+        <primerApellido>Villosa</primerApellido>
+        <segundoApellido>López</segundoApellido>
+        <telefono>626454578</telefono>
+        <email>mmanuelavill@hotmail.es</email>
+        <direccion>
+            <codPostal>25740</codPostal>
+            <escalera></escalera>
+            <localidad>Cáceres</localidad>
+            <nombreVia>de la Estación</nombreVia>
+            <numero>10</numero>
+            <piso>1º</piso>
+            <provincia>CAC</provincia>
+            <puerta>A</puerta>
+            <tipoVia>CAM</tipoVia>
+        </direccion>
+        <numHorasVol>0</numHorasVol>
+    </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="14">
+        <nombre>James</nombre>
+        <primerApellido>Earl</primerApellido>
+        <segundoApellido>Jones</segundoApellido>
+        <telefono>5556987412</telefono>
+        <email>jjones@yahoo.com</email>
+        <numHorasVol>120</numHorasVol>
     </Personal>
     <Proyectos id="1001">
         <nombre>CONVENIO DE EDUCACIÓN TRANSFORMADORA (AECID) </nombre>

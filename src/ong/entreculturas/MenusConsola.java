@@ -1,12 +1,16 @@
 package ong.entreculturas;
 
+import ong.dao.IOngDAO;
+
+import javax.xml.bind.*;
+import java.io.File;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**Esta clase contiene todos los métodos que se encargan de interactuar con el usuario desde consola.
  *
  * */
-public class MenusConsola {
+public class MenusConsola implements IOngDAO {
 
     /**
      * Método para borrar la pantalla de la consola (multiplataforma)
@@ -125,6 +129,9 @@ public class MenusConsola {
                         System.out.println("\n" + perVol.toString());
                         //Añadimos el nuevo empleado a la ONG
                         ong.addEquipo(perVol);
+                        //TODO: ¿alguna forma de guardar los cambios aquí?
+                        //Comprobar si funciona ésto...
+                        createOngDAO(ong);
                         pulseEnterParaContinuar();
                         clearScreen();
                         mostrarMenuPrincipal(ong);
@@ -138,6 +145,9 @@ public class MenusConsola {
                         System.out.println("\n" + perVolInt.toString());
                         //Añadimos el nuevo empleado a la ONG
                         ong.addEquipo(perVolInt);
+                        //TODO: ¿alguna forma de guardar los cambios aquí?
+                        //Comprobar si funciona ésto...
+                        createOngDAO(ong);
                         pulseEnterParaContinuar();
                         clearScreen();
                         mostrarMenuPrincipal(ong);
@@ -250,5 +260,64 @@ public class MenusConsola {
         {}
 
     } // fin del método pulseEnterParaContinuar
+
+    @Override
+    public void createOngDAO(ONG ong) {
+
+
+        try {
+
+            //Hacemos un marshaller para transformar la instancia ong en un archivo xml.
+            JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
+            Marshaller marshaller = jaxbContext.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            File archivoXML = new File("XML/ong.xml");
+            marshaller.marshal(ong, archivoXML);
+            System.out.println("¡Cambios guardados correctamente en \"" + archivoXML.getAbsolutePath() + "\"!");
+
+        } catch (PropertyException e) {
+            e.printStackTrace();
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public ONG readOngDAO() {
+
+//        try {
+//
+//            File file = new File("XML/ong.xml");
+//            JAXBContext jaxbContext = JAXBContext.newInstance(ONG.class);
+//            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+//            ong = (ONG) unmarshaller.unmarshal(file);
+//
+//        } catch (JAXBException e) {
+//            e.printStackTrace();
+//        }
+
+        return null;
+    }
+
+    @Override
+    public boolean updateOngDAO(ONG pONG) {
+
+        //Implementación de la lógica
+        //Modifica la instancia de ONG.
+        //Devuelve false si no se ha podido modificar los datos.
+
+        return false;
+    }
+
+    @Override
+    public boolean deleteOngDAO(ONG pONG) {
+
+        //Implementación de la lógica
+        //Elimina la instancia de ONG.
+        //Devuelve false si no se ha podido eliminar los datos.
+
+        return false;
+    }
 
 }

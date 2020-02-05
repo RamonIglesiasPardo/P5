@@ -11,6 +11,7 @@ import java.util.*;
  *  @version 1.4
  */
 
+@XmlType(propOrder = {"id"})
 @XmlSeeAlso({PerVoluntario.class, PerVolInternacional.class})
 public class Personal extends Persona {
 

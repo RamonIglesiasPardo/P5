@@ -13,7 +13,8 @@ import java.util.List;
  * @version 1.3
  */
 
-@XmlAccessorType(XmlAccessType.NONE)
+@XmlRootElement(name="ong")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ONG {
 
     @XmlAttribute(name = "nombre")

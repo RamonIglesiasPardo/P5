@@ -1,8 +1,7 @@
 package ong.entreculturas;
 
-import java.util.*;
-
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+import java.util.Scanner;
 
 /** La clase PerVolInternacional es subclase directa de la clase
  *	PerVoluntario.
@@ -12,6 +11,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  *  @version 1.5
  */
 
+@XmlRootElement(name="perVolInternacional")
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder = {"dir", "paisOrigen", "codInternaTelefono"})
 public class PerVolInternacional extends PerVoluntario {
 
 	//Variables de clase
@@ -70,6 +72,7 @@ public class PerVolInternacional extends PerVoluntario {
 	 *	@return String con el país de origen del voluntario internacional
 	 */
 
+	@XmlElement(name = "paisOrigen")
 	public String getPaisOrigen() {
 
 		return paisOrigen;
@@ -92,6 +95,7 @@ public class PerVolInternacional extends PerVoluntario {
 	 *	@return String con la nueva dirección
 	 */
 
+	@XmlElement(name = "dir")
 	public String getDir() {
 
 		return sDireccion;
@@ -114,6 +118,7 @@ public class PerVolInternacional extends PerVoluntario {
 	 *	@return String con el código (prefijo) internacional del teléfono
 	 */
 
+	@XmlElement(name = "codInternaTelefono")
 	public String getCodInternaTelefono() {
 
 		return codInternaTelefono;
