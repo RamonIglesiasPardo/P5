@@ -25,12 +25,13 @@ public class Prueba_Sql {
 
             while (miResultSet.next()) {
 
+
                 System.out.println(miResultSet.getString("idPersonal") + " - " +
                         miResultSet.getString("segundoApellido") + " " + miResultSet.getString("primerApellido") + ", " +
                         miResultSet.getString("nombre") );
             }
         } catch (SQLException e) {
-            System.out.println("Error en la conexión.");
+            System.out.println("Error al mostrar la consulta.");
             e.printStackTrace();
         }
 
