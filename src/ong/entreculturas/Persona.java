@@ -149,9 +149,7 @@ public abstract class Persona {
      */
 
 	@XmlElement(name = "email")
-    public String getMail() {
-        return mail;
-    }
+    public String getMail() { return mail; }
 
     /**Establece el correo electrónico de la persona
      * @param mail correo electrónico de la persona

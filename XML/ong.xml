@@ -231,6 +231,72 @@
         <email>jjones@yahoo.com</email>
         <numHorasVol>120</numHorasVol>
     </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="15">
+        <nombre>1</nombre>
+        <primerApellido>1</primerApellido>
+        <segundoApellido>1</segundoApellido>
+        <telefono>1</telefono>
+        <direccion>
+            <codPostal>1</codPostal>
+            <escalera>1</escalera>
+            <localidad>1</localidad>
+            <nombreVia>1</nombreVia>
+            <numero>1</numero>
+            <piso>1</piso>
+            <provincia>CORU</provincia>
+            <puerta>1</puerta>
+            <tipoVia>AVDA</tipoVia>
+        </direccion>
+        <numHorasVol>0</numHorasVol>
+    </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="16">
+        <nombre>22</nombre>
+        <primerApellido>22</primerApellido>
+        <segundoApellido>22</segundoApellido>
+        <telefono>22</telefono>
+        <numHorasVol>0</numHorasVol>
+        <dir>22</dir>
+        <paisOrigen>22</paisOrigen>
+        <codInternaTelefono>22</codInternaTelefono>
+    </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="17">
+        <nombre>1</nombre>
+        <primerApellido>1</primerApellido>
+        <segundoApellido>1</segundoApellido>
+        <telefono>1</telefono>
+        <email>1</email>
+        <direccion>
+            <codPostal>1</codPostal>
+            <escalera>1</escalera>
+            <localidad>1</localidad>
+            <nombreVia>1</nombreVia>
+            <numero>1</numero>
+            <piso>1</piso>
+            <provincia>CORU</provincia>
+            <puerta>1</puerta>
+            <tipoVia>AVDA</tipoVia>
+        </direccion>
+        <numHorasVol>1</numHorasVol>
+    </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="18">
+        <nombre>Ruben</nombre>
+        <primerApellido>Alonso</primerApellido>
+        <segundoApellido>Tejedor</segundoApellido>
+        <telefono>630189056</telefono>
+        <email>ralonsot@uco.edu</email>
+        <direccion>
+            <codPostal></codPostal>
+            <escalera></escalera>
+            <localidad>El Escorial</localidad>
+            <nombreVia>Guadalquivir</nombreVia>
+            <numero>17</numero>
+            <piso></piso>
+            <provincia>MAD</provincia>
+            <puerta></puerta>
+            <tipoVia>CALL</tipoVia>
+        </direccion>
+        <numHorasVol>23</numHorasVol>
+    </Personal>
     <Proyectos id="1001">
         <nombre>CONVENIO DE EDUCACIÓN TRANSFORMADORA (AECID) </nombre>
         <pais>El Salvador, República Dominicana, Haití, Perú, Colombia y Bolivia</pais>

@@ -68,7 +68,7 @@ public class UtilitySql {
                         "    PrimerApellido VARCHAR(16) NOT NULL,\n" +
                         "    SegundoApellido VARCHAR(16) NOT NULL,Direccion VARCHAR(128) NOT NULL,\n" +
                         "    Telefono VARCHAR(12) NOT NULL,\n" +
-                        "    Mail VARCHAR(32) NOT NULL,\n" +
+                        "    Mail VARCHAR(32),\n" +
                         "\n" +
                         "    PRIMARY KEY(IdPersona)\n" +
                         "\n" +
@@ -393,7 +393,42 @@ public class UtilitySql {
 
         }
 
+        public static void insertTablePersona (String nombre, String primerApellido, String segundoApellido, String direccion,
+                                       String telefono, String mail) throws SQLException {
+
+
+            Conexion nuevaConexion = new Conexion();
+            UtilitySql sesionSql = new UtilitySql(nuevaConexion);
+
+            // Comprobamos que los datos son los que esperábamos.
+
+            out.println("Intentando conectarse con los siguientes datos:");
+            out.println(nuevaConexion.toString());
+
+            // Ahora llamamos al método conectarBD con miConexion como parámetro para efectivamente
+            //conectar con la base de datos deseada.
+
+            Connection newConnection = sesionSql.conectarBD(nuevaConexion);
+
+            String sentenciaSql = "INSERT INTO Persona ( Nombre, PrimerApellido, SegundoApellido, Direccion, Telefono, Mail ) VALUES ( ?,?,?,?,?,?);";
+
+            PreparedStatement ps = (PreparedStatement) newConnection.prepareStatement(sentenciaSql);
+            ps.setString(1, nombre);
+            ps.setString(2, primerApellido);
+            ps.setString(3, segundoApellido);
+            ps.setString(4, direccion);
+            ps.setString(5, telefono);
+            ps.setString(6, mail);
+
+            ps.executeUpdate();
+            out.println("Sentencia DML ejecutada con éxito. Se ha insertado:" +
+                    nombre + primerApellido + segundoApellido + direccion + telefono + mail);
+
+        }
+
     }
+
+
 
 /**
  * Se incluye la clase Conexion, que utilizará la clase UtilitySql.
@@ -410,16 +445,15 @@ class Conexion {
     private String pass;
 
     //Constructores
-
     //Al llamar al constructor por defecto, le pasaremos automáticamente unos datos
     //de conexión prefijados
 
     public Conexion() {
-        this.host = "localhost";
+        this.host = "192.168.168.111";
         this.puerto = "3306";
         this.nombreBD = "Entreculturas";
         this.user = "root";
-        this.pass = "";
+        this.pass = "Qs122prt@34";
     }
 
     public Conexion(String host, String puerto, String nombreBD, String user, String pass) {

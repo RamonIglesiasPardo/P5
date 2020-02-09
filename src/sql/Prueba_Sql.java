@@ -10,8 +10,8 @@ public class Prueba_Sql {
 
             //1.Creamos una conexion a la base de datos mediante un objeto Connection
 
-            Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/entreculturas?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-                    "root", "");
+            Connection miConexion = DriverManager.getConnection("jdbc:mysql://192.168.168.111:3306/entreculturas?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+                    "root", "Qs122prt@34");
 
             //2.Creamos un objeto Statement, para poder crear una sentencia después
 
