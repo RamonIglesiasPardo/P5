@@ -30,18 +30,29 @@ public class Main {
         //Recorremos personal para insertarlo en la BD MySQL.
         for (int i=0; i <ong.lequipo.size();i++){
 
+            String nombre, primerApellido, segundoApellido, direccion, telefono, mail;
+
+            nombre = ong.lequipo.get(i).getNombre();
+            primerApellido = ong.lequipo.get(i).getPrimerApellido();
+            segundoApellido = ong.lequipo.get(i).getSegundoApellido();
+            mail = ong.lequipo.get(i).getMail();
+
+            //En función de que sea personal internacional o nacional tabla destino y campos varian
             if (!(ong.lequipo.get(i) instanceof PerVolInternacional)) {
 
-                String nombre = ong.lequipo.get(i).getNombre();
-                String primerApellido = ong.lequipo.get(i).getPrimerApellido();
-                String segundoApellido = ong.lequipo.get(i).getSegundoApellido();
-                String direccion = ong.lequipo.get(i).getDireccion().toString();
-                String telefono = ong.lequipo.get(i).getTelefono();
-                String mail = ong.lequipo.get(i).getMail();
+                telefono = ong.lequipo.get(i).getTelefono();
+                direccion = ong.lequipo.get(i).getDireccion().toString();
 
-                UtilitySql.insertTablePersona(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
+                UtilitySql.insertTablePersonalNacional(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
+
+            } else {
+
+                PerVolInternacional perVolutarioInternacional = (PerVolInternacional) ong.lequipo.get(i);
+                telefono = perVolutarioInternacional.getCodInternaTelefono()+" "+perVolutarioInternacional.getTelefono();
+                direccion = perVolutarioInternacional.getDir();
+
+                UtilitySql.insertTablePersonalInternacional(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
             }
-
         }
 
         // Creamos una instancia del menú principal por consola pasándole la instancia ong con los datos del sistema.

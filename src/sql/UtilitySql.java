@@ -137,6 +137,43 @@ public class UtilitySql {
         sentenciaDDL(newConnection, sentenciaSql);
         out.println("Sentencia DDL ejecutada con éxito.");
 
+        //Creamos un stored procedure que permitirá operaciones tipo CRUD con la tabla personal
+        sentenciaSql =
+                "/* Vamos a crear un Procedimiento Almacenado con varios parámetros de entrada (IN) \n" +
+                "Su funcionalidad es ejecutar operaciones CRUD, en la tabla Personal, en función del último parámetro facilitado*/\n" +
+                "CREATE PROCEDURE crud_personal(\n" +
+                "IN paramIdPersona INT, \n" +
+                "IN paramNombre VARCHAR(16),\n" +
+                "IN paramPrimerApellido VARCHAR(16),\n" +
+                "IN paramSegundoApellido VARCHAR(16),\n" +
+                "IN paramDireccion VARCHAR(128),\n" +
+                "IN paramTelefono VARCHAR(12),\n" +
+                "IN paramMail VARCHAR(32),\n" +
+                "IN accion CHAR(6)\n" +
+                ")\n" +
+                "BEGIN\n" +
+                "    CASE accion\n" +
+                "    WHEN 'create' THEN\n" +
+                "\t\tINSERT INTO Entreculturas.Persona(Nombre, PrimerApellido, SegundoApellido, Direccion, Telefono, Mail)\n" +
+                "\t\tVALUES(paramNombre, paramPrimerApellido, paramSegundoApellido, paramDireccion, paramTelefono, paramMail);\n" +
+                "\tWHEN 'read' THEN\n" +
+                "\t\tSELECT * FROM Entreculturas.Persona\n" +
+                "        WHERE IdPersona=paramIdPersona;    \n" +
+                "\tWHEN 'update' THEN\n" +
+                "        UPDATE Entreculturas.Persona \n" +
+                "        SET Nombre=paramNombre, PrimerApellido=paramPrimerApellido, SegundoApellido=paramSegundoApellido, Direccion=paramDireccion, Telefono=paramTelefono, Mail=paramMail\n" +
+                "\t\tWHERE IdPersona=paramIdPersona;\n" +
+                "\tWHEN 'delete' THEN\n" +
+                "        DELETE FROM Entreculturas.Persona \n" +
+                "        WHERE IdPersona=paramIdPersona;\n" +
+                "\tELSE\n" +
+                "\t\tSIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Buhhh!! Tan solo se permiten las opciones CRUD: Create, Read, Update o Delete :(';\n" +
+                "\tEND CASE;\n" +
+                "END;";
+
+        sentenciaDDL(newConnection, sentenciaSql);
+        out.println("Sentencia DDL ejecutada con éxito.");
+
         // Pasaremos ahora a introducir unos pocos registros manualmente, utilizando para ello
         // el método sentenciaDML, que nos servirá para usar sentencias tipo SELECT, INSERT,
         // DELETE o UPDATE. Esto es sólo de prueba, ya que en principio debemos pasar los elementos
@@ -393,9 +430,40 @@ public class UtilitySql {
 
         }
 
-        public static void insertTablePersona (String nombre, String primerApellido, String segundoApellido, String direccion,
+        public static void insertTablePersonalNacional (String nombre, String primerApellido, String segundoApellido, String direccion,
                                        String telefono, String mail) throws SQLException {
 
+            Conexion nuevaConexion = new Conexion();
+            UtilitySql sesionSql = new UtilitySql(nuevaConexion);
+
+            // Comprobamos que los datos son los que esperábamos.
+
+            out.println("Intentando conectarse con los siguientes datos:");
+            out.println(nuevaConexion.toString());
+
+            // Ahora llamamos al método conectarBD con miConexion como parámetro para efectivamente
+            //conectar con la base de datos deseada.
+
+            Connection newConnection = sesionSql.conectarBD(nuevaConexion);
+
+            String sentenciaSql = "CALL Entreculturas.crud_personal( null,?,?,?,?,?,?, 'create');";
+
+            PreparedStatement ps = newConnection.prepareStatement(sentenciaSql);
+            ps.setString(1, nombre);
+            ps.setString(2, primerApellido);
+            ps.setString(3, segundoApellido);
+            ps.setString(4, direccion);
+            ps.setString(5, telefono);
+            ps.setString(6, mail);
+
+            ps.executeUpdate();
+            out.println("Sentencia DML ejecutada con éxito. Se ha insertado:" +
+                    nombre + primerApellido + segundoApellido + direccion + telefono + mail);
+
+        }
+
+        public static void insertTablePersonalInternacional (String nombre, String primerApellido, String segundoApellido, String direccion,
+                                                        String telefono, String mail) throws SQLException {
 
             Conexion nuevaConexion = new Conexion();
             UtilitySql sesionSql = new UtilitySql(nuevaConexion);

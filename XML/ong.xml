@@ -5,6 +5,7 @@
         <primerApellido>Iglesias</primerApellido>
         <segundoApellido>Pardo</segundoApellido>
         <telefono>619201743</telefono>
+        <email>ramon@gmail.com</email>
         <direccion>
             <codPostal>08041</codPostal>
             <escalera>A</escalera>
@@ -23,16 +24,17 @@
         <primerApellido>Fernandez</primerApellido>
         <segundoApellido>Cuesta</segundoApellido>
         <telefono>871125554</telefono>
+        <email>manolo@gmail.com</email>
         <direccion>
-            <codPostal>08041</codPostal>
+            <codPostal>19021</codPostal>
             <escalera>A</escalera>
             <localidad>Barcelones</localidad>
-            <nombreVia>Mare de Deu</nombreVia>
-            <numero>100</numero>
-            <piso>ENT</piso>
+            <nombreVia>Valencia</nombreVia>
+            <numero>12</numero>
+            <piso>6</piso>
             <provincia>BAR</provincia>
             <puerta>1</puerta>
-            <tipoVia>AVDA</tipoVia>
+            <tipoVia>PLA</tipoVia>
         </direccion>
         <numHorasVol>0</numHorasVol>
     </Personal>
@@ -41,15 +43,16 @@
         <primerApellido>Carmona</primerApellido>
         <segundoApellido>Ruiz</segundoApellido>
         <telefono>671458444</telefono>
+        <email>antonio@gmail.com</email>
         <direccion>
             <codPostal>08041</codPostal>
             <escalera>A</escalera>
             <localidad>Barcelones</localidad>
-            <nombreVia>Mare de Deu</nombreVia>
-            <numero>100</numero>
-            <piso>ENT</piso>
+            <nombreVia>Aragon</nombreVia>
+            <numero>52</numero>
+            <piso>2</piso>
             <provincia>BAR</provincia>
-            <puerta>1</puerta>
+            <puerta>4</puerta>
             <tipoVia>AVDA</tipoVia>
         </direccion>
         <numHorasVol>0</numHorasVol>
@@ -58,14 +61,15 @@
         <nombre>Michael</nombre>
         <primerApellido>Knight</primerApellido>
         <segundoApellido>Hasselhoff</segundoApellido>
-        <telefono>+011 1251215</telefono>
+        <telefono>1251215</telefono>
+        <email>knight@gmail.com</email>
         <direccion>
-            <codPostal>08041</codPostal>
+            <codPostal>52112</codPostal>
             <escalera>A</escalera>
-            <localidad>Barcelones</localidad>
-            <nombreVia>Mare de Deu</nombreVia>
-            <numero>100</numero>
-            <piso>ENT</piso>
+            <localidad>Badalaona</localidad>
+            <nombreVia>Cenicienta</nombreVia>
+            <numero>1001</numero>
+            <piso>AT</piso>
             <provincia>BAR</provincia>
             <puerta>1</puerta>
             <tipoVia>AVDA</tipoVia>
@@ -80,6 +84,7 @@
         <primerApellido>Martos</primerApellido>
         <segundoApellido>Sánchez</segundoApellido>
         <telefono>646847588</telefono>
+        <email>raphael@gmail.com</email>
         <direccion>
             <codPostal>10101</codPostal>
             <escalera>A</escalera>
@@ -98,6 +103,7 @@
         <primerApellido>Sanchez</primerApellido>
         <segundoApellido>Sanchez</segundoApellido>
         <telefono>615801022</telefono>
+        <email>elFari@gmail.com</email>
         <direccion>
             <codPostal>08001</codPostal>
             <escalera>B</escalera>
@@ -116,6 +122,7 @@
         <primerApellido>Sanchez</primerApellido>
         <segundoApellido>Sanchez</segundoApellido>
         <telefono>6161616</telefono>
+        <email>45456@gmail.com</email>
         <direccion>
             <codPostal>08001</codPostal>
             <escalera>a</escalera>
@@ -133,7 +140,8 @@
         <nombre>Barack</nombre>
         <primerApellido>Hussein</primerApellido>
         <segundoApellido>Obama</segundoApellido>
-        <telefono>61651658</telefono>
+        <telefono>6165168</telefono>
+        <email>barack@gmail.com</email>
         <numHorasVol>0</numHorasVol>
         <dir>USA</dir>
         <paisOrigen>USA</paisOrigen>
@@ -162,6 +170,7 @@
         <primerApellido>Simpson</primerApellido>
         <segundoApellido> </segundoApellido>
         <telefono>2165165</telefono>
+        <email>simpson@gmail.com</email>
         <numHorasVol>0</numHorasVol>
         <dir>Springfield</dir>
         <paisOrigen>USA</paisOrigen>
@@ -190,7 +199,7 @@
         <primerApellido>sasasas</primerApellido>
         <segundoApellido>asasasa</segundoApellido>
         <telefono>45456465</telefono>
-        <email>45456</email>
+        <email>45456@gmail.com</email>
         <direccion>
             <codPostal>505050</codPostal>
             <escalera>asas</escalera>
@@ -227,9 +236,11 @@
         <nombre>James</nombre>
         <primerApellido>Earl</primerApellido>
         <segundoApellido>Jones</segundoApellido>
-        <telefono>5556987412</telefono>
+        <telefono>5598412</telefono>
         <email>jjones@yahoo.com</email>
         <numHorasVol>120</numHorasVol>
+        <dir>Springfield</dir>
+        <codInternaTelefono>+15</codInternaTelefono>
     </Personal>
     <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="15">
         <nombre>1</nombre>
