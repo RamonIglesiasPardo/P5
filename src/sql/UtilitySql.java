@@ -430,7 +430,7 @@ public class UtilitySql {
 
         }
 
-        public static void insertTablePersonalNacional (String nombre, String primerApellido, String segundoApellido, String direccion,
+        public static void insertPersonal (String nombre, String primerApellido, String segundoApellido, String direccion,
                                        String telefono, String mail) throws SQLException {
 
             Conexion nuevaConexion = new Conexion();
@@ -461,39 +461,6 @@ public class UtilitySql {
                     nombre + primerApellido + segundoApellido + direccion + telefono + mail);
 
         }
-
-        public static void insertTablePersonalInternacional (String nombre, String primerApellido, String segundoApellido, String direccion,
-                                                        String telefono, String mail) throws SQLException {
-
-            Conexion nuevaConexion = new Conexion();
-            UtilitySql sesionSql = new UtilitySql(nuevaConexion);
-
-            // Comprobamos que los datos son los que esperábamos.
-
-            out.println("Intentando conectarse con los siguientes datos:");
-            out.println(nuevaConexion.toString());
-
-            // Ahora llamamos al método conectarBD con miConexion como parámetro para efectivamente
-            //conectar con la base de datos deseada.
-
-            Connection newConnection = sesionSql.conectarBD(nuevaConexion);
-
-            String sentenciaSql = "INSERT INTO Persona ( Nombre, PrimerApellido, SegundoApellido, Direccion, Telefono, Mail ) VALUES ( ?,?,?,?,?,?);";
-
-            PreparedStatement ps = (PreparedStatement) newConnection.prepareStatement(sentenciaSql);
-            ps.setString(1, nombre);
-            ps.setString(2, primerApellido);
-            ps.setString(3, segundoApellido);
-            ps.setString(4, direccion);
-            ps.setString(5, telefono);
-            ps.setString(6, mail);
-
-            ps.executeUpdate();
-            out.println("Sentencia DML ejecutada con éxito. Se ha insertado:" +
-                    nombre + primerApellido + segundoApellido + direccion + telefono + mail);
-
-        }
-
     }
 
 

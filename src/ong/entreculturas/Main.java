@@ -43,16 +43,15 @@ public class Main {
                 telefono = ong.lequipo.get(i).getTelefono();
                 direccion = ong.lequipo.get(i).getDireccion().toString();
 
-                UtilitySql.insertTablePersonalNacional(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
-
             } else {
 
                 PerVolInternacional perVolutarioInternacional = (PerVolInternacional) ong.lequipo.get(i);
                 telefono = perVolutarioInternacional.getCodInternaTelefono()+" "+perVolutarioInternacional.getTelefono();
                 direccion = perVolutarioInternacional.getDir();
 
-                UtilitySql.insertTablePersonalInternacional(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
             }
+
+            UtilitySql.insertPersonal(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
         }
 
         // Creamos una instancia del menú principal por consola pasándole la instancia ong con los datos del sistema.
