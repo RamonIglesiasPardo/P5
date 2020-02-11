@@ -1,5 +1,8 @@
 package sql;
 
+import ong.entreculturas.ONG;
+import ong.entreculturas.PerVolInternacional;
+
 import java.sql.*;
 import java.util.*;
 
@@ -428,9 +431,38 @@ public class UtilitySql {
 
             }
 
-        }
+    }
 
-        public static void insertPersonal (String nombre, String primerApellido, String segundoApellido, String direccion,
+    public static void cargarDatos(ONG ong) throws SQLException  {
+
+        //Recorremos personal para insertarlo en la BD MySQL.
+        for (int i = 0; i < ong.lequipo.size(); i++) {
+
+            String nombre, primerApellido, segundoApellido, direccion, telefono, mail;
+
+            nombre = ong.lequipo.get(i).getNombre();
+            primerApellido = ong.lequipo.get(i).getPrimerApellido();
+            segundoApellido = ong.lequipo.get(i).getSegundoApellido();
+            mail = ong.lequipo.get(i).getMail();
+
+            //En función de que sea personal internacional o nacional tabla destino y campos varian
+            if (!(ong.lequipo.get(i) instanceof PerVolInternacional)) {
+
+                telefono = ong.lequipo.get(i).getTelefono();
+                direccion = ong.lequipo.get(i).getDireccion().toString();
+
+            } else {
+
+                PerVolInternacional perVolutarioInternacional = (PerVolInternacional) ong.lequipo.get(i);
+                telefono = perVolutarioInternacional.getCodInternaTelefono() + " " + perVolutarioInternacional.getTelefono();
+                direccion = perVolutarioInternacional.getDir();
+
+            }
+
+            UtilitySql.insertPersonal(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
+        }
+    }
+    public static void insertPersonal (String nombre, String primerApellido, String segundoApellido, String direccion,
                                        String telefono, String mail) throws SQLException {
 
             Conexion nuevaConexion = new Conexion();
@@ -457,11 +489,11 @@ public class UtilitySql {
             ps.setString(6, mail);
 
             ps.executeUpdate();
-            out.println("Sentencia DML ejecutada con éxito. Se ha insertado:" +
-                    nombre + primerApellido + segundoApellido + direccion + telefono + mail);
+            out.println("Sentencia DML ejecutada con éxito. Se ha insertado: "
+                    + nombre + " " + primerApellido + " " + segundoApellido + " " + direccion + " " + telefono + " " + mail);
 
-        }
     }
+}
 
 
 

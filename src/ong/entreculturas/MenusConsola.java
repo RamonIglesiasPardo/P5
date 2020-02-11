@@ -1,9 +1,11 @@
 package ong.entreculturas;
 
 import ong.dao.IOngDAO;
+import sql.UtilitySql;
 
 import javax.xml.bind.*;
 import java.io.File;
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -28,17 +30,23 @@ public class MenusConsola implements IOngDAO {
      *
      * @param ong objeto ONG
      */
-    public void mostrarMenuPrincipal(ONG ong) {
+    public void mostrarMenuPrincipal(ONG ong) throws SQLException {
 
         clearScreen();
-        System.out.println( "-----------------  ENTRECULTURAS  ---------------" );
+        System.out.println( "-----------------  ENTRECULTURAS  ---------------");
         System.out.println( "  ONG jesuíta para la educación y el desarrollo");
-        System.out.println(  "-------------------------------------------------");
-        System.out.println( "\n1 - Dar de alta un empleado" );
+        System.out.println( "-------------------------------------------------");
+        System.out.println( "    Info. del sistema: repositorio en uso " + (Main.sourceXML?"XML":"MySQL"));
+        System.out.println( "-------------------------------------------------");
+        System.out.println();
+        System.out.println(  "1 - Dar de alta un empleado" );
         System.out.println(  "2 - Dar de baja un empleado" );
         System.out.println(  "3 - Mostrar datos del sistema" );
-        System.out.println(  "4 - Salir de la aplicación" );
-        System.out.println(  "\nSeleccione una opción: ");
+        System.out.println(  "4 - Opciones persistencia" );
+        System.out.println(  "5 - Salir de la aplicación" );
+        System.out.println();
+        System.out.println(  "Seleccione una opción: ");
+
         seleccionarOpcionDeMenu(ong);
 
     } // fin del método mostrarMenu
@@ -49,7 +57,7 @@ public class MenusConsola implements IOngDAO {
      *
      * @param ong objeto ONG
      */
-    public void seleccionarOpcionDeMenu(ONG ong) {
+    public void seleccionarOpcionDeMenu(ONG ong) throws SQLException {
 
         Scanner entrada = new Scanner( System.in );
         boolean salir = false;
@@ -81,6 +89,10 @@ public class MenusConsola implements IOngDAO {
                         salir = true;
                         break;
                     case 4:
+                        seleccionarOpcionesPersistencia(ong);
+                        salir = true;
+                        break;
+                    case 5:
                         System.out.println("\nSaliendo del programa. Gracias por usar nuestra aplicación.");
                         salir = true;
                         break;
@@ -104,7 +116,7 @@ public class MenusConsola implements IOngDAO {
      * al método correspondiente.
      * @param ong objeto ONG
      */
-    public void seleccionarTipoEmpleado(ONG ong) {
+    public void seleccionarTipoEmpleado(ONG ong) throws SQLException {
 
         Scanner entrada = new Scanner( System.in );
         boolean salir = false;
@@ -171,13 +183,96 @@ public class MenusConsola implements IOngDAO {
     } // fin del método seleccionarTipoEmpleado
 
     /**
+     * Método para seleccionar el tipo de empleado a dar de alta.
+     * Según el tipo de empleado seleccionado, crea un objeto apropiado y llama
+     * al método correspondiente.
+     * @param ong objeto ONG
+     */
+    public void seleccionarOpcionesPersistencia(ONG ong) throws SQLException {
+
+        Scanner entrada = new Scanner( System.in );
+        boolean salir = false;
+        System.out.println( "Seleccione una de las siguientes opciones:" );
+        System.out.println( "1 - Seleccionar fuente de datos: XML" );
+        System.out.println( "2 - Seleccionar fuente de datos: MySQL" );
+        System.out.println( "3 - Cargar datos desde el XML a MySQL" );
+        System.out.println( "4 - Cargar datos desde MySQL a XML" );
+        System.out.println( "5 - Volver al menú principal" );
+        System.out.print(  "\nSu elección: ");
+
+        while (!salir) {
+
+            try {
+
+                int opcion = entrada.nextInt();
+
+                switch (opcion) {
+
+                    case 1:
+                        clearScreen();
+                        Main.sourceXML=true;
+                        System.out.println("Persistencia fijada en XML con éxito!");
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        mostrarMenuPrincipal(ong);
+                        salir = true;
+                        break;
+                    case 2:
+                        clearScreen();
+                        Main.sourceXML=false;
+                        System.out.println("Persistencia fijada en MySQL con éxito!");
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        mostrarMenuPrincipal(ong);
+                        salir = true;
+                        break;
+                    case 3:
+                        clearScreen();
+                        UtilitySql.cargarDatos(ong);
+                        System.out.println("Datos cargados correctamente de XML a MySQL!");
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        seleccionarOpcionesPersistencia(ong);
+                        salir = true;
+                        break;
+                    case 4:
+                        clearScreen();
+                        System.out.println("Lo sentimos. Función no implementada.");
+                        pulseEnterParaContinuar();
+                        clearScreen();
+                        mostrarMenuPrincipal(ong);
+                        salir = true;
+                        break;
+                    case 5:
+                        clearScreen();
+                        mostrarMenuPrincipal(ong);
+                        salir = true;
+                        break;
+                    default:
+                        System.out.print("Selección no válida. Pruebe de nuevo: ");
+                        opcion = entrada.nextInt();
+
+                } // fin de switch
+
+            } catch ( InputMismatchException e ) {
+
+                System.out.print( "Solo se aceptan las opciones indicadas. Pruebe de nuevo:  " );
+                entrada.next();
+
+            } // fin de try...catch
+
+        } // fin de while
+
+    } // fin del método seleccionarTipoEmpleado
+
+    /**
      * Método para seleccionar el tipo de listado a mostrar.
      * Según el tipo de listado, crea un objeto apropiado y llama
      * al método correspondiente.
      *
      * @param ong objeto ONG
      */
-    public void seleccionarTipoListado(ONG ong) {
+    public void seleccionarTipoListado(ONG ong) throws SQLException {
 
         Scanner entrada = new Scanner( System.in );
         boolean salir = false;
