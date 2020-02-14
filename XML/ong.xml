@@ -242,7 +242,7 @@
         <dir>Springfield</dir>
         <codInternaTelefono>+15</codInternaTelefono>
     </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="18">
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="15">
         <nombre>Ruben</nombre>
         <primerApellido>Alonso</primerApellido>
         <segundoApellido>Tejedor</segundoApellido>
@@ -260,6 +260,15 @@
             <tipoVia>CALL</tipoVia>
         </direccion>
         <numHorasVol>23</numHorasVol>
+    </Personal>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="16">
+        <nombre>Harry</nombre>
+        <primerApellido>Potter</primerApellido>
+        <segundoApellido>Notiene</segundoApellido>
+        <telefono>151515</telefono>
+        <email>potter@potter.com</email>
+        <dir>UK</dir>
+        <numHorasVol>1215</numHorasVol>
     </Personal>
     <Proyectos id="1001">
         <nombre>CONVENIO DE EDUCACIÓN TRANSFORMADORA (AECID) </nombre>

@@ -2,6 +2,7 @@ package sql;
 
 import ong.entreculturas.ONG;
 import ong.entreculturas.PerVolInternacional;
+import ong.entreculturas.PerVoluntario;
 
 import java.sql.*;
 import java.util.*;
@@ -123,10 +124,10 @@ public class UtilitySql {
                 "    idPerVol INT(4) NOT NULL,\n" +
                 "    IdPersonal INT(4) NOT NULL,\n" +
                 "    IdPersona INT(6) NOT NULL,\n" +
-                "    PaisOrigen VARCHAR(16) NOT NULL,\n" +
+                "    PaisOrigen VARCHAR(16),\n" +
                 "    -- Campo para la direccion internacional\n" +
                 "    SDireccion VARCHAR(120) NOT NULL,\n" +
-                "    CodInternaTelefono VARCHAR(3) NOT NULL,\n" +
+                "    CodInternaTelefono VARCHAR(16) NOT NULL,\n" +
                 "    PRIMARY KEY(IdPerVolInt),\n" +
                 "    FOREIGN KEY(idPerVol) REFERENCES PerVoluntario(IdPerVol)\n" +
                 "\t\tON UPDATE CASCADE ON DELETE CASCADE,\n" +
@@ -438,31 +439,57 @@ public class UtilitySql {
         //Recorremos personal para insertarlo en la BD MySQL.
         for (int i = 0; i < ong.lequipo.size(); i++) {
 
-            String nombre, primerApellido, segundoApellido, direccion, telefono, mail;
+            String nombre, primerApellido, segundoApellido, direccion, telefono, mail, paisOrigen = null;
 
             nombre = ong.lequipo.get(i).getNombre();
             primerApellido = ong.lequipo.get(i).getPrimerApellido();
             segundoApellido = ong.lequipo.get(i).getSegundoApellido();
             mail = ong.lequipo.get(i).getMail();
+            PerVoluntario perVoluntario = (PerVoluntario) ong.lequipo.get(i);
+            int numHoras = perVoluntario.getNumHorasVol();
 
             //En función de que sea personal internacional o nacional tabla destino y campos varian
             if (!(ong.lequipo.get(i) instanceof PerVolInternacional)) {
-
+                //Se ejecuta cuando es personal nacional
                 telefono = ong.lequipo.get(i).getTelefono();
                 direccion = ong.lequipo.get(i).getDireccion().toString();
 
             } else {
-
+                //Se ejecuta cuando es personal internacional
                 PerVolInternacional perVolutarioInternacional = (PerVolInternacional) ong.lequipo.get(i);
                 telefono = perVolutarioInternacional.getCodInternaTelefono() + " " + perVolutarioInternacional.getTelefono();
                 direccion = perVolutarioInternacional.getDir();
+                paisOrigen = perVolutarioInternacional.getPaisOrigen();
 
             }
 
-            UtilitySql.insertPersonal(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
+            UtilitySql.insertPersona(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
+
+            int idPersona = UtilitySql.consultarIdGenerado("Persona");
+
+            UtilitySql.insertPersonal(idPersona);
+
+            int idPersonal = UtilitySql.consultarIdGenerado("Personal");
+
+            UtilitySql.insertPerVoluntario(numHoras, idPersona, idPersonal);
+
+            //Hasta este punto todos las instancias son PerVoluntario, ahora verificamos si además son voluntarios
+            //internacionales, para actuar en consecuencia.
+            if ((ong.lequipo.get(i) instanceof PerVolInternacional)) {
+
+                int idPerVol = UtilitySql.consultarIdGenerado("PerVoluntario");
+
+                UtilitySql.insertPerVolInternacional(idPersona, idPersonal, idPerVol, direccion, paisOrigen, telefono);
+
+            }
         }
+
+        //Volver a la BD MySQL para consultar los ids...
+
+        //Poblar las otra tablas...
+
     }
-    public static void insertPersonal (String nombre, String primerApellido, String segundoApellido, String direccion,
+    public static void insertPersona (String nombre, String primerApellido, String segundoApellido, String direccion,
                                        String telefono, String mail) throws SQLException {
 
             Conexion nuevaConexion = new Conexion();
@@ -491,6 +518,100 @@ public class UtilitySql {
             ps.executeUpdate();
             out.println("Sentencia DML ejecutada con éxito. Se ha insertado: "
                     + nombre + " " + primerApellido + " " + segundoApellido + " " + direccion + " " + telefono + " " + mail);
+
+    }
+
+    /**
+     * Este método nos devolverá el id que ha otorgado la base de datos al último registro insertado.
+     * */
+    public static int consultarIdGenerado(String tablaObjetivo) throws SQLException {
+
+        int idGenerado = 0;
+        String sentenciaSql = null;
+        Conexion nuevaConexion = new Conexion();
+        UtilitySql sesionSql = new UtilitySql(nuevaConexion);
+        Connection newConnection = sesionSql.conectarBD(nuevaConexion);
+
+        if(tablaObjetivo == "Persona"){
+
+            sentenciaSql = "SELECT MAX(idPersona) AS id FROM Persona;";
+
+        } else if(tablaObjetivo == "Personal"){
+
+            sentenciaSql = "SELECT MAX(idPersonal) AS id FROM Personal;";
+
+        }else if(tablaObjetivo == "PerVoluntario"){
+
+            sentenciaSql = "SELECT MAX(idPerVol) AS id FROM PerVoluntario;";
+
+        }else if(tablaObjetivo == "PerVolInternacional"){
+
+            sentenciaSql = "SELECT MAX(idPerVolInt) AS id FROM PerVolInternacional;";
+
+        }
+
+        PreparedStatement ps = newConnection.prepareStatement(sentenciaSql);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+
+            idGenerado= rs.getInt("id");
+
+        }
+
+        return idGenerado;
+    }
+
+    public static void insertPersonal(int idPersona) throws SQLException {
+
+        Conexion nuevaConexion = new Conexion();
+        UtilitySql sesionSql = new UtilitySql(nuevaConexion);
+        Connection newConnection = sesionSql.conectarBD(nuevaConexion);
+
+        String sentenciaSql =   "SET FOREIGN_KEY_CHECKS = 0;";
+        PreparedStatement ps = newConnection.prepareStatement(sentenciaSql);
+        ps.executeUpdate();
+
+        sentenciaSql = "INSERT INTO Personal(idPersona) VALUES (?);";
+        ps = newConnection.prepareStatement(sentenciaSql);
+        ps.setInt(1, idPersona);
+        ps.executeUpdate();
+
+        sentenciaSql = "SET FOREIGN_KEY_CHECKS = 1;";
+        ps = newConnection.prepareStatement(sentenciaSql);
+        ps.executeUpdate();
+
+    }
+
+    public static void insertPerVoluntario(int numHorasVol, int idPersona, int idPersonal) throws SQLException {
+
+        Conexion nuevaConexion = new Conexion();
+        UtilitySql sesionSql = new UtilitySql(nuevaConexion);
+        Connection newConnection = sesionSql.conectarBD(nuevaConexion);
+
+        String sentenciaSql = "INSERT INTO PerVoluntario(idPersonal, idPersona, numHorasVol) VALUES (?, ?, ?);";
+        PreparedStatement ps = newConnection.prepareStatement(sentenciaSql);
+        ps.setInt(1, idPersonal);
+        ps.setInt(2, idPersona);
+        ps.setInt(3, numHorasVol);
+        ps.executeUpdate();
+
+    }
+
+    public static void insertPerVolInternacional( int idPersona, int idPersonal, int idPerVol, String direccion, String paisOrigen, String telefono) throws SQLException {
+
+        Conexion nuevaConexion = new Conexion();
+        UtilitySql sesionSql = new UtilitySql(nuevaConexion);
+        Connection newConnection = sesionSql.conectarBD(nuevaConexion);
+
+        String sentenciaSql = "INSERT INTO PerVolInternacional(idPerVol, idPersonal, idPersona, PaisOrigen, SDireccion, CodInternaTelefono) VALUES ( ?, ?, ?, ?, ?, ?);";
+        PreparedStatement ps = newConnection.prepareStatement(sentenciaSql);
+        ps.setInt(1, idPerVol);
+        ps.setInt(2, idPersonal);
+        ps.setInt(3, idPersona);
+        ps.setString(4, paisOrigen);
+        ps.setString(5, direccion);
+        ps.setString(6, telefono);
+        ps.executeUpdate();
 
     }
 }
