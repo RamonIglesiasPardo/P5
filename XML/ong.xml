@@ -136,18 +136,7 @@
         </direccion>
         <numHorasVol>0</numHorasVol>
     </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="8">
-        <nombre>Barack</nombre>
-        <primerApellido>Hussein</primerApellido>
-        <segundoApellido>Obama</segundoApellido>
-        <telefono>6165168</telefono>
-        <email>barack@gmail.com</email>
-        <numHorasVol>0</numHorasVol>
-        <dir>USA</dir>
-        <paisOrigen>USA</paisOrigen>
-        <codInternaTelefono>+001</codInternaTelefono>
-    </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="9">
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="8">
         <nombre>Julio</nombre>
         <primerApellido>Iglesias</primerApellido>
         <segundoApellido>De la Cueva</segundoApellido>
@@ -165,7 +154,7 @@
         </direccion>
         <numHorasVol>0</numHorasVol>
     </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="10">
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="9">
         <nombre>Homer</nombre>
         <primerApellido>Simpson</primerApellido>
         <segundoApellido> </segundoApellido>
@@ -176,7 +165,7 @@
         <paisOrigen>USA</paisOrigen>
         <codInternaTelefono>+001</codInternaTelefono>
     </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="11">
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="10">
         <nombre>Paco</nombre>
         <primerApellido>Porras</primerApellido>
         <segundoApellido>Perejil</segundoApellido>
@@ -194,26 +183,7 @@
         </direccion>
         <numHorasVol>0</numHorasVol>
     </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="12">
-        <nombre>asas</nombre>
-        <primerApellido>sasasas</primerApellido>
-        <segundoApellido>asasasa</segundoApellido>
-        <telefono>45456465</telefono>
-        <email>45456@gmail.com</email>
-        <direccion>
-            <codPostal>505050</codPostal>
-            <escalera>asas</escalera>
-            <localidad>asa</localidad>
-            <nombreVia>asas</nombreVia>
-            <numero>23</numero>
-            <piso>3</piso>
-            <provincia>CORU</provincia>
-            <puerta>d</puerta>
-            <tipoVia>AVDA</tipoVia>
-        </direccion>
-        <numHorasVol>0</numHorasVol>
-    </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="13">
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="11">
         <nombre>Manuela</nombre>
         <primerApellido>Villosa</primerApellido>
         <segundoApellido>López</segundoApellido>
@@ -232,7 +202,7 @@
         </direccion>
         <numHorasVol>0</numHorasVol>
     </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="14">
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="12">
         <nombre>James</nombre>
         <primerApellido>Earl</primerApellido>
         <segundoApellido>Jones</segundoApellido>
@@ -242,7 +212,7 @@
         <dir>Springfield</dir>
         <codInternaTelefono>+15</codInternaTelefono>
     </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="15">
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVoluntario" id="13">
         <nombre>Ruben</nombre>
         <primerApellido>Alonso</primerApellido>
         <segundoApellido>Tejedor</segundoApellido>
@@ -261,14 +231,16 @@
         </direccion>
         <numHorasVol>23</numHorasVol>
     </Personal>
-    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="16">
-        <nombre>Harry</nombre>
-        <primerApellido>Potter</primerApellido>
-        <segundoApellido>Notiene</segundoApellido>
-        <telefono>151515</telefono>
-        <email>potter@potter.com</email>
-        <dir>UK</dir>
-        <numHorasVol>1215</numHorasVol>
+    <Personal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="perVolInternacional" id="14">
+        <nombre>Carlos</nombre>
+        <primerApellido>Suárez</primerApellido>
+        <segundoApellido>Pereyra</segundoApellido>
+        <telefono>3515643333</telefono>
+        <email>pereyracarlos@yahoo.ar</email>
+        <numHorasVol>28</numHorasVol>
+        <dir>C/ 25 de Mayo, 1035, Planta Alta, Córdoba X5004FWI</dir>
+        <paisOrigen>Argentina</paisOrigen>
+        <codInternaTelefono>+54</codInternaTelefono>
     </Personal>
     <Proyectos id="1001">
         <nombre>CONVENIO DE EDUCACIÓN TRANSFORMADORA (AECID) </nombre>

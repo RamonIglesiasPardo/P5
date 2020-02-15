@@ -20,6 +20,7 @@ public class Main {
 
         // Precargamos datos existentes desde el XML
         // Creamos una instancia del factory seleccionando XML
+        //TODO: Ciclo IF para opcion SQL
         DAOFactory objetoFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
         // Creamos una instancia DAO XML
         IOngDAO ongDAO = objetoFactory.getOngDAO();

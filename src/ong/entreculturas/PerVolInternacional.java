@@ -131,8 +131,6 @@ public class PerVolInternacional extends PerVoluntario {
 	 *  Es el método abstracto de la superclase, que aquí sí se implementa.
 	 *
 	 */
-	//TODO:unificar con el método setDatosPerVolInternacional, y modificar las
-	//llamadas a estos métodos en otras clases.
 
 	@Override
 	public void introducirDatosPersona() {
@@ -149,6 +147,12 @@ public class PerVolInternacional extends PerVoluntario {
 		super.setPrimerApellido( entrada.nextLine() );
 		System.out.print( "Segundo apellido: " );
 		super.setSegundoApellido( entrada.nextLine() );
+		System.out.print( "Dirección: " );
+		setDir( entrada.nextLine() );
+		System.out.print( "País: " );
+		setPaisOrigen( entrada.nextLine() );
+		System.out.print( "Prefijo telefónico internacional: " );
+		setCodInternaTelefono( entrada.nextLine() );
 		System.out.print( "Teléfono: " );
 		super.setTelefono( entrada.nextLine() );
 		System.out.print( "E-mail: " );
@@ -160,24 +164,6 @@ public class PerVolInternacional extends PerVoluntario {
 
 	}
 
-	/** Método para establecer los datos específicos de un personal voluntario internacional
-	 *
-	 */
-
-	//TODO:unificar con el método anterior
-
-	public void setDatosPerVolInternacional() {
-
-		Scanner entrada = new Scanner(System.in);
-
-		System.out.print( "Dirección: " );
-		setDir( entrada.nextLine() );
-		System.out.print( "País: " );
-		setPaisOrigen( entrada.nextLine() );
-		System.out.print( "Prefijo telefónico internacional: " );
-		setCodInternaTelefono( entrada.nextLine() );
-
-	} // fin del método setDatosPerVolInternacional
 
 	/** Devuelve la representación String de un objeto PerVolInternacional
 	 *  NOTA: modificar si implementamos la clase Sede
@@ -191,11 +177,12 @@ public class PerVolInternacional extends PerVoluntario {
 
 	public String toString() {
 
-		return String.format( "%s: %s %s, %s\n%s: %s\n%s: %s%s\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n\n",
-				"Nombre", super.getPrimerApellido(), super.getSegundoApellido(), super.getNombre(),
-				"Dirección", getDir(), "Teléfono", getCodInternaTelefono(), super.getTelefono(), "E-mail", super.getMail(),
-				"Id de empleado", super.getId(), "Tipo de empleado", "personal voluntario internacional",
-				"País de origen", getPaisOrigen(), "Número de horas como voluntario", super.getNumHorasVol() );
+		return String.format("Id de empleado: %04d\nNombre: %s %s, %s\nDirección: %s\nPaís de origen: %s" +
+						"\nTeléfono: %s %s\nE-mail: %s\nTipo de empleado: personal voluntario internacional" +
+						"\nNúmero de horas como voluntario: %s\n",
+				super.getId(), super.getPrimerApellido(),
+				super.getSegundoApellido(), super.getNombre(), getDir(), getPaisOrigen(),  getCodInternaTelefono(),
+				super.getTelefono(), super.getMail(), super.getNumHorasVol() );
 
 	} // fin del método toString
 
