@@ -228,7 +228,8 @@ public class MenusConsola implements IOngDAO {
                         break;
                     case 3:
                         clearScreen();
-                        UtilitySql.cargarDatos(ong);
+                        UtilitySql utilitySql = new UtilitySql();
+                        utilitySql.cargarDatos(ong);
                         System.out.println("Datos cargados correctamente de XML a MySQL!");
                         pulseEnterParaContinuar();
                         clearScreen();

@@ -1,6 +1,7 @@
 package ong.entreculturas;
 
 import ong.dao.*;
+import org.w3c.dom.ls.LSOutput;
 import sql.UtilitySql;
 
 import java.sql.SQLException;
@@ -35,8 +36,8 @@ public class Main {
 
     } // fin de main
 
-
 } // fin de la clase Main
 
 //TODO: Eliminar empleados a la lista de empleados.
 //TODO: Revisar método crearID en subclases de Personal (¿bien implementado?)
+
