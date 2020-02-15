@@ -71,7 +71,7 @@ public class UtilitySql {
                         "    Nombre VARCHAR(16) NOT NULL,\n" +
                         "    PrimerApellido VARCHAR(16) NOT NULL,\n" +
                         "    SegundoApellido VARCHAR(16) NOT NULL,Direccion VARCHAR(128) NOT NULL,\n" +
-                        "    Telefono VARCHAR(12) NOT NULL,\n" +
+                        "    Telefono VARCHAR(24) NOT NULL,\n" +
                         "    Mail VARCHAR(32),\n" +
                         "\n" +
                         "    PRIMARY KEY(IdPersona)\n" +
@@ -151,7 +151,7 @@ public class UtilitySql {
                 "IN paramPrimerApellido VARCHAR(16),\n" +
                 "IN paramSegundoApellido VARCHAR(16),\n" +
                 "IN paramDireccion VARCHAR(128),\n" +
-                "IN paramTelefono VARCHAR(12),\n" +
+                "IN paramTelefono VARCHAR(24),\n" +
                 "IN paramMail VARCHAR(32),\n" +
                 "IN accion CHAR(6)\n" +
                 ")\n" +
@@ -637,11 +637,18 @@ class Conexion {
     //de conexión prefijados
 
     public Conexion() {
-        this.host = "192.168.168.111";
+//        this.host = "192.168.168.111";
+//        this.puerto = "3306";
+//        this.nombreBD = "Entreculturas";
+//        this.user = "root";
+//        this.pass = "Qs122prt@34";
+
+        this.host = "localhost";
         this.puerto = "3306";
         this.nombreBD = "Entreculturas";
         this.user = "root";
-        this.pass = "Qs122prt@34";
+        this.pass = "";
+
     }
 
     public Conexion(String host, String puerto, String nombreBD, String user, String pass) {
