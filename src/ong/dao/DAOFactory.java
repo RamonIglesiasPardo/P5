@@ -27,8 +27,7 @@ public abstract class DAOFactory {
             case XML:
                 return new XmlDAOFactory();
             case MySQL:
-                return null;
-                //return new MySQLDAOFactory();
+                return new MySqlDAOFactory();
             default:
                 return null;
         }

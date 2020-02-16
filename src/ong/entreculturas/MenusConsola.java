@@ -1,5 +1,6 @@
 package ong.entreculturas;
 
+import ong.dao.DAOFactory;
 import ong.dao.IOngDAO;
 import sql.UtilitySql;
 
@@ -36,7 +37,7 @@ public class MenusConsola implements IOngDAO {
         System.out.println( "-----------------  ENTRECULTURAS  ---------------");
         System.out.println( "  ONG jesuíta para la educación y el desarrollo");
         System.out.println( "-------------------------------------------------");
-        System.out.println( "    Info. del sistema: repositorio en uso " + (Main.sourceXML?"XML":"MySQL"));
+        System.out.println( "    Info. del sistema: repositorio en uso " + (Main.sourceSelected.toString()));
         System.out.println( "-------------------------------------------------");
         System.out.println();
         System.out.println(  "1 - Dar de alta un empleado" );
@@ -210,7 +211,8 @@ public class MenusConsola implements IOngDAO {
 
                     case 1:
                         clearScreen();
-                        Main.sourceXML=true;
+                        Main.sourceSelected = Main.sourceType.XML;
+                        Main.objetoFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
                         System.out.println("Persistencia fijada en XML con éxito!");
                         pulseEnterParaContinuar();
                         clearScreen();
@@ -219,7 +221,8 @@ public class MenusConsola implements IOngDAO {
                         break;
                     case 2:
                         clearScreen();
-                        Main.sourceXML=false;
+                        Main.sourceSelected = Main.sourceType.MySQL;
+                        Main.objetoFactory = DAOFactory.getDAOFactory(DAOFactory.MySQL);
                         System.out.println("Persistencia fijada en MySQL con éxito!");
                         pulseEnterParaContinuar();
                         clearScreen();
