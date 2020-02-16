@@ -444,59 +444,6 @@ public class UtilitySql {
 
     }
 
-    public void cargarDatos(ONG ong) throws SQLException  {
-
-        //En primer lugar borraremos los contenidos que puedan existir en la Base de datos.
-        truncateAllContentDB();
-
-        //Recorremos personal para insertarlo en la BD MySQL.
-        for (int i = 0; i < ong.lequipo.size(); i++) {
-
-            String nombre, primerApellido, segundoApellido, direccion, telefono, mail, paisOrigen = null;
-
-            nombre = ong.lequipo.get(i).getNombre();
-            primerApellido = ong.lequipo.get(i).getPrimerApellido();
-            segundoApellido = ong.lequipo.get(i).getSegundoApellido();
-            mail = ong.lequipo.get(i).getMail();
-            PerVoluntario perVoluntario = (PerVoluntario) ong.lequipo.get(i);
-            int numHoras = perVoluntario.getNumHorasVol();
-
-            //En función de que sea personal internacional o nacional tabla destino y campos varian
-            if (!(ong.lequipo.get(i) instanceof PerVolInternacional)) {
-                //Se ejecuta cuando es personal nacional
-                telefono = ong.lequipo.get(i).getTelefono();
-                direccion = ong.lequipo.get(i).getDireccion().toString();
-
-            } else {
-                //Se ejecuta cuando es personal internacional
-                PerVolInternacional perVolutarioInternacional = (PerVolInternacional) ong.lequipo.get(i);
-                telefono = perVolutarioInternacional.getCodInternaTelefono() + " " + perVolutarioInternacional.getTelefono();
-                direccion = perVolutarioInternacional.getDir();
-                paisOrigen = perVolutarioInternacional.getPaisOrigen();
-
-            }
-
-            insertPersona(nombre, primerApellido, segundoApellido, direccion, telefono, mail);
-
-            int idPersona = consultarIdGenerado("Persona");
-
-            insertPersonal(idPersona);
-
-            int idPersonal = consultarIdGenerado("Personal");
-
-            insertPerVoluntario(numHoras, idPersona, idPersonal);
-
-            //Hasta este punto todos las instancias son PerVoluntario, ahora verificamos si además son voluntarios
-            //internacionales, para actuar en consecuencia.
-            if ((ong.lequipo.get(i) instanceof PerVolInternacional)) {
-
-                int idPerVol = consultarIdGenerado("PerVoluntario");
-
-                insertPerVolInternacional(idPersona, idPersonal, idPerVol, direccion, paisOrigen, telefono);
-
-            }
-        }
-    }
     public void insertPersona (String nombre, String primerApellido, String segundoApellido, String direccion,
                                        String telefono, String mail) throws SQLException {
 
