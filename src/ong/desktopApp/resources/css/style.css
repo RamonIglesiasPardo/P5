@@ -1,0 +1,29 @@
+.jfx-button {
+  -fx-background-color: #f1f1f1;
+  -fx-background-repeat: no-repeat ;
+  -fx-background-position: 10;
+  -fx-background-size: 40 40;
+  -fx-background-insets: 0, 10;
+}
+
+#b1 {
+  -fx-background-image: url("/ong/desktopApp/resources/images/resize/database-1.png");
+}
+#b2 {
+  -fx-background-image: url("/ong/desktopApp/resources/images/resize/030-teamwork.png");
+}
+#b3 {
+  -fx-background-image: url("/ong/desktopApp/resources/images/resize/039-global-2.png");
+}
+#exit {
+  -fx-background-image: url("/ong/desktopApp/resources/images/resize/close.png");
+}
+
+.jfx-button:selected {
+  -fx-background-image: url('http://icons.iconarchive.com/icons/aha-soft/desktop-buffet/128/Piece-of-cake-icon.png');
+}
+#app-title {
+  -fx-font-size: 40pt;
+  -fx-font-weight: normal;
+  -fx-text-fill: grey;
+}
