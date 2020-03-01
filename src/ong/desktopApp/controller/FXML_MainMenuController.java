@@ -1,9 +1,13 @@
 package ong.desktopApp.controller;
 
+        import com.jfoenix.controls.JFXButton;
         import com.jfoenix.controls.JFXDrawer;
         import com.jfoenix.controls.JFXHamburger;
         import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
+        import javafx.scene.Node;
+        import javafx.scene.Scene;
+        import javafx.scene.layout.BorderPane;
         import ong.desktopApp.ColorChangeCallback;
         import ong.desktopApp.Launcher;
 
@@ -20,7 +24,6 @@ package ong.desktopApp.controller;
         import javafx.scene.input.MouseEvent;
         import javafx.scene.layout.AnchorPane;
         import javafx.scene.layout.StackPane;
-        import javafx.scene.layout.VBox;
         import javafx.util.Duration;
 
 public class FXML_MainMenuController implements Initializable, ColorChangeCallback {
@@ -62,6 +65,15 @@ public class FXML_MainMenuController implements Initializable, ColorChangeCallba
                 drawer.open();
             }
         });
+    }
+
+    @FXML
+    private void hamClicked(MouseEvent event) throws IOException {
+
+        Scene scene = root.getScene();
+        Node nodeToFind = scene.lookup("#drawer");
+        JFXDrawer contentPanel = (JFXDrawer) nodeToFind;
+        contentPanel.toFront();
     }
 
     private void loadSplashScreen() {

@@ -22,9 +22,9 @@
                                 <Image url="@../resources/images/back.jpg" />
                             </image>
                         </ImageView>
-                        <JFXButton fx:id="b1" buttonType="RAISED" onAction="#changeColor" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Datos del sistema"/>
-                        <JFXButton fx:id="b2" buttonType="RAISED" layoutX="10.0" layoutY="123.0" onAction="#changeColor" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Voluntarios Nacionales" />
-                        <JFXButton fx:id="b3" buttonType="RAISED" layoutX="10.0" layoutY="197.0" onAction="#changeColor" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Voluntarios Internacionales" />
+                        <JFXButton fx:id="b1" buttonType="RAISED" onAction="#handleButtonAction" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Datos del sistema"/>
+                        <JFXButton fx:id="b2" buttonType="RAISED" layoutX="10.0" layoutY="123.0" onAction="#handleButtonAction" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Voluntarios Nacionales" />
+                        <JFXButton fx:id="b3" buttonType="RAISED" layoutX="10.0" layoutY="197.0" onAction="#handleButtonAction" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Voluntarios Internacionales" />
                         <JFXButton fx:id="exit" buttonType="RAISED" layoutX="10.0" layoutY="271.0" onAction="#exit" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="EXIT" />
                     </children>
                 </VBox>
