@@ -42,7 +42,7 @@ public class FXML_MainMenuController implements Initializable, ColorChangeCallba
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ong/desktopApp/view/SideMenuPanel.fxml"));
-            VBox box = loader.load();
+            StackPane box = loader.load();
             FXML_SideMenuPanelController controller = loader.getController();
             controller.setCallback(this);
             drawer.setSidePane(box);
