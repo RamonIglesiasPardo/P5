@@ -1,14 +1,11 @@
 package ong.desktopApp.controller;
 
-        import com.jfoenix.controls.JFXButton;
         import com.jfoenix.controls.JFXDrawer;
         import com.jfoenix.controls.JFXHamburger;
         import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
         import javafx.scene.Node;
         import javafx.scene.Scene;
-        import javafx.scene.layout.BorderPane;
-        import ong.desktopApp.ColorChangeCallback;
         import ong.desktopApp.Launcher;
 
         import java.io.IOException;
@@ -26,7 +23,7 @@ package ong.desktopApp.controller;
         import javafx.scene.layout.StackPane;
         import javafx.util.Duration;
 
-public class FXML_MainMenuController implements Initializable, ColorChangeCallback {
+public class FXML_MainMenuController implements Initializable {
 
     @FXML
     private JFXDrawer drawer;
@@ -47,7 +44,6 @@ public class FXML_MainMenuController implements Initializable, ColorChangeCallba
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ong/desktopApp/view/SideMenuPanel.fxml"));
             StackPane box = loader.load();
             FXML_SideMenuPanelController controller = loader.getController();
-            controller.setCallback(this);
             drawer.setSidePane(box);
         } catch (IOException ex) {
             Logger.getLogger(FXML_MenuController.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,6 +70,8 @@ public class FXML_MainMenuController implements Initializable, ColorChangeCallba
         Node nodeToFind = scene.lookup("#drawer");
         JFXDrawer contentPanel = (JFXDrawer) nodeToFind;
         contentPanel.toFront();
+        hamburger.toFront();
+
     }
 
     private void loadSplashScreen() {
@@ -111,10 +109,5 @@ public class FXML_MainMenuController implements Initializable, ColorChangeCallba
         } catch (IOException ex) {
             Logger.getLogger(FXML_MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @Override
-    public void updateColor(String newColor) {
-        root.setStyle("-fx-background-color:" + newColor);
     }
 }
