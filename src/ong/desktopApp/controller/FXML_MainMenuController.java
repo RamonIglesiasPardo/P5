@@ -45,32 +45,35 @@ public class FXML_MainMenuController implements Initializable {
             StackPane box = loader.load();
             FXML_SideMenuPanelController controller = loader.getController();
             drawer.setSidePane(box);
+            drawer.toFront();
+            hamburger.toFront();
+            drawer.open();
         } catch (IOException ex) {
             Logger.getLogger(FXML_MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
-        transition.setRate(-1);
+//        HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
+//        transition.setRate(-1);
+
         hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
-            transition.setRate(transition.getRate() * -1);
-            transition.play();
+//            transition.setRate(transition.getRate() * -1);
+//            transition.play();
 
             if (drawer.isOpened()) {
                 drawer.close();
+                drawer.toBack();
             } else {
                 drawer.open();
+                drawer.toFront();
             }
+            hamburger.toFront();
         });
     }
 
     @FXML
     private void hamClicked(MouseEvent event) throws IOException {
-
-        Scene scene = root.getScene();
-        Node nodeToFind = scene.lookup("#drawer");
-        JFXDrawer contentPanel = (JFXDrawer) nodeToFind;
-        contentPanel.toFront();
-        hamburger.toFront();
+//        drawer.toFront();
+//        hamburger.toFront();
 
     }
 

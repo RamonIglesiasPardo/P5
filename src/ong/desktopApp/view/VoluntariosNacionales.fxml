@@ -5,8 +5,10 @@
 <?import javafx.scene.layout.*?>
 <StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="ong.desktopApp.controller.FXML_VNController"
-           xmlns="http://javafx.com/javafx/2.2">
-    <VBox maxWidth="600" maxHeight="600" spacing="10">
+           xmlns="http://javafx.com/javafx/2.2"
+           stylesheets="/ong/desktopApp/resources/css/style.css">
+    <VBox maxWidth="700" maxHeight="700" spacing="10">
+        <Label fx:id="title" text="Voluntarios Nacionales"/>
         <children>
             <HBox alignment="CENTER">
                 <Label styleClass="title-label">Read Only Tree Table View</Label>

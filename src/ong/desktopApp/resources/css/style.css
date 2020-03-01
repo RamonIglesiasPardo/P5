@@ -6,6 +6,16 @@
   -fx-background-insets: 0, 10;
 }
 
+#title{
+  -fx-text-alignment: center;
+  -fx-font-size: 40pt;
+  -fx-font-weight: normal;
+  -fx-text-fill: grey;
+  -fx-alignment: top-center;
+  -fx-content-display: top;
+
+}
+
 #b1 {
   -fx-background-image: url("/ong/desktopApp/resources/images/resize/database-1.png");
 }

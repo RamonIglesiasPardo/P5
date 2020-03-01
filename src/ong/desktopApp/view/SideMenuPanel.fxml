@@ -15,7 +15,7 @@
            stylesheets="/ong/desktopApp/resources/css/style.css">
     <BorderPane>
             <top>
-                <VBox>
+                <VBox fx:id="sideBar">
                     <children>
                         <ImageView fitHeight="127.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                             <image>

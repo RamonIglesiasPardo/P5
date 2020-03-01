@@ -1,204 +1,222 @@
 package ong.desktopApp.controller;
 
 import com.jfoenix.controls.*;
-        import com.jfoenix.controls.cells.editors.IntegerTextFieldEditorBuilder;
-        import com.jfoenix.controls.cells.editors.TextFieldEditorBuilder;
-        import com.jfoenix.controls.cells.editors.base.GenericEditableTreeTableCell;
-        import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-        import javafx.beans.binding.Bindings;
-        import javafx.beans.property.IntegerProperty;
-        import javafx.beans.property.SimpleIntegerProperty;
-        import javafx.beans.property.SimpleStringProperty;
-        import javafx.beans.property.StringProperty;
-        import javafx.beans.value.ChangeListener;
-        import javafx.beans.value.ObservableValue;
-        import javafx.collections.FXCollections;
-        import javafx.collections.ObservableList;
-        import javafx.fxml.FXML;
-        import javafx.scene.control.Label;
-        import javafx.scene.control.TreeTableColumn;
-        import javafx.scene.control.TreeTableColumn.CellEditEvent;
+import com.jfoenix.controls.cells.editors.IntegerTextFieldEditorBuilder;
+import com.jfoenix.controls.cells.editors.TextFieldEditorBuilder;
+import com.jfoenix.controls.cells.editors.base.GenericEditableTreeTableCell;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
-        import javax.annotation.PostConstruct;
-        import java.security.SecureRandom;
-        import java.util.Random;
-        import java.util.function.Function;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableColumn.CellEditEvent;
+import javafx.scene.image.Image;
 
-    public class FXML_VNController {
+import javax.annotation.PostConstruct;
+import java.io.IOException;
+import java.security.SecureRandom;
+import java.util.Random;
+import java.util.function.Function;
 
-        private static final String PREFIX = "( ";
-        private static final String POSTFIX = " )";
+public class FXML_VNController {
 
-        // readonly table view
-        @FXML
-        private JFXTreeTableView<ong.desktopApp.controller.FXML_VIController.Person> treeTableView;
-        @FXML
-        private JFXTreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, String> firstNameColumn;
-        @FXML
-        private JFXTreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, String> lastNameColumn;
-        @FXML
-        private JFXTreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, Integer> ageColumn;
-        @FXML
-        private JFXTextField searchField;
+    private static final String PREFIX = "( ";
+    private static final String POSTFIX = " )";
 
-        // editable table view
-        @FXML
-        private JFXTreeTableView<ong.desktopApp.controller.FXML_VIController.Person> editableTreeTableView;
-        @FXML
-        private JFXTreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, String> firstNameEditableColumn;
-        @FXML
-        private JFXTreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, String> lastNameEditableColumn;
-        @FXML
-        private JFXTreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, Integer> ageEditableColumn;
-        @FXML
-        private Label treeTableViewCount;
-        @FXML
-        private JFXButton treeTableViewAdd;
-        @FXML
-        private JFXButton treeTableViewRemove;
-        @FXML
-        private Label editableTreeTableViewCount;
-        @FXML
-        private JFXTextField searchField2;
+    // readonly table view
+    @FXML
+    private JFXTreeTableView<Person> treeTableView;
+    @FXML
+    private JFXTreeTableColumn<Person, String> firstNameColumn;
+    @FXML
+    private JFXTreeTableColumn<Person, String> lastNameColumn;
+    @FXML
+    private JFXTreeTableColumn<Person, Integer> ageColumn;
+    @FXML
+    private JFXTextField searchField;
 
-        private final String[] names = {"Morley", "Scott", "Kruger", "Lain",
-                "Kennedy", "Gawron", "Han", "Hall", "Aydogdu", "Grace",
-                "Spiers", "Perera", "Smith", "Connoly",
-                "Sokolowski", "Chaow", "James", "June",};
-        private final Random random = new SecureRandom();
+    // editable table view
+    @FXML
+    private JFXTreeTableView<Person> editableTreeTableView;
+    @FXML
+    private JFXTreeTableColumn<Person, String> firstNameEditableColumn;
+    @FXML
+    private JFXTreeTableColumn<Person, String> lastNameEditableColumn;
+    @FXML
+    private JFXTreeTableColumn<Person, Integer> ageEditableColumn;
+    @FXML
+    private Label treeTableViewCount;
+    @FXML
+    private JFXButton treeTableViewAdd;
+    @FXML
+    private JFXButton treeTableViewRemove;
+    @FXML
+    private Label editableTreeTableViewCount;
+    @FXML
+    private JFXTextField searchField2;
 
-        /**
-         * init fxml when loaded.
-         */
-        @PostConstruct
-        public void init() {
-            setupReadOnlyTableView();
-            setupEditableTableView();
-        }
+    private final String[] names = {"Morley", "Scott", "Kruger", "Lain",
+            "Kennedy", "Gawron", "Han", "Hall", "Aydogdu", "Grace",
+            "Spiers", "Perera", "Smith", "Connoly",
+            "Sokolowski", "Chaow", "James", "June",};
+    private final Random random = new SecureRandom();
 
-        private <T> void setupCellValueFactory(JFXTreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, T> column, Function<ong.desktopApp.controller.FXML_VIController.Person, ObservableValue<T>> mapper) {
-            column.setCellValueFactory((TreeTableColumn.CellDataFeatures<ong.desktopApp.controller.FXML_VIController.Person, T> param) -> {
-                if (column.validateValue(param)) {
-                    return mapper.apply(param.getValue().getValue());
-                } else {
-                    return column.getComputedValue(param);
-                }
-            });
-        }
+    /**
+     * init fxml when loaded.
+     */
+    @PostConstruct
+    public void init() throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("/ong/desktopApp/view/VoluntariosInternacionales.fxml"));
 
-        private void setupReadOnlyTableView() {
-            setupCellValueFactory(firstNameColumn, ong.desktopApp.controller.FXML_VIController.Person::firstNameProperty);
-            setupCellValueFactory(lastNameColumn, ong.desktopApp.controller.FXML_VIController.Person::lastNameProperty);
-            setupCellValueFactory(ageColumn, p -> p.age.asObject());
+        setupReadOnlyTableView();
+        setupEditableTableView();
 
-            ObservableList<ong.desktopApp.controller.FXML_VIController.Person> dummyData = generateDummyData(100);
+    }
 
-            treeTableView.setRoot(new RecursiveTreeItem<>(dummyData, RecursiveTreeObject::getChildren));
-
-            treeTableView.setShowRoot(false);
-            treeTableViewCount.textProperty()
-                    .bind(Bindings.createStringBinding(() -> PREFIX + treeTableView.getCurrentItemsCount() + POSTFIX,
-                            treeTableView.currentItemsCountProperty()));
-            treeTableViewAdd.disableProperty()
-                    .bind(Bindings.notEqual(-1, treeTableView.getSelectionModel().selectedIndexProperty()));
-            treeTableViewRemove.disableProperty()
-                    .bind(Bindings.equal(-1, treeTableView.getSelectionModel().selectedIndexProperty()));
-            treeTableViewAdd.setOnMouseClicked((e) -> {
-                dummyData.add(createNewRandomPerson());
-                final IntegerProperty currCountProp = treeTableView.currentItemsCountProperty();
-                currCountProp.set(currCountProp.get() + 1);
-            });
-            treeTableViewRemove.setOnMouseClicked((e) -> {
-                dummyData.remove(treeTableView.getSelectionModel().selectedItemProperty().get().getValue());
-                final IntegerProperty currCountProp = treeTableView.currentItemsCountProperty();
-                currCountProp.set(currCountProp.get() - 1);
-            });
-
-        }
-
-        private void setupEditableTableView() {
-            setupCellValueFactory(firstNameEditableColumn, ong.desktopApp.controller.FXML_VIController.Person::firstNameProperty);
-            setupCellValueFactory(lastNameEditableColumn, ong.desktopApp.controller.FXML_VIController.Person::lastNameProperty);
-            setupCellValueFactory(ageEditableColumn, p -> p.age.asObject());
-
-            // add editors
-            firstNameEditableColumn.setCellFactory((TreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, String> param) -> {
-                return new GenericEditableTreeTableCell<>(
-                        new TextFieldEditorBuilder());
-            });
-            firstNameEditableColumn.setOnEditCommit((TreeTableColumn.CellEditEvent<ong.desktopApp.controller.FXML_VIController.Person, String> t) -> {
-                t.getTreeTableView()
-                        .getTreeItem(t.getTreeTablePosition()
-                                .getRow())
-                        .getValue().firstName.set(t.getNewValue());
-            });
-            lastNameEditableColumn.setCellFactory((TreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, String> param) -> {
-                return new GenericEditableTreeTableCell<>(
-                        new TextFieldEditorBuilder());
-            });
-            lastNameEditableColumn.setOnEditCommit((TreeTableColumn.CellEditEvent<ong.desktopApp.controller.FXML_VIController.Person, String> t) -> {
-                t.getTreeTableView()
-                        .getTreeItem(t.getTreeTablePosition()
-                                .getRow())
-                        .getValue().lastName.set(t.getNewValue());
-            });
-            ageEditableColumn.setCellFactory((TreeTableColumn<ong.desktopApp.controller.FXML_VIController.Person, Integer> param) -> {
-                return new GenericEditableTreeTableCell<>(
-                        new IntegerTextFieldEditorBuilder());
-            });
-            ageEditableColumn.setOnEditCommit((TreeTableColumn.CellEditEvent<ong.desktopApp.controller.FXML_VIController.Person, Integer> t) -> {
-                t.getTreeTableView()
-                        .getTreeItem(t.getTreeTablePosition()
-                                .getRow())
-                        .getValue().age.set(t.getNewValue());
-            });
-
-            final ObservableList<ong.desktopApp.controller.FXML_VIController.Person> dummyData = generateDummyData(200);
-            editableTreeTableView.setRoot(new RecursiveTreeItem<>(dummyData, RecursiveTreeObject::getChildren));
-            editableTreeTableView.setShowRoot(false);
-            editableTreeTableView.setEditable(true);
-            editableTreeTableViewCount.textProperty()
-                    .bind(Bindings.createStringBinding(() -> PREFIX + editableTreeTableView.getCurrentItemsCount() + POSTFIX,
-                            editableTreeTableView.currentItemsCountProperty()));
-
-        }
-
-
-
-        private ObservableList<ong.desktopApp.controller.FXML_VIController.Person> generateDummyData(final int numberOfEntries) {
-            final ObservableList<ong.desktopApp.controller.FXML_VIController.Person> dummyData = FXCollections.observableArrayList();
-            for (int i = 0; i < numberOfEntries; i++) {
-                dummyData.add(createNewRandomPerson());
+    private <T> void setupCellValueFactory(JFXTreeTableColumn<Person, T> column, Function<Person, ObservableValue<T>> mapper) {
+        column.setCellValueFactory((TreeTableColumn.CellDataFeatures<Person, T> param) -> {
+            if (column.validateValue(param)) {
+                return mapper.apply(param.getValue().getValue());
+            } else {
+                return column.getComputedValue(param);
             }
-            return dummyData;
+        });
+    }
+
+    private void setupReadOnlyTableView() {
+        setupCellValueFactory(firstNameColumn, Person::firstNameProperty);
+        setupCellValueFactory(lastNameColumn, Person::lastNameProperty);
+        setupCellValueFactory(ageColumn, p -> p.age.asObject());
+
+        ObservableList<Person> dummyData = generateDummyData(100);
+
+        treeTableView.setRoot(new RecursiveTreeItem<>(dummyData, RecursiveTreeObject::getChildren));
+
+        treeTableView.setShowRoot(false);
+        treeTableViewCount.textProperty()
+                .bind(Bindings.createStringBinding(() -> PREFIX + treeTableView.getCurrentItemsCount() + POSTFIX,
+                        treeTableView.currentItemsCountProperty()));
+        treeTableViewAdd.disableProperty()
+                .bind(Bindings.notEqual(-1, treeTableView.getSelectionModel().selectedIndexProperty()));
+        treeTableViewRemove.disableProperty()
+                .bind(Bindings.equal(-1, treeTableView.getSelectionModel().selectedIndexProperty()));
+        treeTableViewAdd.setOnMouseClicked((e) -> {
+            dummyData.add(createNewRandomPerson());
+            final IntegerProperty currCountProp = treeTableView.currentItemsCountProperty();
+            currCountProp.set(currCountProp.get() + 1);
+        });
+        treeTableViewRemove.setOnMouseClicked((e) -> {
+            dummyData.remove(treeTableView.getSelectionModel().selectedItemProperty().get().getValue());
+            final IntegerProperty currCountProp = treeTableView.currentItemsCountProperty();
+            currCountProp.set(currCountProp.get() - 1);
+        });
+        searchField.textProperty().addListener(setupSearchField(treeTableView));
+    }
+
+    private void setupEditableTableView() {
+        setupCellValueFactory(firstNameEditableColumn, Person::firstNameProperty);
+        setupCellValueFactory(lastNameEditableColumn, Person::lastNameProperty);
+        setupCellValueFactory(ageEditableColumn, p -> p.age.asObject());
+
+        // add editors
+        firstNameEditableColumn.setCellFactory((TreeTableColumn<Person, String> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new TextFieldEditorBuilder());
+        });
+        firstNameEditableColumn.setOnEditCommit((CellEditEvent<Person, String> t) -> {
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().firstName.set(t.getNewValue());
+        });
+        lastNameEditableColumn.setCellFactory((TreeTableColumn<Person, String> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new TextFieldEditorBuilder());
+        });
+        lastNameEditableColumn.setOnEditCommit((CellEditEvent<Person, String> t) -> {
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().lastName.set(t.getNewValue());
+        });
+        ageEditableColumn.setCellFactory((TreeTableColumn<Person, Integer> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new IntegerTextFieldEditorBuilder());
+        });
+        ageEditableColumn.setOnEditCommit((CellEditEvent<Person, Integer> t) -> {
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().age.set(t.getNewValue());
+        });
+
+        final ObservableList<Person> dummyData = generateDummyData(200);
+        editableTreeTableView.setRoot(new RecursiveTreeItem<>(dummyData, RecursiveTreeObject::getChildren));
+        editableTreeTableView.setShowRoot(false);
+        editableTreeTableView.setEditable(true);
+        editableTreeTableViewCount.textProperty()
+                .bind(Bindings.createStringBinding(() -> PREFIX + editableTreeTableView.getCurrentItemsCount() + POSTFIX,
+                        editableTreeTableView.currentItemsCountProperty()));
+        searchField2.textProperty()
+                .addListener(setupSearchField(editableTreeTableView));
+    }
+
+    private ChangeListener<String> setupSearchField(final JFXTreeTableView<FXML_VNController.Person> tableView) {
+        return (o, oldVal, newVal) ->
+                tableView.setPredicate(personProp -> {
+                    final Person person = personProp.getValue();
+                    return person.firstName.get().contains(newVal)
+                            || person.lastName.get().contains(newVal)
+                            || Integer.toString(person.age.get()).contains(newVal);
+                });
+    }
+
+    private ObservableList<Person> generateDummyData(final int numberOfEntries) {
+        final ObservableList<Person> dummyData = FXCollections.observableArrayList();
+        for (int i = 0; i < numberOfEntries; i++) {
+            dummyData.add(createNewRandomPerson());
+        }
+        return dummyData;
+    }
+
+    private Person createNewRandomPerson() {
+        return new Person(names[random.nextInt(names.length)],
+                names[random.nextInt(names.length)],
+                random.nextInt(100));
+    }
+
+    /*
+     * data class
+     */
+    static final class Person extends RecursiveTreeObject<Person> {
+        final StringProperty firstName;
+        final StringProperty lastName;
+        final SimpleIntegerProperty age;
+
+        Person(String firstName, String lastName, int age) {
+            this.firstName = new SimpleStringProperty(firstName);
+            this.lastName = new SimpleStringProperty(lastName);
+            this.age = new SimpleIntegerProperty(age);
         }
 
-        private ong.desktopApp.controller.FXML_VIController.Person createNewRandomPerson() {
-            return new ong.desktopApp.controller.FXML_VIController.Person(names[random.nextInt(names.length)],
-                    names[random.nextInt(names.length)],
-                    random.nextInt(100));
+        StringProperty firstNameProperty() {
+            return firstName;
         }
 
-        /*
-         * data class
-         */
-        static final class Person extends RecursiveTreeObject<ong.desktopApp.controller.FXML_VIController.Person> {
-            final StringProperty firstName;
-            final StringProperty lastName;
-            final SimpleIntegerProperty age;
-
-            Person(String firstName, String lastName, int age) {
-                this.firstName = new SimpleStringProperty(firstName);
-                this.lastName = new SimpleStringProperty(lastName);
-                this.age = new SimpleIntegerProperty(age);
-            }
-
-            StringProperty firstNameProperty() {
-                return firstName;
-            }
-
-            StringProperty lastNameProperty() {
-                return lastName;
-            }
+        StringProperty lastNameProperty() {
+            return lastName;
         }
     }
+}

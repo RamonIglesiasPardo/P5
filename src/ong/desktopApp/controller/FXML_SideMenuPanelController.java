@@ -2,9 +2,13 @@ package ong.desktopApp.controller;
 
         import com.jfoenix.controls.JFXButton;
         import com.jfoenix.controls.JFXDrawer;
+        import com.jfoenix.controls.JFXHamburger;
+        import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Node;
+        import javafx.scene.Parent;
         import javafx.scene.Scene;
+        import javafx.scene.input.MouseEvent;
         import javafx.scene.layout.BorderPane;
         import javafx.scene.layout.StackPane;
 
@@ -13,6 +17,7 @@ package ong.desktopApp.controller;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.Initializable;
+        import javafx.scene.layout.VBox;
 
 public class FXML_SideMenuPanelController implements Initializable {
 
@@ -24,6 +29,8 @@ public class FXML_SideMenuPanelController implements Initializable {
     private JFXButton b3;
     @FXML
     private JFXButton exit;
+    @FXML
+    private VBox sideBar;
     @FXML
     private StackPane root;
 
@@ -48,6 +55,14 @@ public class FXML_SideMenuPanelController implements Initializable {
             case "b2":
                 root = FXMLLoader.load(getClass().getResource("/ong/desktopApp/view/VoluntariosNacionales.fxml"));
                 contentPanel.setCenter(root);
+
+
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ong/desktopApp/view/VoluntariosNacionales.fxml"));
+//                Parent root = loader.load();
+//                FXML_VNController vnController = loader.getController();
+//
+//                vnController.init();
+
                 break;
             case "b3":
                 root = FXMLLoader.load(getClass().getResource("/ong/desktopApp/view/VoluntariosInternacionales.fxml"));
@@ -55,12 +70,25 @@ public class FXML_SideMenuPanelController implements Initializable {
                 break;
         }
 
-//        Scene sceneSB = root.getScene();
-//        Node nodeToFindSB = scene.lookup("#drawer");
-//        JFXDrawer contentPanelSB = (JFXDrawer) nodeToFind;
-//        contentPanel.toFront();
-//        hamburger.toFront();
+        Scene sceneDrawer = root.getScene();
+        JFXDrawer drawer = (JFXDrawer) sceneDrawer.lookup("#drawer");
+        drawer.toBack();
+        Scene sceneHamburguer = root.getScene();
+        JFXHamburger hamburger = (JFXHamburger)sceneHamburguer.lookup("#hamburger");
+        hamburger.toFront();
+//        HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
+//        transition.setRate(-1);
+//        transition.setRate(transition.getRate() * -1);
+//        transition.play();
 
+        if (drawer.isOpened()) {
+            drawer.close();
+            drawer.toBack();
+        } else {
+            drawer.open();
+            drawer.toFront();
+        }
+        hamburger.toFront();
     }
 
     @FXML
