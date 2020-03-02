@@ -4,7 +4,8 @@ package ong.desktopApp.controller;
         import com.jfoenix.controls.JFXHamburger;
         import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
-        import ong.desktopApp.ColorChangeCallback;
+        import javafx.scene.Node;
+        import javafx.scene.Scene;
         import ong.desktopApp.Launcher;
 
         import java.io.IOException;
@@ -20,10 +21,9 @@ package ong.desktopApp.controller;
         import javafx.scene.input.MouseEvent;
         import javafx.scene.layout.AnchorPane;
         import javafx.scene.layout.StackPane;
-        import javafx.scene.layout.VBox;
         import javafx.util.Duration;
 
-public class FXML_MainMenuController implements Initializable, ColorChangeCallback {
+public class FXML_MainMenuController implements Initializable {
 
     @FXML
     private JFXDrawer drawer;
@@ -42,26 +42,40 @@ public class FXML_MainMenuController implements Initializable, ColorChangeCallba
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ong/desktopApp/view/SideMenuPanel.fxml"));
-            VBox box = loader.load();
+            StackPane box = loader.load();
             FXML_SideMenuPanelController controller = loader.getController();
-            controller.setCallback(this);
             drawer.setSidePane(box);
+            drawer.toFront();
+            hamburger.toFront();
+            drawer.open();
         } catch (IOException ex) {
             Logger.getLogger(FXML_MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
-        transition.setRate(-1);
+//        HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
+//        transition.setRate(-1);
+
         hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
-            transition.setRate(transition.getRate() * -1);
-            transition.play();
+//            transition.setRate(transition.getRate() * -1);
+//            transition.play();
+
 
             if (drawer.isOpened()) {
                 drawer.close();
+                drawer.toBack();
             } else {
                 drawer.open();
+                drawer.toFront();
             }
+            hamburger.toFront();
         });
+    }
+
+    @FXML
+    private void hamClicked(MouseEvent event) throws IOException {
+//        drawer.toFront();
+//        hamburger.toFront();
+
     }
 
     private void loadSplashScreen() {
@@ -99,10 +113,5 @@ public class FXML_MainMenuController implements Initializable, ColorChangeCallba
         } catch (IOException ex) {
             Logger.getLogger(FXML_MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @Override
-    public void updateColor(String newColor) {
-        root.setStyle("-fx-background-color:" + newColor);
     }
 }

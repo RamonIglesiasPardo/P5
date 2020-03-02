@@ -6,17 +6,28 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.StackPane?>
 
-<VBox prefHeight="400.0" prefWidth="178.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ong.desktopApp.controller.FXML_SideMenuPanelController" stylesheets="/ong/desktopApp/resources/css/style.css">
-    <children>
-        <ImageView fitHeight="127.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../resources/images/back.jpg" />
-            </image>
-        </ImageView>
-        <JFXButton fx:id="b1" buttonType="RAISED" onAction="#changeColor" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Datos del sistema"/>
-        <JFXButton fx:id="b2" buttonType="RAISED" layoutX="10.0" layoutY="123.0" onAction="#changeColor" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Voluntarios Nacionales" />
-        <JFXButton fx:id="b3" buttonType="RAISED" layoutX="10.0" layoutY="197.0" onAction="#changeColor" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Voluntarios Internacionales" />
-        <JFXButton fx:id="exit" buttonType="RAISED" layoutX="10.0" layoutY="271.0" onAction="#exit" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="EXIT" />
-    </children>
-</VBox>
+<?import javafx.scene.layout.BorderPane?>
+<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="ong.desktopApp.controller.FXML_SideMenuPanelController"
+           xmlns="http://javafx.com/javafx/8.0.171"
+           stylesheets="/ong/desktopApp/resources/css/style.css">
+    <BorderPane>
+            <top>
+                <VBox fx:id="sideBar">
+                    <children>
+                        <ImageView fitHeight="127.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../resources/images/back.jpg" />
+                            </image>
+                        </ImageView>
+                        <JFXButton fx:id="b1" buttonType="RAISED" onAction="#handleButtonAction" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Datos del sistema"/>
+                        <JFXButton fx:id="b2" buttonType="RAISED" layoutX="10.0" layoutY="123.0" onAction="#handleButtonAction" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Voluntarios Nacionales" />
+                        <JFXButton fx:id="b3" buttonType="RAISED" layoutX="10.0" layoutY="197.0" onAction="#handleButtonAction" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="Voluntarios Internacionales" />
+                        <JFXButton fx:id="exit" buttonType="RAISED" layoutX="10.0" layoutY="271.0" onAction="#exit" prefHeight="100.0" prefWidth="500.0" ripplerFill="#fc0000" text="EXIT" />
+                    </children>
+                </VBox>
+            </top>
+    </BorderPane>
+</StackPane>
