@@ -3,7 +3,7 @@
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
-<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
+<StackPane fx:id="rootVN" xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="ong.desktopApp.controller.FXML_VNController"
            xmlns="http://javafx.com/javafx/2.2"
            stylesheets="/ong/desktopApp/resources/css/style.css">

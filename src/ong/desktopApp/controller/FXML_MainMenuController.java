@@ -59,6 +59,7 @@ public class FXML_MainMenuController implements Initializable {
 //            transition.setRate(transition.getRate() * -1);
 //            transition.play();
 
+
             if (drawer.isOpened()) {
                 drawer.close();
                 drawer.toBack();

@@ -49,24 +49,25 @@ public class FXML_SideMenuPanelController implements Initializable {
 
         switch (btn.getId()) {
             case "b1":
-                root = FXMLLoader.load(getClass().getResource("/ong/desktopApp/view/DatosDelSistema.fxml"));
-                contentPanel.setCenter(root);
+                FXMLLoader loaderDS = new FXMLLoader(getClass().getResource("/ong/desktopApp/view/DatosDelSistema.fxml"));
+                StackPane rootDS = (StackPane) loaderDS.load();
+                contentPanel.setCenter(rootDS);
+                FXML_DatosSistemaController dsController = loaderDS.getController();
+                dsController.init();
                 break;
             case "b2":
-                root = FXMLLoader.load(getClass().getResource("/ong/desktopApp/view/VoluntariosNacionales.fxml"));
-                contentPanel.setCenter(root);
-
-
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ong/desktopApp/view/VoluntariosNacionales.fxml"));
-//                Parent root = loader.load();
-//                FXML_VNController vnController = loader.getController();
-//
-//                vnController.init();
-
+                FXMLLoader loaderVN = new FXMLLoader(getClass().getResource("/ong/desktopApp/view/VoluntariosNacionales.fxml"));
+                StackPane rootVN = (StackPane) loaderVN.load();
+                contentPanel.setCenter(rootVN);
+                FXML_VNController vnController = loaderVN.getController();
+                vnController.init();
                 break;
             case "b3":
-                root = FXMLLoader.load(getClass().getResource("/ong/desktopApp/view/VoluntariosInternacionales.fxml"));
-                contentPanel.setCenter(root);
+                FXMLLoader loaderVI = new FXMLLoader(getClass().getResource("/ong/desktopApp/view/VoluntariosInternacionales.fxml"));
+                StackPane rootVI = (StackPane) loaderVI.load();
+                contentPanel.setCenter(rootVI);
+                FXML_VIController viController = loaderVI.getController();
+                viController.init();
                 break;
         }
 

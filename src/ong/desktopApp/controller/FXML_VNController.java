@@ -78,8 +78,6 @@ public class FXML_VNController {
      */
     @PostConstruct
     public void init() throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("/ong/desktopApp/view/VoluntariosInternacionales.fxml"));
-
         setupReadOnlyTableView();
         setupEditableTableView();
 
