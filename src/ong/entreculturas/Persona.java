@@ -6,17 +6,29 @@
  */
 
 package ong.entreculturas;
-
 import javax.xml.bind.annotation.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Persona")
+
 
 @XmlType(propOrder = {"nombre", "primerApellido", "segundoApellido", "telefono", "mail", "direccion"})
 public abstract class Persona {
 
+    @Column(name="Nombre")
     private String nombre;
+    @Column(name="PrimerApellido")
     private String primerApellido;
+    @Column(name="SegundoApellido")
     private String segundoApellido;
+    @Column(name="Direccion")
     private Direccion direccion;
+    @Column(name="Telefono")
     private String telefono;
+    @Column(name="Mail")
     private String mail;
 
     /**Constructor de Persona por defecto

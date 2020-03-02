@@ -11,6 +11,7 @@ import java.sql.SQLException;
  *
  * @author Aware Developers
  */
+
 public class Main {
 
     //Declaramos e instanciamos ONG, ya que contendrá toda las otras instancias de la aplicación.

@@ -2,7 +2,9 @@ package ong.entreculturas;
 
 import javax.xml.bind.annotation.*;
 import java.util.Scanner;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 /** La clase PerVoluntario es subclase directa de la clase Personal
  *	y tiene la subclase PerVolInternacional.
  *	Representa a un empleado voluntario
@@ -14,10 +16,16 @@ import java.util.Scanner;
 @XmlRootElement(name="perVoluntario")
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = {"numHorasVol"})
+
+
+@Entity
+@Table(name="PerVoluntario")
+
+
 public class PerVoluntario extends Personal {
 
 	//Variables de clase
-
+	@Column(name="NumHorasVol")
 	private int numHorasVol;
 
 	/** Constructor por defecto

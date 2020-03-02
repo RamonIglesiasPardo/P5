@@ -1,8 +1,11 @@
 package ong.entreculturas;
 
+import javax.persistence.Id;
 import javax.xml.bind.annotation.*;
 import java.util.*;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 /** La clase Personal hereda de la clase Persona, y a su vez
  *	tiene las subclases PerEmpleado, PerColaborador y PerVoluntario.
  *	Representa a un empleado de la ONG (de cualquier tipo)
@@ -13,10 +16,14 @@ import java.util.*;
 
 @XmlType(propOrder = {"id"})
 @XmlSeeAlso({PerVoluntario.class, PerVolInternacional.class})
+
+@Entity
+@Table (name="Personal")
+
 public class Personal extends Persona {
 
     //Variables de clase
-
+    @Id
     private int idPersonal;
     private static int idCount = 1;
     private List<Proyecto> proyectosAsignados;
