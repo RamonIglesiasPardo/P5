@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import ong.entreculturas.Persona;
 
 
+
 public class OngDAOHibernate  implements DAOHibernate{
     public void agregarPersona(Persona Persona) {
 
