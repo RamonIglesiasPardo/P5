@@ -6,11 +6,8 @@
  */
 
 package ong.entreculturas;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.bind.annotation.*;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity(name="Persona")
 @Table(name="Persona")
@@ -20,7 +17,9 @@ import javax.persistence.Table;
 public abstract class Persona {
 
     @Id
-    private int id;
+    @Column(name="id")
+    @GeneratedValue
+    private Integer id;
     @Column(name="Nombre")
     private String nombre;
     @Column(name="PrimerApellido")

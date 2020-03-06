@@ -10,15 +10,13 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/entreculturas</property>
         <property name="connection.username">root</property> <!-- DB User -->
-        <property name="connection.password">.</property> <!-- DB Password -->
+        <property name="connection.password"></property> <!-- DB Password -->
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="hibernate.show_sql">true</property>
 
 
         <mapping class="ong.entreculturas.Persona"/>
-        <mapping class="ong.entreculturas.Personal"/>
-        <mapping class="ong.entreculturas.PerVoluntario"/>
-        <mapping class="ong.entreculturas.PerVolInternacional"/>
+
 
     </session-factory>
 </hibernate-configuration>
