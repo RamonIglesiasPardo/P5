@@ -18,8 +18,14 @@ import com.jfoenix.controls.*;
         import javafx.scene.control.Label;
         import javafx.scene.control.TreeTableColumn;
         import javafx.scene.control.TreeTableColumn.CellEditEvent;
+import ong.dao.DAOFactory;
+import ong.dao.IOngDAO;
+import ong.entreculturas.Main;
+import ong.entreculturas.MenusConsola;
+import ong.entreculturas.ONG;
+import ong.entreculturas.Personal;
 
-        import javax.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
         import java.security.SecureRandom;
         import java.util.Random;
         import java.util.function.Function;
@@ -153,7 +159,8 @@ public class FXML_VIController {
                     .getValue().age.set(t.getNewValue());
         });
 
-        final ObservableList<Person> dummyData = generateDummyData(200);
+        //final ObservableList<Person> dummyData = generateDummyData(200);
+        final ObservableList<Person> dummyData = getData();
         editableTreeTableView.setRoot(new RecursiveTreeItem<>(dummyData, RecursiveTreeObject::getChildren));
         editableTreeTableView.setShowRoot(false);
         editableTreeTableView.setEditable(true);
@@ -163,7 +170,23 @@ public class FXML_VIController {
 
     }
 
+    private ObservableList<Person> getData(){
 
+        DAOFactory objetoFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
+        IOngDAO ongDAO = objetoFactory.getOngDAO();
+        ONG ong = ongDAO.readOngDAO();
+
+        final ObservableList<Person> data = FXCollections.observableArrayList();
+
+        for (Personal instancia: ong.lequipo) {
+            data.add(
+                    new Person( instancia.getNombre(),
+                                instancia.getPrimerApellido(),
+                                instancia.getId())
+            );
+        }
+        return data;
+    }
 
     private ObservableList<Person> generateDummyData(final int numberOfEntries) {
         final ObservableList<Person> dummyData = FXCollections.observableArrayList();

@@ -2,6 +2,7 @@ package ong.desktopApp.controller;
 
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
+        import javafx.scene.control.ContentDisplay;
         import javafx.scene.control.Label;
 
         import javax.annotation.PostConstruct;
@@ -9,17 +10,19 @@ package ong.desktopApp.controller;
 
 public class FXML_DatosSistemaController {
 
+
     @FXML
     Label title;
 
     public Label helloWorld;
+
 
     /**
      * init fxml when loaded.
      */
     @PostConstruct
     public void init() throws IOException {
-            //TODO
+
     }
 
     public void sayHelloWorld(ActionEvent actionEvent) {

@@ -7,17 +7,17 @@
            fx:controller="ong.desktopApp.controller.FXML_VIController"
            xmlns="http://javafx.com/javafx/2.2"
            stylesheets="/ong/desktopApp/resources/css/style.css">
-    <VBox maxWidth="700" maxHeight="700" spacing="10">
+    <VBox maxWidth="1100" maxHeight="700" spacing="10">
         <Label fx:id="title" text="Voluntarios Internacionales"/>
         <children>
             <HBox alignment="CENTER">
                 <Label styleClass="title-label">Read Only Tree Table View</Label>
-                <Label styleClass="title-label" fx:id="treeTableViewCount" minWidth="80"></Label>
+                <Label styleClass="title-label" fx:id="treeTableViewCount" minWidth="80"/>
                 <JFXButton fx:id="treeTableViewAdd" buttonType="FLAT" text="+"/>
                 <JFXButton fx:id="treeTableViewRemove" buttonType="FLAT" text="-"/>
                 <StackPane HBox.hgrow="ALWAYS">
                     <StackPane StackPane.alignment="CENTER_RIGHT" maxWidth="200">
-                        <JFXTextField fx:id="searchField" promptText="Search..."></JFXTextField>
+                        <JFXTextField fx:id="searchField" promptText="Search..."/>
                     </StackPane>
                 </StackPane>
             </HBox>
@@ -25,31 +25,31 @@
                 <columns>
                     <JFXTreeTableColumn fx:id="firstNameColumn"
                                         minWidth="133" text="First Name" prefWidth="133"
-                                        resizable="false"></JFXTreeTableColumn>
+                                        resizable="false"/>
                     <JFXTreeTableColumn fx:id="lastNameColumn" text="Last Name"
-                                        minWidth="133" resizable="false"></JFXTreeTableColumn>
+                                        minWidth="133" resizable="false"/>
                     <JFXTreeTableColumn fx:id="ageColumn" text="Age"
-                                        minWidth="133" resizable="false"></JFXTreeTableColumn>
+                                        minWidth="133" resizable="false"/>
                 </columns>
             </JFXTreeTableView>
 
             <HBox alignment="CENTER">
                 <Label styleClass="title-label">Editable Tree Table View</Label>
-                <Label styleClass="title-label" fx:id="editableTreeTableViewCount"></Label>
+                <Label styleClass="title-label" fx:id="editableTreeTableViewCount"/>
                 <StackPane HBox.hgrow="ALWAYS">
                     <StackPane StackPane.alignment="CENTER_RIGHT" maxWidth="200">
-                        <JFXTextField fx:id="searchField2" promptText="Search..."></JFXTextField>
+                        <JFXTextField fx:id="searchField2" promptText="Search..."/>
                     </StackPane>
                 </StackPane>
             </HBox>
             <JFXTreeTableView fx:id="editableTreeTableView">
                 <columns>
                     <JFXTreeTableColumn fx:id="firstNameEditableColumn"
-                                        text="First Name" minWidth="133" resizable="false"></JFXTreeTableColumn>
+                                        text="First Name" minWidth="133" resizable="false"/>
                     <JFXTreeTableColumn fx:id="lastNameEditableColumn"
-                                        text="Last Name" minWidth="133" resizable="false"></JFXTreeTableColumn>
+                                        text="Last Name" minWidth="133" resizable="false"/>
                     <JFXTreeTableColumn fx:id="ageEditableColumn"
-                                        text="Age" minWidth="133" resizable="false"></JFXTreeTableColumn>
+                                        text="Age" minWidth="133" resizable="false"/>
                 </columns>
             </JFXTreeTableView>
         </children>

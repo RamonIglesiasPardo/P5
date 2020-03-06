@@ -55,7 +55,20 @@ public class FXML_VNController {
     @FXML
     private JFXTreeTableColumn<Person, String> lastNameEditableColumn;
     @FXML
+    private JFXTreeTableColumn<Person, Integer> familyNameEditableColumn;
+    @FXML
+    private JFXTreeTableColumn<Person, String> streetEditableColumn;
+    @FXML
+    private JFXTreeTableColumn<Person, Integer> streetNumberEditableColumn;
+    @FXML
+    private JFXTreeTableColumn<Person, Integer> stateEditableColumn;
+    @FXML
+    private JFXTreeTableColumn<Person, String> phoneEditableColumn;
+    @FXML
+    private JFXTreeTableColumn<Person, String> mailEditableColumn;
+    @FXML
     private JFXTreeTableColumn<Person, Integer> ageEditableColumn;
+
     @FXML
     private Label treeTableViewCount;
     @FXML
@@ -78,7 +91,7 @@ public class FXML_VNController {
      */
     @PostConstruct
     public void init() throws IOException {
-        setupReadOnlyTableView();
+
         setupEditableTableView();
 
     }
@@ -96,7 +109,7 @@ public class FXML_VNController {
     private void setupReadOnlyTableView() {
         setupCellValueFactory(firstNameColumn, Person::firstNameProperty);
         setupCellValueFactory(lastNameColumn, Person::lastNameProperty);
-        setupCellValueFactory(ageColumn, p -> p.age.asObject());
+        setupCellValueFactory(streetNumberEditableColumn, p -> p.streetNumber.asObject());
 
         ObservableList<Person> dummyData = generateDummyData(100);
 
@@ -201,20 +214,20 @@ public class FXML_VNController {
     static final class Person extends RecursiveTreeObject<Person> {
         final StringProperty firstName;
         final StringProperty lastName;
+        final SimpleIntegerProperty streetNumber;
         final SimpleIntegerProperty age;
 
         Person(String firstName, String lastName, int age) {
             this.firstName = new SimpleStringProperty(firstName);
             this.lastName = new SimpleStringProperty(lastName);
+            this.streetNumber = new SimpleIntegerProperty(age);
             this.age = new SimpleIntegerProperty(age);
         }
 
         StringProperty firstNameProperty() {
             return firstName;
         }
-
-        StringProperty lastNameProperty() {
-            return lastName;
-        }
+        StringProperty lastNameProperty() { return lastName; }
+        SimpleIntegerProperty streetNumberProperty() { return streetNumber; }
     }
 }

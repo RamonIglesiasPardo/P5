@@ -10,7 +10,7 @@
             fx:controller="ong.desktopApp.controller.FXML_MainMenuController"
             prefWidth="1200" prefHeight="800" >
     <children>
-        <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="-6.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="-6.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
     </children>
     <BorderPane fx:id="contentPanel" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
                 AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >

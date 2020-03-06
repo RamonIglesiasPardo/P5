@@ -11,6 +11,9 @@ package ong.desktopApp.controller;
         import java.io.IOException;
         import java.net.URL;
         import java.util.ResourceBundle;
+        import java.util.concurrent.Executors;
+        import java.util.concurrent.ScheduledExecutorService;
+        import java.util.concurrent.TimeUnit;
         import java.util.logging.Level;
         import java.util.logging.Logger;
 
@@ -59,16 +62,20 @@ public class FXML_MainMenuController implements Initializable {
 //            transition.setRate(transition.getRate() * -1);
 //            transition.play();
 
+                switchMenu(drawer);
 
-            if (drawer.isOpened()) {
-                drawer.close();
-                drawer.toBack();
-            } else {
-                drawer.open();
-                drawer.toFront();
-            }
-            hamburger.toFront();
         });
+    }
+
+    private void switchMenu(JFXDrawer drawer) {
+        if (drawer.isOpened()) {
+            drawer.close();
+            drawer.toBack();
+        } else {
+            drawer.open();
+            drawer.toFront();
+        }
+        hamburger.toFront();
     }
 
     @FXML

@@ -73,7 +73,7 @@ public class FXML_SideMenuPanelController implements Initializable {
 
         Scene sceneDrawer = root.getScene();
         JFXDrawer drawer = (JFXDrawer) sceneDrawer.lookup("#drawer");
-        drawer.toBack();
+
         Scene sceneHamburguer = root.getScene();
         JFXHamburger hamburger = (JFXHamburger)sceneHamburguer.lookup("#hamburger");
         hamburger.toFront();
@@ -85,6 +85,7 @@ public class FXML_SideMenuPanelController implements Initializable {
         if (drawer.isOpened()) {
             drawer.close();
             drawer.toBack();
+
         } else {
             drawer.open();
             drawer.toFront();
