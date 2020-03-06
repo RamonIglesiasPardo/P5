@@ -12,7 +12,6 @@ import javax.xml.bind.annotation.*;
 @Entity(name="Persona")
 @Table(name="Persona")
 
-
 @XmlType(propOrder = {"nombre", "primerApellido", "segundoApellido", "telefono", "mail", "direccion"})
 public abstract class Persona {
 
@@ -26,8 +25,10 @@ public abstract class Persona {
     private String primerApellido;
     @Column(name="SegundoApellido")
     private String segundoApellido;
-    @Column(name="Direccion")
+    @Transient
     private Direccion direccion;
+    @Column(name="Direccion")
+    private String direccionHibernate;
     @Column(name="Telefono")
     private String telefono;
     @Column(name="Mail")
@@ -139,6 +140,10 @@ public abstract class Persona {
 
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
+    }
+
+    public void setDireccionHibernate(Direccion direccion) {
+        this.direccionHibernate =  direccion.toString();
     }
 
     /**Obtiene el teléfono de la persona

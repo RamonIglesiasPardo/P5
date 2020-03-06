@@ -10,6 +10,15 @@
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/ong/hibernate/hibernate.cfg.xml" />
       </configuration>
     </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <datasource-mapping>
+          <factory-entry name="Entities" />
+        </datasource-mapping>
+        <naming-strategy-map />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -106,14 +115,10 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
-    <orderEntry type="library" name="javax.persistence" level="project" />
-    <orderEntry type="library" name="Java EE 6-Java EE 6 (2)" level="project" />
-    <orderEntry type="library" name="hibernate-commons-annotations-4.0.3.final" level="project" />
-    <orderEntry type="library" name="javax.persistence-api-2.2" level="project" />
     <orderEntry type="library" name="byte-buddy-1.7.11" level="project" />
     <orderEntry type="library" name="classmate-0.8.0" level="project" />
     <orderEntry type="library" name="dom4j-1.5" level="project" />
-    <orderEntry type="library" name="javax.persistence-api-2.21" level="project" />
     <orderEntry type="library" name="Hibernate 5.4.10-5.4.10" level="project" />
+    <orderEntry type="library" name="hibernate-commons-annotations-5.0.5.Final" level="project" />
   </component>
 </module>

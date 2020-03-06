@@ -12,14 +12,15 @@
 <!--        <property name="connection.username">root</property> &lt;!&ndash; DB User &ndash;&gt;-->
 <!--        <property name="connection.password"></property> &lt;!&ndash; DB Password &ndash;&gt;-->
 <!--        <property name="connection.url">jdbc:mysql://192.168.168.111:3306/entreculturas</property>-->
-        <property name="connection.url">jdbc:mysql://192.168.168.111:3306/Entreculturas</property>
+        <property name="connection.url">jdbc:mysql://192.168.168.111:3306/entreculturasHibernate</property>
         <property name="connection.username">root</property> <!-- DB User -->
         <property name="connection.password">Qs122prt@34</property> <!-- DB Password -->
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="hibernate.show_sql">true</property>
 
 
-        <mapping class="ong.entreculturas.Persona"/>
+        <mapping class="ong.hibernate.personalNacional"/>
+
 
 
     </session-factory>

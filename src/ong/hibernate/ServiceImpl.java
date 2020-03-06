@@ -7,12 +7,12 @@ public class ServiceImpl implements DAOHibernate{
     private DAOHibernate daoHibernate = new ServiceImpl();
 
     @Override
-    public void agregarPersona(Persona Persona) {
+    public void agregarPersona(personalNacional Persona) {
 
     }
 
     @Override
-    public List<Persona> mostrarPersonas() {
+    public List<personalNacional> mostrarPersonas() {
         return null;
     }
 
@@ -22,12 +22,12 @@ public class ServiceImpl implements DAOHibernate{
     }
 
     @Override
-    public void actualizarPersona(Persona Persona) {
+    public void actualizarPersona(personalNacional Persona) {
 
     }
 
     @Override
-    public Persona mostrarPersona(int id) {
+    public personalNacional mostrarPersona(int id) {
         return null;
     }
 }

@@ -5,12 +5,12 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import ong.entreculturas.Persona;
+import ong.hibernate.personalNacional;
 
 
 
 public class OngDAOHibernate  implements DAOHibernate{
-    public void agregarPersona(Persona Persona) {
+    public void agregarPersona(personalNacional Persona) {
 
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -30,13 +30,13 @@ public class OngDAOHibernate  implements DAOHibernate{
             session.close();
         }
     }
-    public List<Persona> mostrarPersonas() {
-        List<Persona> Personas = new ArrayList<Persona>();
+    public List<personalNacional> mostrarPersonas() {
+        List<personalNacional> Personas = new ArrayList<personalNacional>();
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            Personas = session.createQuery("from Persona").list();
+            Personas = session.createQuery("from personalNacional").list();
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {
@@ -51,7 +51,7 @@ public class OngDAOHibernate  implements DAOHibernate{
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            Persona persona = (Persona) session.load(Persona.class, new Integer(id));
+            personalNacional persona = (personalNacional) session.load(personalNacional.class, new Integer(id));
             session.delete(persona);
             session.getTransaction().commit();
         } catch (RuntimeException e) {
@@ -65,7 +65,7 @@ public class OngDAOHibernate  implements DAOHibernate{
         }
     }
 
-    public void actualizarPersona(Persona Persona) {
+    public void actualizarPersona(personalNacional Persona) {
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -83,16 +83,16 @@ public class OngDAOHibernate  implements DAOHibernate{
         }
     }
 
-    public Persona mostrarPersona(int id) {
-        Persona Persona = null;
+    public personalNacional mostrarPersona(int id) {
+        personalNacional Persona = null;
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            String queryString = "from Persona where id = :id";
+            String queryString = "from personalNacional where id = :id";
             Query query = session.createQuery(queryString);
             query.setInteger("id", id);
-            Persona = (Persona) query.uniqueResult();
+            Persona = (personalNacional) query.uniqueResult();
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {

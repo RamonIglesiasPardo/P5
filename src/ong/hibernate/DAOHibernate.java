@@ -6,9 +6,9 @@ import ong.entreculturas.Persona;
 
 
 public interface DAOHibernate {
-    public void agregarPersona(Persona Persona);
-    public List<Persona> mostrarPersonas();
+    public void agregarPersona(personalNacional Persona);
+    public List<personalNacional> mostrarPersonas();
     public void eliminarPersona(Integer id);
-    public void actualizarPersona(Persona Persona);
-    public Persona mostrarPersona(int id);
+    public void actualizarPersona(personalNacional Persona);
+    public personalNacional mostrarPersona(int id);
 }
