@@ -1,6 +1,4 @@
 package ong.hibernate;
-import ong.entreculturas.Persona;
-
 import java.util.List;
 public class ServiceImpl implements DAOHibernate{
 
@@ -28,6 +26,31 @@ public class ServiceImpl implements DAOHibernate{
 
     @Override
     public personalNacional mostrarPersona(int id) {
+        return null;
+    }
+
+    @Override
+    public void agregarPersonaInternacional(PersonalInternacional Persona) {
+
+    }
+
+    @Override
+    public List<PersonalInternacional> mostrarPersonasInternacional() {
+        return null;
+    }
+
+    @Override
+    public void eliminarPersonaInternacional(Integer id) {
+
+    }
+
+    @Override
+    public void actualizarPersonaInternacional(PersonalInternacional Persona) {
+
+    }
+
+    @Override
+    public PersonalInternacional mostrarPersonaInternacional(int id) {
         return null;
     }
 }

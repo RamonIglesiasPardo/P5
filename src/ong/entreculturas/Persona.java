@@ -6,32 +6,29 @@
  */
 
 package ong.entreculturas;
-import javax.persistence.*;
-import javax.xml.bind.annotation.*;
 
-@Entity(name="Persona")
-@Table(name="Persona")
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+
 
 @XmlType(propOrder = {"nombre", "primerApellido", "segundoApellido", "telefono", "mail", "direccion"})
 public abstract class Persona {
 
-    @Id
-    @Column(name="id")
-    @GeneratedValue
+
     private Integer id;
-    @Column(name="Nombre")
+
     private String nombre;
-    @Column(name="PrimerApellido")
+
     private String primerApellido;
-    @Column(name="SegundoApellido")
+
     private String segundoApellido;
-    @Transient
+
     private Direccion direccion;
-    @Column(name="Direccion")
-    private String direccionHibernate;
-    @Column(name="Telefono")
+
     private String telefono;
-    @Column(name="Mail")
+
     private String mail;
 
     /**Constructor de Persona por defecto
@@ -140,10 +137,6 @@ public abstract class Persona {
 
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
-    }
-
-    public void setDireccionHibernate(Direccion direccion) {
-        this.direccionHibernate =  direccion.toString();
     }
 
     /**Obtiene el teléfono de la persona

@@ -637,7 +637,7 @@ class Conexion {
     public Conexion() {
         this.host = "192.168.168.111";
         this.puerto = "3306";
-        this.nombreBD = "Entreculturas";
+        this.nombreBD = "entreculturas";
         this.user = "root";
         this.pass = "Qs122prt@34";
 

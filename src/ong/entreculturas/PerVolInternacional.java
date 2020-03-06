@@ -1,11 +1,7 @@
 package ong.entreculturas;
 
-import javax.persistence.CollectionTable;
 import javax.xml.bind.annotation.*;
 import java.util.Scanner;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 /** La clase PerVolInternacional es subclase directa de la clase
  *	PerVoluntario.
  *	Representa a un empleado voluntario internacional.
@@ -19,18 +15,17 @@ import javax.persistence.Table;
 @XmlType(propOrder = {"dir", "paisOrigen", "codInternaTelefono"})
 
 
-@Entity
-@Table (name="PerVolInternacional")
+
 
 
 public class PerVolInternacional extends PerVoluntario {
 
 	//Variables de clase
-	@Column(name="PaisOrigen")
+
 	private String paisOrigen;
-	@Column(name="SDireccion")
+
 	private String sDireccion;	// sobreescribe al campo de la superclase Persona
-	@Column(name="CodInternaTelefono")
+
 	private String codInternaTelefono;
 
 	/** Constructor por defecto

@@ -32,13 +32,7 @@ public class MySqlOngDAO implements IOngDAO{
 
         UtilitySql utilitySql = new UtilitySql();
 
-        //En primer lugar borraremos los contenidos que puedan existir en la Base de datos.
-        try {
-            utilitySql.truncateAllContentDB();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+       
 
         //Recorremos personal para insertarlo en la BD MySQL.
         for (int i = 0; i < ong.lequipo.size(); i++) {

@@ -2,7 +2,6 @@ package ong.hibernate;
 
 
 import java.util.List;
-import ong.entreculturas.Persona;
 
 
 public interface DAOHibernate {
@@ -11,4 +10,9 @@ public interface DAOHibernate {
     public void eliminarPersona(Integer id);
     public void actualizarPersona(personalNacional Persona);
     public personalNacional mostrarPersona(int id);
+    public void agregarPersonaInternacional(PersonalInternacional Persona);
+    public List<PersonalInternacional> mostrarPersonasInternacional();
+    public void eliminarPersonaInternacional(Integer id);
+    public void actualizarPersonaInternacional(PersonalInternacional Persona) ;
+    public PersonalInternacional mostrarPersonaInternacional(int id);
 }
