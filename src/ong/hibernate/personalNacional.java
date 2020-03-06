@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="personalNacional")
 public class personalNacional {
+
+
     @Id
     @Column(name="id")
     @GeneratedValue
@@ -39,6 +41,14 @@ public class personalNacional {
         this.telefono = telefono;
         this.provincia = provincia;
         this.mail = mail;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

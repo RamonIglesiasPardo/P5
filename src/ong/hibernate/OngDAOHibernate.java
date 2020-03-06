@@ -101,6 +101,7 @@ public class OngDAOHibernate  implements DAOHibernate{
         }
         return Persona;
     }
+
     public void agregarPersonaInternacional(PersonalInternacional Persona) {
 
         Transaction trns = null;

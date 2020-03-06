@@ -5,10 +5,12 @@ import javax.persistence.*;
 @Entity
 @Table(name="personalInternacional")
 
-public class PersonalInternacional {    @Id
-@Column(name="id")
-@GeneratedValue
-int id;
+public class PersonalInternacional {
+
+    @Id
+    @Column(name="id")
+    @GeneratedValue
+    int id;
     @Column(name="nombre")
     String nombre;
     @Column(name="apellido")
@@ -33,6 +35,13 @@ int id;
         this.telefono = telefono;
         this.pais = pais;
         this.mail = mail;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -85,7 +94,7 @@ int id;
 
     @Override
     public String toString() {
-        return "personalNacional{" +
+        return "PersonalInternacional{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +

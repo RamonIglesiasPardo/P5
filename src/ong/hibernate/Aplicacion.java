@@ -53,6 +53,7 @@ public class Aplicacion {
 
         //Modificamos personal nacional
 
+        nacional.setId(2);
         nacional.setNombre("Luis");
         nacional.setApellido1("Dominguez");
         nacional.setApellido2("De la Calle");
@@ -65,13 +66,22 @@ public class Aplicacion {
 
         //Modificamos personal internacional
 
+        internacional.setId(1);
         internacional.setNombre("John");
         internacional.setApellido("Brown");
-        internacional.setDireccion("Long Streat");
-        internacional.setPais("USA");
+        internacional.setDireccion("Sort Streat");
+        internacional.setPais("Canada");
         internacional.setTelefono("00543234");
         internacional.setMail("jbb@hotmail.com");
         componenteService.actualizarPersonaInternacional(internacional);
+
+        //Eliminamos personal nacional
+
+        componenteService.eliminarPersona(1);
+
+        //Eliminamos personal internacional
+
+        componenteService.eliminarPersonaInternacional(1);
 
 
 
