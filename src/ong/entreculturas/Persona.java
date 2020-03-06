@@ -6,18 +6,21 @@
  */
 
 package ong.entreculturas;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="Persona")
 @Table(name="Persona")
 
 
 @XmlType(propOrder = {"nombre", "primerApellido", "segundoApellido", "telefono", "mail", "direccion"})
 public abstract class Persona {
 
+    @Id
+    private int id;
     @Column(name="Nombre")
     private String nombre;
     @Column(name="PrimerApellido")

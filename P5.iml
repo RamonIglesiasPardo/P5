@@ -97,8 +97,13 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
-    <orderEntry type="library" name="javax.persistence" level="project" />
     <orderEntry type="library" name="hibernate-envers-5.4.0.Final1" level="project" />
     <orderEntry type="library" name="hibernate-core-5.4.12.Final" level="project" />
+    <orderEntry type="library" name="javax.persistence-api-2.2" level="project" />
+    <orderEntry type="library" name="jboss-ejb-api_3.2_spec-1.0.0.Final" level="project" />
+    <orderEntry type="library" name="byte-buddy-1.7.11" level="project" />
+    <orderEntry type="library" name="hibernate-commons-annotations-4.0.3.final" level="project" />
+    <orderEntry type="library" name="classmate-0.8.0" level="project" />
+    <orderEntry type="library" name="dom4j-1.5" level="project" />
   </component>
 </module>
