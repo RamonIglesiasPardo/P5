@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="ong:hibernate:hibernate.cfg.xml" />
+        </datasource-map>
+        <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/ong/hibernate/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -85,8 +96,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="mysql-connector-java-8.0.19" level="project" />
-    <orderEntry type="library" name="mysql:mysql-connector-java:8.0.19" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -97,65 +106,14 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES />
-        <JAVADOC>
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/documentation/javadocs" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/integrationguide/chapters/services/extras" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/integrationguide/chapters/services/extras/extend" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/integrationguide/chapters/services/extras/override" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/annotations/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/basic/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/entitymanager/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/envers/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/osgi/managed-jpa/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/osgi/unmanaged-jpa/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/asciidoc/quickstart/tutorials/osgi/unmanaged-native/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/documentation/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-agroal/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-agroal/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-c3p0/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-c3p0/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-core/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-core/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-core/src/testJavassist/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-ehcache/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-ehcache/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-envers/src/demo/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-envers/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-envers/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-hikaricp/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-hikaricp/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-integrationtest-java-modules/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-integrationtest-java-modules/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-jcache/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-jcache/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-jipijapa/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-jipijapa/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-orm-modules/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-osgi/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-osgi/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-proxool/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-proxool/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-spatial/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-spatial/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-testing/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-testing/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-vibur/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/hibernate-vibur/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/tooling/hibernate-enhance-maven-plugin/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/tooling/hibernate-enhance-maven-plugin/src/test/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/tooling/hibernate-gradle-plugin/src/main/groovy" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/tooling/metamodel-generator/src/main/java" />
-          <root url="file://$USER_HOME$/Downloads/hibernate-release-5.4.11.Final/project/tooling/metamodel-generator/src/test/java" />
-        </SOURCES>
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="javax.persistence" level="project" />
-    <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6 (2)" level="project" />
+    <orderEntry type="library" name="hibernate-commons-annotations-4.0.3.final" level="project" />
+    <orderEntry type="library" name="javax.persistence-api-2.2" level="project" />
+    <orderEntry type="library" name="byte-buddy-1.7.11" level="project" />
+    <orderEntry type="library" name="classmate-0.8.0" level="project" />
+    <orderEntry type="library" name="dom4j-1.5" level="project" />
+    <orderEntry type="library" name="javax.persistence-api-2.21" level="project" />
+    <orderEntry type="library" name="Hibernate 5.4.10-5.4.10" level="project" />
   </component>
 </module>
