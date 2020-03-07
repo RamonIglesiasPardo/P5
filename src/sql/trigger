@@ -1,0 +1,10 @@
+CREATE FUNCTION insertar() RETURNS trigger AS $$ BEGIN
+if ((SELECT COUNT(*) FROM persona WHERE IdPersona=new.Personal.IdPersona)THEN insert into Personal values (new.IdPersona);
+END IF;
+RETURN NEW;
+
+END;
+
+CREATE TRIGGER restriccines BEFORE INSERT ON Personal FOR EACH ROW EXECUTE PROCEDURE insertar();
+
+insert into personal (1,11);

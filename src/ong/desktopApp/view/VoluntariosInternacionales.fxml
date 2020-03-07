@@ -23,13 +23,20 @@
             </HBox>
             <JFXTreeTableView fx:id="treeTableView">
                 <columns>
-                    <JFXTreeTableColumn fx:id="firstNameColumn"
-                                        minWidth="133" text="First Name" prefWidth="133"
-                                        resizable="false"/>
-                    <JFXTreeTableColumn fx:id="lastNameColumn" text="Last Name"
-                                        minWidth="133" resizable="false"/>
-                    <JFXTreeTableColumn fx:id="ageColumn" text="Age"
-                                        minWidth="133" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="idColumn"
+                                        text="Id" minWidth="20" resizable="false" />
+                    <JFXTreeTableColumn fx:id="firstNameEditableColumn"
+                                        text="Nombre" minWidth="133" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="lastNameEditableColumn"
+                                        text="Apellido" minWidth="133" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="streetEditableColumn"
+                                        text="Calle" minWidth="200" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="stateEditableColumn"
+                                        text="Provincia" minWidth="133" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="phoneEditableColumn"
+                                        text="Teléfono" minWidth="133" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="mailEditableColumn"
+                                        text="Correo electrónico" minWidth="133" resizable="false"/>
                 </columns>
             </JFXTreeTableView>
 
@@ -44,12 +51,20 @@
             </HBox>
             <JFXTreeTableView fx:id="editableTreeTableView">
                 <columns>
+                    <JFXTreeTableColumn fx:id="idColumn"
+                                        text="Id" minWidth="20" resizable="false" />
                     <JFXTreeTableColumn fx:id="firstNameEditableColumn"
-                                        text="First Name" minWidth="133" resizable="false"/>
+                                        text="Nombre" minWidth="133" resizable="false"/>
                     <JFXTreeTableColumn fx:id="lastNameEditableColumn"
-                                        text="Last Name" minWidth="133" resizable="false"/>
-                    <JFXTreeTableColumn fx:id="ageEditableColumn"
-                                        text="Age" minWidth="133" resizable="false"/>
+                                        text="Apellido" minWidth="133" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="streetEditableColumn"
+                                        text="Calle" minWidth="200" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="stateEditableColumn"
+                                        text="Provincia" minWidth="133" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="phoneEditableColumn"
+                                        text="Teléfono" minWidth="133" resizable="false"/>
+                    <JFXTreeTableColumn fx:id="mailEditableColumn"
+                                        text="Correo electrónico" minWidth="133" resizable="false"/>
                 </columns>
             </JFXTreeTableView>
         </children>

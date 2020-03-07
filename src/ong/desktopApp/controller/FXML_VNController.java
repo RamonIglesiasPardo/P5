@@ -135,6 +135,121 @@ public class FXML_VNController {
                     .getTreeItem(t.getTreeTablePosition()
                             .getRow())
                     .getValue().lastName.set(t.getNewValue());
+            nacional.setId(t.getRowValue().getValue().id.intValue());
+            nacional.setNombre(t.getRowValue().getValue().firstName.get());
+            nacional.setApellido1(t.getNewValue());
+            nacional.setApellido2(t.getRowValue().getValue().familyName.get());
+            nacional.setDireccionCalle(t.getRowValue().getValue().street.get());
+            nacional.setDireccionNumero(t.getRowValue().getValue().streetNumber.get());
+            nacional.setProvincia(t.getRowValue().getValue().state.get());
+            nacional.setTelefono(t.getRowValue().getValue().phone.get());
+            nacional.setMail(t.getRowValue().getValue().mail.get());
+            componenteService.actualizarPersona(nacional);
+        });
+
+        familyNameEditableColumn.setCellFactory((TreeTableColumn<Person, String> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new TextFieldEditorBuilder());
+        });
+        familyNameEditableColumn.setOnEditCommit((CellEditEvent<Person, String> t) -> {
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().familyName.set(t.getNewValue());
+            nacional.setId(t.getRowValue().getValue().id.intValue());
+            nacional.setNombre(t.getRowValue().getValue().firstName.get());
+            nacional.setApellido1(t.getRowValue().getValue().lastName.get());
+            nacional.setApellido2(t.getNewValue());
+            nacional.setDireccionCalle(t.getRowValue().getValue().street.get());
+            nacional.setDireccionNumero(t.getRowValue().getValue().streetNumber.get());
+            nacional.setProvincia(t.getRowValue().getValue().state.get());
+            nacional.setTelefono(t.getRowValue().getValue().phone.get());
+            nacional.setMail(t.getRowValue().getValue().mail.get());
+            componenteService.actualizarPersona(nacional);
+        });
+
+        streetEditableColumn.setCellFactory((TreeTableColumn<Person, String> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new TextFieldEditorBuilder());
+        });
+        streetEditableColumn.setOnEditCommit((CellEditEvent<Person, String> t) -> {
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().street.set(t.getNewValue());
+            nacional.setId(t.getRowValue().getValue().id.intValue());
+            nacional.setNombre(t.getRowValue().getValue().firstName.get());
+            nacional.setApellido1(t.getRowValue().getValue().lastName.get());
+            nacional.setApellido2(t.getRowValue().getValue().familyName.get());
+            nacional.setDireccionCalle(t.getNewValue());
+            nacional.setDireccionNumero(t.getRowValue().getValue().streetNumber.get());
+            nacional.setProvincia(t.getRowValue().getValue().state.get());
+            nacional.setTelefono(t.getRowValue().getValue().phone.get());
+            nacional.setMail(t.getRowValue().getValue().mail.get());
+            componenteService.actualizarPersona(nacional);
+        });
+
+        streetNumberEditableColumn.setCellFactory((TreeTableColumn<Person, String> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new TextFieldEditorBuilder());
+        });
+        streetNumberEditableColumn.setOnEditCommit((CellEditEvent<Person, String> t) -> {
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().streetNumber.set(t.getNewValue());
+            nacional.setId(t.getRowValue().getValue().id.intValue());
+            nacional.setNombre(t.getRowValue().getValue().firstName.get());
+            nacional.setApellido1(t.getRowValue().getValue().lastName.get());
+            nacional.setApellido2(t.getRowValue().getValue().familyName.get());
+            nacional.setDireccionCalle(t.getRowValue().getValue().street.get());
+            nacional.setDireccionNumero(t.getNewValue());
+            nacional.setProvincia(t.getRowValue().getValue().state.get());
+            nacional.setTelefono(t.getRowValue().getValue().phone.get());
+            nacional.setMail(t.getRowValue().getValue().mail.get());
+            componenteService.actualizarPersona(nacional);
+        });
+
+        stateEditableColumn.setCellFactory((TreeTableColumn<Person, String> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new TextFieldEditorBuilder());
+        });
+        stateEditableColumn.setOnEditCommit((CellEditEvent<Person, String> t) -> {
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().state.set(t.getNewValue());
+            nacional.setId(t.getRowValue().getValue().id.intValue());
+            nacional.setNombre(t.getRowValue().getValue().firstName.get());
+            nacional.setApellido1(t.getRowValue().getValue().lastName.get());
+            nacional.setApellido2(t.getRowValue().getValue().familyName.get());
+            nacional.setDireccionCalle(t.getRowValue().getValue().street.get());
+            nacional.setDireccionNumero(t.getRowValue().getValue().streetNumber.get());
+            nacional.setProvincia(t.getNewValue());
+            nacional.setTelefono(t.getRowValue().getValue().phone.get());
+            nacional.setMail(t.getRowValue().getValue().mail.get());
+            componenteService.actualizarPersona(nacional);
+        });
+
+        phoneEditableColumn.setCellFactory((TreeTableColumn<Person, String> param) -> {
+            return new GenericEditableTreeTableCell<>(
+                    new TextFieldEditorBuilder());
+        });
+        phoneEditableColumn.setOnEditCommit((CellEditEvent<Person, String> t) -> {
+            t.getTreeTableView()
+                    .getTreeItem(t.getTreeTablePosition()
+                            .getRow())
+                    .getValue().phone.set(t.getNewValue());
+            nacional.setId(t.getRowValue().getValue().id.intValue());
+            nacional.setNombre(t.getRowValue().getValue().firstName.get());
+            nacional.setApellido1(t.getRowValue().getValue().lastName.get());
+            nacional.setApellido2(t.getRowValue().getValue().familyName.get());
+            nacional.setDireccionCalle(t.getRowValue().getValue().street.get());
+            nacional.setDireccionNumero(t.getRowValue().getValue().streetNumber.get());
+            nacional.setProvincia(t.getRowValue().getValue().state.get());
+            nacional.setTelefono(t.getNewValue());
+            nacional.setMail(t.getRowValue().getValue().mail.get());
+            componenteService.actualizarPersona(nacional);
         });
 
         mailEditableColumn.setCellFactory((TreeTableColumn<Person, String> param) -> {
