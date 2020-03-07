@@ -99,11 +99,9 @@
     <orderEntry type="library" name="classmate-0.8.0" level="project" />
     <orderEntry type="library" name="dom4j-1.5" level="project" />
     <orderEntry type="library" name="hibernate-commons-annotations-5.0.5.Final" level="project" />
-    <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" name="javadocs" level="project" />
+    <orderEntry type="library" name="hibernate-core-5.4.10.Final" level="project" />
     <orderEntry type="library" name="javax.persistence-api-2.2" level="project" />
-    <orderEntry type="library" name="jboss-logging-3.3.2.Final" level="project" />
-    <orderEntry type="library" name="jta-1.1" level="project" />
-    <orderEntry type="library" name="java" level="project" />
-    <orderEntry type="library" name="hibernate-core-5.4.11.Final" level="project" />
+    <orderEntry type="library" name="antlr-2.7.7" level="project" />
   </component>
 </module>
