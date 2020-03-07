@@ -5,7 +5,9 @@
   -fx-background-size: 40 40;
   -fx-background-insets: 0, 10;
 }
-
+.tree-table-cell {
+  -fx-alignment: center ;
+}
 #title{
   -fx-text-alignment: center;
   -fx-font-size: 40pt;
