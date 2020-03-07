@@ -13,6 +13,8 @@
             <HBox alignment="CENTER">
                 <Label styleClass="title-label"> </Label>
                 <Label styleClass="title-label" fx:id="editableTreeTableViewCount"/>
+                <JFXButton fx:id="editabletreeTableViewAdd" buttonType="FLAT" text="+"/>
+                <JFXButton fx:id="editabletreeTableViewRemove" buttonType="FLAT" text="-"/>
                 <StackPane HBox.hgrow="ALWAYS">
                     <StackPane StackPane.alignment="CENTER_RIGHT" maxWidth="200">
                         <JFXTextField fx:id="searchField" promptText="Search..."/>

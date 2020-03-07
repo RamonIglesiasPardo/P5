@@ -8,8 +8,8 @@ public class personalNacional {
 
 
     @Id
-    @Column(name="id")
-    @GeneratedValue
+    @Column(name="id",  updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @Column(name="nombre")
     String nombre;
@@ -29,7 +29,14 @@ public class personalNacional {
     String mail;
 
     public personalNacional(){
-
+        this.nombre = "\"NOMBRE\"";
+        this.apellido1 = "\"#1 APELLIDO\"";
+        this.apellido2 = "\"#2 APELLIDO\"";
+        this.direccionCalle = "\"DIRECCION\"";
+        this.direccionNumero = "\"#\"";
+        this.telefono = "\"TELEFONO\"";
+        this.provincia = "\"PROVINCIA\"";
+        this.mail = "\"CORREO\"";
     };
 
     public personalNacional(String nombre, String apellido1, String apellido2, String direccionCalle, String direccionNumero, String telefono, String provincia, String mail) {

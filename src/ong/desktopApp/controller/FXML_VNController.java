@@ -60,9 +60,9 @@ public class FXML_VNController {
     @FXML
     private Label treeTableViewCount;
     @FXML
-    private JFXButton treeTableViewAdd;
+    private JFXButton editabletreeTableViewAdd;
     @FXML
-    private JFXButton treeTableViewRemove;
+    private JFXButton editabletreeTableViewRemove;
     @FXML
     private Label editableTreeTableViewCount;
     @FXML
@@ -113,9 +113,6 @@ public class FXML_VNController {
                     .getTreeItem(t.getTreeTablePosition()
                             .getRow())
                     .getValue().firstName.set(t.getNewValue());
-            System.out.println("NEW VALUE ----->" + t.getNewValue());
-            System.out.println(t.getRowValue().getValue().id);
-            System.out.println(t.getRowValue().getValue().mail.get());
 
             nacional.setId(t.getRowValue().getValue().id.intValue());
             nacional.setNombre(t.getNewValue());
@@ -161,10 +158,26 @@ public class FXML_VNController {
             componenteService.actualizarPersona(nacional);
         });
 
-        final ObservableList<Person> dummyData = getData(200);
+        final ObservableList<Person> dummyData = getData();
+
         editableTreeTableView.setRoot(new RecursiveTreeItem<>(dummyData, RecursiveTreeObject::getChildren));
         editableTreeTableView.setShowRoot(false);
         editableTreeTableView.setEditable(true);
+        //Add Button
+        editabletreeTableViewAdd.setOnMouseClicked((e) -> {
+            componenteService.agregarPersona(new personalNacional());
+            dummyData.add(new Person(componenteService.getLastId()));
+            final IntegerProperty currCountProp = editableTreeTableView.currentItemsCountProperty();
+            currCountProp.set(currCountProp.get() + 1);
+        });
+        //Del button
+        editabletreeTableViewRemove.setOnMouseClicked((e) -> {
+            int id = editableTreeTableView.getSelectionModel().selectedItemProperty().get().getValue().id.intValue();
+            componenteService.eliminarPersona(id);
+            dummyData.remove(editableTreeTableView.getSelectionModel().selectedItemProperty().get().getValue());
+            final IntegerProperty currCountProp = editableTreeTableView.currentItemsCountProperty();
+            currCountProp.set(currCountProp.get() - 1);
+        });
         editableTreeTableViewCount.textProperty()
                 .bind(Bindings.createStringBinding(() -> PREFIX + editableTreeTableView.getCurrentItemsCount() + POSTFIX,
                         editableTreeTableView.currentItemsCountProperty()));
@@ -189,7 +202,7 @@ public class FXML_VNController {
                 });
     }
 
-    private ObservableList<Person> getData(final int numberOfEntries) {
+    private ObservableList<Person> getData() {
 
         final ObservableList<FXML_VNController.Person> data = FXCollections.observableArrayList();
 
@@ -261,6 +274,18 @@ public class FXML_VNController {
             this.state = new SimpleStringProperty(state);
             this.phone = new SimpleStringProperty(phone);
             this.mail = new SimpleStringProperty(mail);
+        }
+
+        public Person(int id){
+            this.id = new SimpleIntegerProperty((id));
+            this.firstName = new SimpleStringProperty("\"NOMBRE\"");
+            this.lastName = new SimpleStringProperty("\"#1 APELLIDO\"");
+            this.familyName = new SimpleStringProperty("\"#2 APELLIDO\"");
+            this.street = new SimpleStringProperty("\"DIRECCION\"");
+            this.streetNumber = new SimpleStringProperty("\"#\"");
+            this.state = new SimpleStringProperty("\"PROVINCIA\"");
+            this.phone = new SimpleStringProperty("\"TELEFONO\"");
+            this.mail = new SimpleStringProperty("\"CORREO\"");
         }
 
         IntegerProperty idProperty() { return id; }

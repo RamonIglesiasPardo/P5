@@ -14,7 +14,6 @@ public class OngDAOHibernate  implements DAOHibernate{
 
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
-        session.save(Persona);
 
         try {
             trns = session.beginTransaction();
@@ -25,10 +24,29 @@ public class OngDAOHibernate  implements DAOHibernate{
                 trns.rollback();
             }
             e.printStackTrace();
+        }
+    }
+    public int getLastId() {
+        int id= 0;
+
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            trns = session.beginTransaction();
+            Query query = session.createQuery("SELECT MAX(id) FROM personalNacional");
+            id = (int) query.uniqueResult();
+
+        } catch (RuntimeException e) {
+            if (trns != null) {
+                trns.rollback();
+            }
+            e.printStackTrace();
         } finally {
             session.flush();
             session.close();
         }
+        return id;
     }
     public List<personalNacional> mostrarPersonas() {
         List<personalNacional> Personas = new ArrayList<personalNacional>();
@@ -59,9 +77,6 @@ public class OngDAOHibernate  implements DAOHibernate{
                 trns.rollback();
             }
             e.printStackTrace();
-        } finally {
-            session.flush();
-            session.close();
         }
     }
 
