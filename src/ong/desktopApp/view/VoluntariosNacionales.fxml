@@ -11,16 +11,18 @@
         <Label fx:id="title" text="Voluntarios Nacionales"/>
         <children>
             <HBox alignment="CENTER">
-                <Label styleClass="title-label">Editable Tree Table View</Label>
+                <Label styleClass="title-label"> </Label>
                 <Label styleClass="title-label" fx:id="editableTreeTableViewCount"/>
                 <StackPane HBox.hgrow="ALWAYS">
                     <StackPane StackPane.alignment="CENTER_RIGHT" maxWidth="200">
-                        <JFXTextField fx:id="searchField2" promptText="Search..."/>
+                        <JFXTextField fx:id="searchField" promptText="Search..."/>
                     </StackPane>
                 </StackPane>
             </HBox>
             <JFXTreeTableView fx:id="editableTreeTableView">
                 <columns>
+                    <JFXTreeTableColumn fx:id="idColumn"
+                                        text="Id" minWidth="20" resizable="false" />
                     <JFXTreeTableColumn fx:id="firstNameEditableColumn"
                                         text="Nombre" minWidth="133" resizable="false"/>
                     <JFXTreeTableColumn fx:id="lastNameEditableColumn"
@@ -28,7 +30,7 @@
                     <JFXTreeTableColumn fx:id="familyNameEditableColumn"
                                         text="Segundo Apellido" minWidth="133" resizable="false"/>
                     <JFXTreeTableColumn fx:id="streetEditableColumn"
-                                        text="Calle" minWidth="220" resizable="false"/>
+                                        text="Calle" minWidth="200" resizable="false"/>
                     <JFXTreeTableColumn fx:id="streetNumberEditableColumn"
                                         text="# Calle" minWidth="60" resizable="false"/>
                     <JFXTreeTableColumn fx:id="stateEditableColumn"
@@ -37,9 +39,7 @@
                                         text="Teléfono" minWidth="133" resizable="false"/>
                     <JFXTreeTableColumn fx:id="mailEditableColumn"
                                         text="Correo electrónico" minWidth="133" resizable="false"/>
-                    <JFXTreeTableColumn fx:id="numHoursEditableColumn"
-                                        text="# Horas" minWidth="133" resizable="false"/>
-                </columns>
+                               </columns>
             </JFXTreeTableView>
         </children>
     </VBox>

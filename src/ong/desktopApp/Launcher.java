@@ -1,19 +1,21 @@
 package ong.desktopApp;
 
-        import com.jfoenix.controls.JFXDecorator;
-        import com.jfoenix.svg.SVGGlyph;
         import javafx.application.Application;
-        import javafx.fxml.FXMLLoader;
-        import javafx.geometry.Rectangle2D;
-        import javafx.scene.Parent;
-        import javafx.scene.Scene;
-        import javafx.scene.image.Image;
-        import javafx.stage.Screen;
-        import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import ong.hibernate.OngDAOHibernate;
+        import ong.hibernate.personalNacional;
+
+        import java.util.List;
 
 public class Launcher extends Application {
 
     public static Boolean isSplashLoaded = false;
+    public static OngDAOHibernate componenteService;
+    public static List<personalNacional> listPersonalNacional;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -38,6 +40,8 @@ public class Launcher extends Application {
 
 
     public static void main(String[] args) {
+        componenteService = new OngDAOHibernate();
+        listPersonalNacional = componenteService.mostrarPersonas();
         launch(args);
     }
 
