@@ -26,7 +26,7 @@ public class OngDAOHibernate  implements DAOHibernate{
             e.printStackTrace();
         }
     }
-    public int getLastId() {
+    public int getLastId(String objectiveTable) {
         int id= 0;
 
         Transaction trns = null;
@@ -34,7 +34,8 @@ public class OngDAOHibernate  implements DAOHibernate{
 
         try {
             trns = session.beginTransaction();
-            Query query = session.createQuery("SELECT MAX(id) FROM personalNacional");
+            String sql  = "SELECT MAX(id) FROM "+objectiveTable;
+            Query query = session.createQuery(sql);
             id = (int) query.uniqueResult();
 
         } catch (RuntimeException e) {
@@ -132,9 +133,6 @@ public class OngDAOHibernate  implements DAOHibernate{
                 trns.rollback();
             }
             e.printStackTrace();
-        } finally {
-            session.flush();
-            session.close();
         }
     }
     public List<PersonalInternacional> mostrarPersonasInternacional() {
@@ -166,9 +164,6 @@ public class OngDAOHibernate  implements DAOHibernate{
                 trns.rollback();
             }
             e.printStackTrace();
-        } finally {
-            session.flush();
-            session.close();
         }
     }
 
@@ -208,4 +203,29 @@ public class OngDAOHibernate  implements DAOHibernate{
         }
         return Persona;
     }
+
+    public static String getNumberOfElements(String objectiveTable) {
+        String numElements = null;
+
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            trns = session.beginTransaction();
+            String sql  = "SELECT COUNT(id) FROM " + objectiveTable;
+            Query query = session.createQuery(sql);
+            numElements = query.uniqueResult().toString();
+
+        } catch (RuntimeException e) {
+            if (trns != null) {
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+        return numElements;
+    }
+
 }

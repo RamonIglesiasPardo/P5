@@ -4,12 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="personalInternacional")
-
 public class PersonalInternacional {
 
     @Id
-    @Column(name="id")
-    @GeneratedValue
+    @Column(name="id",  updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @Column(name="nombre")
     String nombre;
@@ -25,7 +24,12 @@ public class PersonalInternacional {
     String mail;
 
     public PersonalInternacional(){
-
+        this.nombre = "\"NOMBRE\"";
+        this.apellido = "\"APELLIDO\"";
+        this.direccion = "\"DIRECCION\"";
+        this.telefono = "\"TELEFONO\"";
+        this.pais = "\"ESTADO\"";
+        this.mail = "\"CORREO\"";
     };
 
     public PersonalInternacional(String nombre, String apellido,  String direccion,  String telefono, String pais, String mail) {

@@ -1,11 +1,10 @@
 package ong.desktopApp.controller;
 
-import com.jfoenix.controls.JFXTreeTableColumn;
-import com.jfoenix.controls.JFXTreeTableView;
-import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.*;
 import com.jfoenix.controls.cells.editors.TextFieldEditorBuilder;
 import com.jfoenix.controls.cells.editors.base.GenericEditableTreeTableCell;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -15,6 +14,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TreeTableColumn;
 import ong.hibernate.OngDAOHibernate;
 import ong.hibernate.PersonalInternacional;
@@ -50,6 +50,17 @@ public class FXML_VIController {
     private JFXTreeTableColumn<FXML_VIController.PersonInt, String> phoneEditableColumn;
     @FXML
     private JFXTreeTableColumn<FXML_VIController.PersonInt, String> mailEditableColumn;
+
+    @FXML
+    private Label treeTableViewCount;
+    @FXML
+    private JFXButton editabletreeTableViewAdd;
+    @FXML
+    private JFXButton editabletreeTableViewRemove;
+    @FXML
+    private Label editableTreeTableViewCount;
+    @FXML
+    private JFXTextField searchField;
 
 
     /**
@@ -208,11 +219,31 @@ public class FXML_VIController {
         });
 
 
-        final ObservableList<FXML_VIController.PersonInt> dummyData = getData(200);
+        final ObservableList<FXML_VIController.PersonInt> dummyData = getData();
+
         editableTreeTableView.setRoot(new RecursiveTreeItem<>(dummyData, RecursiveTreeObject::getChildren));
         editableTreeTableView.setShowRoot(false);
         editableTreeTableView.setEditable(true);
-
+        //Add Button
+        editabletreeTableViewAdd.setOnMouseClicked((e) -> {
+            componenteService.agregarPersonaInternacional(new PersonalInternacional());
+            dummyData.add(new PersonInt(componenteService.getLastId("PersonalInternacional")));
+            final IntegerProperty currCountProp = editableTreeTableView.currentItemsCountProperty();
+            currCountProp.set(currCountProp.get() + 1);
+        });
+        //Del button
+        editabletreeTableViewRemove.setOnMouseClicked((e) -> {
+            int id = editableTreeTableView.getSelectionModel().selectedItemProperty().get().getValue().id.intValue();
+            componenteService.eliminarPersonaInternacional(id);
+            dummyData.remove(editableTreeTableView.getSelectionModel().selectedItemProperty().get().getValue());
+            final IntegerProperty currCountProp = editableTreeTableView.currentItemsCountProperty();
+            currCountProp.set(currCountProp.get() - 1);
+        });
+        editableTreeTableViewCount.textProperty()
+                .bind(Bindings.createStringBinding(() -> PREFIX + editableTreeTableView.getCurrentItemsCount() + POSTFIX,
+                        editableTreeTableView.currentItemsCountProperty()));
+        searchField.textProperty()
+                .addListener(setupSearchField(editableTreeTableView));
 
     }
 
@@ -230,7 +261,7 @@ public class FXML_VIController {
                 });
     }
 
-    private ObservableList<FXML_VIController.PersonInt> getData(final int numberOfEntries) {
+    private ObservableList<FXML_VIController.PersonInt> getData() {
 
         final ObservableList<FXML_VIController.PersonInt> data = FXCollections.observableArrayList();
 
@@ -273,31 +304,34 @@ public class FXML_VIController {
             this.mail = new SimpleStringProperty(mail);
         }
 
+        PersonInt(int id){
+            this.id = new SimpleIntegerProperty((id));
+            this.firstName = new SimpleStringProperty("\"NOMBRE\"");
+            this.lastName = new SimpleStringProperty("\"APELLIDO\"");
+            this.street = new SimpleStringProperty("\"DIRECCION\"");
+            this.state = new SimpleStringProperty("\"ESTADO\"");
+            this.phone = new SimpleStringProperty("\"TELEFONO\"");
+            this.mail = new SimpleStringProperty("\"CORREO\"");
+        }
 
         IntegerProperty idProperty() {
             return id;
         }
-
         StringProperty firstNameProperty() {
             return firstName;
         }
-
         StringProperty lastNameProperty() {
             return lastName;
         }
-
         StringProperty streetProperty() {
             return street;
         }
-
         StringProperty stateProperty() {
             return state;
         }
-
         StringProperty phoneProperty() {
             return phone;
         }
-
         StringProperty mailProperty() {
             return mail;
         }

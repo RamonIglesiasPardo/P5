@@ -24,7 +24,7 @@
             <JFXTreeTableView fx:id="editableTreeTableView">
                 <columns>
                     <JFXTreeTableColumn fx:id="idColumn"
-                                        text="Id" minWidth="20" resizable="false" />
+                                        text="Id" minWidth="33" resizable="false" />
                     <JFXTreeTableColumn fx:id="firstNameEditableColumn"
                                         text="Nombre" minWidth="133" resizable="false"/>
                     <JFXTreeTableColumn fx:id="lastNameEditableColumn"

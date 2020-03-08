@@ -281,7 +281,7 @@ public class FXML_VNController {
         //Add Button
         editabletreeTableViewAdd.setOnMouseClicked((e) -> {
             componenteService.agregarPersona(new personalNacional());
-            dummyData.add(new Person(componenteService.getLastId()));
+            dummyData.add(new Person(componenteService.getLastId("personalNacional")));
             final IntegerProperty currCountProp = editableTreeTableView.currentItemsCountProperty();
             currCountProp.set(currCountProp.get() + 1);
         });
